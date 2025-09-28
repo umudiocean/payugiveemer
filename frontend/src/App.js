@@ -34,6 +34,7 @@ function App() {
                 <Route index element={<Home />} />
                 <Route path="join" element={<Join />} />
                 <Route path="my" element={<MyEntries />} />
+                <Route path="__squid-admin" element={<Admin />} />
               </Route>
             </Routes>
             <Toaster 
