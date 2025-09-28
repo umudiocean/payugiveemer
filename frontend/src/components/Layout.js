@@ -136,12 +136,12 @@ const Layout = () => {
             </div>
             
             <div className="mt-6 text-center">
-              <h3 className="text-2xl font-bold text-white mb-2">Payu Squid Game Mega Giveaway!</h3>
+              <h3 className="text-2xl font-bold text-white mb-2">{t('footer.giveawayTitle')}</h3>
               <p className="text-squid-grey text-lg">
-                Join the ultimate crypto adventure with <span className="text-squid-teal font-bold">2.5 Trillion PAYU Coins</span> up for grabs!
+                {t('footer.giveawayDesc', { amount: '2.5 Trillion PAYU Coins' })}
               </p>
               <p className="text-squid-pink text-sm mt-2 italic">
-                "Every participant receives 250 million PAYU coins instantly"
+                "{t('footer.instantReward')}"
               </p>
             </div>
           </div>
