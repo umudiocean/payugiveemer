@@ -88,6 +88,14 @@ module.exports = {
                                 to: {
                                         height: '0'
                                 }
+                        },
+                        float: {
+                                '0%, 100%': { transform: 'translateY(0px)' },
+                                '50%': { transform: 'translateY(-20px)' },
+                        },
+                        'pulse-glow': {
+                                '0%': { boxShadow: '0 0 20px rgba(255, 42, 109, 0.3)' },
+                                '100%': { boxShadow: '0 0 30px rgba(255, 42, 109, 0.6)' },
                         }
                 },
                 animation: {
