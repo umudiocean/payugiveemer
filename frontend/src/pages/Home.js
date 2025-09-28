@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Coins, Trophy, Users, Zap } from 'lucide-react'
+import { ArrowRight, Coins, Trophy, Users, Zap, Circle, Triangle, Square } from 'lucide-react'
 import { Button } from '../components/ui/button'
 import CountdownTimer from '../components/CountdownTimer'
 
