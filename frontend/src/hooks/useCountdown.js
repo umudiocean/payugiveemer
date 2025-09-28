@@ -11,30 +11,28 @@ const FIXED_COUNTDOWN = {
 }
 
 export function useCountdown() {
-  const [timeLeft, setTimeLeft] = useState(DRAW_END - Date.now())
-  const [isActive, setIsActive] = useState(true)
-
+  const [currentSeconds, setCurrentSeconds] = useState(59)
+  
   useEffect(() => {
-    if (!isActive || timeLeft <= 0) return
-
     const interval = setInterval(() => {
-      const newTimeLeft = DRAW_END - Date.now()
-      setTimeLeft(newTimeLeft)
-      
-      if (newTimeLeft <= 0) {
-        setIsActive(false)
-      }
+      setCurrentSeconds(prev => prev === 0 ? 59 : prev - 1)
     }, 1000)
 
     return () => clearInterval(interval)
-  }, [isActive, timeLeft])
+  }, [])
 
-  const formatted = formatCountdown(Math.max(0, timeLeft))
+  // Fixed countdown with animated seconds
+  const formatted = {
+    days: FIXED_COUNTDOWN.days.toString().padStart(2, '0'),
+    hours: FIXED_COUNTDOWN.hours.toString().padStart(2, '0'), 
+    minutes: FIXED_COUNTDOWN.minutes.toString().padStart(2, '0'),
+    seconds: currentSeconds.toString().padStart(2, '0')
+  }
   
   return {
-    timeLeft: Math.max(0, timeLeft),
+    timeLeft: 45 * 24 * 60 * 60 * 1000, // 45 days in milliseconds
     formatted,
-    isEnded: timeLeft <= 0,
-    isActive
+    isEnded: false,
+    isActive: true
   }
 }
