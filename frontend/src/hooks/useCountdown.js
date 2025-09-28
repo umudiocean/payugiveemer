@@ -1,10 +1,14 @@
 import { useState, useEffect } from 'react'
 import { formatCountdown } from '../utils/ticket'
 
-// Draw starts from current date
-// 44 days from now
-const DRAW_START = Date.now()
-const DRAW_END = DRAW_START + (44 * 24 * 60 * 60 * 1000) // 44 days in milliseconds
+// Fixed countdown showing 45 days (not started yet)
+// This will show a static countdown of 44:23:59:59
+const FIXED_COUNTDOWN = {
+  days: 44,
+  hours: 23,
+  minutes: 59,
+  seconds: 59
+}
 
 export function useCountdown() {
   const [timeLeft, setTimeLeft] = useState(DRAW_END - Date.now())
