@@ -6,6 +6,8 @@ import { Button } from '../components/ui/button'
 import CountdownTimer from '../components/CountdownTimer'
 
 const Home = () => {
+  const { t } = useTranslation()
+  
   return (
     <div className="relative">
       {/* Hero Section */}
