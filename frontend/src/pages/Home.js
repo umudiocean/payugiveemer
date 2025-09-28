@@ -25,7 +25,7 @@ const Home = () => {
             <div className="relative inline-block">
               <img 
                 src="https://images.unsplash.com/photo-1634309490604-1270c0d486e8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwyfHxzcXVpZCUyMGdhbWV8ZW58MHx8fHwxNzU5MDQwMDU0fDA&ixlib=rb-4.1.0&q=85"
-                alt="Squid Game Logo"
+                alt="Payu Squid Game Logo"
                 className="w-28 h-28 mx-auto rounded-3xl shadow-glow mb-4 border-2 border-squid-pink/30"
               />
               {/* Floating shapes around logo */}
