@@ -104,7 +104,7 @@ const Admin = () => {
   if (!isConnected) {
     return (
       <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
-        <Card className="bg-squid-dark/50 border-squid-grey/20 backdrop-blur-xl max-w-md w-full">
+        <Card className="bg-black/50 border-squid-grey/20 backdrop-blur-xl max-w-md w-full">
           <CardContent className="py-12 text-center">
             <Shield className="w-16 h-16 text-squid-grey mx-auto mb-6" />
             <h3 className="text-xl font-bold text-white mb-4">Admin Access Required</h3>
@@ -124,7 +124,7 @@ const Admin = () => {
   if (!isAdmin) {
     return (
       <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
-        <Card className="bg-squid-dark/50 border-squid-grey/20 backdrop-blur-xl max-w-md w-full">
+        <Card className="bg-black/50 border-squid-grey/20 backdrop-blur-xl max-w-md w-full">
           <CardContent className="py-12 text-center">
             <Shield className="w-16 h-16 text-squid-error mx-auto mb-6" />
             <h3 className="text-xl font-bold text-white mb-4">Access Denied</h3>
@@ -141,7 +141,7 @@ const Admin = () => {
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
-        <Card className="bg-squid-dark/50 border-squid-grey/20 backdrop-blur-xl max-w-md w-full">
+        <Card className="bg-black/50 border-squid-grey/20 backdrop-blur-xl max-w-md w-full">
           <CardContent className="py-12 text-center">
             <Shield className="w-16 h-16 text-squid-teal mx-auto mb-6" />
             <h3 className="text-xl font-bold text-white mb-4">Admin Authentication</h3>
