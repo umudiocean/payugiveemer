@@ -38,7 +38,7 @@ const Home = () => {
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             <span className="bg-gradient-to-r from-white via-squid-pink to-squid-teal bg-clip-text text-transparent">
-              Squid-Grade Draw
+              Payu Squid-Grade Draw
             </span>
             <br />
             <span className="text-white text-3xl md:text-5xl font-medium">
