@@ -151,19 +151,19 @@ const Home = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="text-3xl font-bold text-squid-pink mb-2">0.00098</div>
-              <div className="text-squid-grey text-sm">BNB Entry Fee</div>
+              <div className="text-squid-grey text-sm">{t('stats.entryFee')}</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-squid-teal mb-2">250M</div>
-              <div className="text-squid-grey text-sm">PAYU Tokens</div>
+              <div className="text-squid-grey text-sm">{t('stats.payuTokens')}</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-squid-purple mb-2">44</div>
-              <div className="text-squid-grey text-sm">Days to Enter</div>
+              <div className="text-squid-grey text-sm">{t('stats.daysToEnter')}</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-white mb-2">BSC</div>
-              <div className="text-squid-grey text-sm">Mainnet</div>
+              <div className="text-squid-grey text-sm">{t('stats.network')}</div>
             </div>
           </div>
         </div>
