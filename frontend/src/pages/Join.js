@@ -165,7 +165,7 @@ const Join = () => {
 
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Registration Card */}
-          <Card className="bg-squid-dark/50 border-squid-grey/20 backdrop-blur-xl">
+          <Card className="bg-black/50 border-squid-grey/20 backdrop-blur-xl">
             <CardHeader>
               <CardTitle className="text-white flex items-center space-x-2">
                 <span>Registration</span>
