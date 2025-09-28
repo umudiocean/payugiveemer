@@ -8,7 +8,7 @@ const Layout = () => {
   const { formatted, isEnded } = useCountdown()
 
   return (
-    <div className="min-h-screen bg-squid-dark text-white font-inter relative overflow-hidden">
+    <div className="min-h-screen bg-black text-white font-inter relative overflow-hidden">
       {/* Enhanced Payu Squid Game Floating Shapes Background */}
       <div className="fixed inset-0 pointer-events-none z-0">
         {/* Large floating shapes */}
