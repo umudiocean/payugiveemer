@@ -277,7 +277,7 @@ const Admin = () => {
         </Card>
 
         {/* Tasks Table */}
-        <Card className="bg-squid-dark/50 border-squid-grey/20 backdrop-blur-xl">
+        <Card className="bg-black/50 border-squid-grey/20 backdrop-blur-xl">
           <CardHeader>
             <div className="flex items-center justify-between">
               <CardTitle className="text-white">Task Completions</CardTitle>
