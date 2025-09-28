@@ -5,6 +5,7 @@ import { Clock, Circle, Triangle, Square } from 'lucide-react'
 
 const CountdownTimer = ({ className = '' }) => {
   const { formatted, isEnded } = useCountdown()
+  const { t } = useTranslation()
 
   return (
     <div className={`text-center relative ${className}`}>
