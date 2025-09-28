@@ -63,6 +63,15 @@ module.exports = {
                                 '5': 'hsl(var(--chart-5))'
                         }
                 },
+                fontFamily: {
+                        'inter': ['Inter', 'system-ui', 'sans-serif'],
+                        'satoshi': ['Satoshi', 'Inter', 'system-ui', 'sans-serif'],
+                },
+                boxShadow: {
+                        'glow': '0 0 20px rgba(255, 42, 109, 0.3)',
+                        'glow-teal': '0 0 20px rgba(43, 182, 115, 0.3)',
+                        'glow-purple': '0 0 20px rgba(106, 0, 255, 0.3)',
+                },
                 keyframes: {
                         'accordion-down': {
                                 from: {
