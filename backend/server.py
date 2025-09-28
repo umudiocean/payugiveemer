@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, HTTPException
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -6,9 +6,9 @@ import os
 import logging
 from pathlib import Path
 from pydantic import BaseModel, Field
-from typing import List
+from typing import List, Optional
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone
 
 
 ROOT_DIR = Path(__file__).parent
@@ -30,27 +30,171 @@ api_router = APIRouter(prefix="/api")
 class StatusCheck(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     client_name: str
-    timestamp: datetime = Field(default_factory=datetime.utcnow)
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
 class StatusCheckCreate(BaseModel):
     client_name: str
 
+class TicketRegistration(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    wallet: str
+    tx_hash: str
+    index: int
+    seed: str
+    ticket: str
+    reward: str
+    timestamp: int
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+class TicketRegistrationCreate(BaseModel):
+    wallet: str
+    txHash: str
+    index: int
+    seed: str
+    ticket: str
+    reward: str
+    timestamp: int
+
+class TaskClick(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    user_id: str  # wallet address
+    platform: str  # telegram, x, instagram_story
+    handle: Optional[str] = None
+    clicked_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+class TaskClickCreate(BaseModel):
+    wallet: str
+    platform: str
+    handle: Optional[str] = None
+
+# Helper function to prepare data for MongoDB
+def prepare_for_mongo(data):
+    if isinstance(data, dict):
+        result = {}
+        for k, v in data.items():
+            if isinstance(v, datetime):
+                result[k] = v.isoformat()
+            else:
+                result[k] = v
+        return result
+    return data
+
+def parse_from_mongo(item):
+    if item and isinstance(item.get('created_at'), str):
+        item['created_at'] = datetime.fromisoformat(item['created_at'].replace('Z', '+00:00'))
+    if item and isinstance(item.get('clicked_at'), str):
+        item['clicked_at'] = datetime.fromisoformat(item['clicked_at'].replace('Z', '+00:00'))
+    if item and isinstance(item.get('timestamp'), str):
+        item['timestamp'] = datetime.fromisoformat(item['timestamp'].replace('Z', '+00:00'))
+    return item
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "PAYU Draw API - Squid Game Edition"}
 
 @api_router.post("/status", response_model=StatusCheck)
 async def create_status_check(input: StatusCheckCreate):
     status_dict = input.dict()
     status_obj = StatusCheck(**status_dict)
-    _ = await db.status_checks.insert_one(status_obj.dict())
+    prepared_data = prepare_for_mongo(status_obj.dict())
+    _ = await db.status_checks.insert_one(prepared_data)
     return status_obj
 
 @api_router.get("/status", response_model=List[StatusCheck])
 async def get_status_checks():
     status_checks = await db.status_checks.find().to_list(1000)
-    return [StatusCheck(**status_check) for status_check in status_checks]
+    return [StatusCheck(**parse_from_mongo(status_check)) for status_check in status_checks]
+
+# Registration endpoints
+@api_router.post("/save-ticket")
+async def save_ticket(registration: TicketRegistrationCreate):
+    try:
+        # Check if wallet already exists
+        existing = await db.registrations.find_one({"wallet": registration.wallet})
+        if existing:
+            return {"success": True, "message": "Already registered", "data": parse_from_mongo(existing)}
+        
+        # Create new registration
+        reg_obj = TicketRegistration(
+            wallet=registration.wallet,
+            tx_hash=registration.txHash,
+            index=registration.index,
+            seed=registration.seed,
+            ticket=registration.ticket,
+            reward=registration.reward,
+            timestamp=registration.timestamp
+        )
+        
+        prepared_data = prepare_for_mongo(reg_obj.dict())
+        await db.registrations.insert_one(prepared_data)
+        
+        return {"success": True, "message": "Registration saved", "data": reg_obj.dict()}
+    except Exception as e:
+        logging.error(f"Failed to save ticket: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@api_router.get("/registration/{wallet}")
+async def get_registration(wallet: str):
+    try:
+        registration = await db.registrations.find_one({"wallet": wallet})
+        if not registration:
+            return {"success": False, "message": "No registration found"}
+        
+        parsed_registration = parse_from_mongo(registration)
+        return {"success": True, "data": parsed_registration}
+    except Exception as e:
+        logging.error(f"Failed to get registration: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+# Task endpoints
+@api_router.post("/task-click")
+async def log_task_click(task: TaskClickCreate):
+    try:
+        task_obj = TaskClick(
+            user_id=task.wallet,
+            platform=task.platform,
+            handle=task.handle
+        )
+        
+        prepared_data = prepare_for_mongo(task_obj.dict())
+        await db.task_clicks.insert_one(prepared_data)
+        
+        return {"success": True, "message": "Task click logged"}
+    except Exception as e:
+        logging.error(f"Failed to log task click: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@api_router.get("/tasks/{wallet}")
+async def get_task_history(wallet: str):
+    try:
+        tasks = await db.task_clicks.find({"user_id": wallet}).to_list(100)
+        parsed_tasks = [parse_from_mongo(task) for task in tasks]
+        return {"success": True, "data": parsed_tasks}
+    except Exception as e:
+        logging.error(f"Failed to get task history: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+# Admin endpoints (basic for now)
+@api_router.get("/admin/registrations")
+async def get_all_registrations():
+    try:
+        registrations = await db.registrations.find().to_list(10000)
+        parsed_registrations = [parse_from_mongo(reg) for reg in registrations]
+        return {"success": True, "data": parsed_registrations}
+    except Exception as e:
+        logging.error(f"Failed to get registrations: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@api_router.get("/admin/tasks")
+async def get_all_tasks():
+    try:
+        tasks = await db.task_clicks.find().to_list(10000)
+        parsed_tasks = [parse_from_mongo(task) for task in tasks]
+        return {"success": True, "data": parsed_tasks}
+    except Exception as e:
+        logging.error(f"Failed to get tasks: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 # Include the router in the main app
 app.include_router(api_router)
