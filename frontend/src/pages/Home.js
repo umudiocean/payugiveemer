@@ -135,11 +135,10 @@ const Home = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-3 flex items-center justify-center space-x-2">
                 <Square className="w-4 h-4 text-squid-purple" />
-                <span>Get Your Ticket</span>
+                <span>{t('howItWorks.step3Title')}</span>
               </h3>
               <p className="text-squid-grey leading-relaxed">
-                Your unique lottery ticket is generated from the blockchain seed. 
-                Screenshot and save it!
+                {t('howItWorks.step3Desc')}
               </p>
             </div>
           </div>
