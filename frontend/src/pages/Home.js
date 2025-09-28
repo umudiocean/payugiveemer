@@ -9,14 +9,14 @@ const Home = () => {
     <div className="relative">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
-        {/* Background Image */}
+        {/* Payu Squid Game Background */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1511406361295-0a1ff814c0ce?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2MzR8MHwxfHNlYXJjaHwzfHxkYXJrJTIwYmFja2dyb3VuZHxlbnwwfHx8YmxhY2t8MTc1OTA0MDA1OXww&ixlib=rb-4.1.0&q=85"
-            alt="Dark corridor background"
-            className="w-full h-full object-cover opacity-30"
+            src="https://customer-assets.emergentagent.com/job_payu-raffle/artifacts/5vvrh75w_Gemini_Generated_Image_vgopsdvgopsdvgop.png"
+            alt="Payu Squid Game Background"
+            className="w-full h-full object-cover opacity-40"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/80 to-black"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-black"></div>
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto text-center">
