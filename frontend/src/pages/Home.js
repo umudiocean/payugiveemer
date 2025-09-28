@@ -91,11 +91,17 @@ const Home = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Step 1 */}
-            <div className="text-center group">
-              <div className="w-20 h-20 bg-gradient-to-br from-squid-pink/20 to-squid-purple/20 border border-squid-pink/30 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:shadow-glow transition-all duration-300">
-                <Zap className="w-10 h-10 text-squid-pink" />
+            <div className="text-center group relative">
+              {/* Floating shapes around feature */}
+              <Circle className="absolute -top-2 -left-2 w-3 h-3 text-squid-pink/20 animate-float" />
+              <div className="w-24 h-24 bg-gradient-to-br from-squid-pink/20 to-squid-purple/20 border-2 border-squid-pink/40 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:shadow-glow transition-all duration-300 relative">
+                <Zap className="w-12 h-12 text-squid-pink" />
+                <Square className="absolute top-1 right-1 w-3 h-3 text-squid-pink/30" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Connect & Register</h3>
+              <h3 className="text-xl font-bold text-white mb-3 flex items-center justify-center space-x-2">
+                <Circle className="w-4 h-4 text-squid-pink" />
+                <span>Connect & Register</span>
+              </h3>
               <p className="text-squid-grey leading-relaxed">
                 Connect your wallet and call register() with exactly 0.00098 BNB. 
                 Simple one-click transaction.
@@ -103,11 +109,16 @@ const Home = () => {
             </div>
 
             {/* Step 2 */}
-            <div className="text-center group">
-              <div className="w-20 h-20 bg-gradient-to-br from-squid-teal/20 to-squid-purple/20 border border-squid-teal/30 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:shadow-glow-teal transition-all duration-300">
-                <Coins className="w-10 h-10 text-squid-teal" />
+            <div className="text-center group relative">
+              <Triangle className="absolute -top-1 -right-3 w-4 h-4 text-squid-teal/25 animate-float" style={{animationDelay: '1s'}} />
+              <div className="w-24 h-24 bg-gradient-to-br from-squid-teal/20 to-squid-purple/20 border-2 border-squid-teal/40 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:shadow-glow-teal transition-all duration-300 relative">
+                <Coins className="w-12 h-12 text-squid-teal" />
+                <Triangle className="absolute top-1 right-1 w-3 h-3 text-squid-teal/30" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Instant Rewards</h3>
+              <h3 className="text-xl font-bold text-white mb-3 flex items-center justify-center space-x-2">
+                <Triangle className="w-4 h-4 text-squid-teal" />
+                <span>Instant Rewards</span>
+              </h3>
               <p className="text-squid-grey leading-relaxed">
                 Receive 250,000,000 PAYU tokens instantly in your wallet. 
                 No waiting, no claims.
@@ -115,11 +126,16 @@ const Home = () => {
             </div>
 
             {/* Step 3 */}
-            <div className="text-center group">
-              <div className="w-20 h-20 bg-gradient-to-br from-squid-purple/20 to-squid-pink/20 border border-squid-purple/30 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:shadow-glow-purple transition-all duration-300">
-                <Trophy className="w-10 h-10 text-squid-purple" />
+            <div className="text-center group relative">
+              <Square className="absolute -bottom-3 -left-1 w-3 h-3 text-squid-purple/20 animate-float" style={{animationDelay: '2s'}} />
+              <div className="w-24 h-24 bg-gradient-to-br from-squid-purple/20 to-squid-pink/20 border-2 border-squid-purple/40 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:shadow-glow-purple transition-all duration-300 relative">
+                <Trophy className="w-12 h-12 text-squid-purple" />
+                <Square className="absolute top-1 right-1 w-3 h-3 text-squid-purple/30" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Get Your Ticket</h3>
+              <h3 className="text-xl font-bold text-white mb-3 flex items-center justify-center space-x-2">
+                <Square className="w-4 h-4 text-squid-purple" />
+                <span>Get Your Ticket</span>
+              </h3>
               <p className="text-squid-grey leading-relaxed">
                 Your unique lottery ticket is generated from the blockchain seed. 
                 Screenshot and save it!
