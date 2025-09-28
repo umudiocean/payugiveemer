@@ -19,7 +19,7 @@ const CountdownTimer = ({ className = '' }) => {
       
       <div className="flex items-center justify-center space-x-3 mb-4">
         <Clock className="w-6 h-6 text-squid-teal animate-pulse" />
-        <span className="text-squid-grey text-lg font-medium">Draw starts in</span>
+        <span className="text-squid-grey text-lg font-medium">{t('nav.drawStartsIn')}</span>
         <Clock className="w-6 h-6 text-squid-teal animate-pulse" style={{animationDelay: '0.5s'}} />
       </div>
       
