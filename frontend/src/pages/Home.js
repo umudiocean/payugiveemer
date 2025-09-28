@@ -119,11 +119,10 @@ const Home = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-3 flex items-center justify-center space-x-2">
                 <Triangle className="w-4 h-4 text-squid-teal" />
-                <span>Instant Rewards</span>
+                <span>{t('howItWorks.step2Title')}</span>
               </h3>
               <p className="text-squid-grey leading-relaxed">
-                Receive 250,000,000 PAYU tokens instantly in your wallet. 
-                No waiting, no claims.
+                {t('howItWorks.step2Desc')}
               </p>
             </div>
 
