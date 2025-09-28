@@ -10,6 +10,7 @@ import Home from './pages/Home'
 import Join from './pages/Join'
 import MyEntries from './pages/MyEntries'
 import Admin from './pages/Admin'
+import './i18n' // Initialize i18n
 import './App.css'
 import '@rainbow-me/rainbowkit/styles.css'
 
