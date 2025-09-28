@@ -288,7 +288,7 @@ const Join = () => {
 
         {/* Tasks Section */}
         {showTasks && (
-          <Card className="mt-8 bg-squid-dark/50 border-squid-grey/20 backdrop-blur-xl">
+          <Card className="mt-8 bg-black/50 border-squid-grey/20 backdrop-blur-xl">
             <CardHeader>
               <CardTitle className="text-white">Bonus Tasks</CardTitle>
               <CardDescription className="text-squid-grey">
