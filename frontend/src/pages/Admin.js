@@ -213,7 +213,7 @@ const Admin = () => {
         </div>
 
         {/* Registrations Table */}
-        <Card className="bg-squid-dark/50 border-squid-grey/20 backdrop-blur-xl mb-8">
+        <Card className="bg-black/50 border-squid-grey/20 backdrop-blur-xl mb-8">
           <CardHeader>
             <div className="flex items-center justify-between">
               <CardTitle className="text-white">Registrations</CardTitle>
