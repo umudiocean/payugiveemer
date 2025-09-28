@@ -20,13 +20,19 @@ const Home = () => {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          {/* Logo/Brand */}
-          <div className="mb-8">
-            <img 
-              src="https://images.unsplash.com/photo-1634309490604-1270c0d486e8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwyfHxzcXVpZCUyMGdhbWV8ZW58MHx8fHwxNzU5MDQwMDU0fDA&ixlib=rb-4.1.0&q=85"
-              alt="Squid Game Logo"
-              className="w-24 h-24 mx-auto rounded-2xl shadow-glow mb-4"
-            />
+          {/* Enhanced Logo/Brand with Squid Game elements */}
+          <div className="mb-8 relative">
+            <div className="relative inline-block">
+              <img 
+                src="https://images.unsplash.com/photo-1634309490604-1270c0d486e8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwyfHxzcXVpZCUyMGdhbWV8ZW58MHx8fHwxNzU5MDQwMDU0fDA&ixlib=rb-4.1.0&q=85"
+                alt="Squid Game Logo"
+                className="w-28 h-28 mx-auto rounded-3xl shadow-glow mb-4 border-2 border-squid-pink/30"
+              />
+              {/* Floating shapes around logo */}
+              <Circle className="absolute -top-2 -left-2 w-4 h-4 text-squid-pink animate-float" />
+              <Triangle className="absolute -top-1 -right-3 w-3 h-3 text-squid-teal animate-float" style={{animationDelay: '1s'}} />
+              <Square className="absolute -bottom-2 -right-2 w-4 h-4 text-squid-purple animate-float" style={{animationDelay: '2s'}} />
+            </div>
           </div>
 
           {/* Main Heading */}
