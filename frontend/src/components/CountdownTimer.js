@@ -50,7 +50,7 @@ const CountdownTimer = ({ className = '' }) => {
             <Square className="absolute top-1 right-1 w-3 h-3 text-squid-purple/30" />
             <span className="text-3xl font-bold text-white relative z-10">{formatted.minutes}</span>
           </div>
-          <div className="text-sm text-squid-grey mt-2 font-medium">MINS</div>
+          <div className="text-sm text-squid-grey mt-2 font-medium">{t('countdown.minutes')}</div>
         </div>
         
         <div className="text-squid-pink text-3xl font-bold animate-pulse">:</div>
