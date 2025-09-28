@@ -41,19 +41,19 @@ const Home = () => {
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             <span className="bg-gradient-to-r from-white via-squid-pink to-squid-teal bg-clip-text text-transparent">
-              Payu Squid-Grade Draw
+              {t('hero.title')}
             </span>
             <br />
             <span className="text-white text-3xl md:text-5xl font-medium">
-              for Early PAYU Hunters
+              {t('hero.subtitle')}
             </span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-xl text-squid-grey mb-8 max-w-2xl mx-auto leading-relaxed">
-            Connect your wallet, join with one transaction, get your ticket.
+            {t('hero.description')}
             <br className="hidden sm:block" />
-            <span className="text-squid-teal font-medium">Rewards land instantly in your wallet.</span>
+            <span className="text-squid-teal font-medium">{t('hero.rewardsInstant')}</span>
           </p>
 
           {/* CTA Buttons */}
