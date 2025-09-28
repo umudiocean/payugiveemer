@@ -16,7 +16,7 @@ const Home = () => {
             alt="Dark corridor background"
             className="w-full h-full object-cover opacity-30"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-squid-dark/50 via-squid-dark/80 to-squid-dark"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/80 to-black"></div>
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto text-center">
