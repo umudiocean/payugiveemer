@@ -114,9 +114,9 @@ const Layout = () => {
             </div>
             
             <div className="flex items-center space-x-6 text-sm text-squid-grey">
-              <span>🔳 Scan → 💰 Earn → 🔄 Swap → 😃 Happy</span>
-              <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>
-              <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+              <span>{t('footer.slogan')}</span>
+              <Link to="/terms" className="hover:text-white transition-colors">{t('footer.terms')}</Link>
+              <Link to="/privacy" className="hover:text-white transition-colors">{t('footer.privacy')}</Link>
             </div>
           </div>
           
