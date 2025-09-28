@@ -24,9 +24,9 @@ const Home = () => {
           <div className="mb-8 relative">
             <div className="relative inline-block">
               <img 
-                src="https://customer-assets.emergentagent.com/job_payu-raffle/artifacts/t3f72s82_payumain.jpg"
+                src="https://customer-assets.emergentagent.com/job_payu-raffle/artifacts/1j2sod6t_image.png"
                 alt="Payu Logo"
-                className="w-32 h-32 mx-auto rounded-3xl shadow-glow mb-4 border-2 border-squid-pink/30 bg-black p-2"
+                className="w-32 h-32 mx-auto rounded-3xl shadow-glow mb-4 border-2 border-squid-pink/30 bg-transparent p-2"
               />
               {/* Floating shapes around logo */}
               <Circle className="absolute -top-2 -left-2 w-4 h-4 text-squid-pink animate-float" />
