@@ -24,9 +24,9 @@ const Home = () => {
           <div className="mb-8 relative">
             <div className="relative inline-block">
               <img 
-                src="https://images.unsplash.com/photo-1634309490604-1270c0d486e8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwyfHxzcXVpZCUyMGdhbWV8ZW58MHx8fHwxNzU5MDQwMDU0fDA&ixlib=rb-4.1.0&q=85"
-                alt="Payu Squid Game Logo"
-                className="w-28 h-28 mx-auto rounded-3xl shadow-glow mb-4 border-2 border-squid-pink/30"
+                src="https://customer-assets.emergentagent.com/job_payu-raffle/artifacts/t3f72s82_payumain.jpg"
+                alt="Payu Logo"
+                className="w-32 h-32 mx-auto rounded-3xl shadow-glow mb-4 border-2 border-squid-pink/30 bg-black p-2"
               />
               {/* Floating shapes around logo */}
               <Circle className="absolute -top-2 -left-2 w-4 h-4 text-squid-pink animate-float" />
