@@ -24,7 +24,7 @@ const CountdownTimer = ({ className = '' }) => {
       <div className="flex items-center justify-center space-x-4">
         <div className="text-center group">
           <div className="w-20 h-20 bg-gradient-to-br from-squid-pink/20 to-squid-purple/20 border-2 border-squid-pink/40 rounded-3xl flex items-center justify-center shadow-glow group-hover:shadow-glow transition-all duration-300 relative overflow-hidden">
-            {/* Squid Game shape overlay */}
+            {/* Payu Squid Game shape overlay */}
             <Circle className="absolute top-1 right-1 w-3 h-3 text-squid-pink/30" />
             <span className="text-3xl font-bold text-white relative z-10">{formatted.days}</span>
           </div>
