@@ -63,7 +63,7 @@ const Home = () => {
                 className="w-full sm:w-auto bg-gradient-to-r from-squid-pink to-squid-purple hover:from-squid-pink/80 hover:to-squid-purple/80 text-white font-bold py-4 px-8 rounded-2xl shadow-glow transition-all duration-300 hover:shadow-glow active:scale-95 text-lg"
                 data-testid="join-draw-btn"
               >
-                Join the Draw
+                {t('hero.joinButton')}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
@@ -74,7 +74,7 @@ const Home = () => {
                 className="w-full sm:w-auto border-2 border-squid-teal text-squid-teal hover:bg-squid-teal hover:text-squid-dark font-medium py-4 px-8 rounded-2xl transition-all duration-300"
                 data-testid="connect-wallet-btn"
               >
-                Connect Wallet
+                {t('hero.connectButton')}
               </Button>
             </Link>
           </div>
