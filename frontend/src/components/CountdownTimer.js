@@ -7,7 +7,7 @@ const CountdownTimer = ({ className = '' }) => {
 
   return (
     <div className={`text-center relative ${className}`}>
-      {/* Squid Game floating shapes around countdown */}
+      {/* Payu Squid Game floating shapes around countdown */}
       <div className="absolute inset-0 pointer-events-none">
         <Circle className="absolute -top-4 -left-4 w-6 h-6 text-squid-pink/20 animate-float" />
         <Triangle className="absolute -top-2 -right-6 w-4 h-4 text-squid-teal/25 animate-float" style={{animationDelay: '1s'}} />
