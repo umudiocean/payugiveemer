@@ -110,14 +110,14 @@ textarea:focus {
 
 /* Rainbow Kit Custom Styling */
 [data-rk] {
-  --rk-colors-modalBackground: #0B0F14;
+  --rk-colors-modalBackground: #000000;
   --rk-colors-modalBorder: #A7AAB3;
   --rk-colors-modalText: #FFFFFF;
   --rk-colors-modalTextDim: #A7AAB3;
   --rk-colors-modalTextSecondary: #A7AAB3;
   --rk-colors-profileAction: #FF2A6D;
   --rk-colors-profileActionHover: #2BB673;
-  --rk-colors-profileForeground: #0B0F14;
+  --rk-colors-profileForeground: #000000;
   --rk-colors-selectedOptionBorder: #FF2A6D;
   --rk-colors-accentColor: #FF2A6D;
   --rk-colors-accentColorForeground: #FFFFFF;
