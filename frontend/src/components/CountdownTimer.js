@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { useCountdown } from '../hooks/useCountdown'
 import { Clock, Circle, Triangle, Square } from 'lucide-react'
 
