@@ -1,7 +1,9 @@
 import React from 'react'
 import { Outlet, Link, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { useCountdown } from '../hooks/useCountdown'
 import { Circle, Triangle, Square } from 'lucide-react'
+import LanguageSelector from './LanguageSelector'
 
 const Layout = () => {
   const location = useLocation()
