@@ -231,7 +231,7 @@ const Join = () => {
           </Card>
 
           {/* Ticket Card */}
-          <Card className="bg-squid-dark/50 border-squid-grey/20 backdrop-blur-xl">
+          <Card className="bg-black/50 border-squid-grey/20 backdrop-blur-xl">
             <CardHeader>
               <CardTitle className="text-white">Your Lottery Ticket</CardTitle>
               <CardDescription className="text-squid-grey">
