@@ -97,7 +97,7 @@ const Layout = () => {
       </main>
 
       {/* Footer */}
-      <footer className="relative z-10 mt-20 border-t border-squid-grey/20 bg-squid-dark/80 backdrop-blur-xl">
+      <footer className="relative z-10 mt-20 border-t border-squid-grey/20 bg-black/80 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex flex-col md:flex-row items-center justify-between mb-8">
             <div className="flex items-center space-x-3 mb-4 md:mb-0">
