@@ -88,8 +88,8 @@ const Home = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-black/90">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">How It Works</h2>
-            <p className="text-squid-grey text-lg max-w-2xl mx-auto">Simple, transparent, and instant. Join the draw in three easy steps.</p>
+            <h2 className="text-4xl font-bold text-white mb-4">{t('howItWorks.title')}</h2>
+            <p className="text-squid-grey text-lg max-w-2xl mx-auto">{t('howItWorks.subtitle')}</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
