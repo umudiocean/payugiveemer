@@ -172,10 +172,9 @@ const Home = () => {
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-black via-squid-pink/10 to-black">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">Ready to Join?</h2>
+          <h2 className="text-4xl font-bold text-white mb-6">{t('cta.readyTitle')}</h2>
           <p className="text-squid-grey text-lg mb-8 max-w-2xl mx-auto">
-            Don't miss your chance to be part of the PAYU ecosystem. 
-            Join thousands of early hunters in this exclusive draw.
+            {t('cta.readyDesc')}
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
@@ -184,7 +183,7 @@ const Home = () => {
                 className="w-full sm:w-auto bg-gradient-to-r from-squid-pink to-squid-purple hover:from-squid-pink/80 hover:to-squid-purple/80 text-white font-bold py-4 px-12 rounded-2xl shadow-glow transition-all duration-300 hover:shadow-glow active:scale-95 text-lg"
                 data-testid="get-started-btn"
               >
-                Get Started Now
+                {t('cta.getStarted')}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
