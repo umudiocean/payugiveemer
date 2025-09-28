@@ -9,6 +9,7 @@ import Layout from './components/Layout'
 import Home from './pages/Home'
 import Join from './pages/Join'
 import MyEntries from './pages/MyEntries'
+import Admin from './pages/Admin'
 import './App.css'
 import '@rainbow-me/rainbowkit/styles.css'
 
