@@ -62,7 +62,7 @@ const CountdownTimer = ({ className = '' }) => {
         </div>
       </div>
       
-      {/* Squid Game motto */}
+      {/* Payu Squid Game motto */}
       <div className="mt-6 text-squid-grey/60 text-sm italic">
         "The game has not begun yet..."
       </div>
