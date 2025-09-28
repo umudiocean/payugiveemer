@@ -173,7 +173,7 @@ const Admin = () => {
 
         {/* Stats Cards */}
         <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <Card className="bg-squid-dark/50 border-squid-grey/20 backdrop-blur-xl">
+          <Card className="bg-black/50 border-squid-grey/20 backdrop-blur-xl">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -185,7 +185,7 @@ const Admin = () => {
             </CardContent>
           </Card>
 
-          <Card className="bg-squid-dark/50 border-squid-grey/20 backdrop-blur-xl">
+          <Card className="bg-black/50 border-squid-grey/20 backdrop-blur-xl">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -197,7 +197,7 @@ const Admin = () => {
             </CardContent>
           </Card>
 
-          <Card className="bg-squid-dark/50 border-squid-grey/20 backdrop-blur-xl">
+          <Card className="bg-black/50 border-squid-grey/20 backdrop-blur-xl">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
