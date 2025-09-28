@@ -9,7 +9,7 @@ const Layout = () => {
 
   return (
     <div className="min-h-screen bg-squid-dark text-white font-inter relative overflow-hidden">
-      {/* Enhanced Squid Game Floating Shapes Background */}
+      {/* Enhanced Payu Squid Game Floating Shapes Background */}
       <div className="fixed inset-0 pointer-events-none z-0">
         {/* Large floating shapes */}
         <Circle className="absolute top-20 left-10 w-8 h-8 text-squid-pink/20 animate-float" />
