@@ -8,6 +8,7 @@ import LanguageSelector from './LanguageSelector'
 const Layout = () => {
   const location = useLocation()
   const { formatted, isEnded } = useCountdown()
+  const { t } = useTranslation()
 
   return (
     <div className="min-h-screen bg-black text-white font-inter relative overflow-hidden">
