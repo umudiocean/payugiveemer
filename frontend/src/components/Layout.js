@@ -81,14 +81,15 @@ const Layout = () => {
               </Link>
             </nav>
 
-            {/* Countdown */}
+            {/* Countdown & Language Selector */}
             <div className="flex items-center space-x-4">
               <div className="hidden sm:block text-right">
-                <div className="text-xs text-squid-grey">Draw ends in</div>
+                <div className="text-xs text-squid-grey">{t('nav.drawStartsIn')}</div>
                 <div className="text-sm font-bold text-squid-teal">
                   {isEnded ? 'ENDED' : `${formatted.days}:${formatted.hours}:${formatted.minutes}:${formatted.seconds}`}
                 </div>
               </div>
+              <LanguageSelector />
             </div>
           </div>
         </div>
