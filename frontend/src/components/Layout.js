@@ -61,7 +61,7 @@ const Layout = () => {
                   location.pathname === '/' ? 'text-squid-pink' : 'text-squid-grey hover:text-white'
                 }`}
               >
-                Home
+                {t('nav.home')}
               </Link>
               <Link 
                 to="/join" 
@@ -69,7 +69,7 @@ const Layout = () => {
                   location.pathname === '/join' ? 'text-squid-pink' : 'text-squid-grey hover:text-white'
                 }`}
               >
-                Join Draw
+                {t('nav.joinDraw')}
               </Link>
               <Link 
                 to="/my" 
@@ -77,7 +77,7 @@ const Layout = () => {
                   location.pathname === '/my' ? 'text-squid-pink' : 'text-squid-grey hover:text-white'
                 }`}
               >
-                My Entries
+                {t('nav.myEntries')}
               </Link>
             </nav>
 
