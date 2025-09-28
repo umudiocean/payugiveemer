@@ -82,7 +82,7 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-squid-dark to-squid-dark/90">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-black/90">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">How It Works</h2>
