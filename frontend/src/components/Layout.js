@@ -99,7 +99,7 @@ const Layout = () => {
       {/* Footer */}
       <footer className="relative z-10 mt-20 border-t border-squid-grey/20 bg-squid-dark/80 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between">
+          <div className="flex flex-col md:flex-row items-center justify-between mb-8">
             <div className="flex items-center space-x-3 mb-4 md:mb-0">
               <div className="w-8 h-8 bg-gradient-to-br from-squid-pink to-squid-purple rounded-lg flex items-center justify-center">
                 <Square className="w-5 h-5 text-white" />
@@ -113,6 +113,32 @@ const Layout = () => {
               <span>🔳 Scan → 💰 Earn → 🔄 Swap → 😃 Happy</span>
               <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>
               <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+            </div>
+          </div>
+          
+          {/* Payu Squid Game Promotional Image */}
+          <div className="text-center">
+            <div className="relative inline-block max-w-4xl w-full">
+              <img 
+                src="https://customer-assets.emergentagent.com/job_payu-raffle/artifacts/kv8aacia_photo_2025-09-26_00-56-45.jpg"
+                alt="Payu Squid Game Giveaway - 2.5 Trillion Payu Coins"
+                className="w-full h-auto rounded-2xl shadow-glow border border-squid-pink/20"
+              />
+              {/* Floating shapes around promotional image */}
+              <Circle className="absolute -top-3 -left-3 w-6 h-6 text-squid-pink/30 animate-float" />
+              <Triangle className="absolute -top-2 -right-4 w-5 h-5 text-squid-teal/25 animate-float" style={{animationDelay: '1s'}} />
+              <Square className="absolute -bottom-3 -right-3 w-6 h-6 text-squid-purple/30 animate-float" style={{animationDelay: '2s'}} />
+              <Circle className="absolute -bottom-2 -left-4 w-4 h-4 text-squid-pink/25 animate-float" style={{animationDelay: '3s'}} />
+            </div>
+            
+            <div className="mt-6 text-center">
+              <h3 className="text-2xl font-bold text-white mb-2">Payu Squid Game Mega Giveaway!</h3>
+              <p className="text-squid-grey text-lg">
+                Join the ultimate crypto adventure with <span className="text-squid-teal font-bold">2.5 Trillion PAYU Coins</span> up for grabs!
+              </p>
+              <p className="text-squid-pink text-sm mt-2 italic">
+                "Every participant receives 250 million PAYU coins instantly"
+              </p>
             </div>
           </div>
         </div>
