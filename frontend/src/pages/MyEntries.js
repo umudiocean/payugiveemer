@@ -250,8 +250,8 @@ const MyEntries = () => {
                     <div className="w-16 h-16 bg-squid-grey/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
                       <span className="text-squid-grey text-3xl">📋</span>
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-4">No Tasks Completed</h3>
-                    <p className="text-squid-grey mb-6">Complete bonus tasks to increase your chances of winning.</p>
+                    <h3 className="text-xl font-bold text-white mb-4">{t('myEntries.noTasks')}</h3>
+                    <p className="text-squid-grey mb-6">{t('myEntries.noTasksDesc')}</p>
                     <Button
                       onClick={() => window.location.href = '/join'}
                       variant="outline"
