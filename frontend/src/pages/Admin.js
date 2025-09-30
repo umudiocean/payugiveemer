@@ -146,9 +146,9 @@ const Admin = () => {
         <Card className="bg-black/50 border-squid-grey/20 backdrop-blur-xl max-w-md w-full">
           <CardContent className="py-12 text-center">
             <Shield className="w-16 h-16 text-squid-teal mx-auto mb-6" />
-            <h3 className="text-xl font-bold text-white mb-4">Admin Authentication</h3>
+            <h3 className="text-xl font-bold text-white mb-4">{t('admin.authentication')}</h3>
             <p className="text-squid-grey mb-6">
-              Sign a message to authenticate your admin access.
+              {t('admin.authDesc')}
             </p>
             <Button 
               onClick={handleAuthenticate}
