@@ -7,8 +7,8 @@
     "drawStartsIn": "يبدأ السحب خلال"
   },
   "hero": {
-    "title": "سحب Payu Squid-Grade",
-    "subtitle": "للصيادين PAYU الأوائل",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "description": "اربط محفظتك، انضم بمعاملة واحدة، احصل على تذكرتك.",
     "rewardsInstant": "المكافآت تصل فوراً إلى محفظتك.",
     "joinButton": "انضم للسحب",
@@ -16,8 +16,8 @@
     "gameNotStarted": "اللعبة لم تبدأ بعد..."
   },
   "howItWorks": {
-    "title": "كيف يعمل",
-    "subtitle": "بسيط وشفاف وفوري. انضم للسحب في ثلاث خطوات سهلة.",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "step1Title": "اربط وسجل",
     "step1Desc": "اربط محفظتك وانضم بمعاملة بسيطة واحدة. لا حاجة لإعداد معقد.",
     "step2Title": "مكافآت فورية",
@@ -36,8 +36,8 @@
     "getStarted": "ابدأ الآن"
   },
   "join": {
-    "title": "انضم للسحب",
-    "subtitle": "اربط محفظتك وسجل بمعاملة بسيطة واحدة. احصل على 250 مليون رمز PAYU فوراً بالإضافة إلى تذكرة اليانصيب الفريدة.",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "registration": "التسجيل",
     "alreadyRegistered": "أنت مسجل بالفعل للسحب!",
     "connectToJoin": "معاملة واحدة للانضمام للسحب وتلقي المكافآت",
@@ -64,8 +64,8 @@
     "shareInstagram": "شارك في قصة Instagram"
   },
   "myEntries": {
-    "title": "مدخلاتي",
-    "subtitle": "اعرض تسجيل اليانصيب وتاريخ إكمال المهام",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "connectRequired": "اربط محفظتك",
     "connectDesc": "اربط محفظتك لرؤية مدخلات اليانصيب وتاريخ المهام.",
     "lotteryRegistration": "تسجيل اليانصيب",
@@ -90,8 +90,8 @@
     "loadingData": "جاري تحميل بياناتك..."
   },
   "admin": {
-    "title": "لوحة الإدارة",
-    "subtitle": "إدارة تسجيلات اليانصيب وتتبع أنشطة المستخدمين",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "accessRequired": "الوصول للإدارة مطلوب",
     "connectForAdmin": "يرجى ربط محفظتك للوصول للوحة الإدارة.",
     "accessDenied": "تم رفض الوصول",

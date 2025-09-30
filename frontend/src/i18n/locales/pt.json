@@ -7,8 +7,8 @@
     "drawStartsIn": "Sorteio começa em"
   },
   "hero": {
-    "title": "Sorteio Payu Squid-Grade",
-    "subtitle": "para Caçadores PAYU Iniciais",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "description": "Conecte sua carteira, participe com uma transação, obtenha seu bilhete.",
     "rewardsInstant": "Recompensas chegam instantaneamente na sua carteira.",
     "joinButton": "Participar do Sorteio",
@@ -16,8 +16,8 @@
     "gameNotStarted": "O jogo ainda não começou..."
   },
   "howItWorks": {
-    "title": "Como Funciona",
-    "subtitle": "Simples, transparente e instantâneo. Participe do sorteio em três passos fáceis.",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "step1Title": "Conectar e Registrar",
     "step1Desc": "Conecte sua carteira e participe com uma transação simples. Nenhuma configuração complexa necessária.",
     "step2Title": "Recompensas Instantâneas",
@@ -36,8 +36,8 @@
     "getStarted": "Começar Agora"
   },
   "join": {
-    "title": "Participar do Sorteio",
-    "subtitle": "Conecte sua carteira e registre-se com uma transação simples. Obtenha 250M tokens PAYU instantaneamente mais seu bilhete de loteria único.",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "registration": "Registro",
     "alreadyRegistered": "Você já está registrado para o sorteio!",
     "connectToJoin": "Uma transação para participar do sorteio e receber recompensas",
@@ -64,8 +64,8 @@
     "shareInstagram": "Compartilhar no Instagram Story"
   },
   "myEntries": {
-    "title": "Minhas Entradas",
-    "subtitle": "Veja seu registro de loteria e histórico de conclusão de tarefas",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "connectRequired": "Conecte Sua Carteira",
     "connectDesc": "Conecte sua carteira para ver suas entradas de loteria e histórico de tarefas.",
     "lotteryRegistration": "Registro de Loteria",
@@ -90,8 +90,8 @@
     "loadingData": "Carregando seus dados..."
   },
   "admin": {
-    "title": "Painel Admin",
-    "subtitle": "Gerencie registros de loteria e rastreie atividades dos usuários",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "accessRequired": "Acesso Admin Necessário",
     "connectForAdmin": "Por favor conecte sua carteira para acessar o painel admin.",
     "accessDenied": "Acesso Negado",

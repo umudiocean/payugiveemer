@@ -7,8 +7,8 @@
     "drawStartsIn": "Undian dimulai dalam"
   },
   "hero": {
-    "title": "Undian Payu Squid-Grade",
-    "subtitle": "untuk Pemburu PAYU Awal",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "description": "Hubungkan dompet Anda, ikut dengan satu transaksi, dapatkan tiket Anda.",
     "rewardsInstant": "Hadiah langsung masuk ke dompet Anda.",
     "joinButton": "Ikut Undian",
@@ -16,8 +16,8 @@
     "gameNotStarted": "Game belum dimulai..."
   },
   "howItWorks": {
-    "title": "Cara Kerja",
-    "subtitle": "Sederhana, transparan, dan instan. Ikut undian dalam tiga langkah mudah.",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "step1Title": "Hubungkan & Daftar",
     "step1Desc": "Hubungkan dompet Anda dan ikut dengan satu transaksi sederhana. Tidak memerlukan setup yang rumit.",
     "step2Title": "Hadiah Instan",
@@ -36,8 +36,8 @@
     "getStarted": "Mulai Sekarang"
   },
   "join": {
-    "title": "Ikut Undian",
-    "subtitle": "Hubungkan dompet Anda dan daftar dengan satu transaksi sederhana. Dapatkan 250M token PAYU langsung plus tiket lotere unik Anda.",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "registration": "Pendaftaran",
     "alreadyRegistered": "Anda sudah terdaftar untuk undian!",
     "connectToJoin": "Satu transaksi untuk ikut undian dan menerima hadiah",
@@ -64,8 +64,8 @@
     "shareInstagram": "Bagikan di Instagram Story"
   },
   "myEntries": {
-    "title": "Entri Saya",
-    "subtitle": "Lihat pendaftaran lotere dan riwayat penyelesaian tugas Anda",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "connectRequired": "Hubungkan Dompet Anda",
     "connectDesc": "Hubungkan dompet Anda untuk melihat entri lotere dan riwayat tugas Anda.",
     "lotteryRegistration": "Pendaftaran Lotere",
@@ -90,8 +90,8 @@
     "loadingData": "Memuat data Anda..."
   },
   "admin": {
-    "title": "Panel Admin",
-    "subtitle": "Kelola pendaftaran lotere dan lacak aktivitas pengguna",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "accessRequired": "Akses Admin Diperlukan",
     "connectForAdmin": "Silakan hubungkan dompet Anda untuk mengakses panel admin.",
     "accessDenied": "Akses Ditolak",

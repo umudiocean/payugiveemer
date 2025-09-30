@@ -7,8 +7,8 @@
     "drawStartsIn": "Verlosung beginnt in"
   },
   "hero": {
-    "title": "Payu Squid-Grade Verlosung",
-    "subtitle": "für frühe PAYU-Jäger",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "description": "Verbinden Sie Ihr Wallet, nehmen Sie mit einer Transaktion teil, erhalten Sie Ihr Ticket.",
     "rewardsInstant": "Belohnungen landen sofort in Ihrem Wallet.",
     "joinButton": "An Verlosung teilnehmen",
@@ -16,8 +16,8 @@
     "gameNotStarted": "Das Spiel hat noch nicht begonnen..."
   },
   "howItWorks": {
-    "title": "Wie es funktioniert",
-    "subtitle": "Einfach, transparent und sofort. Nehmen Sie in drei einfachen Schritten an der Verlosung teil.",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "step1Title": "Verbinden & Registrieren",
     "step1Desc": "Verbinden Sie Ihr Wallet und nehmen Sie mit einer einfachen Transaktion teil. Keine komplexe Einrichtung erforderlich.",
     "step2Title": "Sofortige Belohnungen",
@@ -36,8 +36,8 @@
     "getStarted": "Jetzt loslegen"
   },
   "join": {
-    "title": "An Verlosung teilnehmen",
-    "subtitle": "Verbinden Sie Ihr Wallet und registrieren Sie sich mit einer einfachen Transaktion. Erhalten Sie 250M PAYU-Token sofort plus Ihr einzigartiges Lotterie-Ticket.",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "registration": "Registrierung",
     "alreadyRegistered": "Sie sind bereits für die Verlosung registriert!",
     "connectToJoin": "Eine Transaktion zur Teilnahme an der Verlosung und zum Erhalt von Belohnungen",
@@ -64,8 +64,8 @@
     "shareInstagram": "Auf Instagram Story teilen"
   },
   "myEntries": {
-    "title": "Meine Einträge",
-    "subtitle": "Sehen Sie Ihre Lotterie-Registrierung und Aufgaben-Verlauf",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "connectRequired": "Verbinden Sie Ihr Wallet",
     "connectDesc": "Verbinden Sie Ihr Wallet, um Ihre Lotterie-Einträge und Aufgaben-Verlauf zu sehen.",
     "lotteryRegistration": "Lotterie-Registrierung",
@@ -90,8 +90,8 @@
     "loadingData": "Lade Ihre Daten..."
   },
   "admin": {
-    "title": "Admin-Panel",
-    "subtitle": "Lotterie-Registrierungen verwalten und Benutzeraktivitäten verfolgen",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "accessRequired": "Admin-Zugriff erforderlich",
     "connectForAdmin": "Bitte verbinden Sie Ihr Wallet, um auf das Admin-Panel zuzugreifen.",
     "accessDenied": "Zugriff verweigert",

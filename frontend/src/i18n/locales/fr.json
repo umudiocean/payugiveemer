@@ -7,8 +7,8 @@
     "drawStartsIn": "Le tirage commence dans"
   },
   "hero": {
-    "title": "Tirage Payu Squid-Grade",
-    "subtitle": "pour les Chasseurs PAYU Précoces",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "description": "Connectez votre portefeuille, rejoignez avec une transaction, obtenez votre billet.",
     "rewardsInstant": "Les récompenses arrivent instantanément dans votre portefeuille.",
     "joinButton": "Rejoindre le Tirage",
@@ -16,8 +16,8 @@
     "gameNotStarted": "Le jeu n'a pas encore commencé..."
   },
   "howItWorks": {
-    "title": "Comment Ça Marche",
-    "subtitle": "Simple, transparent et instantané. Rejoignez le tirage en trois étapes faciles.",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "step1Title": "Connecter et S'inscrire",
     "step1Desc": "Connectez votre portefeuille et rejoignez avec une transaction simple. Aucune configuration complexe requise.",
     "step2Title": "Récompenses Instantanées",
@@ -36,8 +36,8 @@
     "getStarted": "Commencer Maintenant"
   },
   "join": {
-    "title": "Rejoindre le Tirage",
-    "subtitle": "Connectez votre portefeuille et inscrivez-vous avec une transaction simple. Obtenez 250M tokens PAYU instantanément plus votre billet de loterie unique.",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "registration": "Inscription",
     "alreadyRegistered": "Vous êtes déjà inscrit au tirage!",
     "connectToJoin": "Une transaction pour rejoindre le tirage et recevoir des récompenses",
@@ -64,8 +64,8 @@
     "shareInstagram": "Partager sur Instagram Story"
   },
   "myEntries": {
-    "title": "Mes Entrées",
-    "subtitle": "Voir votre inscription à la loterie et l'historique des tâches",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "connectRequired": "Connectez Votre Portefeuille",
     "connectDesc": "Connectez votre portefeuille pour voir vos entrées de loterie et l'historique des tâches.",
     "lotteryRegistration": "Inscription à la Loterie",
@@ -90,8 +90,8 @@
     "loadingData": "Chargement de vos données..."
   },
   "admin": {
-    "title": "Panneau Administrateur",
-    "subtitle": "Gérer les inscriptions à la loterie et suivre les activités des utilisateurs",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "accessRequired": "Accès Administrateur Requis",
     "connectForAdmin": "Veuillez connecter votre portefeuille pour accéder au panneau administrateur.",
     "accessDenied": "Accès Refusé",

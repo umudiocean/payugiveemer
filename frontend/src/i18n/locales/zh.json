@@ -7,8 +7,8 @@
     "drawStartsIn": "抽奖开始时间"
   },
   "hero": {
-    "title": "Payu Squid级抽奖",
-    "subtitle": "面向早期PAYU猎手",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "description": "连接您的钱包，通过一笔交易参加，获取您的票据。",
     "rewardsInstant": "奖励即时到达您的钱包。",
     "joinButton": "参加抽奖",
@@ -16,8 +16,8 @@
     "gameNotStarted": "游戏尚未开始..."
   },
   "howItWorks": {
-    "title": "工作原理",
-    "subtitle": "简单、透明、即时。三个简单步骤参加抽奖。",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "step1Title": "连接并注册",
     "step1Desc": "连接您的钱包并通过一笔简单交易参加。无需复杂设置。",
     "step2Title": "即时奖励",
@@ -36,8 +36,8 @@
     "getStarted": "立即开始"
   },
   "join": {
-    "title": "参加抽奖",
-    "subtitle": "连接您的钱包并通过一笔简单交易注册。即时获得250M PAYU代币加上您独特的彩票票据。",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "registration": "注册",
     "alreadyRegistered": "您已经注册了抽奖！",
     "connectToJoin": "一笔交易参加抽奖并获得奖励",
@@ -64,8 +64,8 @@
     "shareInstagram": "在Instagram故事分享"
   },
   "myEntries": {
-    "title": "我的条目",
-    "subtitle": "查看您的彩票注册和任务完成历史",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "connectRequired": "连接您的钱包",
     "connectDesc": "连接您的钱包以查看您的彩票条目和任务历史。",
     "lotteryRegistration": "彩票注册",
@@ -90,8 +90,8 @@
     "loadingData": "加载您的数据..."
   },
   "admin": {
-    "title": "管理面板",
-    "subtitle": "管理彩票注册并跟踪用户活动",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "accessRequired": "需要管理员访问权限",
     "connectForAdmin": "请连接您的钱包以访问管理面板。",
     "accessDenied": "访问被拒绝",

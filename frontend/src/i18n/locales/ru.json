@@ -7,8 +7,8 @@
     "drawStartsIn": "Розыгрыш начинается через"
   },
   "hero": {
-    "title": "Розыгрыш Payu Squid-Grade",
-    "subtitle": "для Ранних Охотников PAYU",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "description": "Подключите кошелек, участвуйте одной транзакцией, получите билет.",
     "rewardsInstant": "Награды мгновенно попадают в ваш кошелек.",
     "joinButton": "Участвовать в Розыгрыше",
@@ -16,8 +16,8 @@
     "gameNotStarted": "Игра еще не началась..."
   },
   "howItWorks": {
-    "title": "Как Это Работает",
-    "subtitle": "Просто, прозрачно и мгновенно. Присоединяйтесь к розыгрышу в три простых шага.",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "step1Title": "Подключить и Зарегистрироваться",
     "step1Desc": "Подключите кошелек и участвуйте одной простой транзакцией. Никакой сложной настройки не требуется.",
     "step2Title": "Мгновенные Награды",
@@ -36,8 +36,8 @@
     "getStarted": "Начать Сейчас"
   },
   "join": {
-    "title": "Участвовать в Розыгрыше",
-    "subtitle": "Подключите кошелек и зарегистрируйтесь простой транзакцией. Получите 250M токенов PAYU мгновенно плюс ваш уникальный лотерейный билет.",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "registration": "Регистрация",
     "alreadyRegistered": "Вы уже зарегистрированы для розыгрыша!",
     "connectToJoin": "Одна транзакция для участия в розыгрыше и получения наград",
@@ -64,8 +64,8 @@
     "shareInstagram": "Поделиться в Instagram Story"
   },
   "myEntries": {
-    "title": "Мои Записи",
-    "subtitle": "Посмотрите регистрацию в лотерее и историю выполнения задач",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "connectRequired": "Подключите Ваш Кошелек",
     "connectDesc": "Подключите кошелек, чтобы увидеть записи лотереи и историю задач.",
     "lotteryRegistration": "Регистрация в Лотерее",
@@ -90,8 +90,8 @@
     "loadingData": "Загружаем ваши данные..."
   },
   "admin": {
-    "title": "Панель Администратора",
-    "subtitle": "Управляйте регистрациями лотереи и отслеживайте активность пользователей",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "accessRequired": "Требуется Доступ Администратора",
     "connectForAdmin": "Пожалуйста, подключите кошелек для доступа к панели администратора.",
     "accessDenied": "Доступ Запрещен",

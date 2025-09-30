@@ -7,8 +7,8 @@
     "drawStartsIn": "El sorteo comienza en"
   },
   "hero": {
-    "title": "Sorteo Payu Squid-Grade",
-    "subtitle": "para Cazadores PAYU Tempranos",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "description": "Conecta tu billetera, únete con una transacción, obtén tu boleto.",
     "rewardsInstant": "Las recompensas llegan instantáneamente a tu billetera.",
     "joinButton": "Únete al Sorteo",
@@ -16,8 +16,8 @@
     "gameNotStarted": "El juego aún no ha comenzado..."
   },
   "howItWorks": {
-    "title": "Cómo Funciona",
-    "subtitle": "Simple, transparente e instantáneo. Únete al sorteo en tres pasos fáciles.",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "step1Title": "Conectar y Registrarse",
     "step1Desc": "Conecta tu billetera y únete con una transacción simple. No se requiere configuración compleja.",
     "step2Title": "Recompensas Instantáneas",
@@ -36,8 +36,8 @@
     "getStarted": "Comenzar Ahora"
   },
   "join": {
-    "title": "Únete al Sorteo",
-    "subtitle": "Conecta tu billetera y regístrate con una transacción simple. Obtén 250M tokens PAYU instantáneamente más tu boleto de lotería único.",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "registration": "Registro",
     "alreadyRegistered": "¡Ya estás registrado para el sorteo!",
     "connectToJoin": "Una transacción para unirse al sorteo y recibir recompensas",
@@ -64,8 +64,8 @@
     "shareInstagram": "Compartir en Historia de Instagram"
   },
   "myEntries": {
-    "title": "Mis Entradas",
-    "subtitle": "Ve tu registro de lotería y historial de tareas completadas",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "connectRequired": "Conecta Tu Billetera",
     "connectDesc": "Conecta tu billetera para ver tus entradas de lotería e historial de tareas.",
     "lotteryRegistration": "Registro de Lotería",
@@ -90,8 +90,8 @@
     "loadingData": "Cargando tus datos..."
   },
   "admin": {
-    "title": "Panel de Administrador",
-    "subtitle": "Gestiona registros de lotería y rastrea actividades de usuarios",
+    "title": "JOIN THE PAYU GIVEAWAY",
+    "subtitle": "AND GET YOUR REWARDS",
     "accessRequired": "Acceso de Administrador Requerido",
     "connectForAdmin": "Por favor conecta tu billetera para acceder al panel de administrador.",
     "accessDenied": "Acceso Denegado",
