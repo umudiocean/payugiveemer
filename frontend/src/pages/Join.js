@@ -218,7 +218,7 @@ const Join = () => {
                         {isPending ? 'Confirming...' : 'Processing...'}
                       </>
                     ) : (
-                      'Register (0.00098 BNB)'
+                      'Register'
                     )}
                   </Button>
                 </div>
