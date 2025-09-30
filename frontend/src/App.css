@@ -211,17 +211,78 @@ textarea:focus {
   background: rgba(55, 66, 250, 0.1);
 }
 
-/* Rainbow Kit Custom Styling */
+/* Rainbow Kit Squid Game Styling */
 [data-rk] {
-  --rk-colors-modalBackground: #000000;
-  --rk-colors-modalBorder: #A7AAB3;
+  --rk-colors-modalBackground: #0D0D0D;
+  --rk-colors-modalBorder: #FF3366;
   --rk-colors-modalText: #FFFFFF;
-  --rk-colors-modalTextDim: #A7AAB3;
-  --rk-colors-modalTextSecondary: #A7AAB3;
-  --rk-colors-profileAction: #FF2A6D;
-  --rk-colors-profileActionHover: #2BB673;
-  --rk-colors-profileForeground: #000000;
-  --rk-colors-selectedOptionBorder: #FF2A6D;
-  --rk-colors-accentColor: #FF2A6D;
+  --rk-colors-modalTextDim: #A4A4A4;
+  --rk-colors-modalTextSecondary: #A4A4A4;
+  --rk-colors-profileAction: #FF3366;
+  --rk-colors-profileActionHover: #00D084;
+  --rk-colors-profileForeground: #0D0D0D;
+  --rk-colors-selectedOptionBorder: #FF3366;
+  --rk-colors-accentColor: #FF3366;
   --rk-colors-accentColorForeground: #FFFFFF;
+  font-family: var(--font-squid);
+}
+
+/* Squid Game Background Pattern */
+.squid-pattern {
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(255, 51, 102, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0, 208, 132, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(55, 66, 250, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 70, 126, 0.03) 0%, transparent 50%);
+}
+
+/* Squid Game Card Styling */
+.squid-card {
+  background: rgba(13, 13, 13, 0.8);
+  border: 1px solid rgba(255, 51, 102, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Squid Game Button Effects */
+.squid-btn-red {
+  background: linear-gradient(135deg, var(--squid-red), var(--squid-pink));
+  border: none;
+  color: var(--squid-white);
+  font-family: var(--font-squid);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.squid-btn-red:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 51, 102, 0.4);
+}
+
+.squid-btn-green {
+  background: linear-gradient(135deg, var(--squid-green), var(--squid-mint));
+  border: none;
+  color: var(--squid-black);
+  font-family: var(--font-squid);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.squid-btn-green:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 208, 132, 0.4);
+}
+
+.squid-btn-blue {
+  background: linear-gradient(135deg, var(--squid-blue), var(--squid-navy));
+  border: none;
+  color: var(--squid-white);
+  font-family: var(--font-squid);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.squid-btn-blue:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(55, 66, 250, 0.4);
 }
