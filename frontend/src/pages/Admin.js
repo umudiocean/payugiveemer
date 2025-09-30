@@ -230,7 +230,7 @@ const Admin = () => {
               </Button>
             </div>
             <CardDescription className="text-squid-grey">
-              All lottery registrations and ticket information
+              {t('admin.registrationsDesc')}
             </CardDescription>
           </CardHeader>
           <CardContent>
