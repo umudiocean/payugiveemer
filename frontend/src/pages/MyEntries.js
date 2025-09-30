@@ -112,10 +112,10 @@ const MyEntries = () => {
               <CardHeader>
                 <CardTitle className="text-white flex items-center space-x-2">
                   <Hash className="w-5 h-5" />
-                  <span>Lottery Registration</span>
+                  <span>{t('myEntries.lotteryRegistration')}</span>
                 </CardTitle>
                 <CardDescription className="text-squid-grey">
-                  Your registration details and lottery ticket
+                  {t('myEntries.registrationDesc')}
                 </CardDescription>
               </CardHeader>
               <CardContent>
