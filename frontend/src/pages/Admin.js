@@ -100,7 +100,7 @@ const Admin = () => {
     a.click()
     window.URL.revokeObjectURL(url)
     
-    toast.success(`${filename} exported successfully`)
+    toast.success(t('messages.csvExported', { filename }))
   }
 
   if (!isConnected) {
