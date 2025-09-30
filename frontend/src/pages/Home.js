@@ -78,21 +78,21 @@ const Home = () => {
               </span>
             </h1>
             
-            {/* Subtitle with Symbols */}
-            <div className="flex items-center justify-center space-x-4 mb-6">
-              <span className="text-squid-red text-2xl animate-squid-pulse">◯</span>
-              <p className="text-xl md:text-2xl text-squid-grey-light font-squid max-w-4xl leading-relaxed">
+            {/* Enhanced Subtitle with Symbols */}
+            <div className="flex items-center justify-center space-x-6 mb-8">
+              <span className="text-squid-red text-3xl animate-squid-pulse">◯</span>
+              <p className="text-xl md:text-2xl text-squid-light-grey font-squid max-w-5xl leading-relaxed text-center">
                 {t('hero.description')}
               </p>
-              <span className="text-squid-green text-2xl animate-squid-bounce">△</span>
+              <span className="text-squid-ice-blue text-3xl animate-squid-bounce">△</span>
             </div>
             
-            <div className="flex items-center justify-center space-x-3">
-              <span className="text-squid-blue text-lg">⬜</span>
-              <span className="text-squid-green font-squid-display text-lg">
+            <div className="flex items-center justify-center space-x-4">
+              <span className="text-squid-gold text-2xl animate-squid-pulse">⬜</span>
+              <span className="text-squid-gold font-squid-display text-xl animate-glow-gold">
                 {t('hero.rewardsInstant')}
               </span>
-              <span className="text-squid-red text-lg">◯</span>
+              <span className="text-squid-pink text-2xl animate-squid-bounce">◯</span>
             </div>
           </div>
 
