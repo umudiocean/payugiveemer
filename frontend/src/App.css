@@ -142,13 +142,40 @@ textarea:focus {
   -webkit-backdrop-filter: blur(12px);
 }
 
-/* Authentic Squid Game Animations */
+/* Enhanced Squid Game Animations */
 @keyframes squid-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(184, 47, 73, 0.5);
+    box-shadow: 0 0 20px rgba(184, 47, 73, 0.6);
   }
   50% {
-    box-shadow: 0 0 30px rgba(184, 47, 73, 0.8), 0 0 40px rgba(69, 51, 151, 0.4);
+    box-shadow: 0 0 30px rgba(184, 47, 73, 0.9), 0 0 40px rgba(0, 191, 255, 0.5);
+  }
+}
+
+@keyframes squid-glow-blue {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(0, 191, 255, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(0, 191, 255, 0.9), 0 0 45px rgba(255, 215, 0, 0.4);
+  }
+}
+
+@keyframes squid-glow-pink {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(255, 105, 180, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(255, 105, 180, 0.9), 0 0 45px rgba(135, 206, 235, 0.4);
+  }
+}
+
+@keyframes squid-glow-gold {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 215, 0, 1), 0 0 50px rgba(255, 165, 0, 0.5);
   }
 }
 
