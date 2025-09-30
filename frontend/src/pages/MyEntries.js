@@ -123,7 +123,7 @@ const MyEntries = () => {
                   <div className="space-y-6">
                     {/* Ticket Display */}
                     <div className="bg-gradient-to-br from-squid-pink/10 to-squid-purple/10 border border-squid-pink/30 rounded-2xl p-6 text-center">
-                      <div className="text-sm text-squid-grey mb-2">Your Lottery Ticket</div>
+                      <div className="text-sm text-squid-grey mb-2">{t('myEntries.yourLotteryTicket')}</div>
                       <div className="text-3xl font-bold text-white mb-4 font-mono">{registrationData.ticket}</div>
                       <Button
                         onClick={handleCopyTicket}
