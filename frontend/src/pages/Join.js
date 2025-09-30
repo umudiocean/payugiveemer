@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../co
 import ConnectButton from '../components/ConnectButton'
 import { CONTRACT_ADDRESS, CONTRACT_ABI, REGISTRATION_FEE } from '../config/wagmi'
 import { generateTicket, copyToClipboard } from '../utils/ticket'
+import { useTranslation } from 'react-i18next'
 import axios from 'axios'
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
