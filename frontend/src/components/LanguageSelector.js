@@ -26,25 +26,21 @@ const LanguageSelector = ({ className = '' }) => {
     console.log('🌐 Changing language to:', languageCode)
     
     try {
-      // Close dropdown first
-      setIsOpen(false)
-      
       // Update document direction for RTL languages
       const rtlLanguages = ['ar']
       document.documentElement.dir = rtlLanguages.includes(languageCode) ? 'rtl' : 'ltr'
       document.documentElement.lang = languageCode
       
-      // Store language preference FIRST (before changeLanguage)
-      localStorage.setItem('i18nextLng', languageCode)
-      
-      // Change language in i18n
+      // Change language in i18n - this will trigger React re-render
       await i18n.changeLanguage(languageCode)
       
       // Update local state
       setCurrentLang(languageCode)
       
-      // Force reload the page to ensure all components update
-      window.location.reload()
+      // Close dropdown
+      setIsOpen(false)
+      
+      console.log('✅ Language changed successfully to:', languageCode)
       
     } catch (error) {
       console.error('❌ Error changing language:', error)
