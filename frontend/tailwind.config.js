@@ -87,16 +87,19 @@ module.exports = {
                         'satoshi': ['Satoshi', 'Inter', 'system-ui', 'sans-serif'],
                 },
                 boxShadow: {
-                        'glow': '0 0 20px rgba(255, 51, 102, 0.4)',
-                        'glow-red': '0 0 20px rgba(255, 51, 102, 0.4)',
-                        'glow-pink': '0 0 20px rgba(255, 70, 126, 0.4)',
-                        'glow-green': '0 0 20px rgba(0, 208, 132, 0.4)',
-                        'glow-mint': '0 0 20px rgba(29, 209, 161, 0.4)',
-                        'glow-blue': '0 0 20px rgba(55, 66, 250, 0.4)',
-                        'glow-navy': '0 0 20px rgba(44, 44, 84, 0.4)',
+                        'glow': '0 0 20px rgba(184, 47, 73, 0.5)',
+                        'glow-red': '0 0 20px rgba(184, 47, 73, 0.5)',
+                        'glow-dark-red': '0 0 20px rgba(166, 12, 55, 0.5)',
+                        'glow-blue': '0 0 20px rgba(69, 51, 151, 0.5)',
+                        'glow-dark-blue': '0 0 20px rgba(37, 29, 88, 0.5)',
+                        'glow-purple': '0 0 20px rgba(87, 39, 74, 0.5)',
+                        'glow-grey': '0 0 20px rgba(138, 128, 140, 0.3)',
                         // Backward compatibility
-                        'glow-teal': '0 0 20px rgba(0, 208, 132, 0.4)',
-                        'glow-purple': '0 0 20px rgba(55, 66, 250, 0.4)',
+                        'glow-pink': '0 0 20px rgba(184, 47, 73, 0.5)',
+                        'glow-green': '0 0 20px rgba(69, 51, 151, 0.5)',
+                        'glow-mint': '0 0 20px rgba(69, 51, 151, 0.5)',
+                        'glow-teal': '0 0 20px rgba(69, 51, 151, 0.5)',
+                        'glow-navy': '0 0 20px rgba(37, 29, 88, 0.5)',
                 },
                 keyframes: {
                         'accordion-down': {
