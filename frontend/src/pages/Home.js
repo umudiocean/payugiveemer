@@ -126,62 +126,153 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-black/90">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">{t('howItWorks.title')}</h2>
-            <p className="text-squid-grey text-lg max-w-2xl mx-auto">{t('howItWorks.subtitle')}</p>
+      {/* Squid Game Features Section */}
+      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-squid-black to-squid-black/90 relative overflow-hidden">
+        
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="grid grid-cols-10 grid-rows-6 h-full w-full">
+            {[...Array(60)].map((_, i) => (
+              <div key={i} className="border border-squid-red/20 flex items-center justify-center">
+                <span className={`text-xs animate-pulse`} style={{animationDelay: `${i * 0.1}s`}}>
+                  {i % 3 === 0 ? '◯' : i % 3 === 1 ? '△' : '⬜'}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto">
+          
+          {/* Section Header */}
+          <div className="text-center mb-20">
+            <div className="flex items-center justify-center space-x-4 mb-6">
+              <span className="text-squid-red text-3xl animate-squid-pulse">◯</span>
+              <h2 className="text-5xl md:text-6xl font-squid-display text-white animate-glow">
+                {t('howItWorks.title')}
+              </h2>
+              <span className="text-squid-green text-3xl animate-squid-bounce">△</span>
+            </div>
+            <p className="text-squid-grey-light text-xl font-squid max-w-3xl mx-auto leading-relaxed">
+              {t('howItWorks.subtitle')}
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Step 1 */}
-            <div className="text-center group relative">
-              {/* Floating shapes around feature */}
-              <Circle className="absolute -top-2 -left-2 w-3 h-3 text-squid-pink/20 animate-float" />
-              <div className="w-24 h-24 bg-gradient-to-br from-squid-pink/20 to-squid-purple/20 border-2 border-squid-pink/40 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:shadow-glow transition-all duration-300 relative">
-                <Zap className="w-12 h-12 text-squid-pink" />
-                <Square className="absolute top-1 right-1 w-3 h-3 text-squid-pink/30" />
+          {/* Game Steps Grid */}
+          <div className="grid lg:grid-cols-3 gap-12">
+            
+            {/* Game 1: Circle */}
+            <div className="group relative">
+              <div className="absolute -inset-6 bg-gradient-to-r from-squid-red/20 to-squid-pink/20 blur-2xl opacity-50 group-hover:opacity-75 transition-all duration-700 animate-squid-pulse"></div>
+              
+              <div className="relative bg-squid-black/80 border-2 border-squid-red/50 rounded-3xl p-8 backdrop-blur-xl overflow-hidden transform transition-all duration-500 group-hover:scale-105 group-hover:border-squid-red">
+                
+                {/* Card Background Symbol */}
+                <div className="absolute inset-0 opacity-5 flex items-center justify-center">
+                  <span className="text-squid-red text-9xl animate-squid-pulse">◯</span>
+                </div>
+                
+                <div className="relative z-10 text-center">
+                  {/* Game Number */}
+                  <div className="inline-flex items-center justify-center w-12 h-12 bg-squid-red text-white rounded-full mb-6 font-squid-display font-bold text-lg">
+                    01
+                  </div>
+                  
+                  {/* Game Symbol */}
+                  <div className="w-28 h-28 mx-auto mb-8 bg-squid-red/10 border-4 border-squid-red rounded-full flex items-center justify-center group-hover:animate-squid-bounce backdrop-blur-sm">
+                    <span className="text-squid-red text-5xl font-bold">◯</span>
+                  </div>
+                  
+                  {/* Step Title */}
+                  <h3 className="text-2xl font-squid-display text-white mb-4">
+                    {t('howItWorks.step1Title')}
+                  </h3>
+                  
+                  {/* Step Description */}
+                  <p className="text-squid-grey-light text-base font-squid leading-relaxed">
+                    {t('howItWorks.step1Desc')}
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-3 flex items-center justify-center space-x-2">
-                <Circle className="w-4 h-4 text-squid-pink" />
-                <span>{t('howItWorks.step1Title')}</span>
-              </h3>
-              <p className="text-squid-grey leading-relaxed">
-                {t('howItWorks.step1Desc')}
-              </p>
             </div>
 
-            {/* Step 2 */}
-            <div className="text-center group relative">
-              <Triangle className="absolute -top-1 -right-3 w-4 h-4 text-squid-teal/25 animate-float" style={{animationDelay: '1s'}} />
-              <div className="w-24 h-24 bg-gradient-to-br from-squid-teal/20 to-squid-purple/20 border-2 border-squid-teal/40 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:shadow-glow-teal transition-all duration-300 relative">
-                <Coins className="w-12 h-12 text-squid-teal" />
-                <Triangle className="absolute top-1 right-1 w-3 h-3 text-squid-teal/30" />
+            {/* Game 2: Triangle */}
+            <div className="group relative">
+              <div className="absolute -inset-6 bg-gradient-to-r from-squid-green/20 to-squid-mint/20 blur-2xl opacity-50 group-hover:opacity-75 transition-all duration-700 animate-squid-pulse" style={{animationDelay: '0.5s'}}></div>
+              
+              <div className="relative bg-squid-black/80 border-2 border-squid-green/50 rounded-3xl p-8 backdrop-blur-xl overflow-hidden transform transition-all duration-500 group-hover:scale-105 group-hover:border-squid-green">
+                
+                {/* Card Background Symbol */}
+                <div className="absolute inset-0 opacity-5 flex items-center justify-center">
+                  <span className="text-squid-green text-9xl animate-squid-bounce">△</span>
+                </div>
+                
+                <div className="relative z-10 text-center">
+                  {/* Game Number */}
+                  <div className="inline-flex items-center justify-center w-12 h-12 bg-squid-green text-squid-black rounded-full mb-6 font-squid-display font-bold text-lg">
+                    02
+                  </div>
+                  
+                  {/* Game Symbol */}
+                  <div className="w-28 h-28 mx-auto mb-8 bg-squid-green/10 border-4 border-squid-green flex items-center justify-center group-hover:animate-squid-bounce backdrop-blur-sm" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}>
+                    <span className="text-squid-green text-4xl font-bold">△</span>
+                  </div>
+                  
+                  {/* Step Title */}
+                  <h3 className="text-2xl font-squid-display text-white mb-4">
+                    {t('howItWorks.step2Title')}
+                  </h3>
+                  
+                  {/* Step Description */}
+                  <p className="text-squid-grey-light text-base font-squid leading-relaxed">
+                    {t('howItWorks.step2Desc')}
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-3 flex items-center justify-center space-x-2">
-                <Triangle className="w-4 h-4 text-squid-teal" />
-                <span>{t('howItWorks.step2Title')}</span>
-              </h3>
-              <p className="text-squid-grey leading-relaxed">
-                {t('howItWorks.step2Desc')}
-              </p>
             </div>
 
-            {/* Step 3 */}
-            <div className="text-center group relative">
-              <Square className="absolute -bottom-3 -left-1 w-3 h-3 text-squid-purple/20 animate-float" style={{animationDelay: '2s'}} />
-              <div className="w-24 h-24 bg-gradient-to-br from-squid-purple/20 to-squid-pink/20 border-2 border-squid-purple/40 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:shadow-glow-purple transition-all duration-300 relative">
-                <Trophy className="w-12 h-12 text-squid-purple" />
-                <Square className="absolute top-1 right-1 w-3 h-3 text-squid-purple/30" />
+            {/* Game 3: Square */}
+            <div className="group relative">
+              <div className="absolute -inset-6 bg-gradient-to-r from-squid-blue/20 to-squid-navy/20 blur-2xl opacity-50 group-hover:opacity-75 transition-all duration-700 animate-squid-pulse" style={{animationDelay: '1s'}}></div>
+              
+              <div className="relative bg-squid-black/80 border-2 border-squid-blue/50 rounded-3xl p-8 backdrop-blur-xl overflow-hidden transform transition-all duration-500 group-hover:scale-105 group-hover:border-squid-blue">
+                
+                {/* Card Background Symbol */}
+                <div className="absolute inset-0 opacity-5 flex items-center justify-center">
+                  <span className="text-squid-blue text-9xl animate-float">⬜</span>
+                </div>
+                
+                <div className="relative z-10 text-center">
+                  {/* Game Number */}
+                  <div className="inline-flex items-center justify-center w-12 h-12 bg-squid-blue text-white rounded-full mb-6 font-squid-display font-bold text-lg">
+                    03
+                  </div>
+                  
+                  {/* Game Symbol */}
+                  <div className="w-28 h-28 mx-auto mb-8 bg-squid-blue/10 border-4 border-squid-blue rounded-2xl flex items-center justify-center group-hover:animate-squid-bounce backdrop-blur-sm">
+                    <span className="text-squid-blue text-5xl font-bold">⬜</span>
+                  </div>
+                  
+                  {/* Step Title */}
+                  <h3 className="text-2xl font-squid-display text-white mb-4">
+                    {t('howItWorks.step3Title')}
+                  </h3>
+                  
+                  {/* Step Description */}
+                  <p className="text-squid-grey-light text-base font-squid leading-relaxed">
+                    {t('howItWorks.step3Desc')}
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-3 flex items-center justify-center space-x-2">
-                <Square className="w-4 h-4 text-squid-purple" />
-                <span>{t('howItWorks.step3Title')}</span>
-              </h3>
-              <p className="text-squid-grey leading-relaxed">
-                {t('howItWorks.step3Desc')}
-              </p>
+            </div>
+          </div>
+
+          {/* Bottom Decoration */}
+          <div className="mt-16 text-center">
+            <div className="flex items-center justify-center space-x-8 opacity-40">
+              <span className="text-squid-red text-4xl animate-squid-pulse">◯</span>
+              <span className="text-squid-green text-4xl animate-squid-bounce">△</span>
+              <span className="text-squid-blue text-4xl animate-float">⬜</span>
             </div>
           </div>
         </div>
