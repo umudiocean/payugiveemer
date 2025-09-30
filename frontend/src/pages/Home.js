@@ -67,14 +67,14 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Main Title with Squid Game Typography */}
-          <div className="mb-8">
-            <h1 className="text-6xl md:text-8xl font-squid-display mb-6 leading-tight">
-              <span className="block bg-gradient-to-r from-squid-red via-squid-pink to-squid-green bg-clip-text text-transparent animate-glow">
-                {t('hero.title')}
+          {/* Enhanced Main Title */}
+          <div className="mb-12">
+            <h1 className="text-5xl md:text-7xl font-squid-display mb-8 leading-tight">
+              <span className="block bg-gradient-to-r from-squid-red via-squid-pink via-squid-ice-blue to-squid-gold bg-clip-text text-transparent animate-glow">
+                JOIN THE PAYU GIVEAWAY
               </span>
-              <span className="block text-squid-white text-4xl md:text-6xl font-squid mt-4">
-                {t('hero.subtitle')}
+              <span className="block bg-gradient-to-r from-squid-gold via-squid-ice-blue to-squid-pink bg-clip-text text-transparent animate-glow-blue text-4xl md:text-6xl font-squid mt-4">
+                AND GET YOUR REWARDS
               </span>
             </h1>
             
