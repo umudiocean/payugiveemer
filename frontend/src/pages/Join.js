@@ -267,7 +267,9 @@ const Join = () => {
                   {registrationData && (
                     <div className="text-xs text-squid-grey space-y-1">
                       <div>Index: #{registrationData.index}</div>
-                      <div>TX: {registrationData.txHash.slice(0, 10)}...{registrationData.txHash.slice(-8)}</div>
+                      {registrationData.txHash && (
+                        <div>TX: {registrationData.txHash.slice(0, 10)}...{registrationData.txHash.slice(-8)}</div>
+                      )}
                     </div>
                   )}
                 </div>
