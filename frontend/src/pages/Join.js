@@ -109,7 +109,7 @@ const Join = () => {
       }
     } catch (error) {
       console.error('Failed to process registration:', error)
-      toast.error('Registration succeeded but failed to generate ticket. Please contact support.')
+      toast.error(t('messages.registrationFailed'))
     }
   }
 
