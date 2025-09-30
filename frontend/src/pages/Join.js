@@ -287,9 +287,9 @@ const Join = () => {
         {showTasks && (
           <Card className="mt-8 bg-black/50 border-squid-grey/20 backdrop-blur-xl">
             <CardHeader>
-              <CardTitle className="text-white">Bonus Tasks</CardTitle>
+              <CardTitle className="text-white">{t('join.bonusTasks')}</CardTitle>
               <CardDescription className="text-squid-grey">
-                Complete these tasks to boost your chances (optional)
+                {t('join.bonusTasksDesc')}
               </CardDescription>
             </CardHeader>
             <CardContent>
