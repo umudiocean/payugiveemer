@@ -379,176 +379,229 @@ const Join = () => {
                 </div>
               </div>
 
-              {/* Tasks Grid */}
+              {/* Sequential Tasks Grid with Advanced Animations */}
               <div className="relative z-10 px-8 pb-8">
                 <div className="grid lg:grid-cols-3 gap-8">
                   
-                  {/* Game 1: Telegram Circle */}
+                  {/* Task 1: Telegram Circle - Always Active */}
                   <div className="group relative">
-                    <div className="absolute -inset-4 bg-gradient-to-r from-squid-green via-squid-mint to-squid-green opacity-20 blur-2xl group-hover:opacity-40 transition-all duration-700 animate-squid-pulse"></div>
+                    <div className="absolute -inset-6 bg-gradient-to-r from-squid-gold via-squid-orange to-squid-gold opacity-30 blur-2xl group-hover:opacity-60 transition-all duration-1000 animate-squid-glow-gold"></div>
                     
-                    <div className="relative bg-squid-black/90 border-2 border-squid-green/50 rounded-2xl p-8 backdrop-blur-xl overflow-hidden transform transition-all duration-500 group-hover:scale-105 group-hover:border-squid-green">
+                    <div className="relative bg-squid-black/95 border-3 border-squid-gold/60 rounded-3xl p-8 backdrop-blur-xl overflow-hidden transform transition-all duration-700 group-hover:scale-110 group-hover:rotate-1 group-hover:border-squid-gold animate-squid-glow-gold">
                       
-                      {/* Card Background Pattern */}
-                      <div className="absolute inset-0 opacity-5">
+                      {/* Enhanced Background Pattern */}
+                      <div className="absolute inset-0 opacity-8">
                         <div className="h-full w-full flex items-center justify-center">
-                          <span className="text-squid-green text-9xl animate-squid-pulse">◯</span>
+                          <span className="text-squid-gold text-8xl animate-squid-pulse">◯</span>
                         </div>
+                        {/* Floating mini symbols */}
+                        <div className="absolute top-4 left-4 text-squid-gold text-xs animate-float">◯</div>
+                        <div className="absolute top-6 right-8 text-squid-gold text-xs animate-squid-bounce">◯</div>
+                        <div className="absolute bottom-8 left-6 text-squid-gold text-xs animate-squid-pulse">◯</div>
                       </div>
                       
                       <div className="relative z-10 text-center">
-                        {/* Game Number */}
-                        <div className="inline-flex items-center justify-center w-8 h-8 bg-squid-green text-squid-black rounded-full mb-4 font-bold text-sm">
+                        {/* Enhanced Game Number */}
+                        <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-squid-gold to-squid-orange text-squid-black rounded-full mb-6 font-bold text-lg border-4 border-squid-gold/50 animate-squid-pulse shadow-glow-gold">
                           01
                         </div>
                         
-                        {/* Game Symbol */}
-                        <div className="w-20 h-20 mx-auto mb-6 bg-squid-green/10 border-2 border-squid-green rounded-full flex items-center justify-center group-hover:animate-squid-bounce">
-                          <span className="text-squid-green text-4xl font-bold">◯</span>
+                        {/* Enhanced Game Symbol */}
+                        <div className="w-24 h-24 mx-auto mb-8 bg-gradient-to-br from-squid-gold/20 to-squid-orange/20 border-4 border-squid-gold rounded-full flex items-center justify-center group-hover:animate-squid-bounce shadow-glow-gold backdrop-blur-sm">
+                          <span className="text-squid-gold text-5xl font-bold animate-squid-glow-gold">◯</span>
                         </div>
                         
                         {/* Game Title */}
-                        <h3 className="text-xl font-squid-display text-white mb-3">
+                        <h3 className="text-2xl font-squid-display text-white mb-4 animate-glow-gold">
                           {t('join.joinTelegram')}
                         </h3>
                         
                         {/* Game Description */}
-                        <p className="text-squid-grey-light text-sm mb-6 font-squid">
+                        <p className="text-squid-light-grey text-sm mb-8 font-squid leading-relaxed">
                           Join our official Telegram community for latest updates and exclusive content
                         </p>
                         
-                        {/* Action Button */}
+                        {/* Enhanced Action Button */}
                         <button
                           onClick={() => {
                             window.open('https://t.me/payu_coin', '_blank')
                             handleTaskClick('telegram')
                           }}
-                          className="w-full bg-gradient-to-r from-squid-green to-squid-mint text-squid-black font-squid-display font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-glow-green"
+                          className="w-full bg-gradient-to-r from-squid-gold via-squid-orange to-squid-gold text-squid-black font-squid-display font-bold py-5 px-8 rounded-2xl transition-all duration-500 transform hover:scale-110 hover:shadow-glow-gold hover:-rotate-1 animate-pulse-glow-gold border-2 border-squid-gold/50"
                           data-testid="telegram-task-btn"
                         >
-                          <span className="flex items-center justify-center space-x-2">
+                          <span className="flex items-center justify-center space-x-3">
+                            <span className="text-2xl animate-squid-bounce">◯</span>
                             <span>ENTER GAME</span>
-                            <span className="text-xl">◯</span>
+                            <span className="animate-squid-pulse">⚡</span>
                           </span>
                         </button>
                         
-                        {/* Reward Info */}
-                        <div className="mt-4 text-xs text-squid-green font-squid">
-                          +1 Extra Chance
+                        {/* Enhanced Reward Info */}
+                        <div className="mt-6 flex items-center justify-center space-x-2">
+                          <span className="text-squid-gold animate-squid-pulse">✨</span>
+                          <span className="text-sm text-squid-gold font-squid animate-glow-gold">+1 EXTRA CHANCE</span>
+                          <span className="text-squid-gold animate-squid-pulse">✨</span>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  {/* Game 2: X Triangle */}
-                  <div className="group relative">
-                    <div className="absolute -inset-4 bg-gradient-to-r from-squid-blue via-squid-navy to-squid-blue opacity-20 blur-2xl group-hover:opacity-40 transition-all duration-700 animate-squid-pulse" style={{animationDelay: '0.5s'}}></div>
+                  {/* Task 2: X Triangle - Unlocked after Telegram */}
+                  <div className={`group relative transition-all duration-1000 ${completedTasks.includes('telegram') ? '' : 'opacity-40 pointer-events-none'}`}>
+                    <div className={`absolute -inset-6 bg-gradient-to-r from-squid-ice-blue via-squid-light-blue to-squid-ice-blue blur-2xl transition-all duration-1000 ${completedTasks.includes('telegram') ? 'opacity-30 group-hover:opacity-60 animate-squid-glow-blue' : 'opacity-10'}`}></div>
                     
-                    <div className="relative bg-squid-black/90 border-2 border-squid-blue/50 rounded-2xl p-8 backdrop-blur-xl overflow-hidden transform transition-all duration-500 group-hover:scale-105 group-hover:border-squid-blue">
+                    <div className={`relative bg-squid-black/95 rounded-3xl p-8 backdrop-blur-xl overflow-hidden transform transition-all duration-700 ${completedTasks.includes('telegram') ? 'border-3 border-squid-ice-blue/60 group-hover:scale-110 group-hover:-rotate-1 group-hover:border-squid-ice-blue animate-squid-glow-blue' : 'border-2 border-squid-grey/30'}`}>
                       
-                      {/* Card Background Pattern */}
-                      <div className="absolute inset-0 opacity-5">
-                        <div className="h-full w-full flex items-center justify-center">
-                          <span className="text-squid-blue text-9xl animate-squid-bounce">△</span>
+                      {/* Lock overlay for disabled state */}
+                      {!completedTasks.includes('telegram') && (
+                        <div className="absolute inset-0 bg-squid-black/60 backdrop-blur-sm flex items-center justify-center z-20 rounded-3xl">
+                          <div className="text-center">
+                            <div className="text-6xl mb-4 animate-squid-pulse">🔒</div>
+                            <p className="text-squid-grey font-squid text-sm">Complete Telegram Task First</p>
+                          </div>
                         </div>
+                      )}
+                      
+                      {/* Enhanced Background Pattern */}
+                      <div className="absolute inset-0 opacity-8">
+                        <div className="h-full w-full flex items-center justify-center">
+                          <span className="text-squid-ice-blue text-8xl animate-squid-bounce">△</span>
+                        </div>
+                        <div className="absolute top-4 left-4 text-squid-ice-blue text-xs animate-float">△</div>
+                        <div className="absolute top-6 right-8 text-squid-ice-blue text-xs animate-squid-bounce">△</div>
+                        <div className="absolute bottom-8 left-6 text-squid-ice-blue text-xs animate-squid-pulse">△</div>
                       </div>
                       
                       <div className="relative z-10 text-center">
-                        {/* Game Number */}
-                        <div className="inline-flex items-center justify-center w-8 h-8 bg-squid-blue text-white rounded-full mb-4 font-bold text-sm">
+                        {/* Enhanced Game Number */}
+                        <div className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-squid-ice-blue to-squid-light-blue text-white rounded-full mb-6 font-bold text-lg border-4 shadow-glow-ice-blue ${completedTasks.includes('telegram') ? 'border-squid-ice-blue/50 animate-squid-pulse' : 'border-squid-grey/30'}`}>
                           02
                         </div>
                         
-                        {/* Game Symbol */}
-                        <div className="w-20 h-20 mx-auto mb-6 bg-squid-blue/10 border-2 border-squid-blue flex items-center justify-center group-hover:animate-squid-bounce" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}>
-                          <span className="text-squid-blue text-3xl font-bold">△</span>
+                        {/* Enhanced Game Symbol */}
+                        <div className={`w-24 h-24 mx-auto mb-8 bg-gradient-to-br from-squid-ice-blue/20 to-squid-light-blue/20 border-4 flex items-center justify-center shadow-glow-ice-blue backdrop-blur-sm ${completedTasks.includes('telegram') ? 'border-squid-ice-blue group-hover:animate-squid-bounce' : 'border-squid-grey/30'}`} style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}>
+                          <span className={`text-5xl font-bold ${completedTasks.includes('telegram') ? 'text-squid-ice-blue animate-squid-glow-blue' : 'text-squid-grey'}`}>△</span>
                         </div>
                         
                         {/* Game Title */}
-                        <h3 className="text-xl font-squid-display text-white mb-3">
+                        <h3 className={`text-2xl font-squid-display mb-4 ${completedTasks.includes('telegram') ? 'text-white animate-glow-blue' : 'text-squid-grey'}`}>
                           {t('join.retweetX')}
                         </h3>
                         
                         {/* Game Description */}
-                        <p className="text-squid-grey-light text-sm mb-6 font-squid">
+                        <p className={`text-sm mb-8 font-squid leading-relaxed ${completedTasks.includes('telegram') ? 'text-squid-light-grey' : 'text-squid-grey'}`}>
                           Retweet our announcement and spread the word about PAYU Draw
                         </p>
                         
-                        {/* Action Button */}
+                        {/* Enhanced Action Button */}
                         <button
                           onClick={() => {
-                            window.open('https://x.com/payu_coin', '_blank')
-                            handleTaskClick('x')
+                            if (completedTasks.includes('telegram')) {
+                              window.open('https://x.com/payu_coin', '_blank')
+                              handleTaskClick('x')
+                            }
                           }}
-                          className="w-full bg-gradient-to-r from-squid-blue to-squid-navy text-white font-squid-display font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-glow-blue"
+                          disabled={!completedTasks.includes('telegram')}
+                          className={`w-full font-squid-display font-bold py-5 px-8 rounded-2xl transition-all duration-500 transform border-2 ${
+                            completedTasks.includes('telegram')
+                              ? 'bg-gradient-to-r from-squid-ice-blue via-squid-light-blue to-squid-ice-blue text-white hover:scale-110 hover:shadow-glow-ice-blue hover:rotate-1 animate-pulse-glow-blue border-squid-ice-blue/50'
+                              : 'bg-squid-grey/20 text-squid-grey border-squid-grey/30 cursor-not-allowed'
+                          }`}
                           data-testid="x-task-btn"
                         >
-                          <span className="flex items-center justify-center space-x-2">
-                            <span>ENTER GAME</span>
-                            <span className="text-xl">△</span>
+                          <span className="flex items-center justify-center space-x-3">
+                            <span className="text-2xl animate-squid-bounce">△</span>
+                            <span>{completedTasks.includes('telegram') ? 'ENTER GAME' : 'LOCKED'}</span>
+                            <span className="animate-squid-pulse">{completedTasks.includes('telegram') ? '⚡' : '🔒'}</span>
                           </span>
                         </button>
                         
-                        {/* Reward Info */}
-                        <div className="mt-4 text-xs text-squid-blue font-squid">
-                          +1 Extra Chance
+                        {/* Enhanced Reward Info */}
+                        <div className="mt-6 flex items-center justify-center space-x-2">
+                          <span className={completedTasks.includes('telegram') ? 'text-squid-ice-blue animate-squid-pulse' : 'text-squid-grey'}>✨</span>
+                          <span className={`text-sm font-squid ${completedTasks.includes('telegram') ? 'text-squid-ice-blue animate-glow-blue' : 'text-squid-grey'}`}>+1 EXTRA CHANCE</span>
+                          <span className={completedTasks.includes('telegram') ? 'text-squid-ice-blue animate-squid-pulse' : 'text-squid-grey'}>✨</span>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  {/* Game 3: Instagram Square */}
-                  <div className="group relative">
-                    <div className="absolute -inset-4 bg-gradient-to-r from-squid-red via-squid-pink to-squid-red opacity-20 blur-2xl group-hover:opacity-40 transition-all duration-700 animate-squid-pulse" style={{animationDelay: '1s'}}></div>
+                  {/* Task 3: Instagram Square - Unlocked after X */}
+                  <div className={`group relative transition-all duration-1000 ${completedTasks.includes('x') && completedTasks.includes('telegram') ? '' : 'opacity-40 pointer-events-none'}`}>
+                    <div className={`absolute -inset-6 bg-gradient-to-r from-squid-pink via-squid-light-pink to-squid-pink blur-2xl transition-all duration-1000 ${completedTasks.includes('x') && completedTasks.includes('telegram') ? 'opacity-30 group-hover:opacity-60 animate-squid-glow-pink' : 'opacity-10'}`}></div>
                     
-                    <div className="relative bg-squid-black/90 border-2 border-squid-red/50 rounded-2xl p-8 backdrop-blur-xl overflow-hidden transform transition-all duration-500 group-hover:scale-105 group-hover:border-squid-red">
+                    <div className={`relative bg-squid-black/95 rounded-3xl p-8 backdrop-blur-xl overflow-hidden transform transition-all duration-700 ${completedTasks.includes('x') && completedTasks.includes('telegram') ? 'border-3 border-squid-pink/60 group-hover:scale-110 group-hover:rotate-1 group-hover:border-squid-pink animate-squid-glow-pink' : 'border-2 border-squid-grey/30'}`}>
                       
-                      {/* Card Background Pattern */}
-                      <div className="absolute inset-0 opacity-5">
-                        <div className="h-full w-full flex items-center justify-center">
-                          <span className="text-squid-red text-9xl animate-float">⬜</span>
+                      {/* Lock overlay for disabled state */}
+                      {(!completedTasks.includes('x') || !completedTasks.includes('telegram')) && (
+                        <div className="absolute inset-0 bg-squid-black/60 backdrop-blur-sm flex items-center justify-center z-20 rounded-3xl">
+                          <div className="text-center">
+                            <div className="text-6xl mb-4 animate-squid-pulse">🔒</div>
+                            <p className="text-squid-grey font-squid text-sm">Complete Previous Tasks First</p>
+                          </div>
                         </div>
+                      )}
+                      
+                      {/* Enhanced Background Pattern */}
+                      <div className="absolute inset-0 opacity-8">
+                        <div className="h-full w-full flex items-center justify-center">
+                          <span className="text-squid-pink text-8xl animate-float">⬜</span>
+                        </div>
+                        <div className="absolute top-4 left-4 text-squid-pink text-xs animate-float">⬜</div>
+                        <div className="absolute top-6 right-8 text-squid-pink text-xs animate-squid-bounce">⬜</div>
+                        <div className="absolute bottom-8 left-6 text-squid-pink text-xs animate-squid-pulse">⬜</div>
                       </div>
                       
                       <div className="relative z-10 text-center">
-                        {/* Game Number */}
-                        <div className="inline-flex items-center justify-center w-8 h-8 bg-squid-red text-white rounded-full mb-4 font-bold text-sm">
+                        {/* Enhanced Game Number */}
+                        <div className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-squid-pink to-squid-light-pink text-white rounded-full mb-6 font-bold text-lg border-4 shadow-glow-pink ${completedTasks.includes('x') && completedTasks.includes('telegram') ? 'border-squid-pink/50 animate-squid-pulse' : 'border-squid-grey/30'}`}>
                           03
                         </div>
                         
-                        {/* Game Symbol */}
-                        <div className="w-20 h-20 mx-auto mb-6 bg-squid-red/10 border-2 border-squid-red rounded-lg flex items-center justify-center group-hover:animate-squid-bounce">
-                          <span className="text-squid-red text-4xl font-bold">⬜</span>
+                        {/* Enhanced Game Symbol */}
+                        <div className={`w-24 h-24 mx-auto mb-8 bg-gradient-to-br from-squid-pink/20 to-squid-light-pink/20 border-4 rounded-2xl flex items-center justify-center shadow-glow-pink backdrop-blur-sm ${completedTasks.includes('x') && completedTasks.includes('telegram') ? 'border-squid-pink group-hover:animate-squid-bounce' : 'border-squid-grey/30'}`}>
+                          <span className={`text-5xl font-bold ${completedTasks.includes('x') && completedTasks.includes('telegram') ? 'text-squid-pink animate-squid-glow-pink' : 'text-squid-grey'}`}>⬜</span>
                         </div>
                         
                         {/* Game Title */}
-                        <h3 className="text-xl font-squid-display text-white mb-3">
+                        <h3 className={`text-2xl font-squid-display mb-4 ${completedTasks.includes('x') && completedTasks.includes('telegram') ? 'text-white animate-glow-pink' : 'text-squid-grey'}`}>
                           {t('join.shareInstagram')}
                         </h3>
                         
                         {/* Game Description */}
-                        <p className="text-squid-grey-light text-sm mb-6 font-squid">
+                        <p className={`text-sm mb-8 font-squid leading-relaxed ${completedTasks.includes('x') && completedTasks.includes('telegram') ? 'text-squid-light-grey' : 'text-squid-grey'}`}>
                           Share our story and tag your friends in this epic crypto adventure
                         </p>
                         
-                        {/* Action Button */}
+                        {/* Enhanced Action Button */}
                         <button
                           onClick={() => {
-                            window.open('https://www.instagram.com/payu.coin/', '_blank')
-                            handleTaskClick('instagram_story')
+                            if (completedTasks.includes('x') && completedTasks.includes('telegram')) {
+                              window.open('https://www.instagram.com/payu.coin/', '_blank')
+                              handleTaskClick('instagram_story')
+                            }
                           }}
-                          className="w-full bg-gradient-to-r from-squid-red to-squid-pink text-white font-squid-display font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-glow-red"
+                          disabled={!completedTasks.includes('x') || !completedTasks.includes('telegram')}
+                          className={`w-full font-squid-display font-bold py-5 px-8 rounded-2xl transition-all duration-500 transform border-2 ${
+                            completedTasks.includes('x') && completedTasks.includes('telegram')
+                              ? 'bg-gradient-to-r from-squid-pink via-squid-light-pink to-squid-pink text-white hover:scale-110 hover:shadow-glow-pink hover:-rotate-1 animate-pulse-glow-pink border-squid-pink/50'
+                              : 'bg-squid-grey/20 text-squid-grey border-squid-grey/30 cursor-not-allowed'
+                          }`}
                           data-testid="instagram-task-btn"
                         >
-                          <span className="flex items-center justify-center space-x-2">
-                            <span>ENTER GAME</span>
-                            <span className="text-xl">⬜</span>
+                          <span className="flex items-center justify-center space-x-3">
+                            <span className="text-2xl animate-squid-bounce">⬜</span>
+                            <span>{completedTasks.includes('x') && completedTasks.includes('telegram') ? 'ENTER GAME' : 'LOCKED'}</span>
+                            <span className="animate-squid-pulse">{completedTasks.includes('x') && completedTasks.includes('telegram') ? '⚡' : '🔒'}</span>
                           </span>
                         </button>
                         
-                        {/* Reward Info */}
-                        <div className="mt-4 text-xs text-squid-red font-squid">
-                          +1 Extra Chance
+                        {/* Enhanced Reward Info */}
+                        <div className="mt-6 flex items-center justify-center space-x-2">
+                          <span className={completedTasks.includes('x') && completedTasks.includes('telegram') ? 'text-squid-pink animate-squid-pulse' : 'text-squid-grey'}>✨</span>
+                          <span className={`text-sm font-squid ${completedTasks.includes('x') && completedTasks.includes('telegram') ? 'text-squid-pink animate-glow-pink' : 'text-squid-grey'}`}>+1 EXTRA CHANCE</span>
+                          <span className={completedTasks.includes('x') && completedTasks.includes('telegram') ? 'text-squid-pink animate-squid-pulse' : 'text-squid-grey'}>✨</span>
                         </div>
                       </div>
                     </div>
