@@ -294,7 +294,7 @@ const Admin = () => {
               </Button>
             </div>
             <CardDescription className="text-squid-grey">
-              User task completion history
+              {t('admin.taskCompletionsDesc')}
             </CardDescription>
           </CardHeader>
           <CardContent>
