@@ -147,7 +147,7 @@ const Join = () => {
         platform,
         handle
       })
-      toast.success(`${platform} task completed!`)
+      toast.success(t('messages.taskCompleted', { platform }))
     } catch (error) {
       console.error('Failed to log task:', error)
     }
