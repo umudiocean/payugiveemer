@@ -26,30 +26,24 @@ const LanguageSelector = ({ className = '' }) => {
     console.log('🌐 Changing language to:', languageCode)
     
     try {
-      // Change language in i18n
-      await i18n.changeLanguage(languageCode)
-      
-      // Update local state to force re-render
-      setCurrentLang(languageCode)
-      
       // Update document direction for RTL languages
       const rtlLanguages = ['ar']
       document.documentElement.dir = rtlLanguages.includes(languageCode) ? 'rtl' : 'ltr'
       document.documentElement.lang = languageCode
       
-      // Store language preference
-      localStorage.setItem('preferred-language', languageCode)
+      // Store language preference FIRST (before changeLanguage)
       localStorage.setItem('i18nextLng', languageCode)
+      
+      // Change language in i18n (this will trigger re-render)
+      await i18n.changeLanguage(languageCode)
+      
+      // Update local state
+      setCurrentLang(languageCode)
       
       // Close dropdown
       setIsOpen(false)
       
       console.log('✅ Language changed successfully to:', languageCode)
-      
-      // Force a small delay to ensure state updates propagate
-      setTimeout(() => {
-        window.dispatchEvent(new Event('languageChanged'))
-      }, 100)
       
     } catch (error) {
       console.error('❌ Error changing language:', error)
