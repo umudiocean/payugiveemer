@@ -3,22 +3,48 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="description" content="A product of emergent.sh" />
-        <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-        <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-        <title>Emergent | Fullstack App</title>
+        <meta name="theme-color" content="#FF3366" />
+        <meta name="description" content="Payu Squid Game - Cryptocurrency Lottery" />
+        
+        <!-- Squid Game Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        
+        <!-- KCC-Ganpan Font (Squid Game Style) -->
+        <link href="https://fonts.cdnfonts.com/css/kcc-ganpan" rel="stylesheet">
+        
+        <!-- Fallback fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        
+        <style>
+        /* Squid Game Theme CSS Variables */
+        :root {
+          /* Original Squid Game Colors */
+          --squid-red: #FF3366;
+          --squid-pink: #FF467E;  
+          --squid-green: #00D084;
+          --squid-mint: #1DD1A1;
+          --squid-blue: #3742FA;
+          --squid-navy: #2C2C54;
+          --squid-black: #0D0D0D;
+          --squid-white: #FFFFFF;
+          --squid-grey-dark: #2C2C2C;
+          --squid-grey-light: #A4A4A4;
+          
+          /* Squid Game Typography */
+          --font-squid: 'KCC-Ganpan', 'Noto Sans KR', 'Inter', sans-serif;
+          --font-display: 'KCC-Ganpan', 'Noto Sans KR', sans-serif;
+          --font-body: 'Inter', 'Noto Sans KR', sans-serif;
+        }
+        
+        body {
+          font-family: var(--font-body);
+          background-color: var(--squid-black);
+        }
+        </style>
+        
+        <title>Payu Squid Game - Cryptocurrency Lottery</title>
     </head>
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
