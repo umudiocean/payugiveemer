@@ -82,9 +82,16 @@ module.exports = {
                         'satoshi': ['Satoshi', 'Inter', 'system-ui', 'sans-serif'],
                 },
                 boxShadow: {
-                        'glow': '0 0 20px rgba(255, 42, 109, 0.3)',
-                        'glow-teal': '0 0 20px rgba(43, 182, 115, 0.3)',
-                        'glow-purple': '0 0 20px rgba(106, 0, 255, 0.3)',
+                        'glow': '0 0 20px rgba(255, 51, 102, 0.4)',
+                        'glow-red': '0 0 20px rgba(255, 51, 102, 0.4)',
+                        'glow-pink': '0 0 20px rgba(255, 70, 126, 0.4)',
+                        'glow-green': '0 0 20px rgba(0, 208, 132, 0.4)',
+                        'glow-mint': '0 0 20px rgba(29, 209, 161, 0.4)',
+                        'glow-blue': '0 0 20px rgba(55, 66, 250, 0.4)',
+                        'glow-navy': '0 0 20px rgba(44, 44, 84, 0.4)',
+                        // Backward compatibility
+                        'glow-teal': '0 0 20px rgba(0, 208, 132, 0.4)',
+                        'glow-purple': '0 0 20px rgba(55, 66, 250, 0.4)',
                 },
                 keyframes: {
                         'accordion-down': {
