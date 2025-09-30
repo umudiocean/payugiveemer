@@ -38,7 +38,6 @@ i18n
     supportedLngs,
     fallbackLng: 'en',
     debug: false,
-    nonExplicitSupportedLngs: true,
     load: 'languageOnly',
     
     interpolation: {
