@@ -1,86 +1,86 @@
 {
   "total_tests": 13,
-  "passed_tests": 11,
-  "failed_tests": 2,
-  "success_rate": 84.61538461538461,
+  "passed_tests": 13,
+  "failed_tests": 0,
+  "success_rate": 100.0,
   "test_details": [
     {
       "test": "API Root Endpoint",
       "success": true,
       "details": "",
-      "timestamp": "2025-09-30T21:32:52.252492"
+      "timestamp": "2025-09-30T21:33:27.899810"
     },
     {
       "test": "Admin Registrations Endpoint",
       "success": true,
-      "details": "Found 0 registrations",
-      "timestamp": "2025-09-30T21:32:52.294811"
+      "details": "Found 2 registrations",
+      "timestamp": "2025-09-30T21:33:27.938854"
     },
     {
       "test": "Admin Tasks Endpoint",
       "success": true,
-      "details": "Found 0 tasks",
-      "timestamp": "2025-09-30T21:32:52.370248"
+      "details": "Found 5 tasks",
+      "timestamp": "2025-09-30T21:33:28.122767"
     },
     {
       "test": "Status POST Endpoint",
       "success": true,
       "details": "",
-      "timestamp": "2025-09-30T21:32:52.415002"
+      "timestamp": "2025-09-30T21:33:28.156072"
     },
     {
       "test": "Status GET Endpoint",
       "success": true,
-      "details": "Found 2 status checks",
-      "timestamp": "2025-09-30T21:32:52.452464"
+      "details": "Found 3 status checks",
+      "timestamp": "2025-09-30T21:33:28.190723"
     },
     {
-      "test": "Save Ticket Endpoint",
+      "test": "Save Ticket Endpoint (Duplicate)",
       "success": true,
-      "details": "",
-      "timestamp": "2025-09-30T21:32:52.499118"
+      "details": "Duplicate registration handled correctly",
+      "timestamp": "2025-09-30T21:33:28.224723"
     },
     {
       "test": "Registration Flow",
-      "success": false,
-      "details": "Retrieve failed with status: 500",
-      "timestamp": "2025-09-30T21:32:52.564507"
+      "success": true,
+      "details": "Complete save/retrieve flow working",
+      "timestamp": "2025-09-30T21:33:28.296090"
     },
     {
       "test": "Registration Endpoint (No Data)",
       "success": true,
       "details": "",
-      "timestamp": "2025-09-30T21:32:52.596506"
+      "timestamp": "2025-09-30T21:33:28.329626"
     },
     {
       "test": "Task Click Endpoint",
       "success": true,
       "details": "",
-      "timestamp": "2025-09-30T21:32:52.638388"
+      "timestamp": "2025-09-30T21:33:28.362347"
     },
     {
       "test": "Task Flow",
-      "success": false,
-      "details": "Status code: 500",
-      "timestamp": "2025-09-30T21:32:52.783057"
+      "success": true,
+      "details": "Task logging and retrieval working - 6 tasks found",
+      "timestamp": "2025-09-30T21:33:28.490924"
     },
     {
       "test": "Task History Endpoint (Empty)",
       "success": true,
       "details": "Found 0 tasks",
-      "timestamp": "2025-09-30T21:32:52.817746"
+      "timestamp": "2025-09-30T21:33:28.523937"
     },
     {
       "test": "Error Handling (Invalid Registration)",
       "success": true,
       "details": "Properly rejected invalid data with status 422",
-      "timestamp": "2025-09-30T21:32:52.850749"
+      "timestamp": "2025-09-30T21:33:28.556710"
     },
     {
       "test": "Error Handling (Invalid Task)",
       "success": true,
       "details": "Handled invalid task data with status 200",
-      "timestamp": "2025-09-30T21:32:52.884238"
+      "timestamp": "2025-09-30T21:33:28.625987"
     }
   ]
 }
