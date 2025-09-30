@@ -4,6 +4,7 @@ import { Download, Users, Activity, Shield } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card'
 import { Button } from '../components/ui/button'
 import { Badge } from '../components/ui/badge'
+import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
 import axios from 'axios'
 
