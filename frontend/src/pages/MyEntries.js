@@ -133,7 +133,7 @@ const MyEntries = () => {
                         data-testid="copy-ticket-btn"
                       >
                         <Copy className="w-4 h-4 mr-2" />
-                        Copy Ticket
+                        {t('myEntries.copyTicket')}
                       </Button>
                     </div>
 
