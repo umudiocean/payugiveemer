@@ -217,10 +217,10 @@ const MyEntries = () => {
               <CardHeader>
                 <CardTitle className="text-white flex items-center space-x-2">
                   <Calendar className="w-5 h-5" />
-                  <span>Task History</span>
+                  <span>{t('myEntries.taskHistory')}</span>
                 </CardTitle>
                 <CardDescription className="text-squid-grey">
-                  Your completed bonus tasks
+                  {t('myEntries.taskHistoryDesc')}
                 </CardDescription>
               </CardHeader>
               <CardContent>
