@@ -149,6 +149,15 @@ const Join = () => {
         platform,
         handle
       })
+      
+      // Add platform to completed tasks if not already present
+      setCompletedTasks(prev => {
+        if (!prev.includes(platform)) {
+          return [...prev, platform]
+        }
+        return prev
+      })
+      
       toast.success(t('messages.taskCompleted', { platform }))
     } catch (error) {
       console.error('Failed to log task:', error)
