@@ -186,9 +186,9 @@ const MyEntries = () => {
                           <div className="text-white font-medium font-mono">{formatAddress(address)}</div>
                         </div>
                         <div>
-                          <div className="text-sm text-squid-grey mb-1">Status</div>
+                          <div className="text-sm text-squid-grey mb-1">{t('myEntries.status')}</div>
                           <Badge className="bg-squid-success/20 text-squid-success border-squid-success/30">
-                            Registered
+                            {t('myEntries.registered')}
                           </Badge>
                         </div>
                       </div>
