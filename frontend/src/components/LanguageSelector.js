@@ -1,37 +1,49 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Globe, ChevronDown, Check } from 'lucide-react'
 import { Button } from './ui/button'
-import { LANGUAGE_NAMES, RTL_LANGUAGES } from '../i18n'
 
 const LanguageSelector = ({ className = '' }) => {
   const { i18n } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
 
   const languages = [
-    { code: 'en', name: 'English', flag: '🇺🇸' },
-    { code: 'tr', name: 'Türkçe', flag: '🇹🇷' },
-    { code: 'es', name: 'Español', flag: '🇪🇸' },
-    { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
-    { code: 'fr', name: 'Français', flag: '🇫🇷' },
-    { code: 'ru', name: 'Русский', flag: '🇷🇺' },
-    { code: 'ar', name: 'العربية', flag: '🇸🇦' },
-    { code: 'zh', name: '中文', flag: '🇨🇳' },
-    { code: 'pt', name: 'Português', flag: '🇧🇷' },
-    { code: 'id', name: 'Bahasa Indonesia', flag: '🇮🇩' }
+    { code: 'en', name: 'ENGLISH', shortName: 'EN', flag: '🇺🇸' },
+    { code: 'tr', name: 'TÜRKÇE', shortName: 'TR', flag: '🇹🇷' },
+    { code: 'es', name: 'ESPAÑOL', shortName: 'ES', flag: '🇪🇸' },
+    { code: 'de', name: 'DEUTSCH', shortName: 'DE', flag: '🇩🇪' },
+    { code: 'fr', name: 'FRANÇAIS', shortName: 'FR', flag: '🇫🇷' },
+    { code: 'ru', name: 'РУССКИЙ', shortName: 'RU', flag: '🇷🇺' },
+    { code: 'ar', name: 'العربية', shortName: 'AR', flag: '🇸🇦' },
+    { code: 'zh', name: '中文', shortName: 'ZH', flag: '🇨🇳' },
+    { code: 'pt', name: 'PORTUGUÊS', shortName: 'PT', flag: '🇧🇷' },
+    { code: 'id', name: 'BAHASA INDONESIA', shortName: 'ID', flag: '🇮🇩' }
   ]
 
   const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0]
 
   const handleLanguageChange = (languageCode) => {
+    console.log('Changing language to:', languageCode)
     i18n.changeLanguage(languageCode)
     
     // Update document direction for RTL languages
-    document.documentElement.dir = RTL_LANGUAGES.includes(languageCode) ? 'rtl' : 'ltr'
+    const rtlLanguages = ['ar']
+    document.documentElement.dir = rtlLanguages.includes(languageCode) ? 'rtl' : 'ltr'
     document.documentElement.lang = languageCode
+    
+    // Store language preference
+    localStorage.setItem('preferred-language', languageCode)
     
     setIsOpen(false)
   }
+
+  // Load saved language on component mount
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('preferred-language')
+    if (savedLanguage && savedLanguage !== i18n.language) {
+      i18n.changeLanguage(savedLanguage)
+    }
+  }, [])
 
   return (
     <div className={`relative ${className}`}>
