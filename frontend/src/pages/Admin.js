@@ -191,7 +191,7 @@ const Admin = () => {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-squid-grey text-sm">Task Completions</p>
+                  <p className="text-squid-grey text-sm">{t('admin.taskCompletions')}</p>
                   <p className="text-3xl font-bold text-white">{stats.totalTasks}</p>
                 </div>
                 <Activity className="w-8 h-8 text-squid-teal" />
