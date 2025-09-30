@@ -96,6 +96,18 @@ module.exports = {
                         'pulse-glow': {
                                 '0%': { boxShadow: '0 0 20px rgba(255, 42, 109, 0.3)' },
                                 '100%': { boxShadow: '0 0 30px rgba(255, 42, 109, 0.6)' },
+                        },
+                        'fade-in': {
+                                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                                '100%': { opacity: '1', transform: 'translateY(0px)' },
+                        },
+                        'glow': {
+                                '0%, 100%': { textShadow: '0 0 20px rgba(255, 42, 109, 0.5)' },
+                                '50%': { textShadow: '0 0 30px rgba(255, 42, 109, 0.8), 0 0 40px rgba(43, 182, 115, 0.3)' },
+                        },
+                        'squid-pulse': {
+                                '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+                                '50%': { transform: 'scale(1.05)', opacity: '0.8' },
                         }
                 },
                 animation: {
