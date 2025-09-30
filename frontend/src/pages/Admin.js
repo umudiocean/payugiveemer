@@ -305,7 +305,7 @@ const Admin = () => {
               </div>
             ) : tasks.length === 0 ? (
               <div className="text-center py-12">
-                <p className="text-squid-grey">No task completions found</p>
+                <p className="text-squid-grey">{t('admin.noTasksFound')}</p>
               </div>
             ) : (
               <div className="overflow-x-auto">
