@@ -46,7 +46,7 @@ const Admin = () => {
       setIsAuthenticated(true)
       toast.success(t('messages.authSuccess'))
     } catch (error) {
-      toast.error('Authentication failed')
+      toast.error(t('messages.authFailed'))
     }
   }
 
