@@ -94,9 +94,9 @@ const MyEntries = () => {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-white mb-4">My Entries</h1>
+          <h1 className="text-4xl font-bold text-white mb-4">{t('myEntries.title')}</h1>
           <p className="text-squid-grey text-lg">
-            View your lottery registration and task completion history
+            {t('myEntries.subtitle')}
           </p>
         </div>
 
