@@ -253,29 +253,55 @@ const Join = () => {
             <CardContent>
               {ticket ? (
                 <div className="space-y-6">
-                  <div className="bg-gradient-to-br from-squid-pink/10 to-squid-purple/10 border border-squid-pink/30 rounded-2xl p-6 text-center">
-                    <div className="text-sm text-squid-grey mb-2">{t('join.luckyTicket')}</div>
-                    <div className="text-3xl font-bold text-white mb-4 font-mono">{ticket}</div>
-                    <div className="flex space-x-3">
-                      <Button
-                        onClick={handleCopyTicket}
-                        variant="outline"
-                        size="sm"
-                        className="flex-1 border-squid-teal text-squid-teal hover:bg-squid-teal hover:text-squid-dark"
-                        data-testid="copy-ticket-btn"
-                      >
-                        <Copy className="w-4 h-4 mr-2" />
-                        {t('join.copy')}
-                      </Button>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="flex-1 border-squid-purple text-squid-purple hover:bg-squid-purple hover:text-white"
-                        data-testid="download-ticket-btn"
-                      >
-                        <Download className="w-4 h-4 mr-2" />
-                        {t('join.downloadPng')}
-                      </Button>
+                  <div className="relative bg-gradient-to-br from-squid-pink/20 to-squid-purple/20 border-2 border-squid-pink/50 rounded-2xl p-8 text-center overflow-hidden">
+                    {/* Animated Background Pattern */}
+                    <div className="absolute inset-0 opacity-10">
+                      <div className="grid grid-cols-6 gap-4 h-full items-center justify-items-center">
+                        <div className="text-squid-pink animate-pulse">◯</div>
+                        <div className="text-squid-teal animate-pulse" style={{animationDelay: '0.2s'}}>△</div>
+                        <div className="text-squid-purple animate-pulse" style={{animationDelay: '0.4s'}}>⬜</div>
+                        <div className="text-squid-purple animate-pulse" style={{animationDelay: '0.6s'}}>⬜</div>
+                        <div className="text-squid-teal animate-pulse" style={{animationDelay: '0.8s'}}>△</div>
+                        <div className="text-squid-pink animate-pulse" style={{animationDelay: '1s'}}>◯</div>
+                      </div>
+                    </div>
+                    
+                    <div className="relative z-10">
+                      <div className="flex items-center justify-center mb-4">
+                        <div className="text-squid-pink text-lg animate-pulse mr-2">◯</div>
+                        <div className="text-sm text-squid-grey animate-fade-in">{t('join.luckyTicket')}</div>
+                        <div className="text-squid-teal text-lg animate-pulse ml-2">△</div>
+                      </div>
+                      
+                      <div className="relative">
+                        <div className="text-4xl font-bold text-white mb-6 font-mono animate-glow bg-gradient-to-r from-squid-pink to-squid-purple bg-clip-text text-transparent">
+                          {ticket}
+                        </div>
+                        <div className="absolute -top-2 -left-4 text-squid-purple text-sm animate-bounce">⬜</div>
+                        <div className="absolute -top-2 -right-4 text-squid-purple text-sm animate-bounce" style={{animationDelay: '0.5s'}}>⬜</div>
+                      </div>
+                      
+                      <div className="flex space-x-4 justify-center">
+                        <Button
+                          onClick={handleCopyTicket}
+                          variant="outline"
+                          size="sm"
+                          className="border-squid-teal text-squid-teal hover:bg-squid-teal hover:text-black transition-all duration-300 transform hover:scale-105"
+                          data-testid="copy-ticket-btn"
+                        >
+                          <Copy className="w-4 h-4 mr-2" />
+                          {t('join.copy')}
+                        </Button>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="border-squid-purple text-squid-purple hover:bg-squid-purple hover:text-white transition-all duration-300 transform hover:scale-105"
+                          data-testid="download-ticket-btn"
+                        >
+                          <Download className="w-4 h-4 mr-2" />
+                          {t('join.downloadPng')}
+                        </Button>
+                      </div>
                     </div>
                   </div>
 
