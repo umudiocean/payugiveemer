@@ -154,7 +154,7 @@ const Admin = () => {
               onClick={handleAuthenticate}
               className="bg-gradient-to-r from-squid-teal to-squid-purple"
             >
-              Authenticate
+              {t('admin.authenticate')}
             </Button>
           </CardContent>
         </Card>
