@@ -44,7 +44,7 @@ const Admin = () => {
       const message = `Admin authentication for PAYU Draw\nTimestamp: ${Date.now()}`
       await signMessage({ message })
       setIsAuthenticated(true)
-      toast.success('Authentication successful!')
+      toast.success(t('messages.authSuccess'))
     } catch (error) {
       toast.error('Authentication failed')
     }
