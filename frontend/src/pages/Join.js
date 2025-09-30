@@ -134,9 +134,9 @@ const Join = () => {
 
   const handleCopyTicket = async () => {
     if (await copyToClipboard(ticket)) {
-      toast.success('Ticket copied to clipboard!')
+      toast.success(t('messages.ticketCopied'))
     } else {
-      toast.error('Failed to copy ticket')
+      toast.error(t('messages.ticketCopyFailed'))
     }
   }
 
