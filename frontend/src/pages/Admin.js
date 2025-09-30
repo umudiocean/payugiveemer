@@ -203,7 +203,7 @@ const Admin = () => {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-squid-grey text-sm">PAYU Distributed</p>
+                  <p className="text-squid-grey text-sm">{t('admin.payuDistributed')}</p>
                   <p className="text-3xl font-bold text-white">{(stats.totalRewards / 1000000).toFixed(0)}M</p>
                 </div>
                 <div className="w-8 h-8 bg-squid-purple/20 rounded-lg flex items-center justify-center">
