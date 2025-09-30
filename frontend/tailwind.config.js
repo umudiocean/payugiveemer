@@ -182,8 +182,14 @@ module.exports = {
                         'accordion-up': 'accordion-up 0.2s ease-out',
                         'float': 'float 6s ease-in-out infinite',
                         'pulse-glow': 'pulse-glow 2s ease-in-out infinite alternate',
+                        'pulse-glow-blue': 'pulse-glow-blue 2s ease-in-out infinite alternate',
+                        'pulse-glow-pink': 'pulse-glow-pink 2s ease-in-out infinite alternate',
+                        'pulse-glow-gold': 'pulse-glow-gold 2s ease-in-out infinite alternate',
                         'fade-in': 'fade-in 0.8s ease-out',
                         'glow': 'glow 3s ease-in-out infinite',
+                        'glow-blue': 'glow-blue 3s ease-in-out infinite',
+                        'glow-pink': 'glow-pink 3s ease-in-out infinite',
+                        'glow-gold': 'glow-gold 3s ease-in-out infinite',
                         'squid-pulse': 'squid-pulse 2s ease-in-out infinite',
                 }
         }
