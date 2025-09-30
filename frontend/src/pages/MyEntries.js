@@ -205,7 +205,7 @@ const MyEntries = () => {
                       onClick={() => window.location.href = '/join'}
                       className="bg-gradient-to-r from-squid-pink to-squid-purple hover:from-squid-pink/80 hover:to-squid-purple/80 text-white"
                     >
-                      Join the Draw
+                      {t('myEntries.joinTheDraw')}
                     </Button>
                   </div>
                 )}
