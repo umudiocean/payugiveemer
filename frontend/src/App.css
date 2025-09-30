@@ -2,13 +2,18 @@
 
 /* CSS Variables for shadcn/ui - Official Squid Game Edition */
 :root {
-  /* Authentic Netflix Squid Game Colors */
+  /* Enhanced Squid Game Colors */
   --squid-black: #08050F;
-  --squid-dark-red: #A60C37;
-  --squid-dark-blue: #251D58;
-  --squid-blue: #453397;
-  --squid-dark-purple: #57274A;
   --squid-red: #B82F49;
+  --squid-dark-red: #A60C37;
+  
+  /* High-Contrast Colors for Better Readability */
+  --squid-ice-blue: #00BFFF;
+  --squid-light-blue: #87CEEB;
+  --squid-pink: #FF69B4;
+  --squid-light-pink: #FFB6C1;
+  --squid-gold: #FFD700;
+  --squid-orange: #FFA500;
   --squid-grey: #8A808C;
   --squid-light-grey: #DCD5DC;
   
