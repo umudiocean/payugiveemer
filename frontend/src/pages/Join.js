@@ -194,14 +194,14 @@ const Join = () => {
               ) : (
                 <div>
                   <div className="bg-squid-dark/80 rounded-xl p-6 mb-6">
-                    <h3 className="text-lg font-medium text-white mb-4">Registration Details</h3>
+                    <h3 className="text-lg font-medium text-white mb-4">{t('join.registrationDetails')}</h3>
                     <div className="space-y-3 text-sm">
                       <div className="flex justify-between">
-                        <span className="text-squid-grey">Instant Reward:</span>
+                        <span className="text-squid-grey">{t('join.instantReward')}:</span>
                         <span className="text-squid-teal font-medium">250,000,000 PAYU</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-squid-grey">Network:</span>
+                        <span className="text-squid-grey">{t('join.network')}:</span>
                         <span className="text-white font-medium">BSC Mainnet</span>
                       </div>
                     </div>
