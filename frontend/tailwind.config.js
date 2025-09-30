@@ -79,9 +79,10 @@ module.exports = {
                         }
                 },
                 fontFamily: {
-                        'squid': ['KCC-Ganpan', 'Noto Sans KR', 'Inter', 'sans-serif'],
-                        'squid-display': ['KCC-Ganpan', 'Noto Sans KR', 'sans-serif'],
-                        'squid-body': ['Inter', 'Noto Sans KR', 'sans-serif'],
+                        'squid': ['Bebas Neue', 'Arial', 'sans-serif'],
+                        'squid-display': ['Bebas Neue', 'Arial', 'sans-serif'],
+                        'squid-body': ['Bebas Neue', 'Arial', 'sans-serif'],
+                        'bebas': ['Bebas Neue', 'Arial', 'sans-serif'],
                         'inter': ['Inter', 'system-ui', 'sans-serif'],
                         'satoshi': ['Satoshi', 'Inter', 'system-ui', 'sans-serif'],
                 },
