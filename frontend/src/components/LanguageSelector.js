@@ -109,7 +109,12 @@ const LanguageSelector = ({ className = '' }) => {
                 return (
                   <button
                     key={language.code}
-                    onClick={() => handleLanguageChange(language.code)}
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      e.stopPropagation()
+                      handleLanguageChange(language.code)
+                    }}
                     className={`w-full flex items-center justify-between px-4 py-3.5 rounded-xl transition-all duration-300 mb-2.5 font-squid-display group relative overflow-hidden ${
                       isSelected
                         ? 'bg-gradient-to-r from-squid-ice-blue/25 to-squid-pink/25 text-squid-white border-2 border-squid-ice-blue/70 shadow-[0_0_20px_rgba(0,191,255,0.4)]'
