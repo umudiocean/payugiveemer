@@ -13,6 +13,7 @@ const API = `${BACKEND_URL}/api`
 const ADMIN_WALLET = '0xd9C4b8436d2a235A1f7DB09E680b5928cFdA641a'
 
 const Admin = () => {
+  const { t } = useTranslation()
   const { address, isConnected } = useAccount()
   const { signMessage } = useSignMessage()
   const [isAuthenticated, setIsAuthenticated] = useState(false)
