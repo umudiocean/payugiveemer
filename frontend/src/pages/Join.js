@@ -276,7 +276,7 @@ const Join = () => {
                   <div className="w-24 h-24 bg-squid-grey/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <span className="text-squid-grey text-4xl">🎫</span>
                   </div>
-                  <p className="text-squid-grey">Complete registration to get your ticket</p>
+                  <p className="text-squid-grey">{t('join.completeRegistration')}</p>
                 </div>
               )}
             </CardContent>
