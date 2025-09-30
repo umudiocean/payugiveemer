@@ -10,73 +10,115 @@ const Home = () => {
   
   return (
     <div className="relative">
-      {/* Hero Section */}
+      {/* Squid Game Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
-        {/* Payu Squid Game Background */}
+        
+        {/* Advanced Background */}
         <div className="absolute inset-0 z-0">
           <img 
             src="https://customer-assets.emergentagent.com/job_payu-raffle/artifacts/5vvrh75w_Gemini_Generated_Image_vgopsdvgopsdvgop.png"
             alt="Payu Squid Game Background"
-            className="w-full h-full object-cover opacity-40"
+            className="w-full h-full object-cover opacity-30"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-black"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-squid-black/70 via-squid-black/85 to-squid-black"></div>
+          
+          {/* Animated Grid Overlay */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="grid grid-cols-12 grid-rows-8 h-full w-full">
+              {[...Array(96)].map((_, i) => (
+                <div key={i} className="border border-squid-red/20 flex items-center justify-center">
+                  <span className={`text-xs animate-pulse`} style={{animationDelay: `${i * 0.05}s`}}>
+                    {i % 3 === 0 ? '◯' : i % 3 === 1 ? '△' : '⬜'}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
-          {/* Enhanced Logo/Brand with Squid Game elements */}
-          <div className="mb-8 relative">
+        <div className="relative z-10 max-w-6xl mx-auto text-center">
+          
+          {/* Logo Section with Squid Game Enhancement */}
+          <div className="mb-12 relative">
             <div className="relative inline-block">
-              <img 
-                src="https://customer-assets.emergentagent.com/job_payu-raffle/artifacts/1j2sod6t_image.png"
-                alt="Payu Logo"
-                className="w-32 h-32 mx-auto rounded-3xl shadow-glow mb-4 border-2 border-squid-pink/30 bg-transparent p-2"
-              />
-              {/* Floating shapes around logo */}
-              <Circle className="absolute -top-2 -left-2 w-4 h-4 text-squid-pink animate-float" />
-              <Triangle className="absolute -top-1 -right-3 w-3 h-3 text-squid-teal animate-float" style={{animationDelay: '1s'}} />
-              <Square className="absolute -bottom-2 -right-2 w-4 h-4 text-squid-purple animate-float" style={{animationDelay: '2s'}} />
+              {/* Main Logo Container */}
+              <div className="relative">
+                <div className="absolute -inset-6 bg-gradient-to-r from-squid-red/30 via-squid-pink/30 to-squid-green/30 blur-2xl rounded-full animate-squid-pulse"></div>
+                <img 
+                  src="https://customer-assets.emergentagent.com/job_payu-raffle/artifacts/1j2sod6t_image.png"
+                  alt="Payu Logo"
+                  className="relative w-40 h-40 mx-auto rounded-3xl shadow-glow-red border-4 border-squid-red/50 bg-squid-black/80 backdrop-blur-sm p-3 animate-squid-glow"
+                />
+              </div>
+              
+              {/* Floating Squid Game Symbols */}
+              <div className="absolute -top-6 -left-6 w-10 h-10 squid-circle flex items-center justify-center text-squid-red text-2xl animate-float">◯</div>
+              <div className="absolute -top-4 -right-8 w-8 h-8 squid-triangle flex items-center justify-center text-squid-green text-xl animate-squid-bounce" style={{animationDelay: '1s'}}>△</div>
+              <div className="absolute -bottom-6 -right-6 w-10 h-10 squid-square flex items-center justify-center text-squid-blue text-2xl animate-float" style={{animationDelay: '2s'}}>⬜</div>
+              <div className="absolute -bottom-4 -left-8 w-6 h-6 squid-circle flex items-center justify-center text-squid-pink text-lg animate-squid-pulse" style={{animationDelay: '3s'}}>◯</div>
             </div>
           </div>
 
-          {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            <span className="bg-gradient-to-r from-white via-squid-pink to-squid-teal bg-clip-text text-transparent">
-              {t('hero.title')}
-            </span>
-            <br />
-            <span className="text-white text-3xl md:text-5xl font-medium">
-              {t('hero.subtitle')}
-            </span>
-          </h1>
-
-          {/* Subtitle */}
-          <p className="text-xl text-squid-grey mb-8 max-w-2xl mx-auto leading-relaxed">
-            {t('hero.description')}
-            <br className="hidden sm:block" />
-            <span className="text-squid-teal font-medium">{t('hero.rewardsInstant')}</span>
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
-            <Link to="/join">
-              <Button 
-                className="w-full sm:w-auto bg-gradient-to-r from-squid-pink to-squid-purple hover:from-squid-pink/80 hover:to-squid-purple/80 text-white font-bold py-4 px-8 rounded-2xl shadow-glow transition-all duration-300 hover:shadow-glow active:scale-95 text-lg"
-                data-testid="join-draw-btn"
-              >
-                {t('hero.joinButton')}
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </Link>
+          {/* Main Title with Squid Game Typography */}
+          <div className="mb-8">
+            <h1 className="text-6xl md:text-8xl font-squid-display mb-6 leading-tight">
+              <span className="block bg-gradient-to-r from-squid-red via-squid-pink to-squid-green bg-clip-text text-transparent animate-glow">
+                {t('hero.title')}
+              </span>
+              <span className="block text-squid-white text-4xl md:text-6xl font-squid mt-4">
+                {t('hero.subtitle')}
+              </span>
+            </h1>
             
-            <Link to="/join">
-              <Button 
-                variant="outline"
-                className="w-full sm:w-auto border-2 border-squid-teal text-squid-teal hover:bg-squid-teal hover:text-squid-dark font-medium py-4 px-8 rounded-2xl transition-all duration-300"
-                data-testid="connect-wallet-btn"
-              >
-                {t('hero.connectButton')}
-              </Button>
-            </Link>
+            {/* Subtitle with Symbols */}
+            <div className="flex items-center justify-center space-x-4 mb-6">
+              <span className="text-squid-red text-2xl animate-squid-pulse">◯</span>
+              <p className="text-xl md:text-2xl text-squid-grey-light font-squid max-w-4xl leading-relaxed">
+                {t('hero.description')}
+              </p>
+              <span className="text-squid-green text-2xl animate-squid-bounce">△</span>
+            </div>
+            
+            <div className="flex items-center justify-center space-x-3">
+              <span className="text-squid-blue text-lg">⬜</span>
+              <span className="text-squid-green font-squid-display text-lg">
+                {t('hero.rewardsInstant')}
+              </span>
+              <span className="text-squid-red text-lg">◯</span>
+            </div>
+          </div>
+
+          {/* Enhanced CTA Section */}
+          <div className="mb-16">
+            <div className="flex flex-col lg:flex-row items-center justify-center space-y-6 lg:space-y-0 lg:space-x-8">
+              
+              {/* Primary CTA - Join Draw */}
+              <div className="group relative">
+                <div className="absolute -inset-2 bg-gradient-to-r from-squid-red via-squid-pink to-squid-green blur-xl opacity-50 group-hover:opacity-75 transition-all duration-500"></div>
+                <Link to="/join">
+                  <button className="relative bg-gradient-to-r from-squid-red to-squid-pink text-white font-squid-display font-bold py-6 px-12 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-glow-red text-xl">
+                    <span className="flex items-center space-x-3">
+                      <span className="text-2xl">◯</span>
+                      <span>{t('hero.joinButton')}</span>
+                      <ArrowRight className="w-6 h-6" />
+                    </span>
+                  </button>
+                </Link>
+              </div>
+
+              {/* Secondary CTA - Connect Wallet */}
+              <div className="group relative">
+                <div className="absolute -inset-2 bg-gradient-to-r from-squid-green to-squid-mint blur-xl opacity-30 group-hover:opacity-50 transition-all duration-500"></div>
+                <Link to="/join">
+                  <button className="relative border-2 border-squid-green bg-squid-green/10 text-squid-green hover:bg-squid-green hover:text-squid-black font-squid-display font-bold py-6 px-12 rounded-2xl transition-all duration-300 transform hover:scale-105 text-xl">
+                    <span className="flex items-center space-x-3">
+                      <span className="text-2xl">△</span>
+                      <span>{t('hero.connectButton')}</span>
+                    </span>
+                  </button>
+                </Link>
+              </div>
+            </div>
           </div>
 
           {/* Countdown */}
