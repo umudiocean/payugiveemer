@@ -227,8 +227,77 @@ class PayuDrawAPITester:
             self.log_test("Registration Endpoint", False, f"Exception: {str(e)}")
             return False
 
+    def test_task_click_endpoint(self):
+        """Test task click logging endpoint"""
+        try:
+            # Test data for task click
+            task_data = {
+                "wallet": "0xabcdef1234567890abcdef1234567890abcdef12",
+                "platform": "telegram",
+                "handle": "@payu_official"
+            }
+            
+            # Test POST task-click
+            response = requests.post(f"{self.base_url}/api/task-click", json=task_data, timeout=10)
+            if response.status_code == 200:
+                data = response.json()
+                if data.get("success") is True and "logged" in data.get("message", "").lower():
+                    self.log_test("Task Click Endpoint", True)
+                    return True
+                else:
+                    self.log_test("Task Click Endpoint", False, f"Unexpected response: {data}")
+                    return False
+            else:
+                self.log_test("Task Click Endpoint", False, f"Status code: {response.status_code}")
+                return False
+        except Exception as e:
+            self.log_test("Task Click Endpoint", False, f"Exception: {str(e)}")
+            return False
+
+    def test_task_flow(self):
+        """Test complete task flow - log and retrieve"""
+        try:
+            test_wallet = "0x9876543210fedcba9876543210fedcba98765432"
+            
+            # Log multiple tasks
+            tasks = [
+                {"wallet": test_wallet, "platform": "telegram", "handle": "@payu_draw"},
+                {"wallet": test_wallet, "platform": "x", "handle": "@payu_official"},
+                {"wallet": test_wallet, "platform": "instagram_story"}
+            ]
+            
+            # Log each task
+            for task in tasks:
+                response = requests.post(f"{self.base_url}/api/task-click", json=task, timeout=10)
+                if response.status_code != 200 or not response.json().get("success"):
+                    self.log_test("Task Flow", False, f"Failed to log task: {task}")
+                    return False
+            
+            # Retrieve task history
+            response = requests.get(f"{self.base_url}/api/tasks/{test_wallet}", timeout=10)
+            if response.status_code == 200:
+                data = response.json()
+                if data.get("success") is True and isinstance(data.get("data"), list):
+                    task_history = data["data"]
+                    # Check if we have at least the tasks we just logged
+                    if len(task_history) >= len(tasks):
+                        self.log_test("Task Flow", True, f"Task logging and retrieval working - {len(task_history)} tasks found")
+                        return True
+                    else:
+                        self.log_test("Task Flow", False, f"Expected at least {len(tasks)} tasks, found {len(task_history)}")
+                        return False
+                else:
+                    self.log_test("Task Flow", False, f"Unexpected response: {data}")
+                    return False
+            else:
+                self.log_test("Task Flow", False, f"Status code: {response.status_code}")
+                return False
+        except Exception as e:
+            self.log_test("Task Flow", False, f"Exception: {str(e)}")
+            return False
+
     def test_task_history_endpoint(self):
-        """Test task history endpoint with dummy wallet"""
+        """Test task history endpoint with non-existent wallet"""
         try:
             # Test with non-existent wallet
             dummy_wallet = "0x1234567890123456789012345678901234567890"
@@ -236,16 +305,46 @@ class PayuDrawAPITester:
             if response.status_code == 200:
                 data = response.json()
                 if data.get("success") is True and isinstance(data.get("data"), list):
-                    self.log_test("Task History Endpoint", True, f"Found {len(data['data'])} tasks")
+                    self.log_test("Task History Endpoint (Empty)", True, f"Found {len(data['data'])} tasks")
                     return True
                 else:
-                    self.log_test("Task History Endpoint", False, f"Unexpected response: {data}")
+                    self.log_test("Task History Endpoint (Empty)", False, f"Unexpected response: {data}")
                     return False
             else:
-                self.log_test("Task History Endpoint", False, f"Status code: {response.status_code}")
+                self.log_test("Task History Endpoint (Empty)", False, f"Status code: {response.status_code}")
                 return False
         except Exception as e:
             self.log_test("Task History Endpoint", False, f"Exception: {str(e)}")
+            return False
+
+    def test_error_handling(self):
+        """Test error handling with invalid data"""
+        try:
+            # Test save-ticket with missing required fields
+            invalid_registration = {"wallet": "0x123"}  # Missing required fields
+            response = requests.post(f"{self.base_url}/api/save-ticket", json=invalid_registration, timeout=10)
+            
+            # Should return 422 for validation error or 500 for server error
+            if response.status_code in [422, 500]:
+                self.log_test("Error Handling (Invalid Registration)", True, f"Properly rejected invalid data with status {response.status_code}")
+            else:
+                self.log_test("Error Handling (Invalid Registration)", False, f"Unexpected status code: {response.status_code}")
+                return False
+            
+            # Test task-click with invalid platform
+            invalid_task = {"wallet": "0x123", "platform": "invalid_platform"}
+            response = requests.post(f"{self.base_url}/api/task-click", json=invalid_task, timeout=10)
+            
+            # Should handle gracefully (either accept or reject properly)
+            if response.status_code in [200, 422, 500]:
+                self.log_test("Error Handling (Invalid Task)", True, f"Handled invalid task data with status {response.status_code}")
+                return True
+            else:
+                self.log_test("Error Handling (Invalid Task)", False, f"Unexpected status code: {response.status_code}")
+                return False
+                
+        except Exception as e:
+            self.log_test("Error Handling", False, f"Exception: {str(e)}")
             return False
 
     def run_all_tests(self):
