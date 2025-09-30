@@ -85,7 +85,7 @@ body {
   letter-spacing: 0.01em;
 }
 
-/* Squid Game Scrollbar Styling */
+/* Authentic Squid Game Scrollbar Styling */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -95,7 +95,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--squid-grey-light);
+  background: var(--squid-grey);
   border-radius: 4px;
 }
 
@@ -103,19 +103,19 @@ body {
   background: var(--squid-red);
 }
 
-/* Squid Game Selection Styling */
+/* Authentic Squid Game Selection Styling */
 ::selection {
   background: var(--squid-red);
-  color: var(--squid-white);
+  color: var(--squid-light-grey);
 }
 
-/* Squid Game Focus Styling */
+/* Authentic Squid Game Focus Styling */
 button:focus,
 input:focus,
 textarea:focus {
   outline: 2px solid var(--squid-red);
   outline-offset: 2px;
-  box-shadow: 0 0 0 4px rgba(255, 51, 102, 0.2);
+  box-shadow: 0 0 0 4px rgba(184, 47, 73, 0.3);
 }
 
 /* Smooth Transitions */
