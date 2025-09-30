@@ -37,7 +37,7 @@ i18n
     resources,
     supportedLngs,
     fallbackLng: 'en',
-    debug: false,
+    debug: true,
     load: 'languageOnly',
     
     interpolation: {
