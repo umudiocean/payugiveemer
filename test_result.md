@@ -143,16 +143,16 @@ frontend:
         - comment: "All components now fully using translation keys with useTranslation hook"
         
   - task: "Fix Language Dropdown Z-Index"
-    implemented: false
-    working: false
+    implemented: true
+    working: true
     file: "LanguageSelector.js"
     stuck_count: 0
     priority: "medium"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
-        - working: false
+        - working: true
         - agent: "main" 
-        - comment: "Language dropdown has z-index overlap issues"
+        - comment: "Z-index properly set with backdrop z-40 and dropdown z-50"
 
 metadata:
   created_by: "main_agent"
