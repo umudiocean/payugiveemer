@@ -78,8 +78,8 @@ const MyEntries = () => {
                 <div className="w-16 h-16 bg-squid-grey/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <span className="text-squid-grey text-3xl">👛</span>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4">Connect Your Wallet</h3>
-                <p className="text-squid-grey mb-6">Connect your wallet to view your lottery entries and task history.</p>
+                <h3 className="text-xl font-bold text-white mb-4">{t('myEntries.connectRequired')}</h3>
+                <p className="text-squid-grey mb-6">{t('myEntries.connectDesc')}</p>
                 <ConnectButton />
               </div>
             </CardContent>
