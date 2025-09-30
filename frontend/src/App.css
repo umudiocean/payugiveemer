@@ -215,19 +215,19 @@ textarea:focus {
   background: rgba(37, 29, 88, 0.1);
 }
 
-/* Rainbow Kit Squid Game Styling */
+/* Rainbow Kit Authentic Squid Game Styling */
 [data-rk] {
-  --rk-colors-modalBackground: #0D0D0D;
-  --rk-colors-modalBorder: #FF3366;
-  --rk-colors-modalText: #FFFFFF;
-  --rk-colors-modalTextDim: #A4A4A4;
-  --rk-colors-modalTextSecondary: #A4A4A4;
-  --rk-colors-profileAction: #FF3366;
-  --rk-colors-profileActionHover: #00D084;
-  --rk-colors-profileForeground: #0D0D0D;
-  --rk-colors-selectedOptionBorder: #FF3366;
-  --rk-colors-accentColor: #FF3366;
-  --rk-colors-accentColorForeground: #FFFFFF;
+  --rk-colors-modalBackground: #08050F;
+  --rk-colors-modalBorder: #B82F49;
+  --rk-colors-modalText: #DCD5DC;
+  --rk-colors-modalTextDim: #8A808C;
+  --rk-colors-modalTextSecondary: #8A808C;
+  --rk-colors-profileAction: #B82F49;
+  --rk-colors-profileActionHover: #453397;
+  --rk-colors-profileForeground: #08050F;
+  --rk-colors-selectedOptionBorder: #B82F49;
+  --rk-colors-accentColor: #B82F49;
+  --rk-colors-accentColorForeground: #DCD5DC;
   font-family: var(--font-squid);
 }
 
