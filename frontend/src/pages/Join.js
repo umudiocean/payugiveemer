@@ -158,10 +158,9 @@ const Join = () => {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-white mb-4">Join the Draw</h1>
+          <h1 className="text-4xl font-bold text-white mb-4">{t('join.title')}</h1>
           <p className="text-squid-grey text-lg max-w-2xl mx-auto">
-            Connect your wallet and register with one simple transaction. 
-            Get 250M PAYU tokens instantly plus your unique lottery ticket.
+            {t('join.subtitle')}
           </p>
         </div>
 
