@@ -248,11 +248,11 @@ const Admin = () => {
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-squid-grey/20">
-                      <th className="text-left py-3 px-4 text-squid-grey">Wallet</th>
-                      <th className="text-left py-3 px-4 text-squid-grey">Index</th>
-                      <th className="text-left py-3 px-4 text-squid-grey">Ticket</th>
-                      <th className="text-left py-3 px-4 text-squid-grey">TX Hash</th>
-                      <th className="text-left py-3 px-4 text-squid-grey">Date</th>
+                      <th className="text-left py-3 px-4 text-squid-grey">{t('admin.wallet')}</th>
+                      <th className="text-left py-3 px-4 text-squid-grey">{t('admin.index')}</th>
+                      <th className="text-left py-3 px-4 text-squid-grey">{t('admin.ticket')}</th>
+                      <th className="text-left py-3 px-4 text-squid-grey">{t('admin.txHash')}</th>
+                      <th className="text-left py-3 px-4 text-squid-grey">{t('admin.date')}</th>
                     </tr>
                   </thead>
                   <tbody>
