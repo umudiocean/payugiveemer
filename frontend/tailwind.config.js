@@ -137,8 +137,20 @@ module.exports = {
                                 '50%': { transform: 'translateY(-20px)' },
                         },
                         'pulse-glow': {
-                                '0%': { boxShadow: '0 0 20px rgba(184, 47, 73, 0.5)' },
-                                '100%': { boxShadow: '0 0 30px rgba(184, 47, 73, 0.8)' },
+                                '0%': { boxShadow: '0 0 20px rgba(184, 47, 73, 0.6)' },
+                                '100%': { boxShadow: '0 0 30px rgba(184, 47, 73, 0.9)' },
+                        },
+                        'pulse-glow-blue': {
+                                '0%': { boxShadow: '0 0 20px rgba(0, 191, 255, 0.6)' },
+                                '100%': { boxShadow: '0 0 30px rgba(0, 191, 255, 0.9)' },
+                        },
+                        'pulse-glow-pink': {
+                                '0%': { boxShadow: '0 0 20px rgba(255, 105, 180, 0.6)' },
+                                '100%': { boxShadow: '0 0 30px rgba(255, 105, 180, 0.9)' },
+                        },
+                        'pulse-glow-gold': {
+                                '0%': { boxShadow: '0 0 25px rgba(255, 215, 0, 0.7)' },
+                                '100%': { boxShadow: '0 0 35px rgba(255, 215, 0, 1)' },
                         },
                         'fade-in': {
                                 '0%': { opacity: '0', transform: 'translateY(10px)' },
