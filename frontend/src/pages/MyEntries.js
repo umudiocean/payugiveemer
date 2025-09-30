@@ -182,7 +182,7 @@ const MyEntries = () => {
                           </div>
                         </div>
                         <div>
-                          <div className="text-sm text-squid-grey mb-1">Wallet Address</div>
+                          <div className="text-sm text-squid-grey mb-1">{t('myEntries.walletAddress')}</div>
                           <div className="text-white font-medium font-mono">{formatAddress(address)}</div>
                         </div>
                         <div>
