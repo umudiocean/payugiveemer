@@ -145,7 +145,7 @@ const MyEntries = () => {
                           <div className="text-white font-medium">#{registrationData.index}</div>
                         </div>
                         <div>
-                          <div className="text-sm text-squid-grey mb-1">PAYU Tokens Received</div>
+                          <div className="text-sm text-squid-grey mb-1">{t('myEntries.payuReceived')}</div>
                           <div className="text-squid-teal font-medium">250,000,000 PAYU</div>
                         </div>
                         <div>
