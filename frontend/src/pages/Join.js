@@ -319,7 +319,7 @@ const Join = () => {
                   data-testid="twitter-task-btn"
                 >
                   <div className="text-center">
-                    <div className="font-medium">Retweet on X</div>
+                    <div className="font-medium">{t('join.retweetX')}</div>
                     <ExternalLink className="w-4 h-4 mx-auto mt-1" />
                   </div>
                 </Button>
