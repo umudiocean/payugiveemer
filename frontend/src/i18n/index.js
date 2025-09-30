@@ -46,15 +46,11 @@ i18n
     },
     
     detection: {
-      order: ['localStorage', 'navigator'],
+      order: ['querystring', 'localStorage', 'navigator'],
+      lookupQuerystring: 'lng',
       lookupLocalStorage: 'i18nextLng',
       caches: ['localStorage'],
-      excludeCacheFor: ['cimode'],
-      convertDetectedLanguage: (lng) => {
-        // Normalize 'en-US', 'en-GB', etc. to 'en'
-        const normalized = lng.split('-')[0].split('@')[0].toLowerCase()
-        return supportedLngs.includes(normalized) ? normalized : 'en'
-      }
+      excludeCacheFor: ['cimode']
     },
     
     react: {
