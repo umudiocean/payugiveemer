@@ -157,8 +157,20 @@ module.exports = {
                                 '100%': { opacity: '1', transform: 'translateY(0px)' },
                         },
                         'glow': {
-                                '0%, 100%': { textShadow: '0 0 20px rgba(184, 47, 73, 0.7)' },
-                                '50%': { textShadow: '0 0 30px rgba(184, 47, 73, 1), 0 0 40px rgba(69, 51, 151, 0.5)' },
+                                '0%, 100%': { textShadow: '0 0 20px rgba(184, 47, 73, 0.8)' },
+                                '50%': { textShadow: '0 0 30px rgba(184, 47, 73, 1), 0 0 40px rgba(0, 191, 255, 0.6)' },
+                        },
+                        'glow-blue': {
+                                '0%, 100%': { textShadow: '0 0 20px rgba(0, 191, 255, 0.8)' },
+                                '50%': { textShadow: '0 0 30px rgba(0, 191, 255, 1), 0 0 40px rgba(255, 215, 0, 0.5)' },
+                        },
+                        'glow-pink': {
+                                '0%, 100%': { textShadow: '0 0 20px rgba(255, 105, 180, 0.8)' },
+                                '50%': { textShadow: '0 0 30px rgba(255, 105, 180, 1), 0 0 40px rgba(135, 206, 235, 0.5)' },
+                        },
+                        'glow-gold': {
+                                '0%, 100%': { textShadow: '0 0 25px rgba(255, 215, 0, 0.9)' },
+                                '50%': { textShadow: '0 0 35px rgba(255, 215, 0, 1), 0 0 45px rgba(255, 165, 0, 0.6)' },
                         },
                         'squid-pulse': {
                                 '0%, 100%': { transform: 'scale(1)', opacity: '1' },
