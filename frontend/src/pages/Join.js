@@ -330,14 +330,21 @@ const Join = () => {
         {showTasks && (
           <div className="mt-12 relative">
             {/* Main Tasks Container */}
-            <div className="relative bg-squid-black/80 border-2 border-squid-red/50 rounded-3xl backdrop-blur-2xl overflow-hidden">
+            <div className="relative bg-squid-black/80 border-2 border-squid-red/50 rounded-3xl backdrop-blur-2xl overflow-hidden animate-squid-glow">
               
-              {/* Animated Background Grid */}
-              <div className="absolute inset-0 opacity-10">
+              {/* Dynamic Animated Background Grid */}
+              <div className="absolute inset-0 opacity-15">
                 <div className="grid grid-cols-8 grid-rows-6 h-full w-full">
                   {[...Array(48)].map((_, i) => (
-                    <div key={i} className="border border-squid-red/20 flex items-center justify-center">
-                      <span className={`text-xs animate-pulse`} style={{animationDelay: `${i * 0.1}s`}}>
+                    <div key={i} className="border border-squid-red/30 flex items-center justify-center group">
+                      <span 
+                        className={`text-xs transition-all duration-1000 ${
+                          i % 3 === 0 ? 'text-squid-red animate-squid-pulse' :
+                          i % 3 === 1 ? 'text-squid-ice-blue animate-squid-bounce' : 
+                          'text-squid-gold animate-float'
+                        }`} 
+                        style={{animationDelay: `${i * 0.05}s`}}
+                      >
                         {i % 3 === 0 ? '◯' : i % 3 === 1 ? '△' : '⬜'}
                       </span>
                     </div>
@@ -345,30 +352,28 @@ const Join = () => {
                 </div>
               </div>
 
-              {/* Header Section */}
+              {/* Enhanced Header Section */}
               <div className="relative z-10 p-8 pb-6">
                 <div className="flex items-center justify-center mb-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-squid-red rounded-full flex items-center justify-center animate-squid-pulse border-2 border-squid-pink">
-                      <span className="text-white font-bold text-2xl">◯</span>
+                  <div className="flex items-center space-x-6">
+                    <div className="w-14 h-14 bg-gradient-to-r from-squid-red to-squid-pink rounded-full flex items-center justify-center animate-squid-glow border-4 border-squid-light-pink/50">
+                      <span className="text-white font-bold text-2xl animate-squid-bounce">◯</span>
                     </div>
-                    <h2 className="text-3xl font-squid-display text-white animate-glow">
-                      {t('join.bonusTasks')}
+                    <h2 className="text-4xl font-squid-display text-white animate-glow bg-gradient-to-r from-squid-red via-squid-pink to-squid-gold bg-clip-text text-transparent">
+                      Complete Tasks to Earn Rewards
                     </h2>
-                    <div className="w-12 h-12 bg-squid-green rounded-full flex items-center justify-center animate-squid-bounce border-2 border-squid-mint">
-                      <span className="text-white font-bold text-2xl">△</span>
+                    <div className="w-14 h-14 bg-gradient-to-r from-squid-ice-blue to-squid-light-blue rounded-full flex items-center justify-center animate-squid-glow-blue border-4 border-squid-ice-blue/50">
+                      <span className="text-white font-bold text-2xl animate-squid-bounce" style={{animationDelay: '0.3s'}}>△</span>
                     </div>
                   </div>
                 </div>
                 
-                <p className="text-center text-squid-grey-light text-lg font-squid mb-4">
-                  {t('join.bonusTasksDesc')}
-                </p>
-                
                 <div className="flex justify-center">
-                  <div className="bg-squid-red/20 border border-squid-red/40 rounded-full px-6 py-2">
-                    <span className="text-squid-red font-squid font-medium text-sm">
-                      🎯 Choose Your Game • Earn Extra Chances
+                  <div className="bg-gradient-to-r from-squid-red/30 to-squid-pink/30 border-2 border-squid-red/60 rounded-full px-8 py-3 animate-pulse-glow">
+                    <span className="text-squid-light-grey font-squid font-medium text-base flex items-center space-x-2">
+                      <span className="text-squid-gold animate-squid-pulse">🎯</span>
+                      <span>Sequential Game Unlock System</span>
+                      <span className="text-squid-ice-blue animate-squid-bounce">⚡</span>
                     </span>
                   </div>
                 </div>
