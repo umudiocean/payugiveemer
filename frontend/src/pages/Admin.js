@@ -115,7 +115,7 @@ const Admin = () => {
               onClick={() => window.location.href = '/join'}
               className="bg-gradient-to-r from-squid-pink to-squid-purple"
             >
-              Connect Wallet
+              {t('hero.connectButton')}
             </Button>
           </CardContent>
         </Card>
