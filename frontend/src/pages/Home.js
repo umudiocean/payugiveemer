@@ -278,44 +278,126 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black/50">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-squid-teal mb-2">250M</div>
-              <div className="text-squid-grey text-sm">{t('stats.payuTokens')}</div>
+      {/* Squid Game Stats Section */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-squid-black/60 relative overflow-hidden">
+        
+        {/* Background Grid */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="grid grid-cols-8 grid-rows-4 h-full w-full">
+            {[...Array(32)].map((_, i) => (
+              <div key={i} className="border border-squid-grey-dark/30 flex items-center justify-center">
+                <span className={`text-xs animate-pulse`} style={{animationDelay: `${i * 0.2}s`}}>
+                  {i % 3 === 0 ? '●' : i % 3 === 1 ? '▲' : '■'}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="relative z-10 max-w-6xl mx-auto text-center">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            
+            {/* Stat 1: PAYU Tokens */}
+            <div className="group relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-squid-green/20 to-squid-mint/20 blur-xl opacity-30 group-hover:opacity-50 transition-all duration-500"></div>
+              <div className="relative bg-squid-black/80 border-2 border-squid-green/40 rounded-2xl p-8 backdrop-blur-sm">
+                <div className="w-16 h-16 mx-auto mb-4 bg-squid-green/10 border-2 border-squid-green rounded-full flex items-center justify-center">
+                  <span className="text-squid-green text-2xl font-bold">△</span>
+                </div>
+                <div className="text-5xl font-squid-display font-bold text-squid-green mb-3 animate-glow">250M</div>
+                <div className="text-squid-grey-light font-squid">{t('stats.payuTokens')}</div>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-squid-purple mb-2">44</div>
-              <div className="text-squid-grey text-sm">{t('stats.daysToEnter')}</div>
+
+            {/* Stat 2: Days to Enter */}
+            <div className="group relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-squid-blue/20 to-squid-navy/20 blur-xl opacity-30 group-hover:opacity-50 transition-all duration-500"></div>
+              <div className="relative bg-squid-black/80 border-2 border-squid-blue/40 rounded-2xl p-8 backdrop-blur-sm">
+                <div className="w-16 h-16 mx-auto mb-4 bg-squid-blue/10 border-2 border-squid-blue rounded-lg flex items-center justify-center">
+                  <span className="text-squid-blue text-2xl font-bold">⬜</span>
+                </div>
+                <div className="text-5xl font-squid-display font-bold text-squid-blue mb-3 animate-glow">44</div>
+                <div className="text-squid-grey-light font-squid">{t('stats.daysToEnter')}</div>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">BSC</div>
-              <div className="text-squid-grey text-sm">{t('stats.network')}</div>
+
+            {/* Stat 3: Network */}
+            <div className="group relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-squid-red/20 to-squid-pink/20 blur-xl opacity-30 group-hover:opacity-50 transition-all duration-500"></div>
+              <div className="relative bg-squid-black/80 border-2 border-squid-red/40 rounded-2xl p-8 backdrop-blur-sm">
+                <div className="w-16 h-16 mx-auto mb-4 bg-squid-red/10 border-2 border-squid-red rounded-full flex items-center justify-center">
+                  <span className="text-squid-red text-2xl font-bold">◯</span>
+                </div>
+                <div className="text-5xl font-squid-display font-bold text-white mb-3 animate-glow">BSC</div>
+                <div className="text-squid-grey-light font-squid">{t('stats.network')}</div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-black via-squid-pink/10 to-black">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">{t('cta.readyTitle')}</h2>
-          <p className="text-squid-grey text-lg mb-8 max-w-2xl mx-auto">
-            {t('cta.readyDesc')}
-          </p>
+      {/* Final CTA Section - Squid Game Style */}
+      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-squid-black via-squid-red/5 to-squid-black relative overflow-hidden">
+        
+        {/* Dramatic Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="grid grid-cols-6 grid-rows-4 h-full w-full">
+            {[...Array(24)].map((_, i) => (
+              <div key={i} className="border border-squid-red/30 flex items-center justify-center">
+                <span className={`text-2xl animate-pulse`} style={{animationDelay: `${i * 0.3}s`}}>
+                  {i % 3 === 0 ? '◯' : i % 3 === 1 ? '△' : '⬜'}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="relative z-10 max-w-5xl mx-auto text-center">
           
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+          {/* Main CTA Header */}
+          <div className="mb-12">
+            <div className="flex items-center justify-center space-x-6 mb-8">
+              <span className="text-squid-red text-4xl animate-squid-pulse">◯</span>
+              <h2 className="text-5xl md:text-7xl font-squid-display text-white animate-glow">
+                {t('cta.readyTitle')}
+              </h2>
+              <span className="text-squid-green text-4xl animate-squid-bounce">△</span>
+            </div>
+            
+            <p className="text-squid-grey-light text-xl font-squid max-w-3xl mx-auto leading-relaxed mb-8">
+              {t('cta.readyDesc')}
+            </p>
+            
+            <div className="flex items-center justify-center space-x-3">
+              <span className="text-squid-blue text-2xl">⬜</span>
+              <span className="text-squid-red font-squid text-lg">Enter the Game Now</span>
+              <span className="text-squid-red text-2xl">◯</span>
+            </div>
+          </div>
+          
+          {/* Final CTA Button */}
+          <div className="group relative inline-block">
+            <div className="absolute -inset-4 bg-gradient-to-r from-squid-red via-squid-pink via-squid-green to-squid-blue blur-2xl opacity-60 group-hover:opacity-90 transition-all duration-700 animate-squid-pulse"></div>
             <Link to="/join">
-              <Button 
-                className="w-full sm:w-auto bg-gradient-to-r from-squid-pink to-squid-purple hover:from-squid-pink/80 hover:to-squid-purple/80 text-white font-bold py-4 px-12 rounded-2xl shadow-glow transition-all duration-300 hover:shadow-glow active:scale-95 text-lg"
-                data-testid="get-started-btn"
-              >
-                {t('cta.getStarted')}
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
+              <button className="relative bg-gradient-to-r from-squid-red via-squid-pink to-squid-green text-white font-squid-display font-bold py-8 px-16 rounded-3xl transition-all duration-500 transform hover:scale-110 hover:shadow-glow-red text-2xl">
+                <span className="flex items-center space-x-4">
+                  <span className="text-3xl animate-squid-bounce">◯</span>
+                  <span>{t('cta.getStarted')}</span>
+                  <ArrowRight className="w-8 h-8 animate-squid-pulse" />
+                  <span className="text-3xl animate-squid-bounce">△</span>
+                </span>
+              </button>
             </Link>
+          </div>
+          
+          {/* Bottom symbols decoration */}
+          <div className="mt-16 flex items-center justify-center space-x-12 opacity-30">
+            <span className="text-squid-red text-5xl animate-squid-pulse">●</span>
+            <span className="text-squid-green text-5xl animate-squid-bounce">▲</span>
+            <span className="text-squid-blue text-5xl animate-float">■</span>
+            <span className="text-squid-pink text-5xl animate-squid-pulse" style={{animationDelay: '0.5s'}}>●</span>
+            <span className="text-squid-mint text-5xl animate-squid-bounce" style={{animationDelay: '1s'}}>▲</span>
+            <span className="text-squid-navy text-5xl animate-float" style={{animationDelay: '1.5s'}}>■</span>
           </div>
         </div>
       </section>
