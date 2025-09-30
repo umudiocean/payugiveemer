@@ -239,7 +239,7 @@ const Join = () => {
               {ticket ? (
                 <div className="space-y-6">
                   <div className="bg-gradient-to-br from-squid-pink/10 to-squid-purple/10 border border-squid-pink/30 rounded-2xl p-6 text-center">
-                    <div className="text-sm text-squid-grey mb-2">Lucky Ticket Number</div>
+                    <div className="text-sm text-squid-grey mb-2">{t('join.luckyTicket')}</div>
                     <div className="text-3xl font-bold text-white mb-4 font-mono">{ticket}</div>
                     <div className="flex space-x-3">
                       <Button
@@ -250,7 +250,7 @@ const Join = () => {
                         data-testid="copy-ticket-btn"
                       >
                         <Copy className="w-4 h-4 mr-2" />
-                        Copy
+                        {t('join.copy')}
                       </Button>
                       <Button
                         variant="outline"
@@ -259,7 +259,7 @@ const Join = () => {
                         data-testid="download-ticket-btn"
                       >
                         <Download className="w-4 h-4 mr-2" />
-                        Download PNG
+                        {t('join.downloadPng')}
                       </Button>
                     </div>
                   </div>
