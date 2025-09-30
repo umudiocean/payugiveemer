@@ -141,7 +141,7 @@ const MyEntries = () => {
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-4">
                         <div>
-                          <div className="text-sm text-squid-grey mb-1">Entry Index</div>
+                          <div className="text-sm text-squid-grey mb-1">{t('myEntries.entryIndex')}</div>
                           <div className="text-white font-medium">#{registrationData.index}</div>
                         </div>
                         <div>
