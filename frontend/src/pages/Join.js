@@ -128,7 +128,7 @@ const Join = () => {
       })
     } catch (error) {
       console.error('Registration failed:', error)
-      toast.error('Failed to register. Please try again.')
+      toast.error(t('messages.registrationError'))
     }
   }
 
