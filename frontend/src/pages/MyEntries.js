@@ -71,7 +71,7 @@ const MyEntries = () => {
     return (
       <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center">
-          <h1 className="text-4xl font-bold text-white mb-8">My Entries</h1>
+          <h1 className="text-4xl font-bold text-white mb-8">{t('myEntries.title')}</h1>
           <Card className="bg-black/50 border-squid-grey/20 backdrop-blur-xl">
             <CardContent className="py-12">
               <div className="text-center">
