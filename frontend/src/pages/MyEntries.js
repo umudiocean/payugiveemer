@@ -14,6 +14,7 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
 const API = `${BACKEND_URL}/api`
 
 const MyEntries = () => {
+  const { t } = useTranslation()
   const { address, isConnected } = useAccount()
   const [registrationData, setRegistrationData] = useState(null)
   const [taskHistory, setTaskHistory] = useState([])
