@@ -30,18 +30,11 @@ const LanguageSelectorNew = ({ className = '' }) => {
     document.documentElement.dir = rtlLanguages.includes(languageCode) ? 'rtl' : 'ltr'
     document.documentElement.lang = languageCode
     
-    // Change language
-    i18n.changeLanguage(languageCode)
-      .then(() => {
-        console.log('✅ SUCCESS! Language changed to:', languageCode)
-        setCurrentLang(languageCode)
-      })
-      .catch((error) => {
-        console.error('❌ ERROR changing language:', error)
-      })
+    // Store in localStorage
+    localStorage.setItem('i18nextLng', languageCode)
     
-    // Close dropdown
-    setIsOpen(false)
+    // Reload page to apply language change (SIMPLE & GUARANTEED METHOD)
+    window.location.reload()
   }
 
   // Listen to i18n events
