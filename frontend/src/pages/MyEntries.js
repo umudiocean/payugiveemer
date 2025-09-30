@@ -158,7 +158,7 @@ const MyEntries = () => {
                       
                       <div className="space-y-4">
                         <div>
-                          <div className="text-sm text-squid-grey mb-1">Transaction Hash</div>
+                          <div className="text-sm text-squid-grey mb-1">{t('myEntries.transactionHash')}</div>
                           <div className="flex items-center space-x-2">
                             <code className="text-white text-sm bg-squid-dark/50 px-2 py-1 rounded">
                               {formatAddress(registrationData.txHash)}
