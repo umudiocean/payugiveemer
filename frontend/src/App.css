@@ -54,12 +54,31 @@
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background-color: #000000;
-  color: white;
+  font-family: var(--font-body);
+  background-color: var(--squid-black);
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(255, 51, 102, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(0, 208, 132, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(55, 66, 250, 0.02) 0%, transparent 50%);
+  color: var(--squid-white);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Squid Game Typography Classes */
+.font-squid {
+  font-family: var(--font-squid) !important;
+}
+
+.font-squid-display {
+  font-family: var(--font-display) !important;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.font-squid-body {
+  font-family: var(--font-body) !important;
 }
 
 /* Scrollbar Styling */
