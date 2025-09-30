@@ -226,7 +226,7 @@ const Admin = () => {
                 className="border-squid-teal text-squid-teal hover:bg-squid-teal hover:text-squid-dark"
               >
                 <Download className="w-4 h-4 mr-2" />
-                Export CSV
+                {t('admin.exportCsv')}
               </Button>
             </div>
             <CardDescription className="text-squid-grey">
@@ -290,7 +290,7 @@ const Admin = () => {
                 className="border-squid-purple text-squid-purple hover:bg-squid-purple hover:text-white"
               >
                 <Download className="w-4 h-4 mr-2" />
-                Export CSV
+                {t('admin.exportCsv')}
               </Button>
             </div>
             <CardDescription className="text-squid-grey">
