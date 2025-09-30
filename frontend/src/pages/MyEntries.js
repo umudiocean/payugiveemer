@@ -149,7 +149,7 @@ const MyEntries = () => {
                           <div className="text-squid-teal font-medium">250,000,000 PAYU</div>
                         </div>
                         <div>
-                          <div className="text-sm text-squid-grey mb-1">Registration Date</div>
+                          <div className="text-sm text-squid-grey mb-1">{t('myEntries.registrationDate')}</div>
                           <div className="text-white font-medium">
                             {new Date(registrationData.createdAt).toLocaleDateString()}
                           </div>
