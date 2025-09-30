@@ -40,18 +40,23 @@ const Layout = () => {
         <div className="absolute top-1/4 left-1/2 w-16 h-16 bg-squid-blue/8 rounded-full blur-2xl animate-squid-pulse" style={{animationDelay: '5s'}}></div>
       </div>
 
-      {/* Header */}
-      <header className="relative z-10 bg-black/80 backdrop-blur-xl border-b border-squid-grey/20">
+      {/* Squid Game Header */}
+      <header className="relative z-10 bg-squid-black/90 backdrop-blur-xl border-b border-squid-red/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <Link to="/" className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-squid-pink to-squid-purple rounded-lg flex items-center justify-center">
-                <Square className="w-6 h-6 text-white" />
+          <div className="flex items-center justify-between h-20">
+            {/* Squid Game Logo */}
+            <Link to="/" className="flex items-center space-x-4 group">
+              <div className="w-12 h-12 bg-gradient-to-br from-squid-red to-squid-pink rounded-lg flex items-center justify-center border-2 border-squid-red/50 group-hover:border-squid-red transition-all duration-300 animate-squid-pulse">
+                <span className="text-squid-white text-xl font-bold">⬜</span>
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-squid-pink to-squid-teal bg-clip-text text-transparent">
+              <span className="text-2xl font-squid-display bg-gradient-to-r from-squid-red via-squid-pink to-squid-green bg-clip-text text-transparent animate-glow">
                 PAYU DRAW
               </span>
+              <div className="flex space-x-1 opacity-60">
+                <span className="text-squid-red text-sm animate-squid-pulse">◯</span>
+                <span className="text-squid-green text-sm animate-squid-pulse" style={{animationDelay: '0.3s'}}>△</span>
+                <span className="text-squid-blue text-sm animate-squid-pulse" style={{animationDelay: '0.6s'}}>⬜</span>
+              </div>
             </Link>
 
             {/* Navigation */}
