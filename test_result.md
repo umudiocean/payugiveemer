@@ -165,7 +165,6 @@ metadata:
 
 test_plan:
   current_focus:
-    - "API Endpoints Implementation"
     - "Full Application Testing"
   stuck_tasks: []
   test_all: true
