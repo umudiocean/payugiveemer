@@ -286,61 +286,106 @@ const Join = () => {
           </Card>
         </div>
 
-        {/* Tasks Section */}
+        {/* Tasks Section - Squid Game Style */}
         {showTasks && (
-          <Card className="mt-8 bg-black/50 border-squid-grey/20 backdrop-blur-xl">
-            <CardHeader>
-              <CardTitle className="text-white">{t('join.bonusTasks')}</CardTitle>
+          <Card className="mt-8 bg-black/60 border-squid-pink/30 backdrop-blur-xl relative overflow-hidden">
+            {/* Animated Background Pattern */}
+            <div className="absolute inset-0 opacity-5">
+              <div className="animate-pulse text-squid-pink text-9xl font-bold flex items-center justify-center h-full">
+                ◯ △ ⬜
+              </div>
+            </div>
+            
+            <CardHeader className="relative z-10">
+              <CardTitle className="text-white flex items-center space-x-3">
+                <div className="w-8 h-8 bg-squid-pink rounded-full flex items-center justify-center animate-pulse">
+                  <span className="text-white font-bold text-sm">◯</span>
+                </div>
+                <span>{t('join.bonusTasks')}</span>
+              </CardTitle>
               <CardDescription className="text-squid-grey">
                 {t('join.bonusTasksDesc')}
               </CardDescription>
             </CardHeader>
-            <CardContent>
-              <div className="grid md:grid-cols-3 gap-4">
-                <Button
-                  onClick={() => {
-                    window.open('https://t.me/payucommunity', '_blank')
-                    handleTaskClick('telegram')
-                  }}
-                  variant="outline"
-                  className="h-20 border-squid-teal text-squid-teal hover:bg-squid-teal hover:text-squid-dark"
-                  data-testid="telegram-task-btn"
-                >
-                  <div className="text-center">
-                    <div className="font-medium">{t('join.joinTelegram')}</div>
-                    <ExternalLink className="w-4 h-4 mx-auto mt-1" />
-                  </div>
-                </Button>
+            <CardContent className="relative z-10">
+              <div className="grid md:grid-cols-3 gap-6">
+                {/* Telegram - Circle Shape */}
+                <div className="group relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-squid-teal/20 to-squid-teal/40 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                  <Button
+                    onClick={() => {
+                      window.open('https://t.me/payu_coin', '_blank')
+                      handleTaskClick('telegram')
+                    }}
+                    variant="outline"
+                    className="relative w-32 h-32 rounded-full border-2 border-squid-teal bg-black/80 backdrop-blur-sm text-squid-teal hover:bg-squid-teal hover:text-black transition-all duration-500 transform hover:scale-110 hover:rotate-12 group mx-auto"
+                    data-testid="telegram-task-btn"
+                  >
+                    <div className="text-center">
+                      <div className="text-4xl mb-2 group-hover:animate-bounce">◯</div>
+                      <div className="text-sm font-medium">{t('join.joinTelegram')}</div>
+                    </div>
+                  </Button>
+                </div>
 
-                <Button
-                  onClick={() => {
-                    window.open('https://twitter.com/payunetwork', '_blank')
-                    handleTaskClick('x')
-                  }}
-                  variant="outline"
-                  className="h-20 border-squid-purple text-squid-purple hover:bg-squid-purple hover:text-white"
-                  data-testid="twitter-task-btn"
-                >
-                  <div className="text-center">
-                    <div className="font-medium">{t('join.retweetX')}</div>
-                    <ExternalLink className="w-4 h-4 mx-auto mt-1" />
-                  </div>
-                </Button>
+                {/* X (Twitter) - Triangle Shape */}
+                <div className="group relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-squid-purple/20 to-squid-purple/40 blur-xl group-hover:blur-2xl transition-all duration-500" 
+                       style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}></div>
+                  <Button
+                    onClick={() => {
+                      window.open('https://x.com/payu_coin', '_blank')
+                      handleTaskClick('x')
+                    }}
+                    variant="outline"
+                    className="relative w-32 h-32 border-2 border-squid-purple bg-black/80 backdrop-blur-sm text-squid-purple hover:bg-squid-purple hover:text-white transition-all duration-500 transform hover:scale-110 hover:-rotate-12 group mx-auto"
+                    style={{clipPath: 'polygon(50% 15%, 15% 85%, 85% 85%)'}}
+                    data-testid="x-task-btn"
+                  >
+                    <div className="text-center">
+                      <div className="text-4xl mb-2 group-hover:animate-pulse">△</div>
+                      <div className="text-xs font-medium">{t('join.retweetX')}</div>
+                    </div>
+                  </Button>
+                </div>
 
-                <Button
-                  onClick={() => {
-                    window.open('https://instagram.com/payunetwork', '_blank')
-                    handleTaskClick('instagram_story')
-                  }}
-                  variant="outline"
-                  className="h-20 border-squid-pink text-squid-pink hover:bg-squid-pink hover:text-white"
-                  data-testid="instagram-task-btn"
-                >
-                  <div className="text-center">
-                    <div className="font-medium">{t('join.shareInstagram')}</div>
-                    <ExternalLink className="w-4 h-4 mx-auto mt-1" />
+                {/* Instagram - Square Shape */}
+                <div className="group relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-squid-pink/20 to-squid-pink/40 blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                  <Button
+                    onClick={() => {
+                      window.open('https://www.instagram.com/payu.coin/', '_blank')
+                      handleTaskClick('instagram_story')
+                    }}
+                    variant="outline"
+                    className="relative w-32 h-32 border-2 border-squid-pink bg-black/80 backdrop-blur-sm text-squid-pink hover:bg-squid-pink hover:text-white transition-all duration-500 transform hover:scale-110 hover:rotate-45 group mx-auto"
+                    data-testid="instagram-task-btn"
+                  >
+                    <div className="text-center">
+                      <div className="text-4xl mb-2 group-hover:animate-spin">⬜</div>
+                      <div className="text-xs font-medium">{t('join.shareInstagram')}</div>
+                    </div>
+                  </Button>
+                </div>
+              </div>
+
+              {/* Additional Squid Game Elements */}
+              <div className="mt-8 pt-6 border-t border-squid-grey/20">
+                <div className="flex items-center justify-center space-x-8">
+                  <div className="animate-pulse">
+                    <span className="text-squid-pink text-2xl">●</span>
+                    <span className="text-squid-teal text-2xl mx-2">▲</span>
+                    <span className="text-squid-purple text-2xl">■</span>
                   </div>
-                </Button>
+                  <div className="text-squid-grey text-sm animate-fade-in">
+                    Complete all games to maximize your chances
+                  </div>
+                  <div className="animate-pulse">
+                    <span className="text-squid-purple text-2xl">■</span>
+                    <span className="text-squid-teal text-2xl mx-2">▲</span>
+                    <span className="text-squid-pink text-2xl">●</span>
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>
