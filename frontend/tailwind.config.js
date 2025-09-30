@@ -13,14 +13,25 @@ module.exports = {
                         sm: 'calc(var(--radius) - 4px)'
                 },
                 colors: {
-                        // Squid Game theme colors
-                        'squid-dark': '#0B0F14',
-                        'squid-pink': '#FF2A6D',
-                        'squid-teal': '#2BB673',
-                        'squid-purple': '#6A00FF',
-                        'squid-grey': '#A7AAB3',
-                        'squid-success': '#3BD671',
-                        'squid-error': '#FF4545',
+                        // Original Squid Game theme colors
+                        'squid-red': '#FF3366',
+                        'squid-pink': '#FF467E',
+                        'squid-green': '#00D084', 
+                        'squid-mint': '#1DD1A1',
+                        'squid-blue': '#3742FA',
+                        'squid-navy': '#2C2C54',
+                        'squid-black': '#0D0D0D',
+                        'squid-white': '#FFFFFF',
+                        'squid-grey-dark': '#2C2C2C',
+                        'squid-grey-light': '#A4A4A4',
+                        
+                        // Backward compatibility aliases
+                        'squid-dark': '#0D0D0D',
+                        'squid-teal': '#00D084',
+                        'squid-purple': '#3742FA', 
+                        'squid-grey': '#A4A4A4',
+                        'squid-success': '#00D084',
+                        'squid-error': '#FF3366',
                         // shadcn/ui colors
                         background: 'hsl(var(--background))',
                         foreground: 'hsl(var(--foreground))',
