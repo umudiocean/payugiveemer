@@ -75,6 +75,9 @@ module.exports = {
                         }
                 },
                 fontFamily: {
+                        'squid': ['KCC-Ganpan', 'Noto Sans KR', 'Inter', 'sans-serif'],
+                        'squid-display': ['KCC-Ganpan', 'Noto Sans KR', 'sans-serif'],
+                        'squid-body': ['Inter', 'Noto Sans KR', 'sans-serif'],
                         'inter': ['Inter', 'system-ui', 'sans-serif'],
                         'satoshi': ['Satoshi', 'Inter', 'system-ui', 'sans-serif'],
                 },
