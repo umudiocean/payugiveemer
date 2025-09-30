@@ -230,9 +230,9 @@ const Join = () => {
           {/* Ticket Card */}
           <Card className="bg-black/50 border-squid-grey/20 backdrop-blur-xl">
             <CardHeader>
-              <CardTitle className="text-white">Your Lottery Ticket</CardTitle>
+              <CardTitle className="text-white">{t('join.yourTicket')}</CardTitle>
               <CardDescription className="text-squid-grey">
-                {ticket ? 'Your unique ticket has been generated!' : 'Your ticket will appear here after registration'}
+                {ticket ? t('join.ticketGenerated') : t('join.ticketWillAppear')}
               </CardDescription>
             </CardHeader>
             <CardContent>
