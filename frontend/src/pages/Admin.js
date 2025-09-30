@@ -241,7 +241,7 @@ const Admin = () => {
               </div>
             ) : registrations.length === 0 ? (
               <div className="text-center py-12">
-                <p className="text-squid-grey">No registrations found</p>
+                <p className="text-squid-grey">{t('admin.noRegistrationsFound')}</p>
               </div>
             ) : (
               <div className="overflow-x-auto">
