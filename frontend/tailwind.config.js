@@ -123,8 +123,8 @@ module.exports = {
                                 '50%': { transform: 'translateY(-20px)' },
                         },
                         'pulse-glow': {
-                                '0%': { boxShadow: '0 0 20px rgba(255, 51, 102, 0.4)' },
-                                '100%': { boxShadow: '0 0 30px rgba(255, 51, 102, 0.7)' },
+                                '0%': { boxShadow: '0 0 20px rgba(184, 47, 73, 0.5)' },
+                                '100%': { boxShadow: '0 0 30px rgba(184, 47, 73, 0.8)' },
                         },
                         'fade-in': {
                                 '0%': { opacity: '0', transform: 'translateY(10px)' },
