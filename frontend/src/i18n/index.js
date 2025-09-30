@@ -79,4 +79,9 @@ export const LANGUAGE_NAMES = {
   id: 'Bahasa Indonesia'
 }
 
+// Expose i18n to window for debugging and global access
+if (typeof window !== 'undefined') {
+  window.i18next = i18n
+}
+
 export default i18n
