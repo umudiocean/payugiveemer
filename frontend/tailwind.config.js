@@ -94,19 +94,26 @@ module.exports = {
                         'satoshi': ['Satoshi', 'Inter', 'system-ui', 'sans-serif'],
                 },
                 boxShadow: {
-                        'glow': '0 0 20px rgba(184, 47, 73, 0.5)',
-                        'glow-red': '0 0 20px rgba(184, 47, 73, 0.5)',
-                        'glow-dark-red': '0 0 20px rgba(166, 12, 55, 0.5)',
-                        'glow-blue': '0 0 20px rgba(69, 51, 151, 0.5)',
-                        'glow-dark-blue': '0 0 20px rgba(37, 29, 88, 0.5)',
-                        'glow-purple': '0 0 20px rgba(87, 39, 74, 0.5)',
-                        'glow-grey': '0 0 20px rgba(138, 128, 140, 0.3)',
-                        // Backward compatibility
-                        'glow-pink': '0 0 20px rgba(184, 47, 73, 0.5)',
-                        'glow-green': '0 0 20px rgba(69, 51, 151, 0.5)',
-                        'glow-mint': '0 0 20px rgba(69, 51, 151, 0.5)',
-                        'glow-teal': '0 0 20px rgba(69, 51, 151, 0.5)',
-                        'glow-navy': '0 0 20px rgba(37, 29, 88, 0.5)',
+                        'glow': '0 0 20px rgba(184, 47, 73, 0.6)',
+                        'glow-red': '0 0 20px rgba(184, 47, 73, 0.6)',
+                        'glow-dark-red': '0 0 20px rgba(166, 12, 55, 0.6)',
+                        
+                        // New High-Contrast Glows
+                        'glow-ice-blue': '0 0 25px rgba(0, 191, 255, 0.7)',
+                        'glow-blue': '0 0 25px rgba(0, 191, 255, 0.7)',
+                        'glow-light-blue': '0 0 20px rgba(135, 206, 235, 0.6)',
+                        'glow-pink': '0 0 25px rgba(255, 105, 180, 0.7)',
+                        'glow-light-pink': '0 0 20px rgba(255, 182, 193, 0.6)',
+                        'glow-gold': '0 0 30px rgba(255, 215, 0, 0.8)',
+                        'glow-orange': '0 0 25px rgba(255, 165, 0, 0.7)',
+                        
+                        // Updated mappings
+                        'glow-green': '0 0 30px rgba(255, 215, 0, 0.8)',
+                        'glow-mint': '0 0 20px rgba(135, 206, 235, 0.6)',
+                        'glow-purple': '0 0 25px rgba(255, 105, 180, 0.7)',
+                        'glow-teal': '0 0 25px rgba(0, 191, 255, 0.7)',
+                        'glow-navy': '0 0 25px rgba(0, 191, 255, 0.7)',
+                        'glow-grey': '0 0 15px rgba(138, 128, 140, 0.4)',
                 },
                 keyframes: {
                         'accordion-down': {
