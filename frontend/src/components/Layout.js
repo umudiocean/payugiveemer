@@ -121,49 +121,85 @@ const Layout = () => {
         <Outlet />
       </main>
 
-      {/* Footer */}
-      <footer className="relative z-10 mt-20 border-t border-squid-grey/20 bg-black/80 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between mb-8">
-            <div className="flex items-center space-x-3 mb-4 md:mb-0">
-              <div className="w-8 h-8 bg-gradient-to-br from-squid-pink to-squid-purple rounded-lg flex items-center justify-center">
-                <Square className="w-5 h-5 text-white" />
+      {/* Squid Game Footer */}
+      <footer className="relative z-10 mt-20 border-t border-squid-red/30 bg-squid-black/90 backdrop-blur-xl">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          
+          {/* Footer Header with Squid Game Symbols */}
+          <div className="flex flex-col md:flex-row items-center justify-between mb-12">
+            <div className="flex items-center space-x-4 mb-6 md:mb-0">
+              <div className="w-12 h-12 bg-gradient-to-br from-squid-red to-squid-pink rounded-lg flex items-center justify-center border-2 border-squid-red/50 animate-squid-pulse">
+                <span className="text-squid-white text-xl">⬜</span>
               </div>
-              <span className="text-lg font-bold bg-gradient-to-r from-squid-pink to-squid-teal bg-clip-text text-transparent">
+              <span className="text-2xl font-squid-display bg-gradient-to-r from-squid-red via-squid-pink to-squid-green bg-clip-text text-transparent">
                 PAYU DRAW
               </span>
+              <div className="flex space-x-2">
+                <span className="text-squid-red animate-squid-pulse">◯</span>
+                <span className="text-squid-green animate-squid-pulse" style={{animationDelay: '0.3s'}}>△</span>
+                <span className="text-squid-blue animate-squid-pulse" style={{animationDelay: '0.6s'}}>⬜</span>
+              </div>
             </div>
             
-            <div className="flex items-center space-x-6 text-sm text-squid-grey">
-              <span>{t('footer.slogan')}</span>
-              <Link to="/terms" className="hover:text-white transition-colors">{t('footer.terms')}</Link>
-              <Link to="/privacy" className="hover:text-white transition-colors">{t('footer.privacy')}</Link>
+            <div className="flex items-center space-x-8 text-sm text-squid-grey-light font-squid">
+              <span className="flex items-center space-x-2">
+                <span className="text-squid-red">◯</span>
+                <span>{t('footer.slogan')}</span>
+              </span>
+              <Link to="/terms" className="hover:text-squid-green transition-colors flex items-center space-x-1">
+                <span className="text-squid-green text-xs">△</span>
+                <span>{t('footer.terms')}</span>
+              </Link>
+              <Link to="/privacy" className="hover:text-squid-blue transition-colors flex items-center space-x-1">
+                <span className="text-squid-blue text-xs">⬜</span>
+                <span>{t('footer.privacy')}</span>
+              </Link>
             </div>
           </div>
           
-          {/* Payu Squid Game Promotional Image */}
-          <div className="text-center">
-            <div className="relative inline-block max-w-4xl w-full">
+          {/* Squid Game Promotional Section */}
+          <div className="text-center relative">
+            <div className="relative inline-block max-w-5xl w-full">
+              <div className="absolute inset-0 bg-gradient-to-r from-squid-red/20 via-squid-green/20 to-squid-blue/20 rounded-3xl blur-xl"></div>
               <img 
                 src="https://customer-assets.emergentagent.com/job_payu-raffle/artifacts/kv8aacia_photo_2025-09-26_00-56-45.jpg"
                 alt="Payu Squid Game Giveaway - 2.5 Trillion Payu Coins"
-                className="w-full h-auto rounded-2xl shadow-glow border border-squid-pink/20"
+                className="relative w-full h-auto rounded-3xl shadow-glow border-2 border-squid-red/40 animate-squid-pulse"
               />
-              {/* Floating shapes around promotional image */}
-              <Circle className="absolute -top-3 -left-3 w-6 h-6 text-squid-pink/30 animate-float" />
-              <Triangle className="absolute -top-2 -right-4 w-5 h-5 text-squid-teal/25 animate-float" style={{animationDelay: '1s'}} />
-              <Square className="absolute -bottom-3 -right-3 w-6 h-6 text-squid-purple/30 animate-float" style={{animationDelay: '2s'}} />
-              <Circle className="absolute -bottom-2 -left-4 w-4 h-4 text-squid-pink/25 animate-float" style={{animationDelay: '3s'}} />
+              
+              {/* Floating Squid Game symbols around image */}
+              <div className="absolute -top-6 -left-6 w-10 h-10 squid-circle flex items-center justify-center text-squid-red text-2xl animate-float">◯</div>
+              <div className="absolute -top-4 -right-8 w-8 h-8 squid-triangle flex items-center justify-center text-squid-green text-xl animate-squid-bounce" style={{animationDelay: '1s'}}>△</div>
+              <div className="absolute -bottom-6 -right-6 w-10 h-10 squid-square flex items-center justify-center text-squid-blue text-2xl animate-float" style={{animationDelay: '2s'}}>⬜</div>
+              <div className="absolute -bottom-4 -left-8 w-6 h-6 squid-circle flex items-center justify-center text-squid-pink text-lg animate-squid-pulse" style={{animationDelay: '3s'}}>◯</div>
             </div>
             
-            <div className="mt-6 text-center">
-              <h3 className="text-2xl font-bold text-white mb-2">{t('footer.giveawayTitle')}</h3>
-              <p className="text-squid-grey text-lg">
+            <div className="mt-8 text-center">
+              <h3 className="text-3xl font-squid-display text-squid-white mb-4 animate-glow flex items-center justify-center space-x-3">
+                <span className="text-squid-red">◯</span>
+                <span>{t('footer.giveawayTitle')}</span>
+                <span className="text-squid-green">△</span>
+              </h3>
+              <p className="text-squid-grey-light text-xl font-squid mb-4">
                 {t('footer.giveawayDesc', { amount: '2.5 Trillion PAYU Coins' })}
               </p>
-              <p className="text-squid-pink text-sm mt-2 italic">
-                "{t('footer.instantReward')}"
-              </p>
+              <div className="inline-flex items-center space-x-2 bg-squid-red/10 border border-squid-red/30 rounded-full px-6 py-3">
+                <span className="text-squid-blue text-sm">⬜</span>
+                <p className="text-squid-green font-squid italic">
+                  "{t('footer.instantReward')}"
+                </p>
+                <span className="text-squid-red text-sm">◯</span>
+              </div>
+            </div>
+
+            {/* Bottom decoration */}
+            <div className="mt-8 flex justify-center space-x-8 opacity-30">
+              <span className="text-squid-red text-4xl animate-squid-pulse">◯</span>
+              <span className="text-squid-green text-4xl animate-squid-bounce">△</span>
+              <span className="text-squid-blue text-4xl animate-float">⬜</span>
+              <span className="text-squid-pink text-4xl animate-squid-pulse" style={{animationDelay: '0.5s'}}>◯</span>
+              <span className="text-squid-mint text-4xl animate-squid-bounce" style={{animationDelay: '1s'}}>△</span>
+              <span className="text-squid-navy text-4xl animate-float" style={{animationDelay: '1.5s'}}>⬜</span>
             </div>
           </div>
         </div>
