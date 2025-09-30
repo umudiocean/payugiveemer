@@ -1,32 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+/* Squid Game Official Theme CSS */
 
-/* CSS Variables for shadcn/ui */
+/* CSS Variables for shadcn/ui - Squid Game Edition */
 :root {
-  --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
-  --primary: 210 40% 98%;
-  --primary-foreground: 222.2 84% 4.9%;
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
-  --accent: 217.2 32.6% 17.5%;
-  --accent-foreground: 210 40% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 212.7 26.8% 83.9%;
-  --chart-1: 220 70% 50%;
-  --chart-2: 160 60% 45%;
-  --chart-3: 30 80% 55%;
-  --chart-4: 280 65% 60%;
-  --chart-5: 340 75% 55%;
-  --radius: 0.5rem;
+  /* Original Squid Game Colors */
+  --squid-red: #FF3366;
+  --squid-pink: #FF467E;  
+  --squid-green: #00D084;
+  --squid-mint: #1DD1A1;
+  --squid-blue: #3742FA;
+  --squid-navy: #2C2C54;
+  --squid-black: #0D0D0D;
+  --squid-white: #FFFFFF;
+  --squid-grey-dark: #2C2C2C;
+  --squid-grey-light: #A4A4A4;
+  
+  /* Squid Game Fonts */
+  --font-squid: 'KCC-Ganpan', 'Noto Sans KR', 'Inter', sans-serif;
+  --font-display: 'KCC-Ganpan', 'Noto Sans KR', sans-serif;
+  --font-body: 'Inter', 'Noto Sans KR', sans-serif;
+  
+  /* shadcn/ui theme with Squid Game colors */
+  --background: 13 13 13;
+  --foreground: 255 255 255;
+  --card: 13 13 13;
+  --card-foreground: 255 255 255;
+  --popover: 13 13 13;
+  --popover-foreground: 255 255 255;
+  --primary: 255 51 102;
+  --primary-foreground: 255 255 255;
+  --secondary: 44 44 44;
+  --secondary-foreground: 255 255 255;
+  --muted: 44 44 44;
+  --muted-foreground: 164 164 164;
+  --accent: 0 208 132;
+  --accent-foreground: 13 13 13;
+  --destructive: 255 51 102;
+  --destructive-foreground: 255 255 255;
+  --border: 44 44 44;
+  --input: 44 44 44;
+  --ring: 255 51 102;
+  --chart-1: 255 51 102;
+  --chart-2: 0 208 132;
+  --chart-3: 55 66 250;
+  --chart-4: 255 70 126;
+  --chart-5: 29 209 161;
+  --radius: 0.75rem;
 }
 
 * {
