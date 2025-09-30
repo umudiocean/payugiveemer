@@ -50,18 +50,8 @@ const LanguageSelector = ({ className = '' }) => {
     }
   }
 
-  // Load saved language on component mount and listen for i18n changes
+  // Listen to i18n language change events
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('preferred-language') || 
-                          localStorage.getItem('i18nextLng') || 
-                          i18n.language
-
-    if (savedLanguage && savedLanguage !== i18n.language) {
-      i18n.changeLanguage(savedLanguage)
-      setCurrentLang(savedLanguage)
-    }
-
-    // Listen to i18n language change events
     const handleLanguageChanged = (lng) => {
       console.log('🔄 i18n language changed to:', lng)
       setCurrentLang(lng)
@@ -69,17 +59,13 @@ const LanguageSelector = ({ className = '' }) => {
 
     i18n.on('languageChanged', handleLanguageChanged)
 
+    // Set initial language
+    setCurrentLang(i18n.language)
+
     return () => {
       i18n.off('languageChanged', handleLanguageChanged)
     }
-  }, [i18n])
-
-  // Update currentLang when i18n.language changes
-  useEffect(() => {
-    if (i18n.language !== currentLang) {
-      setCurrentLang(i18n.language)
-    }
-  }, [i18n.language])
+  }, [])
 
   return (
     <div className={`relative ${className}`}>
