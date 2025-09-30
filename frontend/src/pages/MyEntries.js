@@ -57,9 +57,9 @@ const MyEntries = () => {
 
   const handleCopyTxHash = async () => {
     if (await copyToClipboard(registrationData.txHash)) {
-      toast.success('Transaction hash copied!')
+      toast.success(t('messages.txHashCopied'))
     } else {
-      toast.error('Failed to copy transaction hash')
+      toast.error(t('messages.ticketCopyFailed'))
     }
   }
 
