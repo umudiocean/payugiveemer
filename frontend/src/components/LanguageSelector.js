@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Globe, ChevronDown, Check } from 'lucide-react'
-import { Button } from './ui/button'
 
 const LanguageSelector = ({ className = '' }) => {
   const { i18n } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
+  const [currentLang, setCurrentLang] = useState(i18n.language)
 
   const languages = [
     { code: 'en', name: 'ENGLISH', shortName: 'EN', flag: '🇺🇸' },
@@ -20,109 +20,167 @@ const LanguageSelector = ({ className = '' }) => {
     { code: 'id', name: 'BAHASA INDONESIA', shortName: 'ID', flag: '🇮🇩' }
   ]
 
-  const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0]
+  const currentLanguage = languages.find(lang => lang.code === currentLang) || languages[0]
 
-  const handleLanguageChange = (languageCode) => {
-    console.log('Changing language to:', languageCode)
-    i18n.changeLanguage(languageCode)
+  const handleLanguageChange = async (languageCode) => {
+    console.log('🌐 Changing language to:', languageCode)
     
-    // Update document direction for RTL languages
-    const rtlLanguages = ['ar']
-    document.documentElement.dir = rtlLanguages.includes(languageCode) ? 'rtl' : 'ltr'
-    document.documentElement.lang = languageCode
-    
-    // Store language preference
-    localStorage.setItem('preferred-language', languageCode)
-    
-    setIsOpen(false)
+    try {
+      // Change language in i18n
+      await i18n.changeLanguage(languageCode)
+      
+      // Update local state to force re-render
+      setCurrentLang(languageCode)
+      
+      // Update document direction for RTL languages
+      const rtlLanguages = ['ar']
+      document.documentElement.dir = rtlLanguages.includes(languageCode) ? 'rtl' : 'ltr'
+      document.documentElement.lang = languageCode
+      
+      // Store language preference
+      localStorage.setItem('preferred-language', languageCode)
+      localStorage.setItem('i18nextLng', languageCode)
+      
+      // Close dropdown
+      setIsOpen(false)
+      
+      console.log('✅ Language changed successfully to:', languageCode)
+      
+      // Force a small delay to ensure state updates propagate
+      setTimeout(() => {
+        window.dispatchEvent(new Event('languageChanged'))
+      }, 100)
+      
+    } catch (error) {
+      console.error('❌ Error changing language:', error)
+    }
   }
 
-  // Load saved language on component mount
+  // Load saved language on component mount and listen for i18n changes
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('preferred-language')
+    const savedLanguage = localStorage.getItem('preferred-language') || 
+                          localStorage.getItem('i18nextLng') || 
+                          i18n.language
+
     if (savedLanguage && savedLanguage !== i18n.language) {
       i18n.changeLanguage(savedLanguage)
+      setCurrentLang(savedLanguage)
     }
-  }, [])
+
+    // Listen to i18n language change events
+    const handleLanguageChanged = (lng) => {
+      console.log('🔄 i18n language changed to:', lng)
+      setCurrentLang(lng)
+    }
+
+    i18n.on('languageChanged', handleLanguageChanged)
+
+    return () => {
+      i18n.off('languageChanged', handleLanguageChanged)
+    }
+  }, [i18n])
+
+  // Update currentLang when i18n.language changes
+  useEffect(() => {
+    if (i18n.language !== currentLang) {
+      setCurrentLang(i18n.language)
+    }
+  }, [i18n.language])
 
   return (
     <div className={`relative ${className}`}>
-      <Button
+      {/* Custom Button - No shadcn/ui Button component */}
+      <button
         onClick={() => setIsOpen(!isOpen)}
-        variant="outline"
-        size="sm"
-        className="flex items-center space-x-3 border-2 border-squid-red/50 text-squid-light-grey hover:border-squid-red hover:text-squid-red bg-squid-black/80 backdrop-blur-sm font-squid-display font-bold transition-all duration-300 hover:shadow-glow-red px-4 py-2"
+        className="flex items-center space-x-2 border-2 border-squid-ice-blue/60 text-squid-white hover:border-squid-ice-blue hover:text-squid-ice-blue bg-squid-black/90 backdrop-blur-sm font-squid-display font-bold transition-all duration-300 hover:shadow-[0_0_25px_rgba(0,191,255,0.5)] px-4 py-2.5 rounded-xl"
       >
-        <Globe className="w-5 h-5" />
-        <span className="text-base">{currentLanguage.shortName}</span>
-        <span className="hidden md:inline text-sm">{currentLanguage.shortName === 'EN' ? 'ENGLISH' : currentLanguage.shortName === 'TR' ? 'TÜRKÇE' : currentLanguage.name}</span>
-        <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
-      </Button>
+        <Globe className="w-5 h-5 text-squid-ice-blue" />
+        <span className="text-base tracking-wider text-squid-white">{currentLanguage.flag}</span>
+        <span className="text-base tracking-wider text-squid-white">{currentLanguage.shortName}</span>
+        <ChevronDown className={`w-4 h-4 text-squid-ice-blue transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+      </button>
 
       {isOpen && (
         <>
-          {/* Enhanced Backdrop */}
+          {/* Enhanced Backdrop with higher z-index */}
           <div 
-            className="fixed inset-0 z-40 bg-squid-black/20 backdrop-blur-sm" 
+            className="fixed inset-0 z-[9998] bg-squid-black/30 backdrop-blur-sm" 
             onClick={() => setIsOpen(false)}
           />
           
-          {/* Enhanced Dropdown Menu */}
-          <div className="absolute right-0 top-full mt-3 w-72 bg-squid-black/95 backdrop-blur-2xl border-2 border-squid-red/50 rounded-3xl shadow-glow-red z-50 max-h-96 overflow-hidden animate-fade-in">
+          {/* Enhanced Dropdown Menu with even higher z-index */}
+          <div className="absolute right-0 top-full mt-3 w-80 bg-gradient-to-b from-squid-black via-squid-black/98 to-squid-black/95 backdrop-blur-2xl border-2 border-squid-ice-blue/60 rounded-2xl shadow-[0_0_40px_rgba(0,191,255,0.4)] z-[9999] max-h-[32rem] overflow-hidden">
             
-            {/* Header */}
-            <div className="p-4 border-b border-squid-red/30">
-              <div className="flex items-center space-x-2">
-                <Globe className="w-4 h-4 text-squid-red" />
-                <span className="text-squid-light-grey font-squid-display font-bold text-sm tracking-wider">
+            {/* Header with better contrast */}
+            <div className="p-4 border-b-2 border-squid-ice-blue/40 bg-gradient-to-r from-squid-ice-blue/10 to-squid-pink/10">
+              <div className="flex items-center space-x-3">
+                <Globe className="w-5 h-5 text-squid-ice-blue animate-squid-pulse" />
+                <span className="text-squid-white font-squid-display font-bold text-lg tracking-widest">
                   SELECT LANGUAGE
                 </span>
               </div>
             </div>
             
-            {/* Language Options */}
-            <div className="p-3 max-h-80 overflow-y-auto">
-              {languages.map((language, index) => (
-                <button
-                  key={language.code}
-                  onClick={() => handleLanguageChange(language.code)}
-                  className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl transition-all duration-300 mb-2 font-squid group ${
-                    i18n.language === language.code
-                      ? 'bg-gradient-to-r from-squid-red/30 to-squid-pink/30 text-squid-light-grey border-2 border-squid-red/50 shadow-glow-red'
-                      : 'text-squid-light-grey hover:bg-squid-red/20 hover:text-squid-red border-2 border-transparent hover:border-squid-red/30 hover:shadow-glow-red'
-                  }`}
-                >
-                  <div className="flex items-center space-x-4">
-                    <span className="text-2xl transform transition-transform group-hover:scale-110">{language.flag}</span>
-                    <div className="text-left">
-                      <div className="font-bold text-base tracking-wider">{language.name}</div>
-                      <div className={`text-xs ${i18n.language === language.code ? 'text-squid-red' : 'text-squid-grey'}`}>
-                        {language.shortName}
+            {/* Language Options with improved contrast */}
+            <div className="p-4 max-h-[24rem] overflow-y-auto custom-scrollbar">
+              {languages.map((language) => {
+                const isSelected = currentLang === language.code
+                
+                return (
+                  <button
+                    key={language.code}
+                    onClick={() => handleLanguageChange(language.code)}
+                    className={`w-full flex items-center justify-between px-4 py-3.5 rounded-xl transition-all duration-300 mb-2.5 font-squid-display group relative overflow-hidden ${
+                      isSelected
+                        ? 'bg-gradient-to-r from-squid-ice-blue/25 to-squid-pink/25 text-squid-white border-2 border-squid-ice-blue/70 shadow-[0_0_20px_rgba(0,191,255,0.4)]'
+                        : 'text-squid-light-grey hover:bg-gradient-to-r hover:from-squid-ice-blue/15 hover:to-squid-pink/15 hover:text-squid-white border-2 border-squid-ice-blue/20 hover:border-squid-ice-blue/50 hover:shadow-[0_0_15px_rgba(0,191,255,0.3)]'
+                    }`}
+                  >
+                    {/* Animated background glow on hover */}
+                    <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
+                      isSelected ? 'bg-gradient-to-r from-squid-ice-blue/10 to-squid-pink/10' : ''
+                    }`}></div>
+                    
+                    <div className="flex items-center space-x-4 relative z-10">
+                      <span className="text-3xl transform transition-transform group-hover:scale-125 drop-shadow-[0_0_8px_rgba(0,191,255,0.6)]">
+                        {language.flag}
+                      </span>
+                      <div className="text-left">
+                        <div className={`font-bold text-lg tracking-wide ${
+                          isSelected ? 'text-squid-white' : 'text-squid-light-grey group-hover:text-squid-white'
+                        }`}>
+                          {language.name}
+                        </div>
+                        <div className={`text-sm font-normal tracking-wider ${
+                          isSelected ? 'text-squid-ice-blue' : 'text-squid-grey group-hover:text-squid-ice-blue'
+                        }`}>
+                          {language.shortName}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  
-                  <div className="flex items-center space-x-2">
-                    {i18n.language === language.code && (
-                      <div className="w-2 h-2 bg-squid-red rounded-full animate-squid-pulse"></div>
-                    )}
-                    {i18n.language === language.code ? (
-                      <Check className="w-5 h-5 text-squid-red animate-squid-bounce" />
-                    ) : (
-                      <div className="w-5 h-5"></div>
-                    )}
-                  </div>
-                </button>
-              ))}
+                    
+                    <div className="flex items-center space-x-3 relative z-10">
+                      {isSelected && (
+                        <>
+                          <div className="w-2.5 h-2.5 bg-squid-ice-blue rounded-full animate-squid-pulse shadow-[0_0_10px_rgba(0,191,255,0.8)]"></div>
+                          <Check className="w-6 h-6 text-squid-ice-blue animate-squid-bounce drop-shadow-[0_0_8px_rgba(0,191,255,0.8)]" />
+                        </>
+                      )}
+                    </div>
+                  </button>
+                )
+              })}
             </div>
             
-            {/* Footer */}
-            <div className="p-4 border-t border-squid-red/30">
+            {/* Footer with Squid Game symbols */}
+            <div className="p-4 border-t-2 border-squid-ice-blue/40 bg-gradient-to-r from-squid-pink/10 to-squid-ice-blue/10">
               <div className="text-center">
-                <div className="flex items-center justify-center space-x-2 text-squid-grey text-xs">
-                  <span className="text-squid-red animate-squid-pulse">◯</span>
-                  <span>PAYU GLOBAL COMMUNITY</span>
-                  <span className="text-squid-ice-blue animate-squid-bounce">△</span>
+                <div className="flex items-center justify-center space-x-3 text-squid-light-grey text-sm font-bold tracking-wider">
+                  <span className="text-squid-pink animate-squid-pulse text-lg">◯</span>
+                  <span className="text-squid-white">PAYU GLOBAL</span>
+                  <span className="text-squid-gold animate-squid-bounce text-lg">△</span>
+                  <span className="text-squid-white">COMMUNITY</span>
+                  <span className="text-squid-ice-blue animate-squid-pulse text-lg">⬜</span>
                 </div>
               </div>
             </div>
