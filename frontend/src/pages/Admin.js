@@ -76,7 +76,7 @@ const Admin = () => {
       }
     } catch (error) {
       console.error('Failed to load data:', error)
-      toast.error('Failed to load data')
+      toast.error(t('messages.dataLoadFailed'))
     } finally {
       setLoading(false)
     }
