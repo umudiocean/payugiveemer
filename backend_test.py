@@ -121,8 +121,93 @@ class PayuDrawAPITester:
             self.log_test("Status Endpoints", False, f"Exception: {str(e)}")
             return False
 
+    def test_save_ticket_endpoint(self):
+        """Test save ticket registration endpoint"""
+        try:
+            # Test data for registration
+            test_wallet = "0xabcdef1234567890abcdef1234567890abcdef12"
+            registration_data = {
+                "wallet": test_wallet,
+                "txHash": "0x123456789abcdef123456789abcdef123456789abcdef123456789abcdef123456",
+                "index": 1,
+                "seed": "random_seed_12345",
+                "ticket": "SQUID-001",
+                "reward": "1000 PAYU",
+                "timestamp": 1703097600
+            }
+            
+            # Test POST save-ticket
+            response = requests.post(f"{self.base_url}/api/save-ticket", json=registration_data, timeout=10)
+            if response.status_code == 200:
+                data = response.json()
+                if data.get("success") is True and "saved" in data.get("message", "").lower():
+                    self.log_test("Save Ticket Endpoint", True)
+                    return True
+                elif data.get("success") is True and "already registered" in data.get("message", "").lower():
+                    self.log_test("Save Ticket Endpoint (Duplicate)", True, "Duplicate registration handled correctly")
+                    return True
+                else:
+                    self.log_test("Save Ticket Endpoint", False, f"Unexpected response: {data}")
+                    return False
+            else:
+                self.log_test("Save Ticket Endpoint", False, f"Status code: {response.status_code}")
+                return False
+        except Exception as e:
+            self.log_test("Save Ticket Endpoint", False, f"Exception: {str(e)}")
+            return False
+
+    def test_registration_flow(self):
+        """Test complete registration flow - save and retrieve"""
+        try:
+            # Test data for registration
+            test_wallet = "0xfedcba0987654321fedcba0987654321fedcba09"
+            registration_data = {
+                "wallet": test_wallet,
+                "txHash": "0xabcdef987654321abcdef987654321abcdef987654321abcdef987654321abcd",
+                "index": 2,
+                "seed": "test_seed_67890",
+                "ticket": "SQUID-002",
+                "reward": "2000 PAYU",
+                "timestamp": 1703184000
+            }
+            
+            # Step 1: Save registration
+            save_response = requests.post(f"{self.base_url}/api/save-ticket", json=registration_data, timeout=10)
+            if save_response.status_code != 200:
+                self.log_test("Registration Flow", False, f"Save failed with status: {save_response.status_code}")
+                return False
+            
+            save_data = save_response.json()
+            if not save_data.get("success"):
+                self.log_test("Registration Flow", False, f"Save failed: {save_data}")
+                return False
+            
+            # Step 2: Retrieve registration
+            get_response = requests.get(f"{self.base_url}/api/registration/{test_wallet}", timeout=10)
+            if get_response.status_code != 200:
+                self.log_test("Registration Flow", False, f"Retrieve failed with status: {get_response.status_code}")
+                return False
+            
+            get_data = get_response.json()
+            if get_data.get("success") is True and get_data.get("data"):
+                retrieved_data = get_data["data"]
+                if (retrieved_data.get("wallet") == test_wallet and 
+                    retrieved_data.get("ticket") == "SQUID-002"):
+                    self.log_test("Registration Flow", True, "Complete save/retrieve flow working")
+                    return True
+                else:
+                    self.log_test("Registration Flow", False, f"Data mismatch: {retrieved_data}")
+                    return False
+            else:
+                self.log_test("Registration Flow", False, f"Retrieve failed: {get_data}")
+                return False
+                
+        except Exception as e:
+            self.log_test("Registration Flow", False, f"Exception: {str(e)}")
+            return False
+
     def test_registration_endpoint(self):
-        """Test registration endpoint with dummy wallet"""
+        """Test registration endpoint with non-existent wallet"""
         try:
             # Test with non-existent wallet
             dummy_wallet = "0x1234567890123456789012345678901234567890"
