@@ -218,6 +218,18 @@ textarea:focus {
   animation: squid-glow 2s ease-in-out infinite;
 }
 
+.animate-squid-glow-blue {
+  animation: squid-glow-blue 2s ease-in-out infinite;
+}
+
+.animate-squid-glow-pink {
+  animation: squid-glow-pink 2s ease-in-out infinite;
+}
+
+.animate-squid-glow-gold {
+  animation: squid-glow-gold 2s ease-in-out infinite;
+}
+
 .animate-squid-pulse {
   animation: squid-pulse 2s ease-in-out infinite;
 }
