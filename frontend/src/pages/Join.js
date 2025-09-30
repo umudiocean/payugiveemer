@@ -196,10 +196,6 @@ const Join = () => {
                     <h3 className="text-lg font-medium text-white mb-4">Registration Details</h3>
                     <div className="space-y-3 text-sm">
                       <div className="flex justify-between">
-                        <span className="text-squid-grey">Entry Fee:</span>
-                        <span className="text-white font-medium">0.00098 BNB</span>
-                      </div>
-                      <div className="flex justify-between">
                         <span className="text-squid-grey">Instant Reward:</span>
                         <span className="text-squid-teal font-medium">250,000,000 PAYU</span>
                       </div>
