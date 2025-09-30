@@ -216,10 +216,10 @@ const Join = () => {
                     {isPending || isConfirming ? (
                       <>
                         <Loader2 className="w-5 h-5 animate-spin mr-2" />
-                        {isPending ? 'Confirming...' : 'Processing...'}
+                        {isPending ? t('join.confirming') : t('join.processing')}
                       </>
                     ) : (
-                      'Register'
+                      t('join.registerButton')
                     )}
                   </Button>
                 </div>
