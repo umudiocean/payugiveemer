@@ -218,7 +218,7 @@ const Admin = () => {
         <Card className="bg-black/50 border-squid-grey/20 backdrop-blur-xl mb-8">
           <CardHeader>
             <div className="flex items-center justify-between">
-              <CardTitle className="text-white">Registrations</CardTitle>
+              <CardTitle className="text-white">{t('admin.registrations')}</CardTitle>
               <Button
                 onClick={() => exportCSV(registrations, 'registrations.csv')}
                 variant="outline"
