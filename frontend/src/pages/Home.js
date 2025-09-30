@@ -38,24 +38,32 @@ const Home = () => {
 
         <div className="relative z-10 max-w-6xl mx-auto text-center">
           
-          {/* Logo Section with Squid Game Enhancement */}
-          <div className="mb-12 relative">
-            <div className="relative inline-block">
-              {/* Main Logo Container */}
-              <div className="relative">
-                <div className="absolute -inset-6 bg-gradient-to-r from-squid-red/30 via-squid-pink/30 to-squid-green/30 blur-2xl rounded-full animate-squid-pulse"></div>
-                <img 
-                  src="https://customer-assets.emergentagent.com/job_payu-raffle/artifacts/1j2sod6t_image.png"
-                  alt="Payu Logo"
-                  className="relative w-40 h-40 mx-auto rounded-3xl shadow-glow-red border-4 border-squid-red/50 bg-squid-black/80 backdrop-blur-sm p-3 animate-squid-glow"
-                />
-              </div>
+          {/* Enhanced Pepe Squid Game Logo Section */}
+          <div className="mb-16 relative flex justify-center">
+            <div className="relative">
+              {/* Enhanced Background Glow */}
+              <div className="absolute -inset-12 bg-gradient-to-r from-squid-red/40 via-squid-pink/40 via-squid-ice-blue/40 to-squid-gold/40 blur-3xl rounded-full animate-squid-glow"></div>
               
-              {/* Floating Squid Game Symbols */}
-              <div className="absolute -top-6 -left-6 w-10 h-10 squid-circle flex items-center justify-center text-squid-red text-2xl animate-float">◯</div>
-              <div className="absolute -top-4 -right-8 w-8 h-8 squid-triangle flex items-center justify-center text-squid-green text-xl animate-squid-bounce" style={{animationDelay: '1s'}}>△</div>
-              <div className="absolute -bottom-6 -right-6 w-10 h-10 squid-square flex items-center justify-center text-squid-blue text-2xl animate-float" style={{animationDelay: '2s'}}>⬜</div>
-              <div className="absolute -bottom-4 -left-8 w-6 h-6 squid-circle flex items-center justify-center text-squid-pink text-lg animate-squid-pulse" style={{animationDelay: '3s'}}>◯</div>
+              {/* Main Pepe Image Container */}
+              <div className="relative">
+                <img 
+                  src="https://customer-assets.emergentagent.com/job_payu-squid-draw/artifacts/lm7d864d_Gemini_Generated_Image_vgopsdvgopsdvgop.png"
+                  alt="Payu Squid Game Pepe"
+                  className="relative w-80 h-80 mx-auto rounded-3xl shadow-glow-red border-4 border-squid-red/60 bg-squid-black/90 backdrop-blur-sm animate-squid-glow-gold object-cover"
+                />
+                
+                {/* Enhanced Floating Squid Game Symbols */}
+                <div className="absolute -top-8 -left-8 w-12 h-12 squid-circle flex items-center justify-center text-squid-red text-3xl animate-float shadow-glow-red">◯</div>
+                <div className="absolute -top-6 -right-10 w-10 h-10 squid-triangle flex items-center justify-center text-squid-ice-blue text-2xl animate-squid-bounce shadow-glow-ice-blue" style={{animationDelay: '1s'}}>△</div>
+                <div className="absolute -bottom-8 -right-8 w-12 h-12 squid-square flex items-center justify-center text-squid-gold text-3xl animate-float shadow-glow-gold" style={{animationDelay: '2s'}}>⬜</div>
+                <div className="absolute -bottom-6 -left-10 w-8 h-8 squid-circle-pink flex items-center justify-center text-squid-pink text-2xl animate-squid-pulse shadow-glow-pink" style={{animationDelay: '3s'}}>◯</div>
+                
+                {/* Additional Floating Elements */}
+                <div className="absolute top-4 right-4 w-6 h-6 text-squid-gold animate-squid-bounce" style={{animationDelay: '0.5s'}}>✨</div>
+                <div className="absolute bottom-4 left-4 w-6 h-6 text-squid-ice-blue animate-squid-pulse" style={{animationDelay: '1.5s'}}>⚡</div>
+                <div className="absolute top-1/2 -left-6 w-4 h-4 text-squid-pink animate-float" style={{animationDelay: '2.5s'}}>💎</div>
+                <div className="absolute top-1/2 -right-6 w-4 h-4 text-squid-red animate-squid-bounce" style={{animationDelay: '3.5s'}}>🎯</div>
+              </div>
             </div>
           </div>
 
