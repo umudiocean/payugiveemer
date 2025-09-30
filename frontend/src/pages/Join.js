@@ -102,6 +102,7 @@ const Join = () => {
           setTicket(generatedTicket)
           setIsRegistered(true)
           setShowTasks(true)
+          setRegistrationData(saveResponse.data.data)
           refetchRegistered()
           
           toast.success(t('messages.registrationSuccess'))
