@@ -60,9 +60,10 @@ body {
   font-family: var(--font-body);
   background-color: var(--squid-black);
   background-image: 
-    radial-gradient(circle at 25% 25%, rgba(184, 47, 73, 0.04) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba(69, 51, 151, 0.04) 0%, transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(37, 29, 88, 0.03) 0%, transparent 50%);
+    radial-gradient(circle at 25% 25%, rgba(184, 47, 73, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(0, 191, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 105, 180, 0.04) 0%, transparent 50%);
   color: var(--squid-light-grey);
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;
