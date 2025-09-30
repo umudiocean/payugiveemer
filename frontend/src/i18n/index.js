@@ -45,11 +45,18 @@ i18n
     },
     
     detection: {
-      order: ['querystring', 'localStorage', 'navigator'],
+      // Important: localStorage must be FIRST to respect user's manual selection
+      order: ['localStorage', 'querystring', 'navigator'],
       lookupQuerystring: 'lng',
       lookupLocalStorage: 'i18nextLng',
       caches: ['localStorage'],
-      excludeCacheFor: ['cimode']
+      excludeCacheFor: ['cimode'],
+      // Convert detected language codes to supported format
+      convertDetectedLanguage: (lng) => {
+        // Handle cases like 'en-US@posix', 'en-GB', etc.
+        const base = lng.split('-')[0].split('@')[0].split('_')[0].toLowerCase()
+        return supportedLngs.includes(base) ? base : 'en'
+      }
     },
     
     react: {
