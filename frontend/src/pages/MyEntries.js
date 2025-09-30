@@ -257,7 +257,7 @@ const MyEntries = () => {
                       variant="outline"
                       className="border-squid-teal text-squid-teal hover:bg-squid-teal hover:text-squid-dark"
                     >
-                      View Tasks
+                      {t('myEntries.viewTasks')}
                     </Button>
                   </div>
                 )}
