@@ -6,6 +6,7 @@ import { Button } from '../components/ui/button'
 import { Badge } from '../components/ui/badge'
 import ConnectButton from '../components/ConnectButton'
 import { formatAddress, copyToClipboard } from '../utils/ticket'
+import { useTranslation } from 'react-i18next'
 import axios from 'axios'
 import { toast } from 'sonner'
 
