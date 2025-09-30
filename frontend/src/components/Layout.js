@@ -102,11 +102,11 @@ const Layout = () => {
               </Link>
             </nav>
 
-            {/* Countdown & Language Selector */}
-            <div className="flex items-center space-x-4">
-              <div className="hidden sm:block text-right">
-                <div className="text-xs text-squid-grey">{t('nav.drawStartsIn')}</div>
-                <div className="text-sm font-bold text-squid-teal">
+            {/* Squid Game Countdown & Language Selector */}
+            <div className="flex items-center space-x-6">
+              <div className="hidden sm:block text-right bg-squid-grey-dark/30 backdrop-blur-sm px-4 py-2 rounded-lg border border-squid-red/20">
+                <div className="text-xs text-squid-grey-light font-squid">{t('nav.drawStartsIn')}</div>
+                <div className="text-lg font-bold font-squid-display bg-gradient-to-r from-squid-green to-squid-mint bg-clip-text text-transparent animate-glow">
                   {isEnded ? 'ENDED' : `${formatted.days}:${formatted.hours}:${formatted.minutes}:${formatted.seconds}`}
                 </div>
               </div>
