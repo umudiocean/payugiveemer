@@ -353,13 +353,23 @@ class PayuDrawAPITester:
         print(f"📍 Testing against: {self.base_url}")
         print("=" * 60)
 
-        # Test all endpoints
+        # Test all endpoints in logical order
         self.test_api_root()
         self.test_admin_registrations()
         self.test_admin_tasks()
         self.test_status_endpoints()
+        
+        # Test core functionality
+        self.test_save_ticket_endpoint()
+        self.test_registration_flow()
         self.test_registration_endpoint()
+        
+        self.test_task_click_endpoint()
+        self.test_task_flow()
         self.test_task_history_endpoint()
+        
+        # Test error handling
+        self.test_error_handling()
 
         # Print summary
         print("=" * 60)
