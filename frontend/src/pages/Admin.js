@@ -84,7 +84,7 @@ const Admin = () => {
 
   const exportCSV = (data, filename) => {
     if (!data || data.length === 0) {
-      toast.error('No data to export')
+      toast.error(t('messages.noDataToExport'))
       return
     }
 
