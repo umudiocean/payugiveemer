@@ -104,7 +104,7 @@ const Join = () => {
           setShowTasks(true)
           refetchRegistered()
           
-          toast.success('Registration successful! You received 250M PAYU tokens!')
+          toast.success(t('messages.registrationSuccess'))
         }
       }
     } catch (error) {
