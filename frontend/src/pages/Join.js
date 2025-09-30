@@ -182,14 +182,14 @@ const Join = () => {
             <CardContent className="space-y-6">
               {!isConnected ? (
                 <div>
-                  <p className="text-squid-grey mb-4">Connect your wallet to continue</p>
+                  <p className="text-squid-grey mb-4">{t('join.connectWallet')}</p>
                   <ConnectButton className="w-full" />
                 </div>
               ) : isRegistered ? (
                 <div className="text-center py-8">
                   <CheckCircle className="w-16 h-16 text-squid-success mx-auto mb-4" />
-                  <h3 className="text-xl font-bold text-white mb-2">Already Registered!</h3>
-                  <p className="text-squid-grey">You have successfully joined the draw.</p>
+                  <h3 className="text-xl font-bold text-white mb-2">{t('join.alreadyRegisteredTitle')}</h3>
+                  <p className="text-squid-grey">{t('join.alreadyRegisteredDesc')}</p>
                 </div>
               ) : (
                 <div>
