@@ -129,9 +129,9 @@ const Admin = () => {
         <Card className="bg-black/50 border-squid-grey/20 backdrop-blur-xl max-w-md w-full">
           <CardContent className="py-12 text-center">
             <Shield className="w-16 h-16 text-squid-error mx-auto mb-6" />
-            <h3 className="text-xl font-bold text-white mb-4">Access Denied</h3>
+            <h3 className="text-xl font-bold text-white mb-4">{t('admin.accessDenied')}</h3>
             <p className="text-squid-grey mb-6">
-              This admin panel is restricted to authorized wallets only.
+              {t('admin.accessDeniedDesc')}
             </p>
             <p className="text-xs text-squid-grey font-mono">{address}</p>
           </CardContent>
