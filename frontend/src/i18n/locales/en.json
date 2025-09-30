@@ -26,7 +26,6 @@
     "step3Desc": "Your unique lottery ticket is generated from the blockchain seed. Screenshot and save it!"
   },
   "stats": {
-    "entryFee": "BNB Entry Fee",
     "payuTokens": "PAYU Tokens",
     "daysToEnter": "Days to Enter",
     "network": "Mainnet"
