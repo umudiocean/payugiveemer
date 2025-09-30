@@ -59,31 +59,46 @@ const Layout = () => {
               </div>
             </Link>
 
-            {/* Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
+            {/* Squid Game Navigation */}
+            <nav className="hidden md:flex items-center space-x-6">
               <Link 
                 to="/" 
-                className={`text-sm font-medium transition-colors ${
-                  location.pathname === '/' ? 'text-squid-pink' : 'text-squid-grey hover:text-white'
+                className={`relative group px-4 py-2 rounded-lg font-squid transition-all duration-300 ${
+                  location.pathname === '/' 
+                    ? 'text-squid-red bg-squid-red/10 border border-squid-red/30' 
+                    : 'text-squid-grey-light hover:text-squid-red hover:bg-squid-red/5'
                 }`}
               >
-                {t('nav.home')}
+                <span className="flex items-center space-x-2">
+                  <span className="text-xs">◯</span>
+                  <span>{t('nav.home')}</span>
+                </span>
               </Link>
               <Link 
                 to="/join" 
-                className={`text-sm font-medium transition-colors ${
-                  location.pathname === '/join' ? 'text-squid-pink' : 'text-squid-grey hover:text-white'
+                className={`relative group px-4 py-2 rounded-lg font-squid transition-all duration-300 ${
+                  location.pathname === '/join' 
+                    ? 'text-squid-green bg-squid-green/10 border border-squid-green/30' 
+                    : 'text-squid-grey-light hover:text-squid-green hover:bg-squid-green/5'
                 }`}
               >
-                {t('nav.joinDraw')}
+                <span className="flex items-center space-x-2">
+                  <span className="text-xs">△</span>
+                  <span>{t('nav.joinDraw')}</span>
+                </span>
               </Link>
               <Link 
                 to="/my" 
-                className={`text-sm font-medium transition-colors ${
-                  location.pathname === '/my' ? 'text-squid-pink' : 'text-squid-grey hover:text-white'
+                className={`relative group px-4 py-2 rounded-lg font-squid transition-all duration-300 ${
+                  location.pathname === '/my' 
+                    ? 'text-squid-blue bg-squid-blue/10 border border-squid-blue/30' 
+                    : 'text-squid-grey-light hover:text-squid-blue hover:bg-squid-blue/5'
                 }`}
               >
-                {t('nav.myEntries')}
+                <span className="flex items-center space-x-2">
+                  <span className="text-xs">⬜</span>
+                  <span>{t('nav.myEntries')}</span>
+                </span>
               </Link>
             </nav>
 
