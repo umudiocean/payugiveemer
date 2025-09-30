@@ -282,7 +282,7 @@ const Admin = () => {
         <Card className="bg-black/50 border-squid-grey/20 backdrop-blur-xl">
           <CardHeader>
             <div className="flex items-center justify-between">
-              <CardTitle className="text-white">Task Completions</CardTitle>
+              <CardTitle className="text-white">{t('admin.taskCompletionsTitle')}</CardTitle>
               <Button
                 onClick={() => exportCSV(tasks, 'task_completions.csv')}
                 variant="outline"
