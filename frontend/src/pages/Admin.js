@@ -167,9 +167,9 @@ const Admin = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-white mb-4">Admin Panel</h1>
+          <h1 className="text-4xl font-bold text-white mb-4">{t('admin.title')}</h1>
           <p className="text-squid-grey text-lg">
-            Manage lottery registrations and track user activities
+            {t('admin.subtitle')}
           </p>
         </div>
 
