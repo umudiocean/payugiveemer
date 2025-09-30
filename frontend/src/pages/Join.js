@@ -304,7 +304,7 @@ const Join = () => {
                   data-testid="telegram-task-btn"
                 >
                   <div className="text-center">
-                    <div className="font-medium">Join Telegram</div>
+                    <div className="font-medium">{t('join.joinTelegram')}</div>
                     <ExternalLink className="w-4 h-4 mx-auto mt-1" />
                   </div>
                 </Button>
