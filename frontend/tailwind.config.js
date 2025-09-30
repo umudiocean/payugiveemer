@@ -13,28 +13,35 @@ module.exports = {
                         sm: 'calc(var(--radius) - 4px)'
                 },
                 colors: {
-                        // Authentic Netflix Squid Game Colors
+                        // Enhanced Squid Game Colors for Better Readability
                         'squid-black': '#08050F',
-                        'squid-dark-red': '#A60C37',
-                        'squid-dark-blue': '#251D58',
-                        'squid-blue': '#453397',
-                        'squid-dark-purple': '#57274A',
                         'squid-red': '#B82F49',
+                        'squid-dark-red': '#A60C37',
+                        
+                        // High-Contrast Colors
+                        'squid-ice-blue': '#00BFFF',
+                        'squid-light-blue': '#87CEEB',
+                        'squid-pink': '#FF69B4',
+                        'squid-light-pink': '#FFB6C1',
+                        'squid-gold': '#FFD700',
+                        'squid-orange': '#FFA500',
+                        
+                        // Updated mappings for better contrast
+                        'squid-blue': '#00BFFF',
+                        'squid-green': '#FFD700',
+                        'squid-mint': '#87CEEB',
+                        'squid-purple': '#FF69B4',
+                        'squid-teal': '#00BFFF',
+                        
+                        // Grayscale
                         'squid-grey': '#8A808C',
                         'squid-light-grey': '#DCD5DC',
-                        
-                        // Backward compatibility aliases
-                        'squid-pink': '#B82F49',
-                        'squid-green': '#453397',
-                        'squid-mint': '#453397',
-                        'squid-purple': '#57274A',
-                        'squid-navy': '#251D58',
-                        'squid-white': '#DCD5DC',
+                        'squid-white': '#FFFFFF',
                         'squid-grey-dark': '#8A808C',
                         'squid-grey-light': '#DCD5DC',
                         'squid-dark': '#08050F',
-                        'squid-teal': '#453397',
-                        'squid-success': '#453397',
+                        'squid-navy': '#00BFFF',
+                        'squid-success': '#FFD700',
                         'squid-error': '#A60C37',
                         // shadcn/ui colors
                         background: 'hsl(var(--background))',
