@@ -187,10 +187,24 @@ const Join = () => {
                   <ConnectButton className="w-full" />
                 </div>
               ) : isRegistered ? (
-                <div className="text-center py-8">
-                  <CheckCircle className="w-16 h-16 text-squid-success mx-auto mb-4" />
-                  <h3 className="text-xl font-bold text-white mb-2">{t('join.alreadyRegisteredTitle')}</h3>
-                  <p className="text-squid-grey">{t('join.alreadyRegisteredDesc')}</p>
+                <div className="text-center py-8 relative">
+                  {/* Animated Success Background */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-squid-success/10 to-squid-teal/10 rounded-xl animate-pulse"></div>
+                  <div className="relative z-10">
+                    <div className="relative">
+                      <CheckCircle className="w-20 h-20 text-squid-success mx-auto mb-4 animate-bounce" />
+                      <div className="absolute -top-2 -left-2 text-squid-pink text-lg animate-ping">◯</div>
+                      <div className="absolute -top-2 -right-2 text-squid-teal text-lg animate-pulse">△</div>
+                      <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 text-squid-purple text-lg animate-bounce">⬜</div>
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-2 animate-fade-in">{t('join.alreadyRegisteredTitle')}</h3>
+                    <p className="text-squid-grey animate-fade-in">{t('join.alreadyRegisteredDesc')}</p>
+                    <div className="mt-4 flex justify-center space-x-2">
+                      <span className="text-squid-success animate-pulse">●</span>
+                      <span className="text-squid-success animate-pulse" style={{animationDelay: '0.2s'}}>●</span>
+                      <span className="text-squid-success animate-pulse" style={{animationDelay: '0.4s'}}>●</span>
+                    </div>
+                  </div>
                 </div>
               ) : (
                 <div>
