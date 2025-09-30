@@ -109,8 +109,8 @@ const Admin = () => {
         <Card className="bg-black/50 border-squid-grey/20 backdrop-blur-xl max-w-md w-full">
           <CardContent className="py-12 text-center">
             <Shield className="w-16 h-16 text-squid-grey mx-auto mb-6" />
-            <h3 className="text-xl font-bold text-white mb-4">Admin Access Required</h3>
-            <p className="text-squid-grey mb-6">Please connect your wallet to access the admin panel.</p>
+            <h3 className="text-xl font-bold text-white mb-4">{t('admin.accessRequired')}</h3>
+            <p className="text-squid-grey mb-6">{t('admin.connectForAdmin')}</p>
             <Button 
               onClick={() => window.location.href = '/join'}
               className="bg-gradient-to-r from-squid-pink to-squid-purple"
