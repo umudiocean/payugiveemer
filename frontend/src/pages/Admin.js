@@ -36,7 +36,7 @@ const Admin = () => {
 
   const handleAuthenticate = async () => {
     if (!isAdmin) {
-      toast.error('Access denied. Admin wallet required.')
+      toast.error(t('admin.accessDenied'))
       return
     }
 
