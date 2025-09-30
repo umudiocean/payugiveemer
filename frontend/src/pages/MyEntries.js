@@ -199,8 +199,8 @@ const MyEntries = () => {
                     <div className="w-16 h-16 bg-squid-grey/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
                       <span className="text-squid-grey text-3xl">🎫</span>
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-4">No Registration Found</h3>
-                    <p className="text-squid-grey mb-6">You haven't registered for the lottery yet.</p>
+                    <h3 className="text-xl font-bold text-white mb-4">{t('myEntries.noRegistration')}</h3>
+                    <p className="text-squid-grey mb-6">{t('myEntries.noRegistrationDesc')}</p>
                     <Button
                       onClick={() => window.location.href = '/join'}
                       className="bg-gradient-to-r from-squid-pink to-squid-purple hover:from-squid-pink/80 hover:to-squid-purple/80 text-white"
