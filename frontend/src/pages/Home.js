@@ -148,11 +148,7 @@ const Home = () => {
       {/* Stats Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black/50">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-squid-pink mb-2">0.00098</div>
-              <div className="text-squid-grey text-sm">{t('stats.entryFee')}</div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="text-3xl font-bold text-squid-teal mb-2">250M</div>
               <div className="text-squid-grey text-sm">{t('stats.payuTokens')}</div>
