@@ -115,7 +115,7 @@ const Join = () => {
 
   const handleRegister = () => {
     if (!isConnected) {
-      toast.error('Please connect your wallet first')
+      toast.error(t('messages.connectWallet'))
       return
     }
 
