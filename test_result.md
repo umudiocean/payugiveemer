@@ -119,16 +119,16 @@ backend:
 
 frontend:
   - task: "Remove Entry Fee References"
-    implemented: false
-    working: false
-    file: "multiple language files"
+    implemented: true
+    working: true
+    file: "all language files"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
-        - working: false
+        - working: true
         - agent: "main"
-        - comment: "entryFee keys still present in all 10 language files, some hardcoded fee text remains"
+        - comment: "All entryFee keys removed from 10 language files, hardcoded fee text cleaned up"
   
   - task: "Complete Internationalization"
     implemented: false
