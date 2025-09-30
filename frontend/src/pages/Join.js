@@ -169,13 +169,13 @@ const Join = () => {
           <Card className="bg-black/50 border-squid-grey/20 backdrop-blur-xl">
             <CardHeader>
               <CardTitle className="text-white flex items-center space-x-2">
-                <span>Registration</span>
+                <span>{t('join.registration')}</span>
                 {isRegistered && <CheckCircle className="w-5 h-5 text-squid-success" />}
               </CardTitle>
               <CardDescription className="text-squid-grey">
                 {isRegistered 
-                  ? 'You are already registered for the draw!' 
-                  : 'One transaction to join the draw and receive rewards'
+                  ? t('join.alreadyRegistered')
+                  : t('join.connectToJoin')
                 }
               </CardDescription>
             </CardHeader>
