@@ -80,12 +80,21 @@ def prepare_for_mongo(data):
     return data
 
 def parse_from_mongo(item):
-    if item and isinstance(item.get('created_at'), str):
+    if not item:
+        return item
+    
+    # Remove MongoDB's _id field to avoid ObjectId serialization issues
+    if '_id' in item:
+        del item['_id']
+    
+    # Parse datetime strings back to datetime objects
+    if isinstance(item.get('created_at'), str):
         item['created_at'] = datetime.fromisoformat(item['created_at'].replace('Z', '+00:00'))
-    if item and isinstance(item.get('clicked_at'), str):
+    if isinstance(item.get('clicked_at'), str):
         item['clicked_at'] = datetime.fromisoformat(item['clicked_at'].replace('Z', '+00:00'))
-    if item and isinstance(item.get('timestamp'), str):
+    if isinstance(item.get('timestamp'), str):
         item['timestamp'] = datetime.fromisoformat(item['timestamp'].replace('Z', '+00:00'))
+    
     return item
 
 # Add your routes to the router instead of directly to app
