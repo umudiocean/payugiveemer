@@ -27,13 +27,19 @@ const resources = {
   id: { translation: id }
 }
 
+// Supported languages whitelist
+const supportedLngs = ['en', 'tr', 'es', 'de', 'fr', 'ru', 'ar', 'zh', 'pt', 'id']
+
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources,
+    supportedLngs,
     fallbackLng: 'en',
-    debug: true,
+    debug: false,
+    nonExplicitSupportedLngs: true,
+    load: 'languageOnly',
     
     interpolation: {
       escapeValue: false
@@ -43,7 +49,12 @@ i18n
       order: ['localStorage', 'navigator'],
       lookupLocalStorage: 'i18nextLng',
       caches: ['localStorage'],
-      excludeCacheFor: ['cimode']
+      excludeCacheFor: ['cimode'],
+      convertDetectedLanguage: (lng) => {
+        // Normalize 'en-US', 'en-GB', etc. to 'en'
+        const normalized = lng.split('-')[0].split('@')[0].toLowerCase()
+        return supportedLngs.includes(normalized) ? normalized : 'en'
+      }
     },
     
     react: {
