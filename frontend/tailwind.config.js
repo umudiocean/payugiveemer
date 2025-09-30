@@ -131,8 +131,8 @@ module.exports = {
                                 '100%': { opacity: '1', transform: 'translateY(0px)' },
                         },
                         'glow': {
-                                '0%, 100%': { textShadow: '0 0 20px rgba(255, 51, 102, 0.6)' },
-                                '50%': { textShadow: '0 0 30px rgba(255, 51, 102, 0.9), 0 0 40px rgba(0, 208, 132, 0.4)' },
+                                '0%, 100%': { textShadow: '0 0 20px rgba(184, 47, 73, 0.7)' },
+                                '50%': { textShadow: '0 0 30px rgba(184, 47, 73, 1), 0 0 40px rgba(69, 51, 151, 0.5)' },
                         },
                         'squid-pulse': {
                                 '0%, 100%': { transform: 'scale(1)', opacity: '1' },
