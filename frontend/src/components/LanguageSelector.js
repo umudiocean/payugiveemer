@@ -82,7 +82,10 @@ const LanguageSelector = ({ className = '' }) => {
           {/* Enhanced Backdrop with higher z-index */}
           <div 
             className="fixed inset-0 z-[9998] bg-squid-black/30 backdrop-blur-sm" 
-            onClick={() => setIsOpen(false)}
+            onClick={(e) => {
+              e.stopPropagation()
+              setIsOpen(false)
+            }}
           />
           
           {/* Enhanced Dropdown Menu with even higher z-index */}
