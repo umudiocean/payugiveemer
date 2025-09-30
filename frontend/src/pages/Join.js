@@ -619,32 +619,79 @@ const Join = () => {
                 </div>
               </div>
 
-              {/* Bottom Section */}
-              <div className="relative z-10 p-8 pt-4 border-t border-squid-grey-dark/30">
+              {/* Enhanced Bottom Section */}
+              <div className="relative z-10 p-8 pt-6 border-t-2 border-gradient-to-r from-squid-red via-squid-ice-blue to-squid-gold">
                 <div className="text-center">
-                  <div className="flex items-center justify-center space-x-6 mb-4">
-                    <div className="flex space-x-2 animate-squid-pulse">
-                      <span className="text-squid-red text-lg">●</span>
-                      <span className="text-squid-green text-lg">▲</span>
-                      <span className="text-squid-blue text-lg">■</span>
+                  
+                  {/* Animated Progress Indicator */}
+                  <div className="flex items-center justify-center space-x-8 mb-8">
+                    <div className="flex space-x-3">
+                      <span className={`text-2xl transition-all duration-500 ${completedTasks.includes('telegram') ? 'text-squid-gold animate-squid-glow-gold' : 'text-squid-grey animate-pulse'}`}>●</span>
+                      <span className={`text-2xl transition-all duration-500 ${completedTasks.includes('x') ? 'text-squid-ice-blue animate-squid-glow-blue' : 'text-squid-grey animate-pulse'}`} style={{animationDelay: '0.2s'}}>▲</span>
+                      <span className={`text-2xl transition-all duration-500 ${completedTasks.includes('instagram_story') ? 'text-squid-pink animate-squid-glow-pink' : 'text-squid-grey animate-pulse'}`} style={{animationDelay: '0.4s'}}>■</span>
                     </div>
-                    <span className="text-squid-grey-light font-squid text-sm">
-                      Complete all games to maximize your winning chances
-                    </span>
-                    <div className="flex space-x-2 animate-squid-pulse" style={{animationDelay: '0.5s'}}>
-                      <span className="text-squid-blue text-lg">■</span>
-                      <span className="text-squid-green text-lg">▲</span>
-                      <span className="text-squid-red text-lg">●</span>
+                    
+                    <div className="px-6 py-2 bg-gradient-to-r from-squid-black/60 to-squid-black/80 border border-squid-red/40 rounded-xl backdrop-blur-sm">
+                      <span className="text-squid-light-grey font-squid text-base animate-glow">
+                        Complete All Games to Maximize Rewards
+                      </span>
+                    </div>
+                    
+                    <div className="flex space-x-3">
+                      <span className={`text-2xl transition-all duration-500 ${completedTasks.includes('instagram_story') ? 'text-squid-pink animate-squid-glow-pink' : 'text-squid-grey animate-pulse'}`} style={{animationDelay: '0.6s'}}>■</span>
+                      <span className={`text-2xl transition-all duration-500 ${completedTasks.includes('x') ? 'text-squid-ice-blue animate-squid-glow-blue' : 'text-squid-grey animate-pulse'}`} style={{animationDelay: '0.8s'}}>▲</span>
+                      <span className={`text-2xl transition-all duration-500 ${completedTasks.includes('telegram') ? 'text-squid-gold animate-squid-glow-gold' : 'text-squid-grey animate-pulse'}`} style={{animationDelay: '1s'}}>●</span>
                     </div>
                   </div>
                   
-                  <div className="inline-flex items-center space-x-3 bg-squid-grey-dark/20 border border-squid-grey-dark/40 rounded-full px-6 py-2">
-                    <span className="text-squid-green text-xs">◯</span>
-                    <span className="text-squid-grey-light text-xs font-squid">
-                      Total Games Completed: {completedTasks.length}/3
-                    </span>
-                    <span className="text-squid-blue text-xs">△</span>
+                  {/* Enhanced Progress Counter */}
+                  <div className="relative inline-block">
+                    <div className={`absolute -inset-2 blur-xl rounded-full transition-all duration-1000 ${
+                      completedTasks.length === 3 ? 'bg-gradient-to-r from-squid-gold via-squid-pink to-squid-ice-blue opacity-60 animate-squid-pulse' :
+                      completedTasks.length === 2 ? 'bg-gradient-to-r from-squid-ice-blue to-squid-pink opacity-40' :
+                      completedTasks.length === 1 ? 'bg-squid-gold/30' : 'bg-squid-grey/20'
+                    }`}></div>
+                    
+                    <div className={`relative inline-flex items-center space-x-4 px-8 py-4 rounded-2xl border-2 backdrop-blur-xl transition-all duration-1000 ${
+                      completedTasks.length === 3 ? 'bg-gradient-to-r from-squid-gold/20 via-squid-pink/20 to-squid-ice-blue/20 border-squid-gold animate-pulse-glow-gold' :
+                      completedTasks.length === 2 ? 'bg-gradient-to-r from-squid-ice-blue/20 to-squid-pink/20 border-squid-ice-blue' :
+                      completedTasks.length === 1 ? 'bg-squid-gold/20 border-squid-gold' : 'bg-squid-grey/10 border-squid-grey'
+                    }`}>
+                      
+                      <span className={`text-lg font-squid transition-all duration-500 ${
+                        completedTasks.length === 3 ? 'text-squid-gold animate-squid-pulse' :
+                        completedTasks.length >= 1 ? 'text-squid-gold animate-squid-pulse' : 'text-squid-grey'
+                      }`}>◯</span>
+                      
+                      <div className="text-center">
+                        <div className={`text-2xl font-squid-display font-bold transition-all duration-500 ${
+                          completedTasks.length === 3 ? 'text-squid-gold animate-glow-gold' :
+                          completedTasks.length >= 1 ? 'text-squid-ice-blue animate-glow-blue' : 'text-squid-grey'
+                        }`}>
+                          {completedTasks.length}/3
+                        </div>
+                        <div className="text-xs text-squid-light-grey font-squid">
+                          GAMES COMPLETED
+                        </div>
+                      </div>
+                      
+                      <span className={`text-lg font-squid transition-all duration-500 ${
+                        completedTasks.length === 3 ? 'text-squid-pink animate-squid-pulse' :
+                        completedTasks.length >= 2 ? 'text-squid-pink animate-squid-pulse' : 'text-squid-grey'
+                      }`}>△</span>
+                    </div>
                   </div>
+                  
+                  {/* Completion Bonus Message */}
+                  {completedTasks.length === 3 && (
+                    <div className="mt-6 animate-fade-in">
+                      <div className="inline-flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-squid-gold/30 via-squid-pink/30 to-squid-ice-blue/30 border-2 border-squid-gold rounded-full animate-pulse-glow-gold">
+                        <span className="text-squid-gold animate-squid-pulse">🏆</span>
+                        <span className="text-squid-light-grey font-squid font-bold">ALL GAMES COMPLETED! MAXIMUM REWARDS UNLOCKED!</span>
+                        <span className="text-squid-pink animate-squid-bounce">🎉</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
