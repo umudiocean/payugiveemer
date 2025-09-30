@@ -242,22 +242,34 @@ textarea:focus {
   animation: squid-rotate 3s linear infinite;
 }
 
-/* Authentic Squid Game Shapes */
+/* Enhanced Squid Game Shapes */
 .squid-circle {
   border-radius: 50%;
   border: 2px solid var(--squid-red);
-  background: rgba(184, 47, 73, 0.1);
+  background: rgba(184, 47, 73, 0.15);
 }
 
 .squid-triangle {
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  background: rgba(69, 51, 151, 0.1);
-  border: 2px solid var(--squid-blue);
+  background: rgba(0, 191, 255, 0.15);
+  border: 2px solid var(--squid-ice-blue);
 }
 
 .squid-square {
-  border: 2px solid var(--squid-dark-blue);
-  background: rgba(37, 29, 88, 0.1);
+  border: 2px solid var(--squid-gold);
+  background: rgba(255, 215, 0, 0.15);
+}
+
+.squid-circle-pink {
+  border-radius: 50%;
+  border: 2px solid var(--squid-pink);
+  background: rgba(255, 105, 180, 0.15);
+}
+
+.squid-triangle-blue {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  background: rgba(135, 206, 235, 0.15);
+  border: 2px solid var(--squid-light-blue);
 }
 
 /* Rainbow Kit Authentic Squid Game Styling */
