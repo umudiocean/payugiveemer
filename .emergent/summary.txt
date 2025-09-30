@@ -1,83 +1,89 @@
 <analysis>
-The trajectory outlines the end-to-end development of a Payu Squid Game themed cryptocurrency lottery web application. The process began with a highly detailed product specification from the user, covering user flow, UI/UX design based on the Squid Game theme, smart contract integration on the BSC mainnet, backend API requirements, and an admin panel.
+The trajectory documents the development of the Payu Squid Game crypto lottery application, from its initial specification to a highly stylized, feature-rich state. The process began with building the foundational frontend (React) and backend (FastAPI) architecture, integrating wallet connectivity with Wagmi/RainbowKit, and setting up multi-language support (i18next).
 
-The AI engineer executed this plan by first setting up the frontend and backend structure. Initial development focused on establishing the blockchain connection using Wagmi and RainbowKit and building the core UI components and pages (Home, Join, My Entries, Admin). The UI was iteratively refined based on direct user feedback, which included:
-1.  Enhancing the countdown timer to a static 45-day display with more animations.
-2.  Rebranding from Squid Game to Payu Squid Game and replacing the logo.
-3.  Adding a promotional giveaway banner to the footer.
-4.  Changing the background from a solid black to a dynamic, themed image.
-5.  Implementing a multi-language framework (i18next) with a language selector for 10 languages.
+The development was highly iterative, driven by direct user feedback. The initial work involved removing all mentions of an entry fee from the UI and all 10 translation files. Subsequently, the engineer completed the internationalization of all pages (, , ). A critical backend bug involving MongoDB ObjectId serialization was identified and fixed during automated testing.
 
-The most recent task was a refactor to remove all mentions of the 0.00098 BNB entry fee from the UI and all language translation files, which was interrupted mid-process.
+The latter half of the trajectory focused on a massive UI/UX overhaul. The user requested progressively more sophisticated designs, leading to multiple full-theme refactors. This involved implementing custom fonts (), several distinct color palettes (culminating in a high-contrast ice blue, pink, and gold scheme), and complex CSS animations. Key features like a sequential, game-like task system on the  page and a new Pepe Squid Game hero section were also added.
+
+The work was interrupted immediately after the user reported that the language selector component was non-functional and not readable. The last action was reading the component's file to begin debugging and redesigning it.
 </analysis>
+
 <product_requirements>
-The goal is to build a Vercel-hosted web application for a cryptocurrency lottery inspired by Squid Game.
+The objective is to create a Payu Squid Game themed cryptocurrency lottery web application. Users connect their wallets (e.g., MetaMask) to participate in a draw by calling a smart contract on the BSC Mainnet.
 
-**Core User Flow:**
-1.  **Landing Page:** Users are greeted with a themed hero section, a countdown timer for the draw, and a Join Draw CTA.
-2.  **Wallet Connection:** Users connect their crypto wallet (MetaMask, WalletConnect, etc.) via RainbowKit.
-3.  **Participation:** Upon connecting, users call the  function on a BSC mainnet smart contract (), which sends 0.00098 BNB. In return, they instantly receive 250M PAYU coins and a unique ticket number (e.g., ).
-4.  **Post-Registration:** Users see their ticket number and optional tasks (e.g., join Telegram).
+**Core Functionality:**
+-   **User Flow:** Connect wallet, join the draw via a smart contract call, receive a ticket, and complete optional social media tasks.
+-   **Admin Panel:** A wallet-gated page for viewing participants and exporting data.
+-   **Multi-Language:** Full support for 10 languages, selectable by the user.
 
-**Key Features:**
--   **UI/UX:** A dark, high-contrast theme using a specific color palette (Neon Pink, Teal), geometric shapes (◯ △ ⬜), and custom fonts (Satoshi/Inter). The theme was later updated to use a specific background image and the official Payu logo.
--   **Admin Panel:** A hidden, wallet-gated page () accessible only by  for viewing participants and exporting data.
--   **Countdown Timer:** A 45-day countdown displayed prominently on the landing page and in the header.
--   **Multi-Language Support:** The application must support 10 languages (EN, TR, ES, DE, FR, RU, AR, ZH, PT, ID) with a user-selectable language switcher.
--   **Textual Updates:** All instances of Squid Game were to be replaced with Payu Squid Game. All mentions of the entry fee were to be removed from the UI.
+**UI/UX Evolution:**
+The initial dark theme evolved into a highly specific, animated Squid Game aesthetic.
+-   **Theme:** The final design uses the  font and a high-contrast color palette (ice blue, pink, gold) on a dark background ().
+-   **Animations:** Extensive use of custom CSS animations (glow, float, pulse) on UI elements and background symbols (◯ △ ⬜).
+-   **Gamification:** The  page features a sequential task system where completing one social media task (e.g., Telegram) unlocks the next, enhancing user engagement.
+-   **Branding:** The hero section features a Pepe Squid Game character image.
 </product_requirements>
+
 <key_technical_concepts>
-- **Frontend Framework**: React.js with Create React App (CRACO).
-- **Styling**: Tailwind CSS with custom theme configuration for Squid Game aesthetics.
-- **UI Components**: Shadcn UI components located in .
-- **Blockchain Integration**: Wagmi and RainbowKit for wallet connectivity and smart contract interaction on the BSC Mainnet.
-- **Backend Framework**: FastAPI (Python).
-- **Database**: MongoDB (initial setup), intended for Vercel Postgres.
-- **Internationalization (i18n)**:  and  for multi-language support.
+- **Frontend:** React, Create React App (CRACO), Tailwind CSS.
+- **Backend:** FastAPI (Python).
+- **Blockchain:** Wagmi and RainbowKit for wallet connection and smart contract interaction.
+- **Internationalization (i18n):**  and  for managing translations across 10 JSON files.
+- **Styling:** Heavy customization of  for themes (colors, fonts, keyframe animations) and global CSS variables for dynamic styling.
+- **Database:** MongoDB, with a key fix implemented for ObjectId serialization issues.
 </key_technical_concepts>
+
 <code_architecture>
-The application follows a standard monorepo structure with a React frontend and a FastAPI backend.
+The application is a monorepo with a React frontend and a FastAPI backend.
 
 **Directory Structure:**
 
 
-**Key Files:**
--   **/app/frontend/src/App.js**
-    -   **Importance**: The main entry point for the React application. It sets up the routing structure (), wraps the application with necessary providers like , , and initializes  for translations.
-    -   **Changes**: Heavily modified to include routing for Home, Join, MyEntries, and the Admin page. Providers for wallet connection and internationalization were added.
+-   ****
+    -   **Importance:** Central hub for the application's visual theme. It defines the custom color palettes, font families (), and complex CSS keyframe animations that are crucial to the Squid Game aesthetic.
+    -   **Changes:** This file was modified extensively through multiple iterations to update colors, add fonts, and define custom animations like , , , and .
 
--   **/app/frontend/src/pages/Home.js**
-    -   **Importance**: The landing page of the application. It contains the main hero section, the countdown timer, feature descriptions, and the promotional giveaway banner.
-    -   **Changes**: Underwent multiple significant visual updates: text changed from Squid Game to Payu Squid Game, the logo was replaced, the background was updated to a user-provided image, and all text was refactored to use translation keys from . Fee text was removed.
+-   ****
+    -   **Importance:** The primary page for user interaction, handling wallet connection, registration, and tasks.
+    -   **Changes:** Underwent a massive transformation. All text was internationalized. A critical  bug on an undefined variable was fixed. Most significantly, it was redesigned to include a sequential, game-like task system with state management () and heavy CSS animations for a modern, engaging user experience.
 
--   **/app/frontend/src/components/Layout.js**
-    -   **Importance**: Provides the consistent structure for all pages, including the header (with logo and language selector) and the footer. It's the central place for global styles and layout.
-    -   **Changes**: The main background color and image were set here. The  component was added to the header. The footer was updated to include the user-provided giveaway image.
+-   ****
+    -   **Importance:** The application's landing page.
+    -   **Changes:** Completely redesigned to align with the evolving Squid Game theme. The hero section was updated with a new Pepe Squid Game image and headline. Static content was replaced with animated, themed cards.
 
--   **/app/frontend/src/i18n/**
-    -   **Importance**: This directory contains the entire internationalization setup.  configures the  instance, and the  subdirectory holds the JSON files with key-value pairs for all 10 languages.
-    -   **Changes**: Created from scratch to add multi-language support. All JSON files were populated with initial translations and later modified to remove fee-related text.
+-   ****
+    -   **Importance:** Provides the global page structure (header, footer, background).
+    -   **Changes:** Refactored to implement the global theme, including a new header with animated logo/symbols, and a redesigned footer. It's the component that ties the overall visual identity together.
 
--   **/app/backend/server.py**
-    -   **Importance**: The main file for the FastAPI backend. It defines API endpoints.
-    -   **Changes**: Updated to include basic API structure and endpoints (, , ), although the database logic for saving entries and clicks is not yet fully implemented.
+-   ****
+    -   **Importance:** Contains all translated strings for the 10 supported languages.
+    -   **Changes:** Initially populated, then edited to remove fee-related text. Later, they were all updated in bulk to add new keys for the internationalization of , , and .
+
+-   ****
+    -   **Importance:** The FastAPI backend server defining all API endpoints.
+    -   **Changes:** The code was validated by the  agent, which confirmed all 13 endpoints were functional and fixed a critical MongoDB ObjectId serialization bug without manual code edits.
 </code_architecture>
+
 <pending_tasks>
-- **Complete Internationalization**: The i18n framework is in place, but translations need to be implemented across all components, especially , , and . The z-index issue with the language dropdown menu needs to be fixed.
-- **Backend Logic Implementation**: The backend API endpoints (, , admin routes) are defined but lack the full database interaction logic (verifying transactions, inserting records into MongoDB/Postgres) as specified in the initial requirements.
-- **Full End-to-End Testing**: The wallet connection and smart contract  function need to be fully tested to ensure the front-to-back flow works correctly.
+- **Fix Language Selector:** The primary pending task is to fix the language selector component. The user reported that it is not working, is not easily readable, and does not change the application's language upon selection. This requires both a functional fix and a UI redesign to match the current theme.
 </pending_tasks>
+
 <current_work>
-Immediately before this summary request, the AI engineer was executing a user request to remove all mentions of the 0.00098 BNB registration fee from the entire application. This was a multi-step refactoring process that involved:
+The immediate task at hand is addressing the user's feedback about the broken language selector. The user explicitly stated: language options are not working and please make it more readable. whichever language the user chooses, the whole app should be translated to that language.
 
-1.  **Code Modification**: Editing the frontend components, specifically  and , to remove the hardcoded fee text from buttons and descriptive paragraphs.
-    -   The button text in  was changed from  to .
-    -   Descriptive text referencing the fee was removed from  and .
+This request points to two issues:
+1.  **Functionality:** The  function is likely not being called correctly, or the component's state is not properly managed, preventing the application from re-rendering with the selected language.
+2.  **UI/UX:** The component's styling does not align with the new high-contrast theme ( font, ice blue/pink/gold colors), making it difficult to read and visually inconsistent with the rest of the application.
 
-2.  **Translation File Updates**: Systematically editing all 10 language JSON files located in  to remove the text values associated with the fee. This included keys like  and .
+The previous engineer had just begun to address this by reading the contents of the relevant file to understand its current implementation.
 
-This task was in its final stages. The engineer had successfully edited the UI components and was working through each of the 10 language files (, , , etc.) one by one. The trajectory concluded just after the  (Indonesian) file was updated, with the next logical action being the cleanup of the now-unused translation keys from these files.
+**File being worked on:**
+-   
+
+**Last Action:**
+The last action was reading the  file to prepare for refactoring. No code has been modified yet for this specific task.
 </current_work>
+
 <optional_next_step>
-Remove the now-unused entryFee translation keys from all 10 language files in  to finalize the fee removal task.
+Refactor  to fix its functionality and update its styling to align with the new high-contrast Squid Game theme for improved readability and visual consistency.
 </optional_next_step>
