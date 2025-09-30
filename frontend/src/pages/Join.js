@@ -632,7 +632,7 @@ const Join = () => {
                   <div className="inline-flex items-center space-x-3 bg-squid-grey-dark/20 border border-squid-grey-dark/40 rounded-full px-6 py-2">
                     <span className="text-squid-green text-xs">◯</span>
                     <span className="text-squid-grey-light text-xs font-squid">
-                      Total Games Completed: 0/3
+                      Total Games Completed: {completedTasks.length}/3
                     </span>
                     <span className="text-squid-blue text-xs">△</span>
                   </div>
