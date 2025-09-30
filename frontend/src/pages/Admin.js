@@ -237,7 +237,7 @@ const Admin = () => {
             {loading ? (
               <div className="text-center py-12">
                 <div className="w-12 h-12 border-4 border-squid-pink border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                <p className="text-squid-grey">Loading registrations...</p>
+                <p className="text-squid-grey">{t('admin.loadingRegistrations')}</p>
               </div>
             ) : registrations.length === 0 ? (
               <div className="text-center py-12">
