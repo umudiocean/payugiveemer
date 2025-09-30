@@ -312,10 +312,10 @@ const Admin = () => {
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-squid-grey/20">
-                      <th className="text-left py-3 px-4 text-squid-grey">Wallet</th>
-                      <th className="text-left py-3 px-4 text-squid-grey">Platform</th>
-                      <th className="text-left py-3 px-4 text-squid-grey">Handle</th>
-                      <th className="text-left py-3 px-4 text-squid-grey">Completed</th>
+                      <th className="text-left py-3 px-4 text-squid-grey">{t('admin.wallet')}</th>
+                      <th className="text-left py-3 px-4 text-squid-grey">{t('admin.platform')}</th>
+                      <th className="text-left py-3 px-4 text-squid-grey">{t('admin.handle')}</th>
+                      <th className="text-left py-3 px-4 text-squid-grey">{t('admin.completed')}</th>
                     </tr>
                   </thead>
                   <tbody>
