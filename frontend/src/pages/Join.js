@@ -708,6 +708,137 @@ const Join = () => {
           </div>
         )}
       </div>
+
+      {/* Celebration Modal - Shows when all 3 tasks completed */}
+      {showCelebration && ticket && (
+        <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4 animate-fadeIn">
+          {/* Backdrop with confetti effect */}
+          <div 
+            className="absolute inset-0 bg-squid-black/95 backdrop-blur-xl"
+            onClick={() => setShowCelebration(false)}
+          >
+            {/* Animated background particles */}
+            <div className="absolute inset-0 overflow-hidden">
+              {[...Array(50)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute w-2 h-2 rounded-full animate-float"
+                  style={{
+                    left: `${Math.random() * 100}%`,
+                    top: `${Math.random() * 100}%`,
+                    backgroundColor: ['#00BFFF', '#FF1493', '#FFD700'][Math.floor(Math.random() * 3)],
+                    animationDelay: `${Math.random() * 2}s`,
+                    animationDuration: `${2 + Math.random() * 3}s`
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Modal Content */}
+          <div className="relative z-10 max-w-2xl w-full animate-scaleIn">
+            <div className="bg-gradient-to-br from-squid-black via-squid-black/98 to-squid-black/95 rounded-3xl border-4 border-squid-gold shadow-[0_0_60px_rgba(255,215,0,0.6)] overflow-hidden">
+              
+              {/* Header with fireworks */}
+              <div className="relative bg-gradient-to-r from-squid-gold/20 via-squid-pink/20 to-squid-ice-blue/20 p-8 border-b-4 border-squid-gold/50">
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTAiIGN5PSIxMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsMjE1LDAsMC4xKSIvPjwvc3ZnPg==')] opacity-20"></div>
+                
+                <div className="relative text-center">
+                  {/* Animated emoji burst */}
+                  <div className="flex justify-center items-center space-x-4 mb-6">
+                    <span className="text-6xl animate-squid-bounce">🎉</span>
+                    <span className="text-7xl animate-squid-pulse">🎊</span>
+                    <span className="text-6xl animate-squid-bounce" style={{animationDelay: '0.2s'}}>🎉</span>
+                  </div>
+                  
+                  <h2 className="text-5xl font-squid-display font-bold mb-4 bg-gradient-to-r from-squid-gold via-squid-pink to-squid-ice-blue bg-clip-text text-transparent animate-glow">
+                    CONGRATULATIONS!
+                  </h2>
+                  
+                  <div className="flex items-center justify-center space-x-3 text-squid-white">
+                    <span className="text-3xl animate-squid-glow-gold">◯</span>
+                    <span className="text-xl font-squid-display font-bold">ALL TASKS COMPLETED</span>
+                    <span className="text-3xl animate-squid-glow-pink">△</span>
+                    <span className="text-xl font-squid-display font-bold">MAXIMUM LUCK UNLOCKED</span>
+                    <span className="text-3xl animate-squid-glow-blue">⬜</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Main message with ticket */}
+              <div className="p-10">
+                <div className="text-center space-y-6">
+                  
+                  {/* Success Icon */}
+                  <div className="flex justify-center mb-6">
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-squid-gold/30 rounded-full blur-3xl animate-squid-pulse"></div>
+                      <div className="relative w-32 h-32 bg-gradient-to-br from-squid-gold to-squid-pink rounded-full flex items-center justify-center border-8 border-squid-gold/50 shadow-[0_0_40px_rgba(255,215,0,0.8)] animate-squid-bounce">
+                        <CheckCircle className="w-20 h-20 text-white" strokeWidth={3} />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Main Message */}
+                  <div className="space-y-4">
+                    <p className="text-2xl font-squid text-squid-light-grey leading-relaxed">
+                      You have been added to the draw pool with your
+                    </p>
+                    
+                    {/* Ticket Number - Highlighted */}
+                    <div className="relative inline-block">
+                      <div className="absolute inset-0 bg-gradient-to-r from-squid-gold via-squid-pink to-squid-ice-blue blur-2xl opacity-50 animate-squid-pulse"></div>
+                      <div className="relative bg-gradient-to-r from-squid-gold/20 to-squid-pink/20 border-4 border-squid-gold rounded-2xl px-8 py-6 shadow-[0_0_30px_rgba(255,215,0,0.6)]">
+                        <p className="text-5xl font-squid-display font-bold bg-gradient-to-r from-squid-gold via-squid-pink to-squid-ice-blue bg-clip-text text-transparent animate-glow mb-2">
+                          {ticket}
+                        </p>
+                        <p className="text-lg font-squid-display text-squid-ice-blue animate-glow-blue">
+                          LUCKY TICKET NUMBER
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Extra rewards info */}
+                  <div className="bg-gradient-to-r from-squid-ice-blue/10 via-squid-pink/10 to-squid-gold/10 border-2 border-squid-gold/30 rounded-2xl p-6 mt-8">
+                    <div className="flex items-center justify-center space-x-3 mb-3">
+                      <span className="text-3xl animate-squid-pulse">⚡</span>
+                      <span className="text-2xl font-squid-display font-bold text-squid-gold animate-glow-gold">
+                        BONUS UNLOCKED
+                      </span>
+                      <span className="text-3xl animate-squid-pulse">⚡</span>
+                    </div>
+                    <p className="text-lg font-squid text-squid-light-grey">
+                      +3 Extra Chances Added • Maximum Rewards Activated
+                    </p>
+                    <div className="flex items-center justify-center space-x-2 mt-3">
+                      <span className="text-2xl animate-squid-glow-gold">◯</span>
+                      <span className="text-2xl animate-squid-glow-pink">△</span>
+                      <span className="text-2xl animate-squid-glow-blue">⬜</span>
+                    </div>
+                  </div>
+
+                  {/* Close button */}
+                  <button
+                    onClick={() => setShowCelebration(false)}
+                    className="mt-8 px-12 py-5 bg-gradient-to-r from-squid-gold via-squid-pink to-squid-ice-blue text-white font-squid-display font-bold text-xl rounded-2xl shadow-[0_0_30px_rgba(255,215,0,0.6)] hover:shadow-[0_0_50px_rgba(255,215,0,0.9)] transform hover:scale-105 transition-all duration-300 border-4 border-squid-gold/50"
+                  >
+                    <span className="flex items-center space-x-3">
+                      <span>CONTINUE</span>
+                      <span className="text-2xl animate-squid-bounce">🚀</span>
+                    </span>
+                  </button>
+
+                  {/* Footer note */}
+                  <p className="text-sm font-squid text-squid-grey mt-6">
+                    Good luck in the draw! May the odds be ever in your favor! 🍀
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
