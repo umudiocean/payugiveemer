@@ -154,7 +154,16 @@ const Join = () => {
       // Add platform to completed tasks if not already present
       setCompletedTasks(prev => {
         if (!prev.includes(platform)) {
-          return [...prev, platform]
+          const newTasks = [...prev, platform]
+          
+          // Check if all 3 tasks are completed
+          if (newTasks.length === 3 && ticket) {
+            setTimeout(() => {
+              setShowCelebration(true)
+            }, 500)
+          }
+          
+          return newTasks
         }
         return prev
       })
