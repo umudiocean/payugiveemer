@@ -745,22 +745,20 @@ const Join = () => {
                 
                 <div className="relative text-center">
                   {/* Animated emoji burst */}
-                  <div className="flex justify-center items-center space-x-4 mb-6">
-                    <span className="text-6xl animate-squid-bounce">🎉</span>
-                    <span className="text-7xl animate-squid-pulse">🎊</span>
-                    <span className="text-6xl animate-squid-bounce" style={{animationDelay: '0.2s'}}>🎉</span>
+                  <div className="flex justify-center items-center space-x-2 mb-3">
+                    <span className="text-3xl animate-squid-bounce">🎉</span>
+                    <span className="text-4xl animate-squid-pulse">🎊</span>
+                    <span className="text-3xl animate-squid-bounce" style={{animationDelay: '0.2s'}}>🎉</span>
                   </div>
                   
-                  <h2 className="text-5xl font-squid-display font-bold mb-4 bg-gradient-to-r from-squid-gold via-squid-pink to-squid-ice-blue bg-clip-text text-transparent animate-glow">
+                  <h2 className="text-3xl font-squid-display font-bold mb-2 bg-gradient-to-r from-squid-gold via-squid-pink to-squid-ice-blue bg-clip-text text-transparent animate-glow">
                     CONGRATULATIONS!
                   </h2>
                   
-                  <div className="flex items-center justify-center space-x-3 text-squid-white">
-                    <span className="text-3xl animate-squid-glow-gold">◯</span>
-                    <span className="text-xl font-squid-display font-bold">ALL TASKS COMPLETED</span>
-                    <span className="text-3xl animate-squid-glow-pink">△</span>
-                    <span className="text-xl font-squid-display font-bold">MAXIMUM LUCK UNLOCKED</span>
-                    <span className="text-3xl animate-squid-glow-blue">⬜</span>
+                  <div className="flex items-center justify-center space-x-2 text-squid-white text-sm">
+                    <span className="text-xl animate-squid-glow-gold">◯</span>
+                    <span className="font-squid-display font-bold">ALL TASKS COMPLETED</span>
+                    <span className="text-xl animate-squid-glow-blue">⬜</span>
                   </div>
                 </div>
               </div>
