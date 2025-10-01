@@ -99,21 +99,20 @@ const LanguageSelectorNew = ({ className = '' }) => {
                 const isSelected = currentLang === language.code
                 
                 return (
-                  <div
+                  <a
                     key={language.code}
+                    href="#"
                     onClick={(e) => {
-                      e.stopPropagation()
-                      console.log('🔥 DIL SEÇİLDİ:', language.code, language.name)
+                      e.preventDefault()
                       changeLanguage(language.code)
                     }}
-                    style={{ cursor: 'pointer', pointerEvents: 'auto' }}
-                    className={`w-full flex items-center justify-between px-4 py-3.5 rounded-xl transition-all duration-300 mb-2.5 font-squid-display group relative overflow-hidden ${
+                    className={`w-full flex items-center justify-between px-4 py-3.5 rounded-xl transition-all duration-300 mb-2.5 font-squid-display group relative overflow-hidden no-underline ${
                       isSelected
                         ? 'bg-gradient-to-r from-squid-ice-blue/25 to-squid-pink/25 text-squid-white border-2 border-squid-ice-blue/70 shadow-[0_0_20px_rgba(0,191,255,0.4)]'
                         : 'text-squid-light-grey hover:bg-gradient-to-r hover:from-squid-ice-blue/15 hover:to-squid-pink/15 hover:text-squid-white border-2 border-squid-ice-blue/20 hover:border-squid-ice-blue/50 hover:shadow-[0_0_15px_rgba(0,191,255,0.3)]'
                     }`}
                   >
-                    <div className="flex items-center space-x-4 relative z-10 pointer-events-none">
+                    <div className="flex items-center space-x-4">
                       <span className="text-3xl transform transition-transform group-hover:scale-125 drop-shadow-[0_0_8px_rgba(0,191,255,0.6)]">
                         {language.flag}
                       </span>
@@ -131,7 +130,7 @@ const LanguageSelectorNew = ({ className = '' }) => {
                       </div>
                     </div>
                     
-                    <div className="flex items-center space-x-3 relative z-10 pointer-events-none">
+                    <div className="flex items-center space-x-3">
                       {isSelected && (
                         <>
                           <div className="w-2.5 h-2.5 bg-squid-ice-blue rounded-full animate-squid-pulse shadow-[0_0_10px_rgba(0,191,255,0.8)]"></div>
@@ -139,7 +138,7 @@ const LanguageSelectorNew = ({ className = '' }) => {
                         </>
                       )}
                     </div>
-                  </div>
+                  </a>
                 )
               })}
             </div>
