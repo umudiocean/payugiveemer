@@ -70,18 +70,7 @@ const LanguageSelectorNew = ({ className = '' }) => {
 
       {/* Dropdown */}
       {isOpen && (
-        <>
-          {/* Backdrop */}
-          <div 
-            className="fixed inset-0 z-[9998] bg-squid-black/30 backdrop-blur-sm" 
-            onClick={() => {
-              console.log('Backdrop clicked')
-              setIsOpen(false)
-            }}
-          />
-          
-          {/* Dropdown Menu */}
-          <div className="absolute right-0 top-full mt-3 w-80 bg-gradient-to-b from-squid-black via-squid-black/98 to-squid-black/95 backdrop-blur-2xl border-2 border-squid-ice-blue/60 rounded-2xl shadow-[0_0_40px_rgba(0,191,255,0.4)] z-[9999] max-h-[32rem] overflow-hidden">
+        <div className="absolute right-0 top-full mt-3 w-80 bg-gradient-to-b from-squid-black via-squid-black/98 to-squid-black/95 backdrop-blur-2xl border-2 border-squid-ice-blue/60 rounded-2xl shadow-[0_0_40px_rgba(0,191,255,0.4)] z-[99999] max-h-[32rem] overflow-hidden">
             
             {/* Header */}
             <div className="p-4 border-b-2 border-squid-ice-blue/40 bg-gradient-to-r from-squid-ice-blue/10 to-squid-pink/10">
