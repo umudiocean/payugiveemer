@@ -736,11 +736,11 @@ const Join = () => {
           </div>
 
           {/* Modal Content */}
-          <div className="relative z-10 max-w-2xl w-full animate-scaleIn">
-            <div className="bg-gradient-to-br from-squid-black via-squid-black/98 to-squid-black/95 rounded-3xl border-4 border-squid-gold shadow-[0_0_60px_rgba(255,215,0,0.6)] overflow-hidden">
+          <div className="relative z-10 max-w-xl w-full animate-scaleIn">
+            <div className="bg-gradient-to-br from-squid-black via-squid-black/98 to-squid-black/95 rounded-2xl border-2 border-squid-gold shadow-[0_0_40px_rgba(255,215,0,0.5)] overflow-hidden">
               
               {/* Header with fireworks */}
-              <div className="relative bg-gradient-to-r from-squid-gold/20 via-squid-pink/20 to-squid-ice-blue/20 p-8 border-b-4 border-squid-gold/50">
+              <div className="relative bg-gradient-to-r from-squid-gold/20 via-squid-pink/20 to-squid-ice-blue/20 p-4 border-b-2 border-squid-gold/50">
                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTAiIGN5PSIxMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsMjE1LDAsMC4xKSIvPjwvc3ZnPg==')] opacity-20"></div>
                 
                 <div className="relative text-center">
