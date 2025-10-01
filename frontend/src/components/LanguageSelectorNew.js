@@ -145,7 +145,6 @@ const LanguageSelectorNew = ({ className = '' }) => {
               </div>
             </div>
           </div>
-        </>
       )}
     </div>
   )
