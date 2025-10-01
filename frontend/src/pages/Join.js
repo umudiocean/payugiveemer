@@ -22,6 +22,7 @@ const Join = () => {
   const [registrationData, setRegistrationData] = useState(null)
   const [showTasks, setShowTasks] = useState(false)
   const [completedTasks, setCompletedTasks] = useState([])
+  const [showCelebration, setShowCelebration] = useState(false)
 
   // Contract interactions
   const { writeContract, data: txHash, isPending } = useWriteContract()
