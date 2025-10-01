@@ -23,7 +23,10 @@ const LanguageSelectorNew = ({ className = '' }) => {
   const currentLanguage = languages.find(lang => lang.code === currentLang) || languages[0]
 
   const changeLanguage = (languageCode) => {
-    console.log('🌐 CHANGING LANGUAGE TO:', languageCode)
+    console.log('🌐 DİL DEĞİŞTİRİLİYOR:', languageCode)
+    
+    // Close dropdown immediately
+    setIsOpen(false)
     
     // Update document
     const rtlLanguages = ['ar']
@@ -33,8 +36,10 @@ const LanguageSelectorNew = ({ className = '' }) => {
     // Store in localStorage
     localStorage.setItem('i18nextLng', languageCode)
     
-    // Reload page to apply language change (SIMPLE & GUARANTEED METHOD)
-    window.location.reload()
+    // Small delay then reload
+    setTimeout(() => {
+      window.location.reload()
+    }, 100)
   }
 
   // Listen to i18n events
