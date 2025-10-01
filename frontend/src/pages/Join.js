@@ -798,38 +798,38 @@ const Join = () => {
                   </div>
 
                   {/* Extra rewards info */}
-                  <div className="bg-gradient-to-r from-squid-ice-blue/10 via-squid-pink/10 to-squid-gold/10 border-2 border-squid-gold/30 rounded-2xl p-6 mt-8">
-                    <div className="flex items-center justify-center space-x-3 mb-3">
-                      <span className="text-3xl animate-squid-pulse">⚡</span>
-                      <span className="text-2xl font-squid-display font-bold text-squid-gold animate-glow-gold">
+                  <div className="bg-gradient-to-r from-squid-ice-blue/10 via-squid-pink/10 to-squid-gold/10 border border-squid-gold/30 rounded-xl p-3 mt-4">
+                    <div className="flex items-center justify-center space-x-2 mb-2">
+                      <span className="text-xl animate-squid-pulse">⚡</span>
+                      <span className="text-sm font-squid-display font-bold text-squid-gold animate-glow-gold">
                         BONUS UNLOCKED
                       </span>
-                      <span className="text-3xl animate-squid-pulse">⚡</span>
+                      <span className="text-xl animate-squid-pulse">⚡</span>
                     </div>
-                    <p className="text-lg font-squid text-squid-light-grey">
-                      +3 Extra Chances Added • Maximum Rewards Activated
+                    <p className="text-xs font-squid text-squid-light-grey">
+                      +3 Extra Chances Added
                     </p>
-                    <div className="flex items-center justify-center space-x-2 mt-3">
-                      <span className="text-2xl animate-squid-glow-gold">◯</span>
-                      <span className="text-2xl animate-squid-glow-pink">△</span>
-                      <span className="text-2xl animate-squid-glow-blue">⬜</span>
+                    <div className="flex items-center justify-center space-x-2 mt-2">
+                      <span className="text-lg animate-squid-glow-gold">◯</span>
+                      <span className="text-lg animate-squid-glow-pink">△</span>
+                      <span className="text-lg animate-squid-glow-blue">⬜</span>
                     </div>
                   </div>
 
                   {/* Close button */}
                   <button
                     onClick={() => setShowCelebration(false)}
-                    className="mt-8 px-12 py-5 bg-gradient-to-r from-squid-gold via-squid-pink to-squid-ice-blue text-white font-squid-display font-bold text-xl rounded-2xl shadow-[0_0_30px_rgba(255,215,0,0.6)] hover:shadow-[0_0_50px_rgba(255,215,0,0.9)] transform hover:scale-105 transition-all duration-300 border-4 border-squid-gold/50"
+                    className="mt-4 px-8 py-3 bg-gradient-to-r from-squid-gold via-squid-pink to-squid-ice-blue text-white font-squid-display font-bold text-base rounded-xl shadow-[0_0_20px_rgba(255,215,0,0.5)] hover:shadow-[0_0_30px_rgba(255,215,0,0.7)] transform hover:scale-105 transition-all duration-300 border-2 border-squid-gold/50"
                   >
-                    <span className="flex items-center space-x-3">
+                    <span className="flex items-center space-x-2">
                       <span>CONTINUE</span>
-                      <span className="text-2xl animate-squid-bounce">🚀</span>
+                      <span className="text-lg animate-squid-bounce">🚀</span>
                     </span>
                   </button>
 
                   {/* Footer note */}
-                  <p className="text-sm font-squid text-squid-grey mt-6">
-                    Good luck in the draw! May the odds be ever in your favor! 🍀
+                  <p className="text-xs font-squid text-squid-grey mt-3">
+                    Good luck in the draw! 🍀
                   </p>
                 </div>
               </div>
