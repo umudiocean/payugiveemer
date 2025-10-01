@@ -764,33 +764,33 @@ const Join = () => {
               </div>
 
               {/* Main message with ticket */}
-              <div className="p-10">
-                <div className="text-center space-y-6">
+              <div className="p-5">
+                <div className="text-center space-y-3">
                   
                   {/* Success Icon */}
-                  <div className="flex justify-center mb-6">
+                  <div className="flex justify-center mb-3">
                     <div className="relative">
-                      <div className="absolute inset-0 bg-squid-gold/30 rounded-full blur-3xl animate-squid-pulse"></div>
-                      <div className="relative w-32 h-32 bg-gradient-to-br from-squid-gold to-squid-pink rounded-full flex items-center justify-center border-8 border-squid-gold/50 shadow-[0_0_40px_rgba(255,215,0,0.8)] animate-squid-bounce">
-                        <CheckCircle className="w-20 h-20 text-white" strokeWidth={3} />
+                      <div className="absolute inset-0 bg-squid-gold/30 rounded-full blur-2xl animate-squid-pulse"></div>
+                      <div className="relative w-16 h-16 bg-gradient-to-br from-squid-gold to-squid-pink rounded-full flex items-center justify-center border-4 border-squid-gold/50 shadow-[0_0_30px_rgba(255,215,0,0.6)] animate-squid-bounce">
+                        <CheckCircle className="w-10 h-10 text-white" strokeWidth={3} />
                       </div>
                     </div>
                   </div>
 
                   {/* Main Message */}
-                  <div className="space-y-4">
-                    <p className="text-2xl font-squid text-squid-light-grey leading-relaxed">
+                  <div className="space-y-2">
+                    <p className="text-base font-squid text-squid-light-grey leading-relaxed">
                       You have been added to the draw pool with your
                     </p>
                     
                     {/* Ticket Number - Highlighted */}
                     <div className="relative inline-block">
-                      <div className="absolute inset-0 bg-gradient-to-r from-squid-gold via-squid-pink to-squid-ice-blue blur-2xl opacity-50 animate-squid-pulse"></div>
-                      <div className="relative bg-gradient-to-r from-squid-gold/20 to-squid-pink/20 border-4 border-squid-gold rounded-2xl px-8 py-6 shadow-[0_0_30px_rgba(255,215,0,0.6)]">
-                        <p className="text-5xl font-squid-display font-bold bg-gradient-to-r from-squid-gold via-squid-pink to-squid-ice-blue bg-clip-text text-transparent animate-glow mb-2">
+                      <div className="absolute inset-0 bg-gradient-to-r from-squid-gold via-squid-pink to-squid-ice-blue blur-xl opacity-50 animate-squid-pulse"></div>
+                      <div className="relative bg-gradient-to-r from-squid-gold/20 to-squid-pink/20 border-2 border-squid-gold rounded-xl px-4 py-3 shadow-[0_0_20px_rgba(255,215,0,0.5)]">
+                        <p className="text-2xl font-squid-display font-bold bg-gradient-to-r from-squid-gold via-squid-pink to-squid-ice-blue bg-clip-text text-transparent animate-glow mb-1">
                           {ticket}
                         </p>
-                        <p className="text-lg font-squid-display text-squid-ice-blue animate-glow-blue">
+                        <p className="text-xs font-squid-display text-squid-ice-blue animate-glow-blue">
                           LUCKY TICKET NUMBER
                         </p>
                       </div>
