@@ -1,38 +1,79 @@
 import { useState, useEffect } from 'react'
+import axios from 'axios'
 import { formatCountdown } from '../utils/ticket'
 
-// Fixed countdown showing 45 days (not started yet)
-// This will show a static countdown of 44:23:59:59
-const FIXED_COUNTDOWN = {
-  days: 44,
-  hours: 23,
-  minutes: 59,
-  seconds: 59
-}
+const API = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001/api'
 
 export function useCountdown() {
-  const [currentSeconds, setCurrentSeconds] = useState(59)
+  const [giveawayStarted, setGiveawayStarted] = useState(false)
+  const [startTime, setStartTime] = useState(null)
+  const [timeLeft, setTimeLeft] = useState(0)
   
+  // Check giveaway status from backend
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSeconds(prev => prev === 0 ? 59 : prev - 1)
-    }, 1000)
-
+    const checkStatus = async () => {
+      try {
+        const response = await axios.get(`${API}/giveaway-status`)
+        if (response.data.success) {
+          setGiveawayStarted(response.data.started)
+          if (response.data.start_time) {
+            setStartTime(new Date(response.data.start_time))
+          }
+        }
+      } catch (error) {
+        console.error('Failed to get giveaway status:', error)
+      }
+    }
+    
+    checkStatus()
+    // Check every 30 seconds
+    const interval = setInterval(checkStatus, 30000)
     return () => clearInterval(interval)
   }, [])
-
-  // Fixed countdown with animated seconds
+  
+  // Calculate countdown
+  useEffect(() => {
+    if (!giveawayStarted || !startTime) return
+    
+    const calculateTimeLeft = () => {
+      const now = new Date()
+      const endDate = new Date(startTime)
+      endDate.setDate(endDate.getDate() + 45) // 45 days from start
+      
+      const diff = endDate - now
+      
+      if (diff <= 0) {
+        setTimeLeft(0)
+        return
+      }
+      
+      setTimeLeft(diff)
+    }
+    
+    calculateTimeLeft()
+    const interval = setInterval(calculateTimeLeft, 1000)
+    
+    return () => clearInterval(interval)
+  }, [giveawayStarted, startTime])
+  
+  // Format time
+  const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24))
+  const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+  const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60))
+  const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000)
+  
   const formatted = {
-    days: FIXED_COUNTDOWN.days.toString().padStart(2, '0'),
-    hours: FIXED_COUNTDOWN.hours.toString().padStart(2, '0'), 
-    minutes: FIXED_COUNTDOWN.minutes.toString().padStart(2, '0'),
-    seconds: currentSeconds.toString().padStart(2, '0')
+    days: days.toString().padStart(2, '0'),
+    hours: hours.toString().padStart(2, '0'),
+    minutes: minutes.toString().padStart(2, '0'),
+    seconds: seconds.toString().padStart(2, '0')
   }
   
   return {
-    timeLeft: 45 * 24 * 60 * 60 * 1000, // 45 days in milliseconds
+    timeLeft,
     formatted,
-    isEnded: false,
-    isActive: true
+    isEnded: timeLeft <= 0,
+    isActive: giveawayStarted,
+    giveawayStarted
   }
 }
