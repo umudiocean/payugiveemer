@@ -1,20 +1,25 @@
-import { createConfig, http } from 'wagmi'
+import { configureChains, createConfig } from 'wagmi'
 import { bsc } from 'wagmi/chains'
-import { injected, walletConnect, coinbaseWallet } from 'wagmi/connectors'
+import { publicProvider } from 'wagmi/providers/public'
+import { getDefaultWallets } from '@rainbow-me/rainbowkit'
 
 const projectId = 'c1814df663b82b65bb5927ad59566843'
 
-export const config = createConfig({
-  chains: [bsc],
-  connectors: [
-    injected(), // Bu MetaMask'ı otomatik algılar ama SDK kullanmaz
-    walletConnect({ projectId }),
-    coinbaseWallet({ appName: 'Payu Giveaway' }),
-  ],
-  transports: {
-    [bsc.id]: http('https://bsc-dataseed.binance.org'),
-  },
+const { chains, publicClient } = configureChains([bsc], [publicProvider()])
+
+const { connectors } = getDefaultWallets({
+  appName: 'Payu Giveaway',
+  projectId,
+  chains,
 })
+
+export const config = createConfig({
+  autoConnect: true,
+  connectors,
+  publicClient,
+})
+
+export { chains }
 
 // Contract configuration
 export const CONTRACT_ADDRESS = '0x17A0D20Fc22c30a490FB6F186Cf2c31d738B5567'
