@@ -114,7 +114,7 @@ const Layout = () => {
               </Link>
             </nav>
 
-            {/* Squid Game Countdown & Language Selector */}
+            {/* Squid Game Countdown */}
             <div className="flex items-center space-x-6">
               <div className="hidden sm:block text-right bg-squid-grey-dark/30 backdrop-blur-sm px-4 py-2 rounded-lg border border-squid-red/20">
                 <div className="text-xs text-squid-grey-light font-squid">{t('nav.drawStartsIn')}</div>
@@ -122,7 +122,6 @@ const Layout = () => {
                   {isEnded ? 'ENDED' : `${formatted.days}:${formatted.hours}:${formatted.minutes}:${formatted.seconds}`}
                 </div>
               </div>
-              <LanguageSelector />
             </div>
           </div>
         </div>
