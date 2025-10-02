@@ -5,7 +5,9 @@ import { Copy, Download, CheckCircle, Loader2, ExternalLink } from 'lucide-react
 import { Button } from '../components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card'
 // ConnectButton temporarily disabled
-import { CONTRACT_ADDRESS, CONTRACT_ABI, REGISTRATION_FEE } from '../config/wagmi'
+// Contract constants temporarily mocked
+const CONTRACT_ADDRESS = '0x17A0D20Fc22c30a490FB6F186Cf2c31d738B5567'
+const REGISTRATION_FEE = '980000000000000'
 import { generateTicket, copyToClipboard } from '../utils/ticket'
 import { useTranslation } from 'react-i18next'
 import axios from 'axios'
