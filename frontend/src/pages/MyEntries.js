@@ -128,7 +128,7 @@ const MyEntries = () => {
             <div className="relative group animate-fadeIn">
               <div className="absolute -inset-1 bg-gradient-to-r from-squid-ice-blue via-squid-pink to-squid-gold blur-lg opacity-30 group-hover:opacity-50 transition-all duration-700"></div>
               <Card className="relative bg-squid-black/90 border-2 border-squid-ice-blue/40 backdrop-blur-xl">
-              <CardHeader className="border-b-2 border-squid-ice-blue/20 bg-gradient-to-r from-squid-ice-blue/5 to-squid-pink/5">
+                <CardHeader className="border-b-2 border-squid-ice-blue/20 bg-gradient-to-r from-squid-ice-blue/5 to-squid-pink/5">
                 <CardTitle className="text-white flex items-center space-x-3 font-squid-display text-2xl">
                   <span className="text-3xl animate-squid-pulse">◯</span>
                   <span>{t('myEntries.lotteryRegistration')}</span>
