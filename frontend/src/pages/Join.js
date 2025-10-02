@@ -145,7 +145,8 @@ const Join = () => {
           setRegistrationData(saveResponse.data.data)
           refetchRegistered()
           
-          toast.success(t('messages.registrationSuccess'))
+          // Show success celebration modal instead of toast
+          setShowRegistrationSuccess(true)
         }
       }
     } catch (error) {
