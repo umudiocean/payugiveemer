@@ -29,6 +29,10 @@ const Admin = () => {
   const isAdmin = isConnected && address?.toLowerCase() === ADMIN_WALLET.toLowerCase()
 
   useEffect(() => {
+    console.log('Admin Check:', { isConnected, address, isAdmin, ADMIN_WALLET })
+  }, [isConnected, address, isAdmin])
+
+  useEffect(() => {
     if (isAdmin && isAuthenticated) {
       loadData()
     }
