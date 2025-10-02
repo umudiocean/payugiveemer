@@ -63,9 +63,13 @@ const Admin = () => {
   const loadData = async () => {
     setLoading(true)
     try {
+      const headers = {
+        'X-Wallet-Address': address
+      }
+      
       const [regResponse, taskResponse] = await Promise.all([
-        axios.get(`${API}/admin/registrations`),
-        axios.get(`${API}/admin/tasks`)
+        axios.get(`${API}/admin/registrations`, { headers }),
+        axios.get(`${API}/admin/tasks`, { headers })
       ])
 
       if (regResponse.data.success) {
