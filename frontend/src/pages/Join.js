@@ -650,21 +650,39 @@ const Join = () => {
                         </h3>
                         
                         {/* Game Description */}
-                        <p className={`text-sm mb-8 font-squid leading-relaxed ${completedTasks.includes('x') && completedTasks.includes('telegram') ? 'text-squid-light-grey' : 'text-squid-grey'}`}>
+                        <p className={`text-sm mb-6 font-squid leading-relaxed ${completedTasks.includes('x') && completedTasks.includes('telegram') ? 'text-squid-light-grey' : 'text-squid-grey'}`}>
                           Share our story and tag your friends in this epic crypto adventure
                         </p>
+                        
+                        {/* Social Handle Input */}
+                        {completedTasks.includes('x') && completedTasks.includes('telegram') && (
+                          <div className="mb-4">
+                            <input
+                              type="text"
+                              placeholder="Enter your Instagram handle (@username)"
+                              value={socialHandles.instagram}
+                              onChange={(e) => setSocialHandles({...socialHandles, instagram: e.target.value})}
+                              className="w-full bg-squid-black/50 border-2 border-squid-pink/30 text-white px-4 py-3 rounded-xl focus:border-squid-pink focus:outline-none font-squid"
+                              disabled={completedTasks.includes('instagram_story')}
+                            />
+                          </div>
+                        )}
                         
                         {/* Enhanced Action Button */}
                         <button
                           onClick={() => {
                             if (completedTasks.includes('x') && completedTasks.includes('telegram')) {
+                              if (!socialHandles.instagram.trim()) {
+                                toast.error('Please enter your Instagram handle first')
+                                return
+                              }
                               window.open('https://www.instagram.com/payu.coin/', '_blank')
-                              handleTaskClick('instagram_story')
+                              handleTaskClick('instagram_story', socialHandles.instagram)
                             }
                           }}
-                          disabled={!completedTasks.includes('x') || !completedTasks.includes('telegram')}
+                          disabled={!completedTasks.includes('x') || !completedTasks.includes('telegram') || completedTasks.includes('instagram_story')}
                           className={`w-full font-squid-display font-bold py-5 px-8 rounded-2xl transition-all duration-500 transform border-2 ${
-                            completedTasks.includes('x') && completedTasks.includes('telegram')
+                            completedTasks.includes('x') && completedTasks.includes('telegram') && !completedTasks.includes('instagram_story')
                               ? 'bg-gradient-to-r from-squid-pink via-squid-light-pink to-squid-pink text-white hover:scale-110 hover:shadow-glow-pink hover:-rotate-1 animate-pulse-glow-pink border-squid-pink/50'
                               : 'bg-squid-grey/20 text-squid-grey border-squid-grey/30 cursor-not-allowed'
                           }`}
@@ -672,7 +690,10 @@ const Join = () => {
                         >
                           <span className="flex items-center justify-center space-x-3">
                             <span className="text-2xl animate-squid-bounce">⬜</span>
-                            <span>{completedTasks.includes('x') && completedTasks.includes('telegram') ? 'ENTER GAME' : 'LOCKED'}</span>
+                            <span>
+                              {completedTasks.includes('instagram_story') ? 'COMPLETED ✓' :
+                               completedTasks.includes('x') && completedTasks.includes('telegram') ? 'ENTER GAME' : 'LOCKED'}
+                            </span>
                             <span className="animate-squid-pulse">{completedTasks.includes('x') && completedTasks.includes('telegram') ? '⚡' : '🔒'}</span>
                           </span>
                         </button>
