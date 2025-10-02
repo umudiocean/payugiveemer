@@ -187,17 +187,17 @@ const MyEntries = () => {
                       </div>
                       
                       <div className="space-y-4">
-                        <div>
-                          <div className="text-sm text-squid-grey mb-1">{t('myEntries.transactionHash')}</div>
+                        <div className="bg-squid-dark/30 p-4 rounded-lg border border-squid-grey/20">
+                          <div className="text-sm text-squid-ice-blue mb-2 font-medium">{t('myEntries.transactionHash')}</div>
                           <div className="flex items-center space-x-2">
-                            <code className="text-white text-sm bg-squid-dark/50 px-2 py-1 rounded">
+                            <code className="text-white text-sm bg-squid-black/60 px-3 py-2 rounded border border-squid-grey/30 font-mono">
                               {formatAddress(registrationData.txHash)}
                             </code>
                             <Button
                               onClick={handleCopyTxHash}
                               variant="ghost"
                               size="sm"
-                              className="p-1 h-auto"
+                              className="p-2 h-auto hover:bg-squid-grey/20"
                             >
                               <Copy className="w-4 h-4" />
                             </Button>
