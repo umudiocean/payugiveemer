@@ -49,7 +49,7 @@ const Layout = () => {
                 <span className="text-squid-white text-xl font-bold">⬜</span>
               </div>
               <span className="text-2xl font-squid-display bg-gradient-to-r from-squid-red via-squid-pink to-squid-green bg-clip-text text-transparent animate-glow">
-                PAYU DRAW
+                PAYU GIVEAWAY
               </span>
               <div className="flex space-x-1 opacity-60">
                 <span className="text-squid-red text-sm animate-squid-pulse">◯</span>
