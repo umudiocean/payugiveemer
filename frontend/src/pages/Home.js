@@ -8,16 +8,10 @@ import CountdownTimer from '../components/CountdownTimer'
 const Home = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()
-  const { isConnected } = useAccount()
   
   const handleJoinClick = () => {
-    if (isConnected) {
-      // Already connected, go directly to join page
-      navigate('/join')
-    } else {
-      // If not connected, user needs to connect first via the button below
-      // ConnectButton will handle the wallet connection
-    }
+    // Navigate to join page where wallet connection will be handled
+    navigate('/join')
   }
   
   return (
