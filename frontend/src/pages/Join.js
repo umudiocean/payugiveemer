@@ -887,14 +887,14 @@ const Join = () => {
                   <button
                     onClick={() => {
                       setShowRegistrationSuccess(false)
-                      // Redirect to My Entries page after closing modal
-                      navigate('/my-entries')
+                      // Don't navigate, just show tasks on same page
+                      // Tasks section will automatically show because isRegistered = true and showTasks = true
                     }}
                     className="mt-4 px-8 py-3 bg-gradient-to-r from-squid-gold via-squid-pink to-squid-ice-blue text-white font-squid-display font-bold text-base rounded-xl shadow-[0_0_20px_rgba(255,215,0,0.5)] hover:shadow-[0_0_30px_rgba(255,215,0,0.7)] transform hover:scale-105 transition-all duration-300 border-2 border-squid-gold/50"
                   >
                     <span className="flex items-center space-x-2">
-                      <span>LET'S GO!</span>
-                      <span className="text-lg animate-squid-bounce">🚀</span>
+                      <span>VIEW TASKS</span>
+                      <span className="text-lg animate-squid-bounce">🎯</span>
                     </span>
                   </button>
                 </div>
