@@ -15,7 +15,9 @@ const API = `${BACKEND_URL}/api`
 
 const MyEntries = () => {
   const { t } = useTranslation()
-  const { address, isConnected } = useAccount()
+  // Mock values for testing
+  const address = null
+  const isConnected = false
   const [registrationData, setRegistrationData] = useState(null)
   const [taskHistory, setTaskHistory] = useState([])
   const [loading, setLoading] = useState(false)
