@@ -100,6 +100,19 @@ const Layout = () => {
                   <span>{t('nav.myEntries')}</span>
                 </span>
               </Link>
+              <Link 
+                to="/admin" 
+                className={`relative group px-4 py-2 rounded-lg font-squid transition-all duration-300 ${
+                  location.pathname === '/admin' 
+                    ? 'text-squid-gold bg-squid-gold/10 border border-squid-gold/30' 
+                    : 'text-squid-grey-light hover:text-squid-gold hover:bg-squid-gold/5'
+                }`}
+              >
+                <span className="flex items-center space-x-2">
+                  <span className="text-xs">👑</span>
+                  <span>Admin</span>
+                </span>
+              </Link>
             </nav>
 
             {/* Squid Game Countdown & Language Selector */}
