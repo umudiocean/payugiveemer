@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useAccount, useContractWrite, useWaitForTransaction, useContractRead } from 'wagmi'
-import { parseEventLogs } from 'viem'
+// Note: Wallet functionality temporarily disabled for runtime error fix
 import { toast } from 'sonner'
 import { Copy, Download, CheckCircle, Loader2, ExternalLink } from 'lucide-react'
 import { Button } from '../components/ui/button'
