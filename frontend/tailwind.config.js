@@ -86,12 +86,16 @@ module.exports = {
                         }
                 },
                 fontFamily: {
+                        // Headlines & CTAs - Bold, Attention-grabbing
+                        'squid-display': ['Anton', 'Bebas Neue', 'Arial', 'sans-serif'],
                         'squid': ['Bebas Neue', 'Arial', 'sans-serif'],
-                        'squid-display': ['Bebas Neue', 'Arial', 'sans-serif'],
-                        'squid-body': ['Bebas Neue', 'Arial', 'sans-serif'],
                         'bebas': ['Bebas Neue', 'Arial', 'sans-serif'],
+                        'anton': ['Anton', 'Arial', 'sans-serif'],
+                        
+                        // Body Text - High Readability
+                        'squid-body': ['Inter', 'system-ui', 'sans-serif'],
                         'inter': ['Inter', 'system-ui', 'sans-serif'],
-                        'satoshi': ['Satoshi', 'Inter', 'system-ui', 'sans-serif'],
+                        'poppins': ['Poppins', 'system-ui', 'sans-serif'],
                 },
                 boxShadow: {
                         'glow': '0 0 20px rgba(184, 47, 73, 0.6)',
