@@ -160,6 +160,33 @@ frontend:
         - agent: "main" 
         - comment: "Z-index properly set with backdrop z-40 and dropdown z-50"
 
+  - task: "Fix JSX Syntax Error in MyEntries.js"
+    implemented: true
+    working: true
+    file: "MyEntries.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: false
+        - agent: "user"
+        - comment: "JSX syntax error: Adjacent JSX elements must be wrapped in an enclosing tag at line 296"
+        - working: true
+        - agent: "main"
+        - comment: "FIXED: JSX syntax error resolved by properly indenting CardHeader and adding missing closing div tag for the animated Card wrapper. Frontend now compiles successfully and MyEntries page loads without errors."
+
+  - task: "React Router Configuration Issue"
+    implemented: false
+    working: false
+    file: "App.js, Layout.js"
+    stuck_count: 1
+    priority: "critical"
+    needs_retesting: true
+    status_history:
+        - working: false
+        - agent: "testing"
+        - comment: "CRITICAL ISSUE: React Router not functioning properly. URLs change correctly (/join, /my) but page content remains the same (Home page content). Both /join and /my routes show Home page content instead of their respective Join and MyEntries components. This prevents registration status detection and My Entries readability testing. Wallet connection modal works perfectly with all 4 wallet options (MetaMask, WalletConnect, Coinbase, Rainbow). Home page functions correctly. Requires immediate fix to React Router configuration or component rendering."
+
 metadata:
   created_by: "main_agent"
   version: "1.0"
