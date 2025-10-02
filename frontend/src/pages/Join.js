@@ -589,7 +589,10 @@ const Join = () => {
                         >
                           <span className="flex items-center justify-center space-x-3">
                             <span className="text-2xl animate-squid-bounce">△</span>
-                            <span>{completedTasks.includes('telegram') ? 'ENTER GAME' : 'LOCKED'}</span>
+                            <span>
+                              {completedTasks.includes('x') ? 'COMPLETED ✓' : 
+                               completedTasks.includes('telegram') ? 'ENTER GAME' : 'LOCKED'}
+                            </span>
                             <span className="animate-squid-pulse">{completedTasks.includes('telegram') ? '⚡' : '🔒'}</span>
                           </span>
                         </button>
