@@ -26,13 +26,20 @@ const Join = () => {
   const [showRegistrationSuccess, setShowRegistrationSuccess] = useState(false)
 
   // Contract interactions
-  const { writeContract, data: txHash, isPending } = useWriteContract()
-  const { isLoading: isConfirming, isSuccess: isConfirmed } = useWaitForTransactionReceipt({
+  const { write: writeContract, data: txData, isLoading: isPending, error } = useContractWrite({
+    address: CONTRACT_ADDRESS,
+    abi: CONTRACT_ABI,
+    functionName: 'registerForGiveaway',
+  })
+  
+  const txHash = txData?.hash
+  
+  const { isLoading: isConfirming, isSuccess: isConfirmed } = useWaitForTransaction({
     hash: txHash,
   })
 
-  // Check if user is already registered
-  const { data: userIsRegistered, refetch: refetchRegistered } = useReadContract({
+  // Check if user is already registered  
+  const { data: userIsRegistered, refetch: refetchRegistered } = useContractRead({
     address: CONTRACT_ADDRESS,
     abi: CONTRACT_ABI,
     functionName: 'isRegistered',
