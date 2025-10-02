@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ArrowRight, Coins, Trophy, Users, Zap, Circle, Triangle, Square } from 'lucide-react'
@@ -10,7 +10,19 @@ import CountdownTimer from '../components/CountdownTimer'
 const Home = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()
-  const { isConnected } = useAccount()
+  const { isConnected, address } = useAccount()
+  
+  // Auto-redirect to join page after wallet connection
+  useEffect(() => {
+    if (isConnected && address) {
+      // Small delay to ensure connection is complete
+      const timer = setTimeout(() => {
+        navigate('/join')
+      }, 500)
+      
+      return () => clearTimeout(timer)
+    }
+  }, [isConnected, address, navigate])
   
   const handleJoinClick = () => {
     if (isConnected) {
