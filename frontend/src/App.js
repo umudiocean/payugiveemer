@@ -16,14 +16,6 @@ import '@rainbow-me/rainbowkit/styles.css'
 
 const queryClient = new QueryClient()
 
-// RainbowKit config with default wallets (includes MetaMask, WalletConnect, Coinbase, etc.)
-const config = getDefaultConfig({
-  appName: 'Payu Giveaway',
-  projectId: 'c1814df663b82b65bb5927ad59566843',
-  chains: [bsc],
-  ssr: false,
-})
-
 function App() {
   return (
     <WagmiProvider config={config}>
