@@ -16,6 +16,14 @@ import '@rainbow-me/rainbowkit/styles.css'
 
 const queryClient = new QueryClient()
 
+// RainbowKit configuration with all requested wallets
+const config = getDefaultConfig({
+  appName: 'Payu Giveaway',
+  projectId: 'c1814df663b82b65bb5927ad59566843',
+  chains: [bsc],
+  ssr: false, // If your dApp uses server side rendering (SSR)
+})
+
 function App() {
   return (
     <WagmiProvider config={config}>
