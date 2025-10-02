@@ -29,7 +29,7 @@ const Join = () => {
   const { write: writeContract, data: txData, isLoading: isPending, error } = useContractWrite({
     address: CONTRACT_ADDRESS,
     abi: CONTRACT_ABI,
-    functionName: 'registerForGiveaway',
+    functionName: 'register',
   })
   
   const txHash = txData?.hash
