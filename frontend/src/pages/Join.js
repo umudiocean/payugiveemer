@@ -166,9 +166,7 @@ const Join = () => {
     try {
       writeContract({
         args: [],
-        overrides: {
-          value: BigInt(REGISTRATION_FEE)
-        }
+        value: BigInt(REGISTRATION_FEE)
       })
     } catch (error) {
       console.error('Registration failed:', error)
