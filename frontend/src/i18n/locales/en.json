@@ -1,10 +1,10 @@
 {
   "nav": {
     "home": "Home",
-    "joinDraw": "Join Draw",
+    "joinDraw": "Join Giveaway",
     "myEntries": "My Entries",
-    "drawEndsIn": "Draw ends in",
-    "drawStartsIn": "Draw starts in"
+    "drawEndsIn": "Giveaway ends in",
+    "drawStartsIn": "Giveaway starts in"
   },
   "hero": {
     "title": "JOIN THE PAYU GIVEAWAY",
