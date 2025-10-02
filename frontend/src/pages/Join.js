@@ -549,21 +549,39 @@ const Join = () => {
                         </h3>
                         
                         {/* Game Description */}
-                        <p className={`text-sm mb-8 font-squid leading-relaxed ${completedTasks.includes('telegram') ? 'text-squid-light-grey' : 'text-squid-grey'}`}>
+                        <p className={`text-sm mb-6 font-squid leading-relaxed ${completedTasks.includes('telegram') ? 'text-squid-light-grey' : 'text-squid-grey'}`}>
                           Retweet our announcement and spread the word about PAYU Draw
                         </p>
+                        
+                        {/* Social Handle Input */}
+                        {completedTasks.includes('telegram') && (
+                          <div className="mb-4">
+                            <input
+                              type="text"
+                              placeholder="Enter your X/Twitter handle (@username)"
+                              value={socialHandles.twitter}
+                              onChange={(e) => setSocialHandles({...socialHandles, twitter: e.target.value})}
+                              className="w-full bg-squid-black/50 border-2 border-squid-ice-blue/30 text-white px-4 py-3 rounded-xl focus:border-squid-ice-blue focus:outline-none font-squid"
+                              disabled={completedTasks.includes('x')}
+                            />
+                          </div>
+                        )}
                         
                         {/* Enhanced Action Button */}
                         <button
                           onClick={() => {
                             if (completedTasks.includes('telegram')) {
+                              if (!socialHandles.twitter.trim()) {
+                                toast.error('Please enter your X/Twitter handle first')
+                                return
+                              }
                               window.open('https://x.com/payu_coin', '_blank')
-                              handleTaskClick('x')
+                              handleTaskClick('x', socialHandles.twitter)
                             }
                           }}
-                          disabled={!completedTasks.includes('telegram')}
+                          disabled={!completedTasks.includes('telegram') || completedTasks.includes('x')}
                           className={`w-full font-squid-display font-bold py-5 px-8 rounded-2xl transition-all duration-500 transform border-2 ${
-                            completedTasks.includes('telegram')
+                            completedTasks.includes('telegram') && !completedTasks.includes('x')
                               ? 'bg-gradient-to-r from-squid-ice-blue via-squid-light-blue to-squid-ice-blue text-white hover:scale-110 hover:shadow-glow-ice-blue hover:rotate-1 animate-pulse-glow-blue border-squid-ice-blue/50'
                               : 'bg-squid-grey/20 text-squid-grey border-squid-grey/30 cursor-not-allowed'
                           }`}
