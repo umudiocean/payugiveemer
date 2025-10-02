@@ -480,27 +480,14 @@ const Join = () => {
                           Join our official Telegram community for latest updates and exclusive content
                         </p>
                         
-                        {/* Social Handle Input */}
-                        <div className="mb-4">
-                          <input
-                            type="text"
-                            placeholder="Enter your Telegram username"
-                            value={socialHandles.telegram}
-                            onChange={(e) => setSocialHandles({...socialHandles, telegram: e.target.value})}
-                            className="w-full bg-squid-black/50 border-2 border-squid-gold/30 text-white px-4 py-3 rounded-xl focus:border-squid-gold focus:outline-none font-squid"
-                            disabled={completedTasks.includes('telegram')}
-                          />
-                        </div>
-                        
                         {/* Enhanced Action Button */}
                         <button
                           onClick={() => {
-                            if (!socialHandles.telegram.trim()) {
-                              toast.error('Please enter your Telegram username first')
-                              return
-                            }
                             window.open('https://t.me/payu_coin', '_blank')
-                            handleTaskClick('telegram', socialHandles.telegram)
+                            // Auto-complete task after opening link
+                            setTimeout(() => {
+                              handleTaskClick('telegram', '')
+                            }, 1000)
                           }}
                           disabled={completedTasks.includes('telegram')}
                           className="w-full bg-gradient-to-r from-squid-gold via-squid-orange to-squid-gold text-squid-black font-squid-display font-bold py-5 px-8 rounded-2xl transition-all duration-500 transform hover:scale-110 hover:shadow-glow-gold hover:-rotate-1 animate-pulse-glow-gold border-2 border-squid-gold/50 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
