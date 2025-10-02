@@ -1,10 +1,6 @@
 import React from 'react'
-import { WagmiConfig } from 'wagmi'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { RainbowKitProvider, darkTheme } from '@rainbow-me/rainbowkit'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Toaster } from 'sonner'
-import { config } from './config/wagmi'
 import Layout from './components/Layout'
 import Home from './pages/Home'
 import Join from './pages/Join'
@@ -12,23 +8,9 @@ import MyEntries from './pages/MyEntries'
 import Admin from './pages/Admin'
 import './i18n' // Initialize i18n
 import './App.css'
-import '@rainbow-me/rainbowkit/styles.css'
-
-const queryClient = new QueryClient()
 
 function App() {
   return (
-    <WagmiConfig config={config}>
-      <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider 
-          theme={darkTheme({
-            accentColor: '#FF2A6D',
-            accentColorForeground: 'white',
-            borderRadius: 'large',
-            fontStack: 'system',
-            overlayBlur: 'small',
-          })}
-        >
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Layout />}>
