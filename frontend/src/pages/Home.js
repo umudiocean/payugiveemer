@@ -134,8 +134,12 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Squid Game Features Section */}
-      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-squid-black to-squid-black/90 relative overflow-hidden">
+      {/* Sections removed for cleaner design */}
+    </div>
+  )
+}
+
+export default Home
         
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
