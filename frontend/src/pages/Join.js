@@ -165,10 +165,10 @@ const Join = () => {
 
     try {
       writeContract({
-        address: CONTRACT_ADDRESS,
-        abi: CONTRACT_ABI,
-        functionName: 'register',
-        value: BigInt(REGISTRATION_FEE)
+        args: [],
+        overrides: {
+          value: BigInt(REGISTRATION_FEE)
+        }
       })
     } catch (error) {
       console.error('Registration failed:', error)
