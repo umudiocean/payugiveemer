@@ -428,6 +428,9 @@ class PayuDrawAPITester:
         self.test_task_flow()
         self.test_task_history_endpoint()
         
+        # Test giveaway functionality
+        self.test_giveaway_endpoints()
+        
         # Test error handling
         self.test_error_handling()
 
