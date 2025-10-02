@@ -114,32 +114,57 @@ const Home = () => {
           <div className="mb-16">
             <div className="flex items-center justify-center">
               
-              {/* Single CTA - Join & Connect */}
+              {/* Single CTA - Join & Connect with RainbowKit */}
               <div className="group relative">
                 <div className="absolute -inset-4 bg-gradient-to-r from-squid-red via-squid-pink via-squid-ice-blue to-squid-gold blur-2xl opacity-60 group-hover:opacity-90 transition-all duration-700 animate-squid-pulse"></div>
-                <button 
-                  onClick={handleJoinClick}
-                  className="relative bg-gradient-to-br from-squid-red via-squid-pink to-squid-ice-blue text-white font-squid-display font-bold py-8 px-16 rounded-3xl transition-all duration-500 transform hover:scale-110 hover:shadow-[0_0_60px_rgba(255,69,180,0.8)] border-4 border-white/20"
-                >
-                  <div className="flex flex-col items-center space-y-2">
-                    {/* Top Line - Main Action */}
+                
+                {isConnected ? (
+                  <button 
+                    onClick={handleJoinClick}
+                    className="relative bg-gradient-to-br from-squid-red via-squid-pink to-squid-ice-blue text-white font-squid-display font-bold py-8 px-16 rounded-3xl transition-all duration-500 transform hover:scale-110 hover:shadow-[0_0_60px_rgba(255,69,180,0.8)] border-4 border-white/20"
+                  >
                     <div className="flex items-center space-x-4">
                       <span className="text-4xl animate-squid-bounce">◯</span>
                       <span className="text-3xl tracking-wider">JOIN THE GIVEAWAY</span>
-                      <span className="text-4xl animate-squid-bounce" style={{animationDelay: '0.2s'}}>△</span>
-                    </div>
-                    
-                    {/* Divider */}
-                    <div className="w-full h-[2px] bg-white/40"></div>
-                    
-                    {/* Bottom Line - Sub Action */}
-                    <div className="flex items-center space-x-3">
-                      <span className="text-2xl">🔗</span>
-                      <span className="text-xl tracking-widest opacity-90">CONNECT WALLET</span>
                       <ArrowRight className="w-6 h-6 animate-squid-pulse" />
                     </div>
+                  </button>
+                ) : (
+                  <div className="relative">
+                    <ConnectButton.Custom>
+                      {({ account, chain, openAccountModal, openChainModal, openConnectModal, mounted }) => {
+                        const ready = mounted;
+                        const connected = ready && account && chain;
+                        
+                        return (
+                          <button
+                            onClick={openConnectModal}
+                            className="relative bg-gradient-to-br from-squid-red via-squid-pink to-squid-ice-blue text-white font-squid-display font-bold py-8 px-16 rounded-3xl transition-all duration-500 transform hover:scale-110 hover:shadow-[0_0_60px_rgba(255,69,180,0.8)] border-4 border-white/20"
+                          >
+                            <div className="flex flex-col items-center space-y-2">
+                              {/* Top Line - Main Action */}
+                              <div className="flex items-center space-x-4">
+                                <span className="text-4xl animate-squid-bounce">◯</span>
+                                <span className="text-3xl tracking-wider">JOIN THE GIVEAWAY</span>
+                                <span className="text-4xl animate-squid-bounce" style={{animationDelay: '0.2s'}}>△</span>
+                              </div>
+                              
+                              {/* Divider */}
+                              <div className="w-full h-[2px] bg-white/40"></div>
+                              
+                              {/* Bottom Line - Sub Action */}
+                              <div className="flex items-center space-x-3">
+                                <span className="text-2xl">🔗</span>
+                                <span className="text-xl tracking-widest opacity-90">CONNECT WALLET</span>
+                                <ArrowRight className="w-6 h-6 animate-squid-pulse" />
+                              </div>
+                            </div>
+                          </button>
+                        );
+                      }}
+                    </ConnectButton.Custom>
                   </div>
-                </button>
+                )}
               </div>
             </div>
           </div>
