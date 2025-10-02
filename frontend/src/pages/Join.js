@@ -4,7 +4,7 @@ import { toast } from 'sonner'
 import { Copy, Download, CheckCircle, Loader2, ExternalLink } from 'lucide-react'
 import { Button } from '../components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card'
-import ConnectButton from '../components/ConnectButton'
+// ConnectButton temporarily disabled
 import { CONTRACT_ADDRESS, CONTRACT_ABI, REGISTRATION_FEE } from '../config/wagmi'
 import { generateTicket, copyToClipboard } from '../utils/ticket'
 import { useTranslation } from 'react-i18next'
