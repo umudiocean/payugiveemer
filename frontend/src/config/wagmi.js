@@ -5,7 +5,10 @@ import { getDefaultWallets } from '@rainbow-me/rainbowkit'
 
 const projectId = 'c1814df663b82b65bb5927ad59566843'
 
-const { chains, publicClient } = configureChains([bsc], [publicProvider()])
+const { chains, publicClient, webSocketPublicClient } = configureChains(
+  [bsc], 
+  [publicProvider()]
+)
 
 const { connectors } = getDefaultWallets({
   appName: 'Payu Giveaway',
@@ -17,6 +20,7 @@ export const config = createConfig({
   autoConnect: true,
   connectors,
   publicClient,
+  webSocketPublicClient,
 })
 
 export { chains }
