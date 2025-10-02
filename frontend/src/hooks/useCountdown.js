@@ -1,45 +1,23 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
 import { formatCountdown } from '../utils/ticket'
 
-const API = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001/api'
+// Set a fixed end date - 45 days from now
+// You can change this date to your desired end date
+const getEndDate = () => {
+  const now = new Date()
+  const endDate = new Date(now)
+  endDate.setDate(endDate.getDate() + 45) // 45 days from now
+  return endDate
+}
 
 export function useCountdown() {
-  const [giveawayStarted, setGiveawayStarted] = useState(false)
-  const [startTime, setStartTime] = useState(null)
   const [timeLeft, setTimeLeft] = useState(0)
+  const [endDate] = useState(getEndDate())
   
-  // Check giveaway status from backend
+  // Calculate countdown every second
   useEffect(() => {
-    const checkStatus = async () => {
-      try {
-        const response = await axios.get(`${API}/giveaway-status`)
-        if (response.data.success) {
-          setGiveawayStarted(response.data.started)
-          if (response.data.start_time) {
-            setStartTime(new Date(response.data.start_time))
-          }
-        }
-      } catch (error) {
-        console.error('Failed to get giveaway status:', error)
-      }
-    }
-    
-    checkStatus()
-    // Check every 30 seconds
-    const interval = setInterval(checkStatus, 30000)
-    return () => clearInterval(interval)
-  }, [])
-  
-  // Calculate countdown
-  useEffect(() => {
-    if (!giveawayStarted || !startTime) return
-    
     const calculateTimeLeft = () => {
       const now = new Date()
-      const endDate = new Date(startTime)
-      endDate.setDate(endDate.getDate() + 45) // 45 days from start
-      
       const diff = endDate - now
       
       if (diff <= 0) {
@@ -54,7 +32,7 @@ export function useCountdown() {
     const interval = setInterval(calculateTimeLeft, 1000)
     
     return () => clearInterval(interval)
-  }, [giveawayStarted, startTime])
+  }, [endDate])
   
   // Format time
   const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24))
@@ -73,7 +51,6 @@ export function useCountdown() {
     timeLeft,
     formatted,
     isEnded: timeLeft <= 0,
-    isActive: giveawayStarted,
-    giveawayStarted
+    isActive: true
   }
 }
