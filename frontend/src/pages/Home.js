@@ -100,7 +100,7 @@ const Home = () => {
           <div className="mb-16">
             <div className="flex flex-col lg:flex-row items-center justify-center space-y-6 lg:space-y-0 lg:space-x-8">
               
-              {/* Primary CTA - Join Draw */}
+              {/* Primary CTA - Join Giveaway */}
               <div className="group relative">
                 <div className="absolute -inset-2 bg-gradient-to-r from-squid-red via-squid-pink to-squid-green blur-xl opacity-50 group-hover:opacity-75 transition-all duration-500"></div>
                 <Link to="/join">
