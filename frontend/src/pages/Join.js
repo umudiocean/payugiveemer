@@ -297,36 +297,27 @@ const Join = () => {
                   </div>
                 </div>
               ) : (
-                <div>
-                  <div className="bg-squid-dark/80 rounded-xl p-6 mb-6">
-                    <h3 className="text-lg font-medium text-white mb-4">{t('join.registrationDetails')}</h3>
-                    <div className="space-y-3 text-sm">
-                      <div className="flex justify-between">
-                        <span className="text-squid-grey">{t('join.instantReward')}:</span>
-                        <span className="text-squid-teal font-medium">250,000,000 PAYU</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-squid-grey">{t('join.network')}:</span>
-                        <span className="text-white font-medium">BSC Mainnet</span>
+                <div className="text-center py-12">
+                  {/* Auto-Registration Loading State */}
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-squid-pink/10 via-squid-purple/10 to-squid-teal/10 rounded-xl animate-pulse"></div>
+                    <div className="relative z-10">
+                      <Loader2 className="w-16 h-16 text-squid-pink mx-auto mb-4 animate-spin" />
+                      <h3 className="text-xl font-bold text-white mb-2">
+                        {isPending || isConfirming ? 'Processing Registration...' : 'Preparing Registration...'}
+                      </h3>
+                      <p className="text-squid-grey text-sm">
+                        {isPending ? 'Please confirm the transaction in your wallet' : 
+                         isConfirming ? 'Waiting for blockchain confirmation...' : 
+                         'Auto-registering your wallet...'}
+                      </p>
+                      <div className="mt-4 flex justify-center space-x-2">
+                        <span className="text-squid-pink animate-pulse">◯</span>
+                        <span className="text-squid-purple animate-pulse" style={{animationDelay: '0.3s'}}>△</span>
+                        <span className="text-squid-teal animate-pulse" style={{animationDelay: '0.6s'}}>⬜</span>
                       </div>
                     </div>
                   </div>
-
-                  <Button
-                    onClick={handleRegister}
-                    disabled={isPending || isConfirming}
-                    className="w-full bg-gradient-to-r from-squid-pink to-squid-purple hover:from-squid-pink/80 hover:to-squid-purple/80 text-white font-bold py-4 px-6 rounded-2xl shadow-glow transition-all duration-300"
-                    data-testid="register-btn"
-                  >
-                    {isPending || isConfirming ? (
-                      <>
-                        <Loader2 className="w-5 h-5 animate-spin mr-2" />
-                        {isPending ? t('join.confirming') : t('join.processing')}
-                      </>
-                    ) : (
-                      t('join.registerButton')
-                    )}
-                  </Button>
                 </div>
               )}
             </CardContent>
