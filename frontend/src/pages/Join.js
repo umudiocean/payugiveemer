@@ -234,8 +234,10 @@ const Join = () => {
             <CardContent className="space-y-6">
               {!isConnected ? (
                 <div>
-                  <p className="text-squid-grey mb-4">{t('join.connectWallet')}</p>
-                  <ConnectButton className="w-full" />
+                  <p className="text-squid-grey mb-4">Wallet connection temporarily disabled</p>
+                  <Button className="w-full" disabled>
+                    Connect Wallet (Coming Soon)
+                  </Button>
                 </div>
               ) : isRegistered ? (
                 <div className="text-center py-8 relative">
