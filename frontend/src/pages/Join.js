@@ -794,7 +794,7 @@ const Join = () => {
             className="absolute inset-0 bg-squid-black/95 backdrop-blur-xl"
             onClick={() => {
               setShowRegistrationSuccess(false)
-              navigate('/my-entries')
+              // Tasks will automatically show because isRegistered and showTasks are true
             }}
           >
             {/* Confetti particles */}
