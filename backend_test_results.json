@@ -1,86 +1,116 @@
 {
-  "total_tests": 13,
-  "passed_tests": 11,
-  "failed_tests": 2,
-  "success_rate": 84.61538461538461,
+  "total_tests": 18,
+  "passed_tests": 18,
+  "failed_tests": 0,
+  "success_rate": 100.0,
   "test_details": [
     {
       "test": "API Root Endpoint",
       "success": true,
       "details": "",
-      "timestamp": "2025-10-02T07:51:46.842157"
+      "timestamp": "2025-10-02T07:52:40.292305"
+    },
+    {
+      "test": "Admin Registrations (No Auth)",
+      "success": true,
+      "details": "Correctly rejected non-admin request",
+      "timestamp": "2025-10-02T07:52:40.330615"
     },
     {
       "test": "Admin Registrations Endpoint",
-      "success": false,
-      "details": "Status code: 403",
-      "timestamp": "2025-10-02T07:51:46.880168"
+      "success": true,
+      "details": "Found 4 registrations",
+      "timestamp": "2025-10-02T07:52:40.364856"
+    },
+    {
+      "test": "Admin Tasks (No Auth)",
+      "success": true,
+      "details": "Correctly rejected non-admin request",
+      "timestamp": "2025-10-02T07:52:40.401147"
     },
     {
       "test": "Admin Tasks Endpoint",
-      "success": false,
-      "details": "Status code: 403",
-      "timestamp": "2025-10-02T07:51:46.917069"
+      "success": true,
+      "details": "Found 24 tasks",
+      "timestamp": "2025-10-02T07:52:40.445324"
     },
     {
       "test": "Status POST Endpoint",
       "success": true,
       "details": "",
-      "timestamp": "2025-10-02T07:51:46.976121"
+      "timestamp": "2025-10-02T07:52:40.482260"
     },
     {
       "test": "Status GET Endpoint",
       "success": true,
-      "details": "Found 4 status checks",
-      "timestamp": "2025-10-02T07:51:47.018098"
+      "details": "Found 5 status checks",
+      "timestamp": "2025-10-02T07:52:40.517810"
     },
     {
       "test": "Save Ticket Endpoint (Duplicate)",
       "success": true,
       "details": "Duplicate registration handled correctly",
-      "timestamp": "2025-10-02T07:51:47.077979"
+      "timestamp": "2025-10-02T07:52:40.553880"
     },
     {
       "test": "Registration Flow",
       "success": true,
       "details": "Complete save/retrieve flow working",
-      "timestamp": "2025-10-02T07:51:47.158131"
+      "timestamp": "2025-10-02T07:52:40.621876"
     },
     {
       "test": "Registration Endpoint (No Data)",
       "success": true,
       "details": "",
-      "timestamp": "2025-10-02T07:51:47.195947"
+      "timestamp": "2025-10-02T07:52:40.658096"
     },
     {
       "test": "Task Click Endpoint",
       "success": true,
       "details": "",
-      "timestamp": "2025-10-02T07:51:47.237079"
+      "timestamp": "2025-10-02T07:52:40.692999"
     },
     {
       "test": "Task Flow",
       "success": true,
-      "details": "Task logging and retrieval working - 9 tasks found",
-      "timestamp": "2025-10-02T07:51:47.425512"
+      "details": "Task logging and retrieval working - 12 tasks found",
+      "timestamp": "2025-10-02T07:52:40.835997"
     },
     {
       "test": "Task History Endpoint (Empty)",
       "success": true,
       "details": "Found 0 tasks",
-      "timestamp": "2025-10-02T07:51:47.463869"
+      "timestamp": "2025-10-02T07:52:40.868467"
+    },
+    {
+      "test": "Giveaway Status Endpoint",
+      "success": true,
+      "details": "Status: started=False",
+      "timestamp": "2025-10-02T07:52:40.907276"
+    },
+    {
+      "test": "Admin Start Giveaway (No Auth)",
+      "success": true,
+      "details": "Correctly rejected non-admin request",
+      "timestamp": "2025-10-02T07:52:40.942313"
+    },
+    {
+      "test": "Admin Start Giveaway",
+      "success": true,
+      "details": "Giveaway started at: 2025-10-02T07:52:40.973784+00:00",
+      "timestamp": "2025-10-02T07:52:41.038922"
     },
     {
       "test": "Error Handling (Invalid Registration)",
       "success": true,
       "details": "Properly rejected invalid data with status 422",
-      "timestamp": "2025-10-02T07:51:47.500372"
+      "timestamp": "2025-10-02T07:52:41.116143"
     },
     {
       "test": "Error Handling (Invalid Task)",
       "success": true,
       "details": "Handled invalid task data with status 200",
-      "timestamp": "2025-10-02T07:51:47.536639"
+      "timestamp": "2025-10-02T07:52:41.154376"
     }
   ]
 }
