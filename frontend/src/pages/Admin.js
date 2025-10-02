@@ -43,8 +43,41 @@ const Admin = () => {
   useEffect(() => {
     if (isAdmin && isAuthenticated) {
       loadData()
+      checkGiveawayStatus()
     }
   }, [isAdmin, isAuthenticated])
+  
+  const checkGiveawayStatus = async () => {
+    try {
+      const response = await axios.get(`${API}/giveaway-status`)
+      if (response.data.success) {
+        setGiveawayStarted(response.data.started)
+      }
+    } catch (error) {
+      console.error('Failed to check giveaway status:', error)
+    }
+  }
+  
+  const handleStartGiveaway = async () => {
+    setStartingGiveaway(true)
+    try {
+      const headers = {
+        'X-Wallet-Address': address
+      }
+      
+      const response = await axios.post(`${API}/admin/start-giveaway`, {}, { headers })
+      
+      if (response.data.success) {
+        setGiveawayStarted(true)
+        toast.success('Giveaway started successfully! ✅')
+      }
+    } catch (error) {
+      console.error('Failed to start giveaway:', error)
+      toast.error('Failed to start giveaway')
+    } finally {
+      setStartingGiveaway(false)
+    }
+  }
 
   const handleAuthenticate = async () => {
     if (!isAdmin) {
