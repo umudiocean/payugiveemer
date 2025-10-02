@@ -115,36 +115,36 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Enhanced CTA Section */}
+          {/* Enhanced CTA Section - Single Big Button */}
           <div className="mb-16">
-            <div className="flex flex-col lg:flex-row items-center justify-center space-y-6 lg:space-y-0 lg:space-x-8">
+            <div className="flex items-center justify-center">
               
-              {/* Primary CTA - Join Giveaway */}
+              {/* Single CTA - Join & Connect */}
               <div className="group relative">
-                <div className="absolute -inset-2 bg-gradient-to-r from-squid-red via-squid-pink to-squid-green blur-xl opacity-50 group-hover:opacity-75 transition-all duration-500"></div>
+                <div className="absolute -inset-4 bg-gradient-to-r from-squid-red via-squid-pink via-squid-ice-blue to-squid-gold blur-2xl opacity-60 group-hover:opacity-90 transition-all duration-700 animate-squid-pulse"></div>
                 <button 
                   onClick={handleJoinClick}
-                  className="relative bg-gradient-to-r from-squid-red to-squid-pink text-white font-squid-display font-bold py-6 px-12 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-glow-red text-xl"
+                  className="relative bg-gradient-to-br from-squid-red via-squid-pink to-squid-ice-blue text-white font-squid-display font-bold py-8 px-16 rounded-3xl transition-all duration-500 transform hover:scale-110 hover:shadow-[0_0_60px_rgba(255,69,180,0.8)] border-4 border-white/20"
                 >
-                  <span className="flex items-center space-x-3">
-                    <span className="text-2xl">◯</span>
-                    <span>{t('hero.joinButton')}</span>
-                    <ArrowRight className="w-6 h-6" />
-                  </span>
+                  <div className="flex flex-col items-center space-y-2">
+                    {/* Top Line - Main Action */}
+                    <div className="flex items-center space-x-4">
+                      <span className="text-4xl animate-squid-bounce">◯</span>
+                      <span className="text-3xl tracking-wider">JOIN THE GIVEAWAY</span>
+                      <span className="text-4xl animate-squid-bounce" style={{animationDelay: '0.2s'}}>△</span>
+                    </div>
+                    
+                    {/* Divider */}
+                    <div className="w-full h-[2px] bg-white/40"></div>
+                    
+                    {/* Bottom Line - Sub Action */}
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">🔗</span>
+                      <span className="text-xl tracking-widest opacity-90">CONNECT WALLET</span>
+                      <ArrowRight className="w-6 h-6 animate-squid-pulse" />
+                    </div>
+                  </div>
                 </button>
-              </div>
-
-              {/* Secondary CTA - Connect Wallet */}
-              <div className="group relative">
-                <div className="absolute -inset-2 bg-gradient-to-r from-squid-green to-squid-mint blur-xl opacity-30 group-hover:opacity-50 transition-all duration-500"></div>
-                <Link to="/join">
-                  <button className="relative border-2 border-squid-green bg-squid-green/10 text-squid-green hover:bg-squid-green hover:text-squid-black font-squid-display font-bold py-6 px-12 rounded-2xl transition-all duration-300 transform hover:scale-105 text-xl">
-                    <span className="flex items-center space-x-3">
-                      <span className="text-2xl">△</span>
-                      <span>{t('hero.connectButton')}</span>
-                    </span>
-                  </button>
-                </Link>
               </div>
             </div>
           </div>
