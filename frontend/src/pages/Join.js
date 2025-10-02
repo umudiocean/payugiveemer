@@ -277,27 +277,14 @@ const Join = () => {
                   </div>
                 </div>
               ) : (
-                <div className="text-center py-12">
-                  {/* Auto-Registration Loading State */}
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-squid-pink/10 via-squid-purple/10 to-squid-teal/10 rounded-xl animate-pulse"></div>
-                    <div className="relative z-10">
-                      <Loader2 className="w-16 h-16 text-squid-pink mx-auto mb-4 animate-spin" />
-                      <h3 className="text-xl font-bold text-white mb-2">
-                        {isPending || isConfirming ? 'Processing Registration...' : 'Preparing Registration...'}
-                      </h3>
-                      <p className="text-squid-grey text-sm">
-                        {isPending ? 'Please confirm the transaction in your wallet' : 
-                         isConfirming ? 'Waiting for blockchain confirmation...' : 
-                         'Auto-registering your wallet...'}
-                      </p>
-                      <div className="mt-4 flex justify-center space-x-2">
-                        <span className="text-squid-pink animate-pulse">◯</span>
-                        <span className="text-squid-purple animate-pulse" style={{animationDelay: '0.3s'}}>△</span>
-                        <span className="text-squid-teal animate-pulse" style={{animationDelay: '0.6s'}}>⬜</span>
-                      </div>
-                    </div>
-                  </div>
+                <div className="text-center py-8">
+                  <p className="text-squid-grey mb-4">Please go to home page to register for the giveaway.</p>
+                  <Button
+                    onClick={() => navigate('/')}
+                    className="bg-gradient-to-r from-squid-pink to-squid-purple hover:from-squid-pink/80 hover:to-squid-purple/80 text-white font-bold py-3 px-6 rounded-xl"
+                  >
+                    Go to Home
+                  </Button>
                 </div>
               )}
             </CardContent>
