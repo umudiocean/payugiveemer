@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useAccount, useContractWrite, useWaitForTransaction, useContractRead } from 'wagmi'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'sonner'
 import { Copy, Download, CheckCircle, Loader2, ExternalLink } from 'lucide-react'
 import { Button } from '../components/ui/button'
@@ -15,6 +16,7 @@ const API = `${BACKEND_URL}/api`
 
 const Join = () => {
   const { t } = useTranslation()
+  const navigate = useNavigate()
   const { address, isConnected } = useAccount()
   const [ticket, setTicket] = useState(null)
   const [isRegistered, setIsRegistered] = useState(false)
