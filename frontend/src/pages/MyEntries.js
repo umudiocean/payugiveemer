@@ -168,7 +168,7 @@ const MyEntries = () => {
                         <div>
                           <div className="text-sm text-squid-grey mb-1">{t('myEntries.registrationDate')}</div>
                           <div className="text-white font-medium">
-                            {new Date(registrationData.createdAt).toLocaleDateString()}
+                            {formatDate(registrationData.createdAt)}
                           </div>
                         </div>
                       </div>
