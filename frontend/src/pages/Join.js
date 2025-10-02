@@ -24,11 +24,6 @@ const Join = () => {
   const [completedTasks, setCompletedTasks] = useState([])
   const [showCelebration, setShowCelebration] = useState(false)
   const [showRegistrationSuccess, setShowRegistrationSuccess] = useState(false)
-  const [socialHandles, setSocialHandles] = useState({
-    telegram: '',
-    twitter: '',
-    instagram: ''
-  })
 
   // Contract interactions
   const { writeContract, data: txHash, isPending } = useWriteContract()
