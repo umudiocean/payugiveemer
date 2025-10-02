@@ -1,11 +1,19 @@
-import { getDefaultConfig } from '@rainbow-me/rainbowkit'
+import { createConfig, http } from 'wagmi'
 import { bsc } from 'wagmi/chains'
+import { injected, walletConnect, coinbaseWallet } from 'wagmi/connectors'
 
-export const config = getDefaultConfig({
-  appName: 'Payu Giveaway',
-  projectId: 'c1814df663b82b65bb5927ad59566843',
+const projectId = 'c1814df663b82b65bb5927ad59566843'
+
+export const config = createConfig({
   chains: [bsc],
-  ssr: false,
+  connectors: [
+    injected(), // Bu MetaMask'ı otomatik algılar ama SDK kullanmaz
+    walletConnect({ projectId }),
+    coinbaseWallet({ appName: 'Payu Giveaway' }),
+  ],
+  transports: {
+    [bsc.id]: http('https://bsc-dataseed.binance.org'),
+  },
 })
 
 // Contract configuration
