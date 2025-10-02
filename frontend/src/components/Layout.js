@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { useCountdown } from '../hooks/useCountdown'
 import { Circle, Triangle, Square } from 'lucide-react'
 
-const Layout = () => {
+const Layout = ({ children }) => {
   const location = useLocation()
   const { formatted, isEnded } = useCountdown()
   const { t } = useTranslation()
