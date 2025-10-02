@@ -74,19 +74,6 @@ const Layout = ({ children }) => {
                 </span>
               </Link>
               <Link 
-                to="/join" 
-                className={`relative group px-4 py-2 rounded-lg font-squid transition-all duration-300 ${
-                  location.pathname === '/join' 
-                    ? 'text-squid-green bg-squid-green/10 border border-squid-green/30' 
-                    : 'text-squid-grey-light hover:text-squid-green hover:bg-squid-green/5'
-                }`}
-              >
-                <span className="flex items-center space-x-2">
-                  <span className="text-xs">△</span>
-                  <span>{t('nav.joinDraw')}</span>
-                </span>
-              </Link>
-              <Link 
                 to="/my-entries" 
                 className={`relative group px-4 py-2 rounded-lg font-squid transition-all duration-300 ${
                   location.pathname === '/my-entries' 
