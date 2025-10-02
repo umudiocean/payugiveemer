@@ -52,7 +52,7 @@ function App() {
           </BrowserRouter>
         </RainbowKitProvider>
       </QueryClientProvider>
-    </WagmiProvider>
+    </WagmiConfig>
   )
 }
 
