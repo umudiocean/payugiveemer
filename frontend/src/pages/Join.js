@@ -910,7 +910,7 @@ const Join = () => {
 
                   {/* Footer note */}
                   <p className="text-xs font-squid text-squid-grey mt-3">
-                    Good luck in the draw! 🍀
+                    Good luck in the giveaway! 🍀
                   </p>
                 </div>
               </div>
