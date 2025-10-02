@@ -861,7 +861,7 @@ const Join = () => {
                   {/* Main Message */}
                   <div className="space-y-2">
                     <p className="text-base font-squid text-squid-light-grey leading-relaxed">
-                      You have been added to the draw pool with your
+                      You have been added to the giveaway pool with your
                     </p>
                     
                     {/* Ticket Number - Highlighted */}
