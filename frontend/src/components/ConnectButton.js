@@ -6,15 +6,15 @@ import { formatAddress } from '../utils/ticket'
 
 const ConnectButton = ({ onConnect, className = '' }) => {
   const { address, isConnected } = useAccount()
-  const { connectors, connect, isPending } = useConnect()
+  const { connectors, connect, isLoading: isPending } = useConnect({
+    onSuccess: () => {
+      if (onConnect) onConnect()
+    }
+  })
   const { disconnect } = useDisconnect()
 
   const handleConnect = (connector) => {
-    connect({ connector }, {
-      onSuccess: () => {
-        if (onConnect) onConnect()
-      }
-    })
+    connect(connector)
   }
 
   const handleDisconnect = () => {
