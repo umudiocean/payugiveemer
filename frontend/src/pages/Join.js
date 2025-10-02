@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-// Note: Wallet functionality temporarily disabled for runtime error fix
+import { useAccount, useContractWrite, useWaitForTransaction, useContractRead } from 'wagmi'
 import { toast } from 'sonner'
 import { Copy, Download, CheckCircle, Loader2, ExternalLink } from 'lucide-react'
 import { Button } from '../components/ui/button'
