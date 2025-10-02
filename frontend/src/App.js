@@ -28,6 +28,10 @@ function App() {
             fontStack: 'system',
             overlayBlur: 'small',
           })}
+          appInfo={{
+            appName: 'Payu Giveaway',
+            learnMoreUrl: 'https://payu.io',
+          }}
         >
           <BrowserRouter>
             <Routes>
