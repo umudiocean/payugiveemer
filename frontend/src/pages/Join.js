@@ -797,7 +797,10 @@ const Join = () => {
           {/* Backdrop */}
           <div 
             className="absolute inset-0 bg-squid-black/95 backdrop-blur-xl"
-            onClick={() => setShowRegistrationSuccess(false)}
+            onClick={() => {
+              setShowRegistrationSuccess(false)
+              navigate('/my-entries')
+            }}
           >
             {/* Confetti particles */}
             <div className="absolute inset-0 overflow-hidden">
