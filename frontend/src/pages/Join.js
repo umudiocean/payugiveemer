@@ -643,30 +643,15 @@ const Join = () => {
                           Share our story and tag your friends in this epic crypto adventure
                         </p>
                         
-                        {/* Social Handle Input */}
-                        {completedTasks.includes('x') && completedTasks.includes('telegram') && (
-                          <div className="mb-4">
-                            <input
-                              type="text"
-                              placeholder="Enter your Instagram handle (@username)"
-                              value={socialHandles.instagram}
-                              onChange={(e) => setSocialHandles({...socialHandles, instagram: e.target.value})}
-                              className="w-full bg-squid-black/50 border-2 border-squid-pink/30 text-white px-4 py-3 rounded-xl focus:border-squid-pink focus:outline-none font-squid"
-                              disabled={completedTasks.includes('instagram_story')}
-                            />
-                          </div>
-                        )}
-                        
                         {/* Enhanced Action Button */}
                         <button
                           onClick={() => {
                             if (completedTasks.includes('x') && completedTasks.includes('telegram')) {
-                              if (!socialHandles.instagram.trim()) {
-                                toast.error('Please enter your Instagram handle first')
-                                return
-                              }
                               window.open('https://www.instagram.com/payu.coin/', '_blank')
-                              handleTaskClick('instagram_story', socialHandles.instagram)
+                              // Auto-complete task after opening link
+                              setTimeout(() => {
+                                handleTaskClick('instagram_story', '')
+                              }, 1000)
                             }
                           }}
                           disabled={!completedTasks.includes('x') || !completedTasks.includes('telegram') || completedTasks.includes('instagram_story')}
