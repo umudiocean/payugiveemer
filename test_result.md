@@ -213,9 +213,8 @@ metadata:
 
 test_plan:
   current_focus:
-    - "React Router Configuration Issue"
-  stuck_tasks:
-    - "React Router Configuration Issue"
+    - "Auto-Registration After Wallet Connection"
+  stuck_tasks: []
   test_all: false
   test_priority: "critical_first"
 
