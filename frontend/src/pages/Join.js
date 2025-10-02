@@ -807,6 +807,117 @@ const Join = () => {
         )}
       </div>
 
+      {/* Registration Success Modal */}
+      {showRegistrationSuccess && ticket && (
+        <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4 animate-fadeIn">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-squid-black/95 backdrop-blur-xl"
+            onClick={() => setShowRegistrationSuccess(false)}
+          >
+            {/* Confetti particles */}
+            <div className="absolute inset-0 overflow-hidden">
+              {[...Array(40)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute w-3 h-3 rounded-full animate-float"
+                  style={{
+                    left: `${Math.random() * 100}%`,
+                    top: `${Math.random() * 100}%`,
+                    backgroundColor: ['#FFD700', '#FF69B4', '#00BFFF'][Math.floor(Math.random() * 3)],
+                    animationDelay: `${Math.random() * 2}s`,
+                    animationDuration: `${2 + Math.random() * 3}s`
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Modal Content */}
+          <div className="relative z-10 max-w-xl w-full animate-scaleIn">
+            <div className="bg-gradient-to-br from-squid-black via-squid-black/98 to-squid-black/95 rounded-2xl border-2 border-squid-gold shadow-[0_0_40px_rgba(255,215,0,0.5)] overflow-hidden">
+              
+              {/* Header */}
+              <div className="relative bg-gradient-to-r from-squid-gold/20 via-squid-pink/20 to-squid-ice-blue/20 p-4 border-b-2 border-squid-gold/50">
+                <div className="relative text-center">
+                  <div className="flex justify-center items-center space-x-2 mb-3">
+                    <span className="text-4xl animate-squid-bounce">🎉</span>
+                    <span className="text-5xl animate-squid-pulse">🎊</span>
+                    <span className="text-4xl animate-squid-bounce" style={{animationDelay: '0.2s'}}>🎉</span>
+                  </div>
+                  
+                  <h2 className="text-3xl font-squid-display font-bold mb-2 bg-gradient-to-r from-squid-gold via-squid-pink to-squid-ice-blue bg-clip-text text-transparent animate-glow">
+                    CONGRATULATIONS!
+                  </h2>
+                </div>
+              </div>
+
+              {/* Main Message */}
+              <div className="p-5">
+                <div className="text-center space-y-3">
+                  
+                  {/* Success Icon */}
+                  <div className="flex justify-center mb-3">
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-squid-gold/30 rounded-full blur-2xl animate-squid-pulse"></div>
+                      <div className="relative w-20 h-20 bg-gradient-to-br from-squid-gold to-squid-pink rounded-full flex items-center justify-center border-4 border-squid-gold/50 shadow-[0_0_30px_rgba(255,215,0,0.6)] animate-squid-bounce">
+                        <CheckCircle className="w-12 h-12 text-white" strokeWidth={3} />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Message */}
+                  <div className="space-y-3 mb-4">
+                    <p className="text-lg font-squid-body text-squid-white font-semibold">
+                      Your giveaway ticket is ready!
+                    </p>
+                    
+                    {/* Ticket Display */}
+                    <div className="relative inline-block">
+                      <div className="absolute inset-0 bg-gradient-to-r from-squid-gold via-squid-pink to-squid-ice-blue blur-xl opacity-50 animate-squid-pulse"></div>
+                      <div className="relative bg-gradient-to-r from-squid-gold/20 to-squid-pink/20 border-2 border-squid-gold rounded-xl px-6 py-4 shadow-[0_0_20px_rgba(255,215,0,0.5)]">
+                        <p className="text-3xl font-squid-display font-bold bg-gradient-to-r from-squid-gold via-squid-pink to-squid-ice-blue bg-clip-text text-transparent animate-glow mb-1">
+                          {ticket}
+                        </p>
+                        <p className="text-xs font-squid-body text-squid-ice-blue font-semibold">
+                          YOUR LUCKY TICKET
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="bg-squid-ice-blue/10 border border-squid-ice-blue/30 rounded-xl p-4 mt-4">
+                      <p className="text-base font-squid-body text-squid-light-grey leading-relaxed">
+                        We have sent <span className="text-squid-gold font-bold">250 million PAYU coins</span> to your wallet.
+                      </p>
+                    </div>
+
+                    <div className="bg-squid-pink/10 border border-squid-pink/30 rounded-xl p-4">
+                      <p className="text-base font-squid-body text-squid-white font-semibold mb-2">
+                        🎯 Complete Other Tasks to Win Rewards!
+                      </p>
+                      <p className="text-sm font-squid-body text-squid-light-grey">
+                        Boost your chances by completing social media tasks below
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Close Button */}
+                  <button
+                    onClick={() => setShowRegistrationSuccess(false)}
+                    className="mt-4 px-8 py-3 bg-gradient-to-r from-squid-gold via-squid-pink to-squid-ice-blue text-white font-squid-display font-bold text-base rounded-xl shadow-[0_0_20px_rgba(255,215,0,0.5)] hover:shadow-[0_0_30px_rgba(255,215,0,0.7)] transform hover:scale-105 transition-all duration-300 border-2 border-squid-gold/50"
+                  >
+                    <span className="flex items-center space-x-2">
+                      <span>LET'S GO!</span>
+                      <span className="text-lg animate-squid-bounce">🚀</span>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Celebration Modal - Shows when all 3 tasks completed */}
       {showCelebration && ticket && (
         <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4 animate-fadeIn">
