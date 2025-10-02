@@ -1,55 +1,11 @@
-import { createConfig, http } from 'wagmi'
+import { getDefaultConfig } from '@rainbow-me/rainbowkit'
 import { bsc } from 'wagmi/chains'
-import { 
-  injected, 
-  walletConnect, 
-  coinbaseWallet
-} from '@wagmi/connectors'
 
-const projectId = 'c1814df663b82b65bb5927ad59566843'
-
-export const config = createConfig({
+export const config = getDefaultConfig({
+  appName: 'Payu Giveaway',
+  projectId: 'c1814df663b82b65bb5927ad59566843',
   chains: [bsc],
-  connectors: [
-    injected({
-      target: {
-        id: 'metamask',
-        name: 'MetaMask',
-        provider: 'isMetaMask',
-      },
-    }),
-    walletConnect({ 
-      projectId,
-      metadata: {
-        name: 'Payu Giveaway',
-        description: 'Join the Payu Giveaway and get your rewards',
-        url: typeof window !== 'undefined' ? window.location.origin : 'https://payu.io',
-        icons: ['https://payu.io/favicon.ico']
-      }
-    }),
-    coinbaseWallet({
-      appName: 'Payu Giveaway',
-      appLogoUrl: 'https://payu.io/favicon.ico',
-    }),
-    injected({
-      target: {
-        id: 'binance',
-        name: 'Binance Wallet',
-        provider: 'isBinance',
-      },
-    }),
-    injected({
-      target: {
-        id: 'trust',
-        name: 'Trust Wallet',
-        provider: 'isTrust',
-      },
-    }),
-    injected(), // For other injected wallets
-  ],
-  transports: {
-    [bsc.id]: http('https://bsc-dataseed.binance.org')
-  },
+  ssr: false,
 })
 
 // Contract configuration
