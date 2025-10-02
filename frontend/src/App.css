@@ -14,13 +14,13 @@
   --squid-light-pink: #FFB6C1;
   --squid-gold: #FFD700;
   --squid-orange: #FFA500;
-  --squid-grey: #8A808C;
-  --squid-light-grey: #DCD5DC;
+  --squid-grey: #C5C8D0;
+  --squid-light-grey: #E8E8EA;
   
-  /* Bebas Neue Typography */
+  /* Enhanced Typography for Better Readability */
+  --font-display: 'Anton', 'Bebas Neue', 'Arial', sans-serif;
   --font-squid: 'Bebas Neue', 'Arial', sans-serif;
-  --font-display: 'Bebas Neue', 'Arial', sans-serif;
-  --font-body: 'Bebas Neue', 'Arial', sans-serif;
+  --font-body: 'Inter', 'system-ui', sans-serif;
   
   /* shadcn/ui theme with Authentic Squid Game colors */
   --background: 8 5 15;
