@@ -36,11 +36,11 @@
     "getStarted": "Get Started Now"
   },
   "join": {
-    "title": "Join the Draw",
+    "title": "Join the Giveaway",
     "subtitle": "Connect your wallet and register with one simple transaction. Get 250M PAYU tokens instantly plus your unique lottery ticket.",
     "registration": "Registration",
-    "alreadyRegistered": "You are already registered for the draw!",
-    "connectToJoin": "One transaction to join the draw and receive rewards",
+    "alreadyRegistered": "You are already registered for the giveaway!",
+    "connectToJoin": "One transaction to join the giveaway and receive rewards",
     "connectWallet": "Connect your wallet to continue",
     "registrationDetails": "Registration Details",
     "instantReward": "Instant Reward",
