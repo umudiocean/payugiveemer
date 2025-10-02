@@ -79,7 +79,16 @@ class PayuDrawAPITester:
     def test_admin_tasks(self):
         """Test admin tasks endpoint"""
         try:
+            # Test without admin header (should fail)
             response = requests.get(f"{self.base_url}/api/admin/tasks", timeout=10)
+            if response.status_code == 403:
+                self.log_test("Admin Tasks (No Auth)", True, "Correctly rejected non-admin request")
+            else:
+                self.log_test("Admin Tasks (No Auth)", False, f"Expected 403, got {response.status_code}")
+                
+            # Test with admin header
+            admin_headers = {"X-Wallet-Address": "0xd9C4b8436d2a235A1f7DB09E680b5928cFdA641a"}
+            response = requests.get(f"{self.base_url}/api/admin/tasks", headers=admin_headers, timeout=10)
             if response.status_code == 200:
                 data = response.json()
                 if data.get("success") is True:
