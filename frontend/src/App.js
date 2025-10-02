@@ -11,30 +11,27 @@ import './App.css'
 
 function App() {
   return (
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Layout />}>
-                <Route index element={<Home />} />
-                <Route path="join" element={<Join />} />
-                <Route path="my" element={<MyEntries />} />
-                <Route path="admin" element={<Admin />} />
-              </Route>
-            </Routes>
-            <Toaster 
-              theme="dark"
-              position="top-right"
-              toastOptions={{
-                style: {
-                  background: '#0B0F14',
-                  border: '1px solid #A7AAB3',
-                  color: 'white',
-                },
-              }}
-            />
-          </BrowserRouter>
-        </RainbowKitProvider>
-      </QueryClientProvider>
-    </WagmiConfig>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="join" element={<Join />} />
+          <Route path="my" element={<MyEntries />} />
+          <Route path="admin" element={<Admin />} />
+        </Route>
+      </Routes>
+      <Toaster 
+        theme="dark"
+        position="top-right"
+        toastOptions={{
+          style: {
+            background: '#0B0F14',
+            border: '1px solid #A7AAB3',
+            color: 'white',
+          },
+        }}
+      />
+    </BrowserRouter>
   )
 }
 
