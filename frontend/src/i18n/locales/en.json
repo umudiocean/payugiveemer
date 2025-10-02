@@ -91,7 +91,7 @@
   },
   "admin": {
     "title": "Admin Panel",
-    "subtitle": "Manage lottery registrations and track user activities",
+    "subtitle": "Manage giveaway registrations and track user activities",
     "accessRequired": "Admin Access Required",
     "connectForAdmin": "Please connect your wallet to access the admin panel.",
     "accessDenied": "Access Denied",
