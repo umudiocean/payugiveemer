@@ -18,7 +18,7 @@ const queryClient = new QueryClient()
 
 function App() {
   return (
-    <WagmiProvider config={config}>
+    <WagmiConfig config={config}>
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider 
           theme={darkTheme({
@@ -28,10 +28,6 @@ function App() {
             fontStack: 'system',
             overlayBlur: 'small',
           })}
-          appInfo={{
-            appName: 'Payu Giveaway',
-            learnMoreUrl: 'https://payu.io',
-          }}
         >
           <BrowserRouter>
             <Routes>
