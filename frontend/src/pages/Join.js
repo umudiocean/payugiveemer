@@ -47,12 +47,37 @@ const Join = () => {
   })
 
   useEffect(() => {
+    if (address && isConnected) {
+      // Check both blockchain and backend registration status
+      checkRegistrationStatus()
+    }
+  }, [address, isConnected, userIsRegistered])
+
+  const checkRegistrationStatus = async () => {
+    try {
+      // First check backend for existing registration
+      const response = await axios.get(`${API}/registration/${address}`)
+      if (response.data.success && response.data.data) {
+        console.log('✅ Found existing registration in backend')
+        setIsRegistered(true)
+        setRegistrationData(response.data.data)
+        setTicket(response.data.data.ticket)
+        setShowTasks(true)
+        await loadCompletedTasks()
+        return
+      }
+    } catch (error) {
+      console.log('No existing registration found in backend')
+    }
+
+    // If blockchain says user is registered but backend doesn't have data
     if (userIsRegistered) {
+      console.log('✅ User is registered on blockchain but missing backend data')
       setIsRegistered(true)
-      // Load existing registration data if available
+      // Try to load from backend anyway
       loadUserRegistration()
     }
-  }, [userIsRegistered, address])
+  }
 
   // Handle successful transaction
   useEffect(() => {
