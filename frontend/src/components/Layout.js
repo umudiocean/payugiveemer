@@ -129,7 +129,7 @@ const Layout = ({ children }) => {
 
       {/* Main Content */}
       <main className="relative z-10">
-        <Outlet />
+        {children}
       </main>
 
       {/* Squid Game Footer */}
