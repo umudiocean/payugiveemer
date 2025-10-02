@@ -238,6 +238,7 @@ const MyEntries = () => {
                 )}
               </CardContent>
             </Card>
+            </div>
 
             {/* Task History */}
             <Card className="bg-black/50 border-squid-grey/20 backdrop-blur-xl">
