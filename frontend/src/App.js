@@ -31,14 +31,14 @@ function App() {
           })}
         >
           <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Layout />}>
-                <Route index element={<Home />} />
-                <Route path="join" element={<Join />} />
-                <Route path="my" element={<MyEntries />} />
-                <Route path="admin" element={<Admin />} />
-              </Route>
-            </Routes>
+            <Layout>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/join" element={<Join />} />
+                <Route path="/my-entries" element={<MyEntries />} />
+                <Route path="/admin" element={<Admin />} />
+              </Routes>
+            </Layout>
             <Toaster 
               theme="dark"
               position="top-right"
