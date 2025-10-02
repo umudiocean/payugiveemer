@@ -223,6 +223,66 @@ async def get_all_tasks(x_wallet_address: Optional[str] = Header(None)):
         logging.error(f"Failed to get tasks: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
+@api_router.post("/admin/start-giveaway")
+async def start_giveaway(x_wallet_address: Optional[str] = Header(None)):
+    """Start the giveaway countdown (Admin only)"""
+    if not verify_admin(x_wallet_address):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    try:
+        # Check if giveaway settings exist
+        giveaway = await db.giveaway_settings.find_one({"_id": "main"})
+        
+        start_time = datetime.now(timezone.utc)
+        
+        if giveaway:
+            # Update existing
+            await db.giveaway_settings.update_one(
+                {"_id": "main"},
+                {"$set": {
+                    "started": True,
+                    "start_time": start_time.isoformat()
+                }}
+            )
+        else:
+            # Create new
+            await db.giveaway_settings.insert_one({
+                "_id": "main",
+                "started": True,
+                "start_time": start_time.isoformat()
+            })
+        
+        return {
+            "success": True,
+            "message": "Giveaway started successfully",
+            "start_time": start_time.isoformat()
+        }
+    except Exception as e:
+        logging.error(f"Failed to start giveaway: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@api_router.get("/giveaway-status")
+async def get_giveaway_status():
+    """Get giveaway status (public endpoint)"""
+    try:
+        giveaway = await db.giveaway_settings.find_one({"_id": "main"})
+        
+        if not giveaway:
+            return {
+                "success": True,
+                "started": False,
+                "start_time": None
+            }
+        
+        return {
+            "success": True,
+            "started": giveaway.get("started", False),
+            "start_time": giveaway.get("start_time")
+        }
+    except Exception as e:
+        logging.error(f"Failed to get giveaway status: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
 # Include the router in the main app
 app.include_router(api_router)
 
