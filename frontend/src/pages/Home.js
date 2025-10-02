@@ -10,7 +10,6 @@ import CountdownTimer from '../components/CountdownTimer'
 const Home = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()
-  const { openConnectModal } = useConnectModal()
   const { isConnected } = useAccount()
   
   const handleJoinClick = () => {
@@ -18,12 +17,8 @@ const Home = () => {
       // Already connected, go directly to join page
       navigate('/join')
     } else {
-      // Not connected, open wallet connection modal
-      openConnectModal?.()
-      // After connection, navigate to join (handled by redirect)
-      setTimeout(() => {
-        navigate('/join')
-      }, 1000)
+      // If not connected, user needs to connect first via the button below
+      // ConnectButton will handle the wallet connection
     }
   }
   
