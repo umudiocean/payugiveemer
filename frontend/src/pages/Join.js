@@ -61,9 +61,26 @@ const Join = () => {
         setRegistrationData(response.data.data)
         setTicket(response.data.data.ticket)
         setShowTasks(true)
+        
+        // Load completed tasks
+        await loadCompletedTasks()
       }
     } catch (error) {
       console.error('Failed to load registration:', error)
+    }
+  }
+
+  const loadCompletedTasks = async () => {
+    try {
+      const response = await axios.get(`${API}/task-completions/${address}`)
+      if (response.data.success && response.data.data) {
+        // Extract unique platforms from completed tasks
+        const platforms = [...new Set(response.data.data.map(task => task.platform))]
+        setCompletedTasks(platforms)
+        console.log('✅ Loaded completed tasks:', platforms)
+      }
+    } catch (error) {
+      console.error('Failed to load completed tasks:', error)
     }
   }
 
