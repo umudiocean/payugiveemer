@@ -20,6 +20,8 @@ const Admin = () => {
   const [registrations, setRegistrations] = useState([])
   const [tasks, setTasks] = useState([])
   const [loading, setLoading] = useState(false)
+  const [giveawayStarted, setGiveawayStarted] = useState(false)
+  const [startingGiveaway, setStartingGiveaway] = useState(false)
   const [stats, setStats] = useState({
     totalRegistrations: 0,
     totalTasks: 0,
