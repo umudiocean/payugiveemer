@@ -1,23 +1,10 @@
 import React from 'react'
 import { WagmiProvider } from 'wagmi'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { 
-  RainbowKitProvider, 
-  darkTheme,
-  connectorsForWallets,
-  getDefaultConfig
-} from '@rainbow-me/rainbowkit'
-import {
-  metaMaskWallet,
-  walletConnectWallet,
-  coinbaseWallet,
-  trustWallet,
-  injectedWallet,
-} from '@rainbow-me/rainbowkit/wallets'
+import { RainbowKitProvider, darkTheme, getDefaultConfig } from '@rainbow-me/rainbowkit'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Toaster } from 'sonner'
 import { bsc } from 'wagmi/chains'
-import { createConfig, http } from 'wagmi'
 import Layout from './components/Layout'
 import Home from './pages/Home'
 import Join from './pages/Join'
