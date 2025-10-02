@@ -4,7 +4,7 @@ import { Calendar, Hash, ExternalLink, Copy } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card'
 import { Button } from '../components/ui/button'
 import { Badge } from '../components/ui/badge'
-// ConnectButton temporarily disabled
+import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { formatAddress, copyToClipboard } from '../utils/ticket'
 import { useTranslation } from 'react-i18next'
 import axios from 'axios'
