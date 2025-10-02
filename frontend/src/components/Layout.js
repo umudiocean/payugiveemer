@@ -87,9 +87,9 @@ const Layout = ({ children }) => {
                 </span>
               </Link>
               <Link 
-                to="/my" 
+                to="/my-entries" 
                 className={`relative group px-4 py-2 rounded-lg font-squid transition-all duration-300 ${
-                  location.pathname === '/my' 
+                  location.pathname === '/my-entries' 
                     ? 'text-squid-blue bg-squid-blue/10 border border-squid-blue/30' 
                     : 'text-squid-grey-light hover:text-squid-blue hover:bg-squid-blue/5'
                 }`}
