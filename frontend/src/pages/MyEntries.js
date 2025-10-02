@@ -124,14 +124,16 @@ const MyEntries = () => {
           </div>
         ) : (
           <div className="space-y-8">
-            {/* Registration Card */}
-            <Card className="bg-black/50 border-squid-grey/20 backdrop-blur-xl">
-              <CardHeader>
-                <CardTitle className="text-white flex items-center space-x-2">
-                  <Hash className="w-5 h-5" />
+            {/* Registration Card - Modern */}
+            <div className="relative group animate-fadeIn">
+              <div className="absolute -inset-1 bg-gradient-to-r from-squid-ice-blue via-squid-pink to-squid-gold blur-lg opacity-30 group-hover:opacity-50 transition-all duration-700"></div>
+              <Card className="relative bg-squid-black/90 border-2 border-squid-ice-blue/40 backdrop-blur-xl">
+              <CardHeader className="border-b-2 border-squid-ice-blue/20 bg-gradient-to-r from-squid-ice-blue/5 to-squid-pink/5">
+                <CardTitle className="text-white flex items-center space-x-3 font-squid-display text-2xl">
+                  <span className="text-3xl animate-squid-pulse">◯</span>
                   <span>{t('myEntries.lotteryRegistration')}</span>
                 </CardTitle>
-                <CardDescription className="text-squid-grey">
+                <CardDescription className="text-squid-light-grey font-squid-body">
                   {t('myEntries.registrationDesc')}
                 </CardDescription>
               </CardHeader>
