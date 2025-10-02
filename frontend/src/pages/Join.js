@@ -87,26 +87,6 @@ const Join = () => {
       handleRegistrationSuccess(txHash)
     }
   }, [isConfirmed, txHash])
-  
-  // Auto-register when wallet is connected and not yet registered
-  useEffect(() => {
-    if (isConnected && address && !isRegistered && !isConfirming && !isPending && !txHash) {
-      console.log('🔍 Checking registration status for:', address)
-      console.log('registrationData:', registrationData)
-      console.log('userIsRegistered:', userIsRegistered)
-      
-      // Small delay to ensure page is loaded and status checked
-      const timer = setTimeout(() => {
-        // If no registration data exists and user is not registered on blockchain
-        if (!registrationData) {
-          console.log('🚀 AUTO-TRIGGERING REGISTRATION for wallet:', address)
-          handleRegister()
-        }
-      }, 1500)
-      
-      return () => clearTimeout(timer)
-    }
-  }, [isConnected, address, isRegistered, isConfirming, isPending, registrationData, txHash, userIsRegistered])
 
   const loadUserRegistration = async () => {
     try {
