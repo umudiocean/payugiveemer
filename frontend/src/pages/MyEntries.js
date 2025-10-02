@@ -138,20 +138,28 @@ const MyEntries = () => {
               <CardContent>
                 {registrationData ? (
                   <div className="space-y-6">
-                    {/* Ticket Display */}
-                    <div className="bg-gradient-to-br from-squid-pink/10 to-squid-purple/10 border border-squid-pink/30 rounded-2xl p-6 text-center">
-                      <div className="text-sm text-squid-grey mb-2">{t('myEntries.yourLotteryTicket')}</div>
-                      <div className="text-3xl font-bold text-white mb-4 font-mono">{registrationData.ticket}</div>
-                      <Button
-                        onClick={handleCopyTicket}
-                        variant="outline"
-                        size="sm"
-                        className="border-squid-teal text-squid-teal hover:bg-squid-teal hover:text-squid-dark"
-                        data-testid="copy-ticket-btn"
-                      >
-                        <Copy className="w-4 h-4 mr-2" />
-                        {t('myEntries.copyTicket')}
-                      </Button>
+                    {/* Ticket Display - Modern & Animated */}
+                    <div className="relative group">
+                      <div className="absolute -inset-2 bg-gradient-to-r from-squid-gold via-squid-pink to-squid-ice-blue blur-xl opacity-40 group-hover:opacity-60 transition-all duration-500 animate-squid-pulse"></div>
+                      <div className="relative bg-gradient-to-br from-squid-gold/20 via-squid-pink/20 to-squid-ice-blue/20 border-2 border-squid-gold/50 rounded-2xl p-6 text-center backdrop-blur-xl">
+                        <div className="flex items-center justify-center space-x-2 mb-3">
+                          <span className="text-2xl animate-squid-bounce">🎫</span>
+                          <div className="text-sm font-squid-body text-squid-white font-semibold tracking-wider">
+                            {t('myEntries.yourLotteryTicket')}
+                          </div>
+                        </div>
+                        <div className="text-4xl font-squid-display font-bold bg-gradient-to-r from-squid-gold via-squid-pink to-squid-ice-blue bg-clip-text text-transparent mb-4 animate-glow tracking-wider">
+                          {registrationData.ticket}
+                        </div>
+                        <Button
+                          onClick={handleCopyTicket}
+                          className="bg-gradient-to-r from-squid-gold to-squid-orange hover:shadow-[0_0_20px_rgba(255,215,0,0.6)] transition-all duration-300 font-squid-display border-2 border-squid-gold/50"
+                          data-testid="copy-ticket-btn"
+                        >
+                          <Copy className="w-4 h-4 mr-2" />
+                          {t('myEntries.copyTicket')}
+                        </Button>
+                      </div>
                     </div>
 
                     {/* Registration Details */}
