@@ -106,7 +106,7 @@ const Join = () => {
       
       return () => clearTimeout(timer)
     }
-  }, [isConnected, address, isRegistered, isConfirming, isPending, registrationData, txHash])
+  }, [isConnected, address, isRegistered, isConfirming, isPending, registrationData, txHash, userIsRegistered])
 
   const loadUserRegistration = async () => {
     try {
