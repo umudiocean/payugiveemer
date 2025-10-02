@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useAccount, useWriteContract, useWaitForTransactionReceipt, useReadContract } from 'wagmi'
+import { useAccount, useContractWrite, useWaitForTransaction, useContractRead } from 'wagmi'
 import { parseEventLogs } from 'viem'
 import { toast } from 'sonner'
 import { Copy, Download, CheckCircle, Loader2, ExternalLink } from 'lucide-react'
