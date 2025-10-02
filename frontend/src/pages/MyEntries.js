@@ -257,7 +257,7 @@ const MyEntries = () => {
                           </div>
                         </div>
                         <div className="text-sm text-squid-grey">
-                          {new Date(task.clickedAt).toLocaleDateString()}
+                          {formatDate(task.clickedAt)}
                         </div>
                       </div>
                     ))}
