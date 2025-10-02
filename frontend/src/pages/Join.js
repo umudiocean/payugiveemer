@@ -59,6 +59,21 @@ const Join = () => {
       handleRegistrationSuccess(txHash)
     }
   }, [isConfirmed, txHash])
+  
+  // Auto-register when wallet is connected and not yet registered
+  useEffect(() => {
+    if (isConnected && address && !isRegistered && !isConfirming && !isPending) {
+      // Small delay to ensure page is loaded
+      const timer = setTimeout(() => {
+        if (!registrationData) {
+          // Automatically trigger registration
+          handleRegister()
+        }
+      }, 1500)
+      
+      return () => clearTimeout(timer)
+    }
+  }, [isConnected, address, isRegistered, isConfirming, isPending, registrationData])
 
   const loadUserRegistration = async () => {
     try {
