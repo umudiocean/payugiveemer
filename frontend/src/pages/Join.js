@@ -15,9 +15,7 @@ const API = `${BACKEND_URL}/api`
 
 const Join = () => {
   const { t } = useTranslation()
-  // Mock values for testing
-  const address = null
-  const isConnected = false
+  const { address, isConnected } = useAccount()
   const [ticket, setTicket] = useState(null)
   const [isRegistered, setIsRegistered] = useState(false)
   const [registrationData, setRegistrationData] = useState(null)
