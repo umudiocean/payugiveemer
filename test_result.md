@@ -195,10 +195,11 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Full Application Testing"
-  stuck_tasks: []
-  test_all: true
-  test_priority: "high_first"
+    - "React Router Configuration Issue"
+  stuck_tasks:
+    - "React Router Configuration Issue"
+  test_all: false
+  test_priority: "critical_first"
 
   - task: "Fix JSX Syntax Error in MyEntries.js"
     implemented: true
