@@ -23,6 +23,7 @@ const Join = () => {
   const [showTasks, setShowTasks] = useState(false)
   const [completedTasks, setCompletedTasks] = useState([])
   const [showCelebration, setShowCelebration] = useState(false)
+  const [showRegistrationSuccess, setShowRegistrationSuccess] = useState(false)
   const [socialHandles, setSocialHandles] = useState({
     telegram: '',
     twitter: '',
