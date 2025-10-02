@@ -263,61 +263,6 @@ const Admin = () => {
           </Card>
         </div>
 
-        {/* Giveaway Control */}
-        <Card className="bg-gradient-to-br from-squid-gold/10 to-squid-pink/10 border-squid-gold/30 backdrop-blur-xl mb-8">
-          <CardHeader>
-            <CardTitle className="text-white flex items-center space-x-3">
-              <span className="text-3xl">🎮</span>
-              <span>Giveaway Control</span>
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-white font-semibold text-lg mb-2">
-                  Status: {giveawayStarted ? (
-                    <span className="text-squid-green">● ACTIVE</span>
-                  ) : (
-                    <span className="text-squid-red">● NOT STARTED</span>
-                  )}
-                </p>
-                <p className="text-squid-grey text-sm">
-                  {giveawayStarted 
-                    ? 'Countdown is running. Users can join the giveaway.'
-                    : 'Click START to begin the giveaway countdown.'}
-                </p>
-              </div>
-              
-              <Button
-                onClick={handleStartGiveaway}
-                disabled={giveawayStarted || startingGiveaway}
-                className={`font-squid-display font-bold text-lg px-8 py-6 ${
-                  giveawayStarted 
-                    ? 'bg-squid-grey cursor-not-allowed'
-                    : 'bg-gradient-to-r from-squid-gold to-squid-orange hover:shadow-[0_0_30px_rgba(255,215,0,0.6)] animate-pulse'
-                }`}
-              >
-                {startingGiveaway ? (
-                  <span className="flex items-center space-x-2">
-                    <span className="animate-spin">⏳</span>
-                    <span>STARTING...</span>
-                  </span>
-                ) : giveawayStarted ? (
-                  <span className="flex items-center space-x-2">
-                    <span>✅</span>
-                    <span>STARTED</span>
-                  </span>
-                ) : (
-                  <span className="flex items-center space-x-2">
-                    <span>🚀</span>
-                    <span>START GIVEAWAY</span>
-                  </span>
-                )}
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-
         {/* Registrations Table */}
         <Card className="bg-black/50 border-squid-grey/20 backdrop-blur-xl mb-8">
           <CardHeader>
