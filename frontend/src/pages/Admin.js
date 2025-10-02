@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-// Wagmi temporarily disabled for runtime error fix
+import { useAccount, useSignMessage } from 'wagmi'
 import { Download, Users, Activity, Shield } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card'
 import { Button } from '../components/ui/button'
