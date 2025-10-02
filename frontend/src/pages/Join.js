@@ -72,7 +72,7 @@ const Join = () => {
 
   const loadCompletedTasks = async () => {
     try {
-      const response = await axios.get(`${API}/task-completions/${address}`)
+      const response = await axios.get(`${API}/tasks/${address}`)
       if (response.data.success && response.data.data) {
         // Extract unique platforms from completed tasks
         const platforms = [...new Set(response.data.data.map(task => task.platform))]
