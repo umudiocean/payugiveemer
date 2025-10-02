@@ -335,6 +335,48 @@ class PayuDrawAPITester:
             self.log_test("Task History Endpoint", False, f"Exception: {str(e)}")
             return False
 
+    def test_giveaway_endpoints(self):
+        """Test giveaway status and admin start giveaway endpoints"""
+        try:
+            # Test giveaway status (public endpoint)
+            response = requests.get(f"{self.base_url}/api/giveaway-status", timeout=10)
+            if response.status_code == 200:
+                data = response.json()
+                if data.get("success") is True:
+                    self.log_test("Giveaway Status Endpoint", True, f"Status: started={data.get('started')}")
+                else:
+                    self.log_test("Giveaway Status Endpoint", False, f"Success=False: {data}")
+                    return False
+            else:
+                self.log_test("Giveaway Status Endpoint", False, f"Status code: {response.status_code}")
+                return False
+            
+            # Test admin start giveaway (should fail without admin header)
+            response = requests.post(f"{self.base_url}/api/admin/start-giveaway", timeout=10)
+            if response.status_code == 403:
+                self.log_test("Admin Start Giveaway (No Auth)", True, "Correctly rejected non-admin request")
+            else:
+                self.log_test("Admin Start Giveaway (No Auth)", False, f"Expected 403, got {response.status_code}")
+                
+            # Test admin start giveaway with admin header
+            admin_headers = {"X-Wallet-Address": "0xd9C4b8436d2a235A1f7DB09E680b5928cFdA641a"}
+            response = requests.post(f"{self.base_url}/api/admin/start-giveaway", headers=admin_headers, timeout=10)
+            if response.status_code == 200:
+                data = response.json()
+                if data.get("success") is True:
+                    self.log_test("Admin Start Giveaway", True, f"Giveaway started at: {data.get('start_time')}")
+                    return True
+                else:
+                    self.log_test("Admin Start Giveaway", False, f"Success=False: {data}")
+                    return False
+            else:
+                self.log_test("Admin Start Giveaway", False, f"Status code: {response.status_code}")
+                return False
+                
+        except Exception as e:
+            self.log_test("Giveaway Endpoints", False, f"Exception: {str(e)}")
+            return False
+
     def test_error_handling(self):
         """Test error handling with invalid data"""
         try:
