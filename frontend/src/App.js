@@ -27,13 +27,44 @@ import './App.css'
 import '@rainbow-me/rainbowkit/styles.css'
 
 const queryClient = new QueryClient()
+const projectId = 'c1814df663b82b65bb5927ad59566843'
 
-// Default RainbowKit configuration (includes most popular wallets automatically)
-const config = getDefaultConfig({
-  appName: 'Payu Giveaway',
-  projectId: 'c1814df663b82b65bb5927ad59566843',
+// Custom Binance Wallet connector
+const binanceWallet = () => ({
+  id: 'binance',
+  name: 'Binance Wallet',
+  iconUrl: 'https://bin.bnbstatic.com/image/admin_mgs_image_upload/20220218/94fa37f8-41c7-4a81-8c26-9b9dce75916b.png',
+  iconBackground: '#f0b90b',
+  createConnector: () => injectedWallet().createConnector({ target: 'binanceWallet' })
+})
+
+// Configure wallets with all requested options
+const connectors = connectorsForWallets(
+  [
+    {
+      groupName: 'Popular',
+      wallets: [
+        metaMaskWallet({ projectId }),
+        walletConnectWallet({ projectId }),
+        coinbaseWallet({ appName: 'Payu Giveaway' }),
+        binanceWallet(),
+        trustWallet({ projectId }),
+      ],
+    },
+  ],
+  {
+    appName: 'Payu Giveaway',
+    projectId,
+  }
+)
+
+// Wagmi configuration with custom connectors
+const config = createConfig({
+  connectors,
   chains: [bsc],
-  ssr: false,
+  transports: {
+    [bsc.id]: http('https://bsc-dataseed.binance.org'),
+  },
 })
 
 function App() {
