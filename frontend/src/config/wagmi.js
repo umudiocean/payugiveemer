@@ -3,8 +3,7 @@ import { bsc } from 'wagmi/chains'
 import { 
   injected, 
   walletConnect, 
-  coinbaseWallet,
-  metaMask
+  coinbaseWallet
 } from '@wagmi/connectors'
 
 const projectId = 'c1814df663b82b65bb5927ad59566843'
@@ -12,10 +11,11 @@ const projectId = 'c1814df663b82b65bb5927ad59566843'
 export const config = createConfig({
   chains: [bsc],
   connectors: [
-    metaMask({
-      dappMetadata: {
-        name: 'Payu Giveaway',
-        url: window.location.origin,
+    injected({
+      target: {
+        id: 'metamask',
+        name: 'MetaMask',
+        provider: 'isMetaMask',
       },
     }),
     walletConnect({ 
@@ -23,7 +23,7 @@ export const config = createConfig({
       metadata: {
         name: 'Payu Giveaway',
         description: 'Join the Payu Giveaway and get your rewards',
-        url: window.location.origin,
+        url: typeof window !== 'undefined' ? window.location.origin : 'https://payu.io',
         icons: ['https://payu.io/favicon.ico']
       }
     }),
