@@ -170,9 +170,9 @@ const MyEntries = () => {
                     {/* Registration Details */}
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-4">
-                        <div>
-                          <div className="text-sm text-squid-grey mb-1">{t('myEntries.entryIndex')}</div>
-                          <div className="text-white font-medium">#{registrationData.index}</div>
+                        <div className="bg-squid-dark/30 p-4 rounded-lg border border-squid-grey/20">
+                          <div className="text-sm text-squid-ice-blue mb-1 font-medium">{t('myEntries.entryIndex')}</div>
+                          <div className="text-white font-bold text-lg">#{registrationData.index}</div>
                         </div>
                         <div>
                           <div className="text-sm text-squid-grey mb-1">{t('myEntries.payuReceived')}</div>
