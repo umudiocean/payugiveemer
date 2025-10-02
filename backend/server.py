@@ -187,9 +187,20 @@ async def get_task_history(wallet: str):
         logging.error(f"Failed to get task history: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
-# Admin endpoints (basic for now)
+# Admin verification helper
+def verify_admin(wallet_address: str) -> bool:
+    """Verify if the wallet address is admin"""
+    if not wallet_address:
+        return False
+    return wallet_address.lower() == ADMIN_WALLET
+    
+# Admin endpoints
 @api_router.get("/admin/registrations")
-async def get_all_registrations():
+async def get_all_registrations(x_wallet_address: Optional[str] = Header(None)):
+    """Get all registrations (Admin only)"""
+    if not verify_admin(x_wallet_address):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
     try:
         registrations = await db.registrations.find().to_list(10000)
         parsed_registrations = [parse_from_mongo(reg) for reg in registrations]
@@ -199,7 +210,11 @@ async def get_all_registrations():
         raise HTTPException(status_code=500, detail=str(e))
 
 @api_router.get("/admin/tasks")
-async def get_all_tasks():
+async def get_all_tasks(x_wallet_address: Optional[str] = Header(None)):
+    """Get all task completions (Admin only)"""
+    if not verify_admin(x_wallet_address):
+        raise HTTPException(status_code=403, detail="Admin access required")
+        
     try:
         tasks = await db.task_clicks.find().to_list(10000)
         parsed_tasks = [parse_from_mongo(task) for task in tasks]
