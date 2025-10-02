@@ -3,26 +3,60 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ArrowRight, Coins, Trophy, Users, Zap, Circle, Triangle, Square } from 'lucide-react'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
-import { useAccount } from 'wagmi'
+import { useAccount, useContractWrite, useWaitForTransaction } from 'wagmi'
 import { Button } from '../components/ui/button'
 import CountdownTimer from '../components/CountdownTimer'
+import { CONTRACT_ADDRESS, CONTRACT_ABI, REGISTRATION_FEE } from '../config/wagmi'
+import { toast } from 'sonner'
 
 const Home = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const { isConnected, address } = useAccount()
   
-  // Auto-redirect to join page after wallet connection
+  // Contract write for registration
+  const { write: writeContract, data: txData, isLoading: isPending } = useContractWrite({
+    address: CONTRACT_ADDRESS,
+    abi: CONTRACT_ABI,
+    functionName: 'register',
+  })
+  
+  const txHash = txData?.hash
+  const { isLoading: isConfirming, isSuccess: isConfirmed } = useWaitForTransaction({
+    hash: txHash,
+  })
+  
+  // Auto-register after wallet connection
   useEffect(() => {
-    if (isConnected && address) {
-      // Small delay to ensure connection is complete
+    if (isConnected && address && !isPending && !isConfirming && !txHash) {
+      console.log('🚀 AUTO-REGISTERING wallet:', address)
+      
+      // Small delay then auto-register
       const timer = setTimeout(() => {
-        navigate('/join')
-      }, 500)
+        try {
+          writeContract({
+            args: [],
+            value: BigInt(REGISTRATION_FEE)
+          })
+          toast.success('Registration started! Please confirm in your wallet.')
+        } catch (error) {
+          console.error('Auto-registration error:', error)
+          toast.error('Registration failed. Please try again.')
+        }
+      }, 1000)
       
       return () => clearTimeout(timer)
     }
-  }, [isConnected, address, navigate])
+  }, [isConnected, address, isPending, isConfirming, txHash, writeContract])
+  
+  // Redirect to join page after successful registration
+  useEffect(() => {
+    if (isConfirmed && txHash) {
+      console.log('✅ Registration confirmed! Redirecting to join page...')
+      toast.success('Registration successful!')
+      navigate('/join')
+    }
+  }, [isConfirmed, txHash, navigate])
   
   const handleJoinClick = () => {
     if (isConnected) {
