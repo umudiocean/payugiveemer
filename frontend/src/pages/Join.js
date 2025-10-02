@@ -557,30 +557,15 @@ const Join = () => {
                           Retweet our announcement and spread the word about PAYU Giveaway
                         </p>
                         
-                        {/* Social Handle Input */}
-                        {completedTasks.includes('telegram') && (
-                          <div className="mb-4">
-                            <input
-                              type="text"
-                              placeholder="Enter your X/Twitter handle (@username)"
-                              value={socialHandles.twitter}
-                              onChange={(e) => setSocialHandles({...socialHandles, twitter: e.target.value})}
-                              className="w-full bg-squid-black/50 border-2 border-squid-ice-blue/30 text-white px-4 py-3 rounded-xl focus:border-squid-ice-blue focus:outline-none font-squid"
-                              disabled={completedTasks.includes('x')}
-                            />
-                          </div>
-                        )}
-                        
                         {/* Enhanced Action Button */}
                         <button
                           onClick={() => {
                             if (completedTasks.includes('telegram')) {
-                              if (!socialHandles.twitter.trim()) {
-                                toast.error('Please enter your X/Twitter handle first')
-                                return
-                              }
                               window.open('https://x.com/payu_coin', '_blank')
-                              handleTaskClick('x', socialHandles.twitter)
+                              // Auto-complete task after opening link
+                              setTimeout(() => {
+                                handleTaskClick('x', '')
+                              }, 1000)
                             }
                           }}
                           disabled={!completedTasks.includes('telegram') || completedTasks.includes('x')}
