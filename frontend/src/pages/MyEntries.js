@@ -150,8 +150,11 @@ const MyEntries = () => {
                             {t('myEntries.yourLotteryTicket')}
                           </div>
                         </div>
-                        <div className="text-4xl font-squid-display font-bold bg-gradient-to-r from-squid-gold via-squid-pink to-squid-ice-blue bg-clip-text text-transparent mb-4 animate-glow tracking-wider">
-                          {registrationData.ticket}
+                        <div className="relative">
+                          <div className="text-3xl font-squid-display font-bold text-white mb-4 tracking-wider bg-squid-dark/80 px-6 py-4 rounded-xl border-2 border-squid-gold/30">
+                            {registrationData.ticket}
+                          </div>
+                          <div className="absolute -inset-1 bg-gradient-to-r from-squid-gold/20 via-squid-pink/20 to-squid-ice-blue/20 blur-xl -z-10"></div>
                         </div>
                         <Button
                           onClick={handleCopyTicket}
