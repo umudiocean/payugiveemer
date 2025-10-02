@@ -33,12 +33,12 @@ module.exports = {
                         'squid-purple': '#FF69B4',
                         'squid-teal': '#00BFFF',
                         
-                        // Grayscale
-                        'squid-grey': '#8A808C',
-                        'squid-light-grey': '#DCD5DC',
+                        // Grayscale - UPDATED for Better Readability
+                        'squid-grey': '#A7AAB3',
+                        'squid-light-grey': '#E8E8EA',
                         'squid-white': '#FFFFFF',
-                        'squid-grey-dark': '#8A808C',
-                        'squid-grey-light': '#DCD5DC',
+                        'squid-grey-dark': '#A7AAB3',
+                        'squid-grey-light': '#E8E8EA',
                         'squid-dark': '#08050F',
                         'squid-navy': '#00BFFF',
                         'squid-success': '#FFD700',
