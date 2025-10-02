@@ -122,15 +122,16 @@ const Home = () => {
               {/* Primary CTA - Join Giveaway */}
               <div className="group relative">
                 <div className="absolute -inset-2 bg-gradient-to-r from-squid-red via-squid-pink to-squid-green blur-xl opacity-50 group-hover:opacity-75 transition-all duration-500"></div>
-                <Link to="/join">
-                  <button className="relative bg-gradient-to-r from-squid-red to-squid-pink text-white font-squid-display font-bold py-6 px-12 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-glow-red text-xl">
-                    <span className="flex items-center space-x-3">
-                      <span className="text-2xl">◯</span>
-                      <span>{t('hero.joinButton')}</span>
-                      <ArrowRight className="w-6 h-6" />
-                    </span>
-                  </button>
-                </Link>
+                <button 
+                  onClick={handleJoinClick}
+                  className="relative bg-gradient-to-r from-squid-red to-squid-pink text-white font-squid-display font-bold py-6 px-12 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-glow-red text-xl"
+                >
+                  <span className="flex items-center space-x-3">
+                    <span className="text-2xl">◯</span>
+                    <span>{t('hero.joinButton')}</span>
+                    <ArrowRight className="w-6 h-6" />
+                  </span>
+                </button>
               </div>
 
               {/* Secondary CTA - Connect Wallet */}
