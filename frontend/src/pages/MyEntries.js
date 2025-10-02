@@ -174,13 +174,13 @@ const MyEntries = () => {
                           <div className="text-sm text-squid-ice-blue mb-1 font-medium">{t('myEntries.entryIndex')}</div>
                           <div className="text-white font-bold text-lg">#{registrationData.index}</div>
                         </div>
-                        <div>
-                          <div className="text-sm text-squid-grey mb-1">{t('myEntries.payuReceived')}</div>
-                          <div className="text-squid-teal font-medium">250,000,000 PAYU</div>
+                        <div className="bg-squid-dark/30 p-4 rounded-lg border border-squid-grey/20">
+                          <div className="text-sm text-squid-ice-blue mb-1 font-medium">{t('myEntries.payuReceived')}</div>
+                          <div className="text-squid-teal font-bold text-lg">250,000,000 PAYU</div>
                         </div>
-                        <div>
-                          <div className="text-sm text-squid-grey mb-1">{t('myEntries.registrationDate')}</div>
-                          <div className="text-white font-medium">
+                        <div className="bg-squid-dark/30 p-4 rounded-lg border border-squid-grey/20">
+                          <div className="text-sm text-squid-ice-blue mb-1 font-medium">{t('myEntries.registrationDate')}</div>
+                          <div className="text-white font-bold text-lg">
                             {formatDate(registrationData.createdAt)}
                           </div>
                         </div>
