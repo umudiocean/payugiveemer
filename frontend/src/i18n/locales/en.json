@@ -3,8 +3,8 @@
     "home": "Home",
     "joinDraw": "Join Giveaway",
     "myEntries": "My Entries",
-    "drawEndsIn": "Giveaway ends in",
-    "drawStartsIn": "Giveaway starts in"
+    "drawEndsIn": "Time remaining until the end of the giveaway",
+    "drawStartsIn": "Time remaining until the end of the giveaway"
   },
   "hero": {
     "title": "JOIN THE PAYU GIVEAWAY",
