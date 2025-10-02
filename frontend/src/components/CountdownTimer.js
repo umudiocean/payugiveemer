@@ -4,18 +4,8 @@ import { useCountdown } from '../hooks/useCountdown'
 import { Clock, Circle, Triangle, Square } from 'lucide-react'
 
 const CountdownTimer = ({ className = '' }) => {
-  const { formatted, isEnded, giveawayStarted } = useCountdown()
+  const { formatted, isEnded } = useCountdown()
   const { t } = useTranslation()
-  
-  if (!giveawayStarted) {
-    return (
-      <div className={`text-center ${className}`}>
-        <div className="text-squid-grey text-lg font-squid-body">
-          ⏳ Giveaway will start soon...
-        </div>
-      </div>
-    )
-  }
 
   return (
     <div className={`text-center relative ${className}`}>
