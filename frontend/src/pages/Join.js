@@ -550,7 +550,7 @@ const Join = () => {
                         
                         {/* Game Description */}
                         <p className={`text-sm mb-6 font-squid leading-relaxed ${completedTasks.includes('telegram') ? 'text-squid-light-grey' : 'text-squid-grey'}`}>
-                          Retweet our announcement and spread the word about PAYU Draw
+                          Retweet our announcement and spread the word about PAYU Giveaway
                         </p>
                         
                         {/* Social Handle Input */}
