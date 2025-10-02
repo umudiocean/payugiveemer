@@ -1,14 +1,51 @@
 import { createConfig, http } from 'wagmi'
 import { bsc } from 'wagmi/chains'
-import { injected, walletConnect } from '@wagmi/connectors'
+import { 
+  injected, 
+  walletConnect, 
+  coinbaseWallet,
+  metaMask
+} from '@wagmi/connectors'
 
 const projectId = 'c1814df663b82b65bb5927ad59566843'
 
 export const config = createConfig({
   chains: [bsc],
   connectors: [
-    injected(),
-    walletConnect({ projectId }),
+    metaMask({
+      dappMetadata: {
+        name: 'Payu Giveaway',
+        url: window.location.origin,
+      },
+    }),
+    walletConnect({ 
+      projectId,
+      metadata: {
+        name: 'Payu Giveaway',
+        description: 'Join the Payu Giveaway and get your rewards',
+        url: window.location.origin,
+        icons: ['https://payu.io/favicon.ico']
+      }
+    }),
+    coinbaseWallet({
+      appName: 'Payu Giveaway',
+      appLogoUrl: 'https://payu.io/favicon.ico',
+    }),
+    injected({
+      target: {
+        id: 'binance',
+        name: 'Binance Wallet',
+        provider: 'isBinance',
+      },
+    }),
+    injected({
+      target: {
+        id: 'trust',
+        name: 'Trust Wallet',
+        provider: 'isTrust',
+      },
+    }),
+    injected(), // For other injected wallets
   ],
   transports: {
     [bsc.id]: http('https://bsc-dataseed.binance.org')
