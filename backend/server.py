@@ -1,55 +1,94 @@
-from fastapi import FastAPI, APIRouter, HTTPException, Header
-from dotenv import load_dotenv
-from starlette.middleware.cors import CORSMiddleware
-from motor.motor_asyncio import AsyncIOMotorClient
-import os
-import logging
-from pathlib import Path
-from pydantic import BaseModel, Field
-from typing import List, Optional
+from fastapi import FastAPI, HTTPException, Header
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+from typing import Optional, List
 import uuid
-from datetime import datetime, timezone
+import os
+from datetime import datetime
+import asyncpg
+from contextlib import asynccontextmanager
 
-
-ROOT_DIR = Path(__file__).parent
-load_dotenv(ROOT_DIR / '.env')
-
-# MongoDB connection
-mongo_url = os.environ['MONGO_URL']
-client = AsyncIOMotorClient(mongo_url)
-db = client[os.environ['DB_NAME']]
-
-# Admin wallet address (lowercase for comparison)
+# Environment variables
+DATABASE_URL = os.getenv('DATABASE_URL', os.getenv('POSTGRES_URL', ''))
 ADMIN_WALLET = os.getenv('ADMIN_WALLET', '0xd9C4b8436d2a235A1f7DB09E680b5928cFdA641a').lower()
+CORS_ORIGINS = os.getenv('CORS_ORIGINS', '*').split(',')
 
-# Create the main app without a prefix
-app = FastAPI()
+# Global connection pool
+db_pool = None
 
-# Create a router with the /api prefix
-api_router = APIRouter(prefix="/api")
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup
+    global db_pool
+    db_pool = await asyncpg.create_pool(
+        DATABASE_URL,
+        min_size=1,
+        max_size=10
+    )
+    
+    # Create tables if not exist
+    async with db_pool.acquire() as conn:
+        # Registrations table
+        await conn.execute('''
+            CREATE TABLE IF NOT EXISTS registrations (
+                id VARCHAR(255) PRIMARY KEY,
+                wallet VARCHAR(255) UNIQUE NOT NULL,
+                tx_hash VARCHAR(255),
+                index INTEGER,
+                seed VARCHAR(255),
+                ticket VARCHAR(255),
+                reward VARCHAR(255),
+                timestamp BIGINT,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        ''')
+        
+        # Task clicks table
+        await conn.execute('''
+            CREATE TABLE IF NOT EXISTS task_clicks (
+                id VARCHAR(255) PRIMARY KEY,
+                user_id VARCHAR(255) NOT NULL,
+                platform VARCHAR(50) NOT NULL,
+                handle VARCHAR(255),
+                clicked_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        ''')
+        
+        # Giveaway settings table
+        await conn.execute('''
+            CREATE TABLE IF NOT EXISTS giveaway_settings (
+                id VARCHAR(50) PRIMARY KEY,
+                started BOOLEAN DEFAULT FALSE,
+                start_time TIMESTAMP
+            )
+        ''')
+        
+        # Insert default giveaway settings if not exists
+        await conn.execute('''
+            INSERT INTO giveaway_settings (id, started, start_time)
+            VALUES ('main', FALSE, NULL)
+            ON CONFLICT (id) DO NOTHING
+        ''')
+    
+    yield
+    
+    # Shutdown
+    await db_pool.close()
 
+# Create FastAPI app with lifespan
+app = FastAPI(lifespan=lifespan)
 
-# Define Models
-class StatusCheck(BaseModel):
-    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
-    client_name: str
-    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+# CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=CORS_ORIGINS if CORS_ORIGINS != ['*'] else ['*'],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-class StatusCheckCreate(BaseModel):
-    client_name: str
-
-class TicketRegistration(BaseModel):
-    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
-    wallet: str
-    tx_hash: str
-    index: int
-    seed: str
-    ticket: str
-    reward: str
-    timestamp: int
-    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
-
-class TicketRegistrationCreate(BaseModel):
+# Pydantic models
+class TicketCreate(BaseModel):
     wallet: str
     txHash: str
     index: int
@@ -59,248 +98,169 @@ class TicketRegistrationCreate(BaseModel):
     timestamp: int
 
 class TaskClick(BaseModel):
-    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
-    user_id: str  # wallet address
-    platform: str  # telegram, x, instagram_story
-    handle: Optional[str] = None
-    clicked_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
-
-class TaskClickCreate(BaseModel):
     wallet: str
     platform: str
-    handle: Optional[str] = None
+    handle: Optional[str] = ""
 
-# Helper function to prepare data for MongoDB
-def prepare_for_mongo(data):
-    if isinstance(data, dict):
-        result = {}
-        for k, v in data.items():
-            if isinstance(v, datetime):
-                result[k] = v.isoformat()
-            else:
-                result[k] = v
-        return result
-    return data
+# Helper function to get connection
+async def get_conn():
+    return await db_pool.acquire()
 
-def parse_from_mongo(item):
-    if not item:
-        return item
-    
-    # Remove MongoDB's _id field to avoid ObjectId serialization issues
-    if '_id' in item:
-        del item['_id']
-    
-    # Parse datetime strings back to datetime objects
-    if isinstance(item.get('created_at'), str):
-        item['created_at'] = datetime.fromisoformat(item['created_at'].replace('Z', '+00:00'))
-    if isinstance(item.get('clicked_at'), str):
-        item['clicked_at'] = datetime.fromisoformat(item['clicked_at'].replace('Z', '+00:00'))
-    if isinstance(item.get('timestamp'), str):
-        item['timestamp'] = datetime.fromisoformat(item['timestamp'].replace('Z', '+00:00'))
-    
-    return item
-
-# Add your routes to the router instead of directly to app
-@api_router.get("/")
+# Routes
+@app.get("/")
 async def root():
-    return {"message": "PAYU Draw API - Squid Game Edition"}
+    return {"message": "PAYU Draw API - Squid Game Edition (PostgreSQL)"}
 
-@api_router.post("/status", response_model=StatusCheck)
-async def create_status_check(input: StatusCheckCreate):
-    status_dict = input.dict()
-    status_obj = StatusCheck(**status_dict)
-    prepared_data = prepare_for_mongo(status_obj.dict())
-    _ = await db.status_checks.insert_one(prepared_data)
-    return status_obj
+@app.get("/api/")
+async def api_root():
+    return {"message": "PAYU Draw API - Squid Game Edition (PostgreSQL)"}
 
-@api_router.get("/status", response_model=List[StatusCheck])
-async def get_status_checks():
-    status_checks = await db.status_checks.find().to_list(1000)
-    return [StatusCheck(**parse_from_mongo(status_check)) for status_check in status_checks]
-
-# Registration endpoints
-@api_router.post("/save-ticket")
-async def save_ticket(registration: TicketRegistrationCreate):
+@app.post("/api/save-ticket")
+async def save_ticket(ticket: TicketCreate):
     try:
-        # Check if wallet already exists
-        existing = await db.registrations.find_one({"wallet": registration.wallet})
-        if existing:
-            return {"success": True, "message": "Already registered", "data": parse_from_mongo(existing)}
+        ticket_id = str(uuid.uuid4())
         
-        # Create new registration
-        reg_obj = TicketRegistration(
-            wallet=registration.wallet,
-            tx_hash=registration.txHash,
-            index=registration.index,
-            seed=registration.seed,
-            ticket=registration.ticket,
-            reward=registration.reward,
-            timestamp=registration.timestamp
-        )
+        async with db_pool.acquire() as conn:
+            await conn.execute('''
+                INSERT INTO registrations (id, wallet, tx_hash, index, seed, ticket, reward, timestamp, created_at)
+                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+                ON CONFLICT (wallet) DO UPDATE SET
+                    tx_hash = EXCLUDED.tx_hash,
+                    index = EXCLUDED.index,
+                    seed = EXCLUDED.seed,
+                    ticket = EXCLUDED.ticket,
+                    reward = EXCLUDED.reward,
+                    timestamp = EXCLUDED.timestamp
+            ''', ticket_id, ticket.wallet.lower(), ticket.txHash, ticket.index, 
+                 ticket.seed, ticket.ticket, ticket.reward, ticket.timestamp, datetime.utcnow())
+            
+            # Fetch the saved record
+            row = await conn.fetchrow(
+                'SELECT * FROM registrations WHERE wallet = $1',
+                ticket.wallet.lower()
+            )
         
-        prepared_data = prepare_for_mongo(reg_obj.dict())
-        await db.registrations.insert_one(prepared_data)
-        
-        return {"success": True, "message": "Registration saved", "data": reg_obj.dict()}
+        return {
+            "success": True,
+            "message": "Registration saved",
+            "data": dict(row)
+        }
     except Exception as e:
-        logging.error(f"Failed to save ticket: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
-@api_router.get("/registration/{wallet}")
+@app.get("/api/registration/{wallet}")
 async def get_registration(wallet: str):
     try:
-        registration = await db.registrations.find_one({"wallet": wallet})
-        if not registration:
-            return {"success": False, "message": "No registration found"}
+        async with db_pool.acquire() as conn:
+            row = await conn.fetchrow(
+                'SELECT * FROM registrations WHERE wallet = $1',
+                wallet.lower()
+            )
         
-        parsed_registration = parse_from_mongo(registration)
-        return {"success": True, "data": parsed_registration}
+        if row:
+            return {"success": True, "data": dict(row)}
+        else:
+            return {"success": False, "data": None}
     except Exception as e:
-        logging.error(f"Failed to get registration: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
-# Task endpoints
-@api_router.post("/task-click")
-async def log_task_click(task: TaskClickCreate):
+@app.post("/api/task-click")
+async def log_task_click(task: TaskClick):
     try:
-        task_obj = TaskClick(
-            user_id=task.wallet,
-            platform=task.platform,
-            handle=task.handle
-        )
+        click_id = str(uuid.uuid4())
         
-        prepared_data = prepare_for_mongo(task_obj.dict())
-        await db.task_clicks.insert_one(prepared_data)
+        async with db_pool.acquire() as conn:
+            await conn.execute('''
+                INSERT INTO task_clicks (id, user_id, platform, handle, clicked_at)
+                VALUES ($1, $2, $3, $4, $5)
+            ''', click_id, task.wallet.lower(), task.platform, task.handle or "", datetime.utcnow())
         
         return {"success": True, "message": "Task click logged"}
     except Exception as e:
-        logging.error(f"Failed to log task click: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
-@api_router.get("/tasks/{wallet}")
-async def get_task_history(wallet: str):
+@app.get("/api/tasks/{wallet}")
+async def get_user_tasks(wallet: str):
     try:
-        tasks = await db.task_clicks.find({"user_id": wallet}).to_list(100)
-        parsed_tasks = [parse_from_mongo(task) for task in tasks]
-        return {"success": True, "data": parsed_tasks}
-    except Exception as e:
-        logging.error(f"Failed to get task history: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
-
-# Admin verification helper
-def verify_admin(wallet_address: str) -> bool:
-    """Verify if the wallet address is admin"""
-    if not wallet_address:
-        return False
-    return wallet_address.lower() == ADMIN_WALLET
-    
-# Admin endpoints
-@api_router.get("/admin/registrations")
-async def get_all_registrations(x_wallet_address: Optional[str] = Header(None)):
-    """Get all registrations (Admin only)"""
-    if not verify_admin(x_wallet_address):
-        raise HTTPException(status_code=403, detail="Admin access required")
-    
-    try:
-        registrations = await db.registrations.find().to_list(10000)
-        parsed_registrations = [parse_from_mongo(reg) for reg in registrations]
-        return {"success": True, "data": parsed_registrations}
-    except Exception as e:
-        logging.error(f"Failed to get registrations: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
-
-@api_router.get("/admin/tasks")
-async def get_all_tasks(x_wallet_address: Optional[str] = Header(None)):
-    """Get all task completions (Admin only)"""
-    if not verify_admin(x_wallet_address):
-        raise HTTPException(status_code=403, detail="Admin access required")
-        
-    try:
-        tasks = await db.task_clicks.find().to_list(10000)
-        parsed_tasks = [parse_from_mongo(task) for task in tasks]
-        return {"success": True, "data": parsed_tasks}
-    except Exception as e:
-        logging.error(f"Failed to get tasks: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
-
-@api_router.post("/admin/start-giveaway")
-async def start_giveaway(x_wallet_address: Optional[str] = Header(None)):
-    """Start the giveaway countdown (Admin only)"""
-    if not verify_admin(x_wallet_address):
-        raise HTTPException(status_code=403, detail="Admin access required")
-    
-    try:
-        # Check if giveaway settings exist
-        giveaway = await db.giveaway_settings.find_one({"_id": "main"})
-        
-        start_time = datetime.now(timezone.utc)
-        
-        if giveaway:
-            # Update existing
-            await db.giveaway_settings.update_one(
-                {"_id": "main"},
-                {"$set": {
-                    "started": True,
-                    "start_time": start_time.isoformat()
-                }}
+        async with db_pool.acquire() as conn:
+            rows = await conn.fetch(
+                'SELECT * FROM task_clicks WHERE user_id = $1 ORDER BY clicked_at DESC',
+                wallet.lower()
             )
-        else:
-            # Create new
-            await db.giveaway_settings.insert_one({
-                "_id": "main",
-                "started": True,
-                "start_time": start_time.isoformat()
-            })
         
-        return {
-            "success": True,
-            "message": "Giveaway started successfully",
-            "start_time": start_time.isoformat()
-        }
+        tasks = [dict(row) for row in rows]
+        return {"success": True, "data": tasks}
     except Exception as e:
-        logging.error(f"Failed to start giveaway: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
-@api_router.get("/giveaway-status")
-async def get_giveaway_status():
-    """Get giveaway status (public endpoint)"""
+@app.get("/api/admin/registrations")
+async def get_all_registrations(x_wallet_address: Optional[str] = Header(None)):
+    if not x_wallet_address or x_wallet_address.lower() != ADMIN_WALLET:
+        raise HTTPException(status_code=403, detail="Unauthorized")
+    
     try:
-        giveaway = await db.giveaway_settings.find_one({"_id": "main"})
+        async with db_pool.acquire() as conn:
+            rows = await conn.fetch('SELECT * FROM registrations ORDER BY created_at DESC')
         
-        if not giveaway:
+        registrations = [dict(row) for row in rows]
+        return {"success": True, "data": registrations}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/admin/tasks")
+async def get_all_tasks(x_wallet_address: Optional[str] = Header(None)):
+    if not x_wallet_address or x_wallet_address.lower() != ADMIN_WALLET:
+        raise HTTPException(status_code=403, detail="Unauthorized")
+    
+    try:
+        async with db_pool.acquire() as conn:
+            rows = await conn.fetch('SELECT * FROM task_clicks ORDER BY clicked_at DESC')
+        
+        tasks = [dict(row) for row in rows]
+        return {"success": True, "data": tasks}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/giveaway-status")
+async def get_giveaway_status():
+    try:
+        async with db_pool.acquire() as conn:
+            row = await conn.fetchrow('SELECT * FROM giveaway_settings WHERE id = $1', 'main')
+        
+        if row:
             return {
                 "success": True,
-                "started": False,
-                "start_time": None
+                "started": row['started'],
+                "start_time": row['start_time'].isoformat() if row['start_time'] else None
             }
-        
-        return {
-            "success": True,
-            "started": giveaway.get("started", False),
-            "start_time": giveaway.get("start_time")
-        }
+        else:
+            return {"success": True, "started": False, "start_time": None}
     except Exception as e:
-        logging.error(f"Failed to get giveaway status: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
-# Include the router in the main app
-app.include_router(api_router)
+@app.post("/api/admin/start-giveaway")
+async def start_giveaway(x_wallet_address: Optional[str] = Header(None)):
+    if not x_wallet_address or x_wallet_address.lower() != ADMIN_WALLET:
+        raise HTTPException(status_code=403, detail="Unauthorized")
+    
+    try:
+        async with db_pool.acquire() as conn:
+            await conn.execute('''
+                UPDATE giveaway_settings
+                SET started = TRUE, start_time = $1
+                WHERE id = $2
+            ''', datetime.utcnow(), 'main')
+        
+        return {"success": True, "message": "Giveaway started"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_credentials=True,
-    allow_origins=os.environ.get('CORS_ORIGINS', '*').split(','),
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
-logger = logging.getLogger(__name__)
-
-@app.on_event("shutdown")
-async def shutdown_db_client():
-    client.close()
+# Health check
+@app.get("/health")
+async def health_check():
+    try:
+        async with db_pool.acquire() as conn:
+            await conn.fetchval('SELECT 1')
+        return {"status": "healthy", "database": "connected"}
+    except Exception as e:
+        return {"status": "unhealthy", "error": str(e)}
