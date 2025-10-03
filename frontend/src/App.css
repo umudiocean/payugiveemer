@@ -1,0 +1,430 @@
+/* Authentic Netflix Squid Game Theme CSS */
+
+/* CSS Variables for shadcn/ui - Official Squid Game Edition */
+:root {
+  /* Enhanced Squid Game Colors */
+  --squid-black: #08050F;
+  --squid-red: #B82F49;
+  --squid-dark-red: #A60C37;
+  
+  /* High-Contrast Colors for Better Readability */
+  --squid-ice-blue: #00BFFF;
+  --squid-light-blue: #87CEEB;
+  --squid-pink: #FF69B4;
+  --squid-light-pink: #FFB6C1;
+  --squid-gold: #FFD700;
+  --squid-orange: #FFA500;
+  --squid-grey: #C5C8D0;
+  --squid-light-grey: #E8E8EA;
+  
+  /* Enhanced Typography for Better Readability */
+  --font-display: 'Anton', 'Bebas Neue', 'Arial', sans-serif;
+  --font-squid: 'Bebas Neue', 'Arial', sans-serif;
+  --font-body: 'Inter', 'system-ui', sans-serif;
+  
+  /* shadcn/ui theme with Authentic Squid Game colors */
+  --background: 8 5 15;
+  --foreground: 220 213 220;
+  --card: 8 5 15;
+  --card-foreground: 220 213 220;
+  --popover: 8 5 15;
+  --popover-foreground: 220 213 220;
+  --primary: 184 47 73;
+  --primary-foreground: 220 213 220;
+  --secondary: 138 128 140;
+  --secondary-foreground: 220 213 220;
+  --muted: 138 128 140;
+  --muted-foreground: 220 213 220;
+  --accent: 69 51 151;
+  --accent-foreground: 8 5 15;
+  --destructive: 166 12 55;
+  --destructive-foreground: 220 213 220;
+  --border: 138 128 140;
+  --input: 138 128 140;
+  --ring: 184 47 73;
+  --chart-1: 184 47 73;
+  --chart-2: 69 51 151;
+  --chart-3: 37 29 88;
+  --chart-4: 166 12 55;
+  --chart-5: 87 39 74;
+  --radius: 0.75rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--squid-black);
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(184, 47, 73, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(0, 191, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 105, 180, 0.04) 0%, transparent 50%);
+  color: var(--squid-light-grey);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Enhanced Typography Settings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+p, span, div {
+  line-height: 1.6;
+}
+
+/* Buttons with Better Text Shadow */
+button {
+  font-family: var(--font-display);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Bebas Neue Typography Classes */
+.font-squid {
+  font-family: var(--font-squid) !important;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.font-squid-display {
+  font-family: var(--font-display) !important;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.font-squid-body {
+  font-family: var(--font-body) !important;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* Authentic Squid Game Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--squid-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--squid-grey);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--squid-red);
+}
+
+/* Authentic Squid Game Selection Styling */
+::selection {
+  background: var(--squid-red);
+  color: var(--squid-light-grey);
+}
+
+/* Authentic Squid Game Focus Styling */
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--squid-red);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(184, 47, 73, 0.3);
+}
+
+/* Smooth Transitions */
+* {
+  transition-property: color, background-color, border-color, opacity, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Prevent transition on transforms specifically */
+*:not([class*="animate"]) {
+  transition-property: color, background-color, border-color, opacity !important;
+}
+
+/* Glass Effect Utility */
+.glass {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Enhanced Squid Game Animations */
+@keyframes squid-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(184, 47, 73, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(184, 47, 73, 0.9), 0 0 40px rgba(0, 191, 255, 0.5);
+  }
+}
+
+@keyframes squid-glow-blue {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(0, 191, 255, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(0, 191, 255, 0.9), 0 0 45px rgba(255, 215, 0, 0.4);
+  }
+}
+
+@keyframes squid-glow-pink {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(255, 105, 180, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(255, 105, 180, 0.9), 0 0 45px rgba(135, 206, 235, 0.4);
+  }
+}
+
+@keyframes squid-glow-gold {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 215, 0, 1), 0 0 50px rgba(255, 165, 0, 0.5);
+  }
+}
+
+@keyframes squid-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+@keyframes squid-bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -8px, 0);
+  }
+  70% {
+    transform: translate3d(0, -4px, 0);
+  }
+  90% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+@keyframes squid-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-squid-glow {
+  animation: squid-glow 2s ease-in-out infinite;
+}
+
+.animate-squid-glow-blue {
+  animation: squid-glow-blue 2s ease-in-out infinite;
+}
+
+.animate-squid-glow-pink {
+  animation: squid-glow-pink 2s ease-in-out infinite;
+}
+
+.animate-squid-glow-gold {
+  animation: squid-glow-gold 2s ease-in-out infinite;
+}
+
+.animate-squid-pulse {
+  animation: squid-pulse 2s ease-in-out infinite;
+}
+
+.animate-squid-bounce {
+  animation: squid-bounce 2s ease-in-out infinite;
+}
+
+.animate-squid-rotate {
+  animation: squid-rotate 3s linear infinite;
+}
+
+/* Enhanced Squid Game Shapes */
+.squid-circle {
+  border-radius: 50%;
+  border: 2px solid var(--squid-red);
+  background: rgba(184, 47, 73, 0.15);
+}
+
+.squid-triangle {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  background: rgba(0, 191, 255, 0.15);
+  border: 2px solid var(--squid-ice-blue);
+}
+
+.squid-square {
+  border: 2px solid var(--squid-gold);
+  background: rgba(255, 215, 0, 0.15);
+}
+
+.squid-circle-pink {
+  border-radius: 50%;
+  border: 2px solid var(--squid-pink);
+  background: rgba(255, 105, 180, 0.15);
+}
+
+.squid-triangle-blue {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  background: rgba(135, 206, 235, 0.15);
+  border: 2px solid var(--squid-light-blue);
+}
+
+/* Rainbow Kit Authentic Squid Game Styling */
+[data-rk] {
+  --rk-colors-modalBackground: #08050F;
+  --rk-colors-modalBorder: #B82F49;
+  --rk-colors-modalText: #DCD5DC;
+  --rk-colors-modalTextDim: #8A808C;
+  --rk-colors-modalTextSecondary: #8A808C;
+  --rk-colors-profileAction: #B82F49;
+  --rk-colors-profileActionHover: #453397;
+  --rk-colors-profileForeground: #08050F;
+  --rk-colors-selectedOptionBorder: #B82F49;
+  --rk-colors-accentColor: #B82F49;
+  --rk-colors-accentColorForeground: #DCD5DC;
+  font-family: var(--font-squid);
+}
+
+/* Authentic Squid Game Background Pattern */
+.squid-pattern {
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(184, 47, 73, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(69, 51, 151, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(37, 29, 88, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(166, 12, 55, 0.04) 0%, transparent 50%);
+}
+
+/* Authentic Squid Game Card Styling */
+.squid-card {
+  background: rgba(8, 5, 15, 0.85);
+  border: 1px solid rgba(184, 47, 73, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Authentic Squid Game Button Effects */
+.squid-btn-red {
+  background: linear-gradient(135deg, var(--squid-red), var(--squid-dark-red));
+  border: none;
+  color: var(--squid-light-grey);
+  font-family: var(--font-squid);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  transition: all 0.3s ease;
+}
+
+.squid-btn-red:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(184, 47, 73, 0.5);
+}
+
+.squid-btn-blue {
+  background: linear-gradient(135deg, var(--squid-blue), var(--squid-dark-blue));
+  border: none;
+  color: var(--squid-light-grey);
+  font-family: var(--font-squid);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  transition: all 0.3s ease;
+}
+
+.squid-btn-blue:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(69, 51, 151, 0.5);
+}
+
+.squid-btn-purple {
+  background: linear-gradient(135deg, var(--squid-dark-purple), var(--squid-dark-blue));
+  border: none;
+  color: var(--squid-light-grey);
+  font-family: var(--font-squid);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  transition: all 0.3s ease;
+}
+
+.squid-btn-purple:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(87, 39, 74, 0.5);
+}
+
+/* Custom Scrollbar for Language Dropdown */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(8, 5, 15, 0.5);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--squid-ice-blue), var(--squid-pink));
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--squid-pink), var(--squid-gold));
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+}
+
+/* Firefox scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--squid-ice-blue) rgba(8, 5, 15, 0.5);
+}
+
+/* Celebration Modal Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
