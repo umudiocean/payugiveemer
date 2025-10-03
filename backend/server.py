@@ -8,7 +8,7 @@ from pydantic import BaseModel, Field
 from typing import List, Optional
 import uuid
 from datetime import datetime, timezone
-from database_local import db  # Local database for testing
+from database import db  # Real PostgreSQL database
 
 
 ROOT_DIR = Path(__file__).parent
