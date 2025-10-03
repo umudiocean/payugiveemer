@@ -20,7 +20,7 @@ client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
 # Admin wallet address (lowercase for comparison)
-ADMIN_WALLET = '0xd9C4b8436d2a235A1f7DB09E680b5928cFdA641a'.lower()
+ADMIN_WALLET = os.getenv('ADMIN_WALLET', '0xd9C4b8436d2a235A1f7DB09E680b5928cFdA641a').lower()
 
 # Create the main app without a prefix
 app = FastAPI()
